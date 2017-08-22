@@ -41,7 +41,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus">
+@import './styles/global'
+@import './styles/variables'
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
