@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import * as getters from './getters'
 import * as actions from './actions'
 import * as mutations from './mutations'
-import count from './modules/count'
+import others from './modules/others'
 
 Vue.use(Vuex)
 
@@ -18,7 +18,7 @@ const store = new Vuex.Store({
   actions,
   mutations,
   modules: {
-    count
+    others
   },
   strict: true
 })

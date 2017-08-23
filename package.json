@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "@storybook/vue": "^3.2.5",
+    "aframe": "^0.6.1",
+    "aframe-draw-component": "^1.5.0",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
