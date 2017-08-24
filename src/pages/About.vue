@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div id="about">
     about page
     <router-link :to="{name: 'home'}">
       to home
@@ -25,7 +25,7 @@ export default {
 <style lang="stylus">
 @import '../styles/variables'
 
-.about {
+#about {
 }
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="type-writer">
+  <div id="type-writer">
     <p :class="color">{{ text }}</p>
   </div>
 </template>
@@ -31,7 +31,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
 
-.type-writer {
+#type-writer {
   p {
     overflow: hidden
     border-right: .15em solid $white

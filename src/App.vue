@@ -1,6 +1,5 @@
 <template>
-  <div
-    id="app">
+  <div id="app">
     <entry-view v-if="isEntryView"></entry-view>
     <template v-else>
       <transition name="slide-fade" mode="out-in" appear>
@@ -23,7 +22,7 @@ import EntryView from './pages/EntryView'
 import Hello from './components/Hello'
 
 export default {
-  name: 'app',
+  name: 'App',
 
   components: {
     Hello,

@@ -1,5 +1,5 @@
 <template>
-  <div class="app-sidebar">
+  <div id="app-sidebar">
     <h1>sidebar</h1>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
 
-.app-sidebar {
+#app-sidebar {
   background-color: $blue
 }
 </style>

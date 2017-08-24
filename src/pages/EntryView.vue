@@ -1,5 +1,5 @@
 <template>
-  <div class="entry">
+  <div id="entry-view">
     <a-scene fog="type: exponential; color:#000">
       <a-sky matrix rotation="-5 -10 0"></a-sky>
       <!-- <a-entity>
@@ -64,7 +64,7 @@ import { mapActions } from 'vuex'
 import '../../node_modules/aframe-draw-component/dist/aframe-draw-component.min'
 
 export default {
-  name: 'Entry',
+  name: 'EntryView',
 
   data () {
     return {
@@ -139,6 +139,6 @@ export default {
 <style lang="stylus">
 @import '../styles/variables'
 
-.entry {
+#entry-view {
 }
 </style>
