@@ -32,11 +32,14 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 @import '../styles/variables'
 
 #home {
-
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
 }
 
 </style>

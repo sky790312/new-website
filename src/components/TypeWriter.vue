@@ -37,11 +37,10 @@ export default {
     border-right: .15em solid $white
     white-space: nowrap
     width: 0
-    /*margin: 0 auto*/
+    margin: 0 auto
     padding-right: 5px
     letter-spacing: .15em
-    animation: typing 2.8s steps(30, end), blink-caret 1.15s step-end infinite
-    animation-fill-mode: forwards
+    animation: typing 2.8s steps(30, end) forwards, blink-caret 1.15s step-end infinite forwards
     &.white {
       color: $white
     }

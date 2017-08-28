@@ -1,26 +1,26 @@
 /* eslint-disable */
 import { storiesOf } from '@storybook/vue'
 
-import TypeWriter from '../../components/TypeWriter.vue'
+import StrokeText from '../../components/StrokeText.vue'
 
-storiesOf('TypeWriter', module)
+storiesOf('StrokeText', module)
   .add('default', () => ({
-    components: { TypeWriter },
+    components: { StrokeText },
     template: `
       <div style="background: black; height: 100vh; padding: 20px;">
         <input type="text" v-model="text">
         <button @click="refresh">refresh</button>
-        <div style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-          <type-writer
+        <div style="background: black; height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+          <stroke-text
             v-if="shouldShow"
             :text="text">
-          </type-writer>
+          </stroke-text>
         </div>
       </div>
     `,
     data () {
       return {
-        text: 'welcome to KevinHu\'s website !',
+        text: 'KevinHu',
         shouldShow: true
       }
     },

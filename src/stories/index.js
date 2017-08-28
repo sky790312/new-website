@@ -9,6 +9,7 @@ import { storiesOf } from '@storybook/vue'
 // import Welcome from './Welcome.vue';
 
 import './components/TypeWriter.story.js'
+import './components/StrokeText.story.js'
 
 // storiesOf('Button', module)
 //   .add('with text', () => ({

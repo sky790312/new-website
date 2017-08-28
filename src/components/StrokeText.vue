@@ -1,7 +1,7 @@
 <template>
   <svg id="stroke-text">
     <symbol id="svg-text">
-      <text text-anchor="middle" x="50%" y="50%" dy=".35em"> {{ text }} </text>
+      <text text-anchor="middle" x="50%" y="50%" dy=".35em"> {{ capitalText }} </text>
     </symbol>
     <use xlink:href="#svg-text" class="text"></use>
     <use xlink:href="#svg-text" class="text"></use>
@@ -25,6 +25,11 @@ export default {
         return ''
       }
     }
+  },
+  computed: {
+    capitalText () {
+      return this.text.toUpperCase()
+    }
   }
 }
 </script>
@@ -41,8 +46,7 @@ $dash-color-5 = #3D72CA
 #stroke-text {
 	opacity: 0
   cursor: default
-	animation: show-text 2.2s ease 1s
-  animation-fill-mode: forwards
+	animation: show-text 2.2s ease 1s forwards
 }
 
 #svg-text {
