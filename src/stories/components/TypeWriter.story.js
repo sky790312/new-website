@@ -20,7 +20,7 @@ storiesOf('TypeWriter', module)
     `,
     data () {
       return {
-        text: 'welcome to KevinHu\'s website !',
+        text: 'Welcome to my website, enjoy and have fun!',
         shouldShow: true
       }
     },

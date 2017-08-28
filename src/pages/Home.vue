@@ -1,10 +1,10 @@
 <template>
   <div id="home">
     <stroke-text
-      text="KEVIN HU">
+      :text="name">
     </stroke-text>
     <type-writer
-      text="welcome to my website !">
+      :text="welcome">
     </type-writer>
     <!-- <router-link :to="{name: 'about'}">
       to about
@@ -26,7 +26,8 @@ export default {
 
   data () {
     return {
-
+      name: 'kevinhu',
+      welcome: this.$t('homePage.welcome')
     }
   }
 }

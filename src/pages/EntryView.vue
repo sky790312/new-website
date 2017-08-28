@@ -13,13 +13,13 @@
         <a-sphere id="sphere1" position="0 3 0" radius="0.3" color="white"></a-sphere>
       </a-entity> -->
       <a-text
+        :value="welcomeWebsite"
         position="-2.2 2 0"
-        value="Welcome to KevinHu's website !"
         width="7">
       </a-text>
       <a-text
+        :value="entryHint"
         position="-3.3 1.4 0"
-        value="Please move to the following section and click !"
         width="7">
       </a-text>
       <a-plane
@@ -68,7 +68,8 @@ export default {
 
   data () {
     return {
-
+      welcomeWebsite: this.$t('entryView.welcomeWebsite'),
+      entryHint: this.$t('entryView.entryHint')
     }
   },
 
