@@ -14,10 +14,6 @@
 <script>
 export default {
   name: 'StrokeText',
-  data () {
-    return {
-    }
-  },
   props: {
     text: {
       type: String,

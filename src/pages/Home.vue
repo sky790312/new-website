@@ -3,9 +3,10 @@
     <stroke-text
       :text="name">
     </stroke-text>
-    <type-writer
+    <typing-write
       :text="welcome">
-    </type-writer>
+    </typing-write>
+    <head-boy></head-boy>
     <!-- <router-link :to="{name: 'about'}">
       to about
     </router-link> -->
@@ -14,14 +15,16 @@
 
 <script>
 import StrokeText from '../components/StrokeText'
-import TypeWriter from '../components/TypeWriter'
+import TypingWrite from '../components/TypingWrite'
+import HeadBoy from '../components/HeadBoy'
 
 export default {
   name: 'Home',
 
   components: {
     StrokeText,
-    TypeWriter
+    TypingWrite,
+    HeadBoy
   },
 
   data () {
@@ -43,4 +46,10 @@ export default {
   flex-direction: column
 }
 
+>>> #head-boy {
+  /*position: fixed*/
+  /*top: 50%*/
+  /*left: 50%*/
+  /*margin: -42px 0 0 -42px*/
+}
 </style>

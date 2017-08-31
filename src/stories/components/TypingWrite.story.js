@@ -1,20 +1,20 @@
 /* eslint-disable */
 import { storiesOf } from '@storybook/vue'
 
-import TypeWriter from '../../components/TypeWriter.vue'
+import TypingWrite from '../../components/TypingWrite.vue'
 
-storiesOf('TypeWriter', module)
+storiesOf('TypingWrite', module)
   .add('default', () => ({
-    components: { TypeWriter },
+    components: { TypingWrite },
     template: `
       <div style="background: black; height: 100vh; padding: 20px;">
         <input type="text" v-model="text">
         <button @click="refresh">refresh</button>
         <div style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-          <type-writer
+          <typing-write
             v-if="shouldShow"
             :text="text">
-          </type-writer>
+          </typing-write>
         </div>
       </div>
     `,

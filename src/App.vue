@@ -19,13 +19,11 @@ import { mapGetters, mapActions } from 'vuex'
 
 import AppSidebar from './commons/AppSidebar'
 import EntryView from './pages/EntryView'
-import Hello from './components/Hello'
 
 export default {
   name: 'App',
 
   components: {
-    Hello,
     EntryView,
     AppSidebar
   },
@@ -79,7 +77,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 @import './styles/global'
 @import './styles/variables'
 
@@ -118,6 +116,10 @@ export default {
 
   .route-view {
     margin: auto
+  }
+
+  .slide-fade-enter-active, .slide-fade-leave-active {
+    transition-delay: 3s
   }
 }
 

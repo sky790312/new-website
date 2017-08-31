@@ -83,7 +83,6 @@ export default {
       const fontSize = 8
       const self = this
       if (typeof (AFRAME.components.matrix) === 'undefined') {
-        console.log('in')
         AFRAME.registerComponent('matrix', {
           dependencies: ['draw'],
           init () {
@@ -137,7 +136,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 @import '../styles/variables'
 
 #entry-view {

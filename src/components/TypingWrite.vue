@@ -1,16 +1,12 @@
 <template>
-  <div id="type-writer">
-    <p :class="color">{{ text }}</p>
+  <div id="typing-write">
+    <p class="typing-word" :class="color">{{ text }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'TypeWriter',
-  data () {
-    return {
-    }
-  },
+  name: 'TypingWrite',
   props: {
     text: {
       type: String,
@@ -31,8 +27,8 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
 
-#type-writer {
-  p {
+#typing-write {
+  .typing-word {
     overflow: hidden
     border-right: .15em solid $white
     white-space: nowrap
@@ -44,7 +40,6 @@ export default {
     &.white {
       color: $white
     }
-
     &.primary-color {
 
     }
@@ -63,8 +58,12 @@ export default {
 
   @keyframes blink-caret {
     from,
-    to { border-color: transparent }
-    50% { border-color: $white }
+    to {
+      border-color: transparent
+    }
+    50% {
+      border-color: $white
+    }
   }
 }
 
