@@ -17,8 +17,8 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
-import AppSidebar from './commons/AppSidebar'
-import EntryView from './pages/EntryView'
+import AppSidebar from '@/commons/AppSidebar'
+import EntryView from '@/pages/EntryView'
 
 export default {
   name: 'App',
@@ -115,7 +115,9 @@ export default {
   }*/
 
   .route-view {
-    margin: auto
+    /*margin: auto*/
+    width: 100%
+    height: 100%
   }
 
   .slide-fade-enter-active, .slide-fade-leave-active {

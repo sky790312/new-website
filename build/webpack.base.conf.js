@@ -8,6 +8,7 @@ function resolve (dir) {
 }
 
 module.exports = {
+  cache: true,
   entry: {
     'babel-polyfill': 'babel-polyfill',
     app: './src/main.js'
@@ -21,6 +22,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
+    modules: [path.resolve(__dirname, '../node_modules')],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src')
@@ -44,7 +46,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: 'babel-loader?cacheDirectory=true',
         include: [resolve('src'), resolve('test')]
       },
       // {
@@ -80,5 +82,13 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      async: 'shared-module',
+      minChunks: (module, count) => (
+        count >= 2
+      )
+    })
+  ]
 }

@@ -20,9 +20,9 @@ export default {
 <style lang="stylus" scoped>
 @import '../styles/variables'
 
-$head-boy-color = $dark-gray
-$head-boy-eyes-color = $light-gray
-$head-boy-feets-color = $light-gray
+$head-boy-color = $light-gray
+$head-boy-eyes-color = $dark-gray
+$head-boy-feets-color = $dark-gray
 
 #head-boy {
   z-index: 1

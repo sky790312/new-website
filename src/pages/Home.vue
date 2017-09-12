@@ -6,7 +6,10 @@
     <typing-write
       :text="welcome">
     </typing-write>
-    <head-boy></head-boy>
+    <!-- <div class="question-container">
+      <h3 class="start">start</h3>
+      <head-boy></head-boy>
+    </div> -->
     <!-- <router-link :to="{name: 'about'}">
       to about
     </router-link> -->
@@ -14,9 +17,9 @@
 </template>
 
 <script>
-import StrokeText from '../components/StrokeText'
-import TypingWrite from '../components/TypingWrite'
-import HeadBoy from '../components/HeadBoy'
+import StrokeText from '@/components/StrokeText'
+import TypingWrite from '@/components/TypingWrite'
+import HeadBoy from '@/components/HeadBoy'
 
 export default {
   name: 'Home',
@@ -46,10 +49,25 @@ export default {
   flex-direction: column
 }
 
->>> #head-boy {
-  /*position: fixed*/
-  /*top: 50%*/
-  /*left: 50%*/
-  /*margin: -42px 0 0 -42px*/
-}
+/*.question-container {
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-top: 40px
+
+  .start {
+    color: $white
+    font-size: 4em
+    margin-right: 20px
+    cursor: pointer
+  }
+}*/
+
+/*>>> #head-boy {
+  cursor: pointer
+  position: fixed
+  top: 50%
+  left: 50%
+  margin: -42px 0 0 -42px
+}*/
 </style>

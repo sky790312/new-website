@@ -61,7 +61,7 @@
 <script>
 import AFRAME from 'aframe'
 import { mapActions } from 'vuex'
-import '../../node_modules/aframe-draw-component/dist/aframe-draw-component.min'
+import 'aframe-draw-component/dist/aframe-draw-component.min'
 
 export default {
   name: 'EntryView',

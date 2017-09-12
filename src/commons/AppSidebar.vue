@@ -19,6 +19,6 @@ export default {
 @import '../styles/variables'
 
 #app-sidebar {
-  background-color: $blue
+  background-color: $light-gray
 }
 </style>
