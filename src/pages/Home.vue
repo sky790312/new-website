@@ -1,5 +1,10 @@
 <template>
   <div id="home">
+    <vue-particles
+      class="particles-background"
+      color="#ffffff"
+      :moveSpeed="1.5">
+    </vue-particles>
     <stroke-text
       :text="name">
     </stroke-text>
@@ -17,6 +22,8 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import VueParticles from 'vue-particles'
 import StrokeText from '@/components/StrokeText'
 import TypingWrite from '@/components/TypingWrite'
 import HeadBoy from '@/components/HeadBoy'
@@ -35,6 +42,10 @@ export default {
       name: 'kevinhu',
       welcome: this.$t('homePage.welcome')
     }
+  },
+
+  beforeMount () {
+    Vue.use(VueParticles)
   }
 }
 </script>
@@ -47,6 +58,14 @@ export default {
   justify-content: center
   align-items: center
   flex-direction: column
+}
+
+.particles-background {
+  position: absolute
+  width: 100%
+  height: 100%
+  opacity: 0
+  animation: opacity-fadein 1.5s ease forwards
 }
 
 /*.question-container {
@@ -70,4 +89,13 @@ export default {
   left: 50%
   margin: -42px 0 0 -42px
 }*/
+
+@keyframes opacity-fadein {
+   from {
+     opacity: 0
+   }
+   to {
+     opacity: 1
+   }
+}
 </style>

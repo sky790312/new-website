@@ -1,5 +1,5 @@
 <template>
-  <svg id="stroke-text">
+  <svg id="stroke-text" class="stroke-text">
     <symbol id="svg-text">
       <text text-anchor="middle" x="50%" y="50%" dy=".35em"> {{ capitalText }} </text>
     </symbol>
@@ -31,7 +31,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/variables'
 
 $dash-color-1 = #579FE3
 $dash-color-2 = #00A3FA
@@ -39,10 +38,10 @@ $dash-color-3 = #4EAFFA
 $dash-color-4 = #2471F2
 $dash-color-5 = #3D72CA
 
-#stroke-text {
+.stroke-text {
 	opacity: 0
   cursor: default
-	animation: show-text 2.2s ease 1s forwards
+	animation: opacity-fadein 2.2s ease forwards
 }
 
 #svg-text {
@@ -85,7 +84,7 @@ $dash-color-5 = #3D72CA
   }
 }
 
-@keyframes show-text {
+@keyframes opacity-fadein {
    from {
      opacity: 0
    }
@@ -93,6 +92,7 @@ $dash-color-5 = #3D72CA
      opacity: 1
    }
 }
+
 @keyframes stroke {
   100% {
     stroke-dashoffset: -400

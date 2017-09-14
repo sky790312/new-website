@@ -25,12 +25,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/variables'
 
 #typing-write {
   .typing-word {
     overflow: hidden
-    border-right: .15em solid $white
+    border-right: .15em solid white
     white-space: nowrap
     width: 0
     margin: 0 auto
@@ -38,7 +37,7 @@ export default {
     letter-spacing: .15em
     animation: typing 2.8s steps(30, end) forwards, blink-caret 1.15s step-end infinite forwards
     &.white {
-      color: $white
+      color: white
     }
     &.primary-color {
 
@@ -62,7 +61,7 @@ export default {
       border-color: transparent
     }
     50% {
-      border-color: $white
+      border-color: white
     }
   }
 }

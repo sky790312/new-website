@@ -7,10 +7,10 @@ storiesOf('StrokeText', module)
   .add('default', () => ({
     components: { StrokeText },
     template: `
-      <div style="background: black; height: 100vh; padding: 20px;">
+      <div>
         <input type="text" v-model="text">
         <button @click="refresh">refresh</button>
-        <div style="background: black; height: 100vh; width: 100vw; display: flex; justify-content: center; align-items: center;">
+        <div class="container">
           <stroke-text
             v-if="shouldShow"
             :text="text">

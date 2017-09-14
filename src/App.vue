@@ -2,7 +2,7 @@
   <div id="app">
     <entry-view v-if="isEntryView"></entry-view>
     <template v-else>
-      <transition name="slide-fade" mode="out-in" appear>
+      <transition name="sidebar-slide" mode="out-in" appear>
         <app-sidebar v-show="!isEntryView"></app-sidebar>
       </transition>
       <transition name="fade" mode="out-in" appear>
@@ -77,10 +77,12 @@ export default {
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import './styles/global'
-@import './styles/variables'
+</style>
 
+<style lang="stylus" scoped>
+@import './styles/variables'
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
@@ -115,13 +117,22 @@ export default {
   }*/
 
   .route-view {
-    /*margin: auto*/
+    position: relative
     width: 100%
     height: 100%
+    /*margin: auto*/
   }
 
-  .slide-fade-enter-active, .slide-fade-leave-active {
-    transition-delay: 3s
+  .sidebar-slide-enter-active, .sidebar-slide-leave-active {
+    transition: all 2s ease
+  }
+
+  .sidebar-slide-enter, .sidebar-slide-leave-active {
+    // transform: translateY(-50px)
+    opacity: 0
+    // @media (min-width: 768px) {
+    transform: translateX(-50px)
+    // }
   }
 }
 

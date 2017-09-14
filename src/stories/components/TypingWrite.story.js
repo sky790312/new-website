@@ -7,10 +7,10 @@ storiesOf('TypingWrite', module)
   .add('default', () => ({
     components: { TypingWrite },
     template: `
-      <div style="background: black; height: 100vh; padding: 20px;">
+      <div>
         <input type="text" v-model="text">
         <button @click="refresh">refresh</button>
-        <div style="height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <div class="container">
           <typing-write
             v-if="shouldShow"
             :text="text">

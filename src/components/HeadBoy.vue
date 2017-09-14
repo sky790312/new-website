@@ -18,7 +18,9 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/variables'
+
+$dark-gray = #444
+$light-gray = #bbb
 
 $head-boy-color = $light-gray
 $head-boy-eyes-color = $dark-gray
@@ -27,7 +29,7 @@ $head-boy-feets-color = $dark-gray
 #head-boy {
   z-index: 1
   height: 85px
-  animation: fade-in .5s
+  /*animation: opacity-fadein .5s*/
 }
 
 .head {
@@ -116,14 +118,5 @@ $head-boy-feets-color = $dark-gray
    50% {
      z-index: 1
    }
-}
-
-@keyframes fade-in {
-  from {
-    opacity: 0
-  }
-  to {
-    opacity: 1
-  }
 }
 </style>
