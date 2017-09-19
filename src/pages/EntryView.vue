@@ -75,7 +75,7 @@ export default {
 
   methods: {
     ...mapActions([
-      'setIsEntryView'
+      // 'setIsEntryView'
     ]),
 
     initMatrixView () {
@@ -120,7 +120,8 @@ export default {
           init () {
             this.el.addEventListener('click', evt => {
               setTimeout(() => {
-                self.setIsEntryView(false)
+                self.$emit('shouldShowEntryView', false)
+                // self.setIsEntryView(false)
                 // self.$router.push('/home')
               }, 500)
             })

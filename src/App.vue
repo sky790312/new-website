@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <entry-view v-if="isEntryView"></entry-view>
+    <entry-view
+      v-if="isEntryView"
+      @shouldShowEntryView="handleEntryView">
+    </entry-view>
     <template v-else>
       <transition name="sidebar-slide" mode="out-in" appear>
         <app-sidebar v-show="!isEntryView"></app-sidebar>
@@ -30,13 +33,13 @@ export default {
 
   data () {
     return {
-      // isEntryView: true
+      isEntryView: true
     }
   },
 
   computed: {
     ...mapGetters([
-      'isEntryView'
+      // 'isEntryView'
     ])
   },
 
@@ -44,7 +47,11 @@ export default {
     ...mapActions([
       // 'exampleGetFirebaseData',
       // 'examplePostFirebaseData'
-    ])
+    ]),
+
+    handleEntryView ($event) {
+      this.isEntryView = $event
+    }
 
     // handleAddUserButton () {
     //   const user = {
