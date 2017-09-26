@@ -81,7 +81,6 @@ export default {
     initMatrixView () {
       const chars = 'ABCDEFGHIJKLMNOPQRWXYZ'.split('')
       const fontSize = 8
-      const self = this
       if (typeof (AFRAME.components.matrix) === 'undefined') {
         AFRAME.registerComponent('matrix', {
           dependencies: ['draw'],
@@ -115,6 +114,7 @@ export default {
         })
       }
 
+      const self = this
       if (typeof (AFRAME.components.listener) === 'undefined') {
         AFRAME.registerComponent('listener', {
           init () {
