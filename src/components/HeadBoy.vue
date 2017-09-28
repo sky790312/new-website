@@ -9,11 +9,7 @@
 
 <script>
 export default {
-  name: 'HeadBoy',
-  data () {
-    return {
-    }
-  }
+  name: 'HeadBoy'
 }
 </script>
 
