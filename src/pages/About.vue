@@ -1,7 +1,8 @@
 <template>
   <div id="about">
     about page
-    <router-link :to="{name: 'home'}">
+    <router-link
+      :to="{name: 'home'}">
       to home
     </router-link>
   </div>
