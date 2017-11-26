@@ -1,13 +1,36 @@
 <template>
-  <svg id="stroke-text" class="stroke-text">
+  <svg
+    id="stroke-text"
+    class="stroke-text">
     <symbol id="svg-text">
-      <text text-anchor="middle" x="50%" y="50%" dy=".35em"> {{ capitalText }} </text>
+      <text
+        text-anchor="middle"
+        x="50%"
+        y="50%"
+        dy=".35em">
+        {{ capitalText }}
+      </text>
     </symbol>
-    <use xlink:href="#svg-text" class="text"></use>
-    <use xlink:href="#svg-text" class="text"></use>
-    <use xlink:href="#svg-text" class="text"></use>
-    <use xlink:href="#svg-text" class="text"></use>
-    <use xlink:href="#svg-text" class="text"></use>
+    <use
+      xlink:href="#svg-text"
+      class="text">
+    </use>
+    <use
+      xlink:href="#svg-text"
+      class="text">
+    </use>
+    <use
+      xlink:href="#svg-text"
+      class="text">
+    </use>
+    <use
+      xlink:href="#svg-text"
+      class="text">
+    </use>
+    <use
+      xlink:href="#svg-text"
+      class="text">
+    </use>
   </svg>
 </template>
 

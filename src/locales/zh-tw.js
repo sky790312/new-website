@@ -1,4 +1,4 @@
-const zhTw = {
+const tw = {
   entryView: {
     entryTitle: '歡迎來到KevinHu的工作室',
     entryDesc: '請拖曳至該區塊並點擊進入我的網站！'
@@ -8,4 +8,4 @@ const zhTw = {
   }
 }
 
-export default zhTw
+export default tw

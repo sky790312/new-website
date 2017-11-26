@@ -9,18 +9,14 @@
         name="sidebar-slide"
         mode="out-in"
         appear>
-        <app-sidebar
-          v-show="!isEntryView">
-        </app-sidebar>
+        <app-sidebar v-show="!isEntryView"></app-sidebar>
       </transition>
       <transition
         name="fade"
         mode="out-in"
         appear>
         <keep-alive>
-          <router-view
-            class="route-view">
-          </router-view>
+          <router-view class="route-view"></router-view>
         </keep-alive>
       </transition>
     </template>

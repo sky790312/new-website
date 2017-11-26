@@ -1,6 +1,8 @@
 <template>
   <div id="typing-write">
-    <p class="typing-word" :class="color">{{ text }}</p>
+    <p :class="['typing-word', color]">
+      {{ text }}
+    </p>
   </div>
 </template>
 

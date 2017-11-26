@@ -1,10 +1,7 @@
 <template>
   <div id="entry-view">
-    <a-scene
-      :fog="scene.fog">
-      <a-sky
-        matrix>
-      </a-sky>
+    <a-scene :fog="scene.fog">
+      <a-sky matrix></a-sky>
       <entry-text></entry-text>
       <entry-plane></entry-plane>
       <entry-camera></entry-camera>

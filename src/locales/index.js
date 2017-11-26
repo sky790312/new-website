@@ -1,9 +1,9 @@
 import en from './en'
-import zhTw from './zh-tw'
+import tw from './zh-tw'
 
 const locales = {
   'en': en,
-  'zh-tw': zhTw
+  'zh-tw': tw
 }
 
 export default locales

@@ -22,7 +22,9 @@
 </template>
 
 <script>
-// import Vue from 'vue'
+import Vue from 'vue'
+import VueParticles from 'vue-particles'
+
 import StrokeText from '@/components/StrokeText'
 import TypingWrite from '@/components/TypingWrite'
 import HeadBoy from '@/components/HeadBoy'
@@ -44,6 +46,8 @@ export default {
   },
 
   beforeMount () {
+    Vue.use(VueParticles)
+    console.log(Vue)
   }
 }
 </script>
