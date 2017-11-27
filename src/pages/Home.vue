@@ -47,18 +47,16 @@ export default {
 
   beforeMount () {
     Vue.use(VueParticles)
-    console.log(Vue)
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/variables'
+@import '../stylus/variables'
+@import '../stylus/extends'
 
 #home {
-  display: flex
-  justify-content: center
-  align-items: center
+  @extend .flex-center
   flex-direction: column
 }
 

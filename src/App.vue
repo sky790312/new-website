@@ -91,11 +91,11 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './styles/global'
+@import './stylus'
 </style>
 
 <style lang="stylus" scoped>
-@import './styles/variables'
+@import './stylus/variables'
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased

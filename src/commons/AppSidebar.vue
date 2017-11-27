@@ -16,9 +16,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../styles/variables'
+@import '../stylus/variables'
 
 #app-sidebar {
-  background-color: $light-gray
+  background-color: $black
+  border-right: 1px groove $white
+  color: $white
 }
 </style>
