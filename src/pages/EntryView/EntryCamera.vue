@@ -19,7 +19,7 @@
 <script>
 
 export default {
-  name: 'EntryCamera',
+  name: 'entryCamera',
 
   data () {
     return {

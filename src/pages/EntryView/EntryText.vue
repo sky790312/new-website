@@ -16,7 +16,7 @@
 <script>
 
 export default {
-  name: 'EntryText',
+  name: 'entryText',
 
   data () {
     return {

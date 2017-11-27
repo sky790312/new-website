@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'StrokeText',
+  name: 'strokeText',
   props: {
     text: {
       type: String,

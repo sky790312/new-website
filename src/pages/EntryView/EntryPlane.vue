@@ -18,7 +18,7 @@
 <script>
 
 export default {
-  name: 'EntryPlane',
+  name: 'entryPlane',
 
   data () {
     return {

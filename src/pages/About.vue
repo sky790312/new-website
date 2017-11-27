@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'About',
+  name: 'about',
 
   components: {
   },

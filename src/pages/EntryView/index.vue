@@ -19,7 +19,7 @@ import EntryCamera from './EntryCamera'
 import EntryPlane from './EntryPlane'
 
 export default {
-  name: 'EntryView',
+  name: 'entryView',
 
   components: {
     EntryText,
@@ -79,12 +79,12 @@ export default {
 
     initListener () {
       if (typeof (AFRAME.components.listener) === 'undefined') {
-        const self = this
+        const vm = this
         AFRAME.registerComponent('listener', {
           init () {
             this.el.addEventListener('click', evt =>
               setTimeout(() =>
-                self.$emit('shouldShowEntryView', false), 500)
+                vm.$emit('shouldShowEntryView', false), 500)
             )
           }
         })

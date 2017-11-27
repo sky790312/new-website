@@ -1,12 +1,12 @@
 <template>
   <div id="app-sidebar">
-    <h1>sidebar</h1>
+    <h1>KevinHu</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AppSidebar',
+  name: 'appSidebar',
   data () {
     return {
 

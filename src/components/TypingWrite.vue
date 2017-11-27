@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'TypingWrite',
+  name: 'typingWrite',
   props: {
     text: {
       type: String,
