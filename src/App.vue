@@ -30,7 +30,7 @@ import AppSidebar from '@/commons/AppSidebar'
 import EntryView from '@/pages/EntryView'
 
 export default {
-  name: 'App',
+  name: 'app',
 
   components: {
     EntryView,
@@ -91,11 +91,11 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './stylus'
+@import '~styl/index'
 </style>
 
 <style lang="stylus" scoped>
-@import './stylus/variables'
+@import '~styl/variables'
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased

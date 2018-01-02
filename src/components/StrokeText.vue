@@ -12,22 +12,7 @@
       </text>
     </symbol>
     <use
-      xlink:href="#svg-text"
-      class="text">
-    </use>
-    <use
-      xlink:href="#svg-text"
-      class="text">
-    </use>
-    <use
-      xlink:href="#svg-text"
-      class="text">
-    </use>
-    <use
-      xlink:href="#svg-text"
-      class="text">
-    </use>
-    <use
+      v-for="dash in dashCount"
       xlink:href="#svg-text"
       class="text">
     </use>
@@ -43,6 +28,11 @@ export default {
       default () {
         return ''
       }
+    }
+  },
+  data () {
+    return {
+      dashCount: 5
     }
   },
   computed: {

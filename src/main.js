@@ -4,11 +4,11 @@ import VueResource from 'vue-resource'
 import VueI18n from 'vue-i18n'
 // import VueParticles from 'vue-particles'
 
-import locales from './locales'
-import router from './router'
-import store from './store'
+import locales from '@/locales'
+import router from '@/router'
+import store from '@/store'
 
-import App from './App'
+import App from '@/App'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -18,7 +18,7 @@ Vue.use(VueI18n)
 Vue.http.interceptors.push((request, next) => {
   console.log('sending request: ', request)
   next(response => {
-    console.log('response: ', response)
+    console.log('get response: ', response)
   })
 })
 

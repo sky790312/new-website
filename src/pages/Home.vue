@@ -1,9 +1,9 @@
 <template>
   <div id="home">
     <vue-particles
-      class="particles-background"
-      color="#ffffff"
-      :moveSpeed="1.5">
+      :class="VueParticlesConfig.className"
+      :color="VueParticlesConfig.color"
+      :moveSpeed="VueParticlesConfig.moveSpeed">
     </vue-particles>
     <stroke-text
       :text="name">
@@ -42,7 +42,12 @@ export default {
   data () {
     return {
       name: 'kevinhu',
-      welcome: this.$t('homePage.welcome')
+      welcome: this.$t('homePage.welcome'),
+      VueParticlesConfig: {
+        className: 'particles-background',
+        color: '#fff',
+        moveSpeed: 1.5
+      }
     }
   },
 
@@ -53,8 +58,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../stylus/variables'
-@import '../stylus/extends'
+@import '~styl/variables'
+@import '~styl/extends'
 
 #home {
   @extend .flex-center
@@ -84,11 +89,11 @@ export default {
 // }
 
 >>> #head-boy {
-  cursor: pointer
   position: fixed
   bottom: -20px
   right: 20px
   opacity: 0
+  cursor: pointer
   animation: opacity-fadein 1.5s ease forwards
 }
 

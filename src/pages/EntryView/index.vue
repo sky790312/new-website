@@ -14,9 +14,9 @@ import AFRAME from 'aframe'
 import { mapActions } from 'vuex'
 import 'aframe-draw-component/dist/aframe-draw-component.min'
 
-import EntryText from './EntryText'
-import EntryCamera from './EntryCamera'
-import EntryPlane from './EntryPlane'
+import EntryText from '@/pages/EntryView/EntryText'
+import EntryCamera from '@/pages/EntryView/EntryCamera'
+import EntryPlane from '@/pages/EntryView/EntryPlane'
 
 export default {
   name: 'entryView',
@@ -82,7 +82,7 @@ export default {
         const vm = this
         AFRAME.registerComponent('listener', {
           init () {
-            this.el.addEventListener('click', evt =>
+            this.el.addEventListener('click', event =>
               setTimeout(() =>
                 vm.$emit('shouldShowEntryView', false), 500)
             )
@@ -100,7 +100,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../stylus/variables'
+@import '~styl/variables'
 
 #entry-view {
 }

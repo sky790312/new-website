@@ -1,8 +1,8 @@
 import Router from 'vue-router'
 
-import Home from '../pages/Home'
-// import Entry from '../pages/Entry'
-import About from '../pages/About'
+import Home from '@/pages/Home'
+// import Entry from '@/pages/Entry'
+import About from '@/pages/About'
 
 const routes = [
   {
