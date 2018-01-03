@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import HeadBoy from '@/components/HeadBoy'
 
+const generateHeadBoy = () => {
+  const Constructor = Vue.extend(HeadBoy)
+  return new Constructor().$mount()
+}
+
 describe('HeadBoy', () => {
   it('should has head with eyes class', () => {
-    const Constructor = Vue.extend(HeadBoy)
-    const vm = new Constructor().$mount()
+    const vm = generateHeadBoy()
     const head = vm.$el.childNodes[0]
     const eyes = head.childNodes[0]
     expect(Array.prototype.slice.call(head.classList)).to.include('head')
@@ -12,8 +16,7 @@ describe('HeadBoy', () => {
   })
 
   it('should has feets class', () => {
-    const Constructor = Vue.extend(HeadBoy)
-    const vm = new Constructor().$mount()
+    const vm = generateHeadBoy()
     const feets = vm.$el.childNodes[2]
     expect(Array.prototype.slice.call(feets.classList)).to.include('feets')
   })
