@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import VueParticles from 'vue-particles'
+// import Vue from 'vue'
+// import VueParticles from 'vue-particles'
 
 import StrokeText from '@/components/StrokeText'
 import TypingWrite from '@/components/TypingWrite'
@@ -52,7 +52,7 @@ export default {
   },
 
   beforeMount () {
-    Vue.use(VueParticles)
+    // Vue.use(VueParticles)
   }
 }
 </script>
