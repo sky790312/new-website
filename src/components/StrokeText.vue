@@ -4,10 +4,10 @@
     class="stroke-text">
     <symbol id="svg-text">
       <text
-        text-anchor="middle"
-        x="50%"
-        y="50%"
-        dy=".35em">
+        :text-anchor="textConfig.textAnchor"
+        :x="textConfig.x"
+        :y="textConfig.y"
+        :dy="textConfig.dy">
         {{ capitalText }}
       </text>
     </symbol>
@@ -32,7 +32,13 @@ export default {
   },
   data () {
     return {
-      dashCount: 5
+      dashCount: 5,
+      textConfig: {
+        textAnchor: 'middle',
+        x: '50%',
+        y: '50%',
+        dy: '.35em'
+      }
     }
   },
   computed: {
