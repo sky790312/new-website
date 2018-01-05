@@ -8,19 +8,34 @@ storiesOf('TypingWrite', module)
     components: { TypingWrite },
     template: `
       <div>
-        <input type="text" v-model="text">
-        <button @click="refresh">refresh</button>
-        <div class="container">
+        <input
+          type="text"
+          v-model="typingWriteText">
+        <select
+          v-model="typingWriteColor">
+          <option
+            value="#fff">
+            white
+          </option>
+        </select>
+        <button
+          @click="refresh">
+          refresh
+        </button>
+        <div
+          class="container">
           <typing-write
             v-if="shouldShow"
-            :text="text">
+            :text="typingWriteText"
+            :color="typingWriteColor">
           </typing-write>
         </div>
       </div>
     `,
     data () {
       return {
-        text: 'Welcome to my website, enjoy and have fun!',
+        typingWriteText: 'Welcome to my website, enjoy and have fun!',
+        typingWriteColor: '#fff',
         shouldShow: true
       }
     },

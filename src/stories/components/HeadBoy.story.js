@@ -7,8 +7,10 @@ storiesOf('HeadBoy', module)
   .add('default', () => ({
     components: { HeadBoy },
     template: `
-      <div class="container">
-        <head-boy></head-boy>
+      <div
+        class="container">
+        <head-boy>
+        </head-boy>
       </div>
     `
   })

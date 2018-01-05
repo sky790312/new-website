@@ -1,22 +1,28 @@
 <template>
-  <div id="app">
+  <div
+    id="app">
     <entry-view
       v-if="isEntryView"
       @shouldShowEntryView="handleEntryView">
     </entry-view>
-    <template v-else>
+    <template
+      v-else>
       <transition
         name="sidebar-slide"
         mode="out-in"
         appear>
-        <app-sidebar v-show="!isEntryView"></app-sidebar>
+        <app-sidebar
+          v-show="!isEntryView">
+        </app-sidebar>
       </transition>
       <transition
         name="fade"
         mode="out-in"
         appear>
         <keep-alive>
-          <router-view class="route-view"></router-view>
+          <router-view
+            class="route-view">
+          </router-view>
         </keep-alive>
       </transition>
     </template>

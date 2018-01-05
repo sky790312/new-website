@@ -1,5 +1,6 @@
 <template>
-  <div id="about">
+  <div
+    id="about">
     about page
     <router-link
       :to="{name: 'home'}">

@@ -1,6 +1,8 @@
 <template>
-  <div id="typing-write">
-    <p :class="['typing-word', color]">
+  <div
+    id="typing-write">
+    <p
+      :class="['typing-word', color]">
       {{ text }}
     </p>
   </div>
@@ -28,7 +30,7 @@ export default {
 
 <style lang="stylus" scoped>
 
-$white = '#fff'
+$white = #fff
 
 #typing-write {
   .typing-word {

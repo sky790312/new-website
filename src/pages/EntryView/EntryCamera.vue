@@ -1,5 +1,6 @@
 <template>
-  <a-camera :position="camera.position">
+  <a-camera
+    :position="camera.position">
     <a-cursor
       :color="cursor.color"
       :geometry="cursor.geometry"

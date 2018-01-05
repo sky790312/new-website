@@ -1,26 +1,26 @@
 /* eslint-disable */
 import { storiesOf } from '@storybook/vue'
 
-import StrokeText from '../../components/StrokeText.vue'
+import strokeDash from '../../components/StrokeDash.vue'
 
-storiesOf('StrokeText', module)
+storiesOf('strokeDash', module)
   .add('default', () => ({
-    components: { StrokeText },
+    components: { strokeDash },
     template: `
       <div>
-        <input type="text" v-model="text">
+        <input type="text" v-model="strokeDashText">
         <button @click="refresh">refresh</button>
         <div class="container">
-          <stroke-text
+          <stroke-dash
             v-if="shouldShow"
-            :text="text">
-          </stroke-text>
+            :text="strokeDashText">
+          </stroke-dash>
         </div>
       </div>
     `,
     data () {
       return {
-        text: 'KevinHu',
+        strokeDashText: 'KevinHu',
         shouldShow: true
       }
     },

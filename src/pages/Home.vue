@@ -1,17 +1,19 @@
 <template>
-  <div id="home">
+  <div
+    id="home">
     <vue-particles
-      :class="VueParticlesConfig.className"
+      class="particles-background"
       :color="VueParticlesConfig.color"
       :moveSpeed="VueParticlesConfig.moveSpeed">
     </vue-particles>
-    <stroke-text
-      :text="name">
-    </stroke-text>
+    <stroke-dash
+      :text="strokeDashText">
+    </stroke-dash>
     <typing-write
-      :text="welcome">
+      :text="typingWriteText">
     </typing-write>
-    <head-boy></head-boy>
+    <head-boy>
+    </head-boy>
     <!-- <div class="question-container">
       <h3 class="start">start</h3>
       <head-boy></head-boy>
@@ -26,7 +28,7 @@
 // import Vue from 'vue'
 // import VueParticles from 'vue-particles'
 
-import StrokeText from '@/components/StrokeText'
+import StrokeDash from '@/components/StrokeDash'
 import TypingWrite from '@/components/TypingWrite'
 import HeadBoy from '@/components/HeadBoy'
 
@@ -34,17 +36,17 @@ export default {
   name: 'home',
 
   components: {
-    StrokeText,
+    StrokeDash,
     TypingWrite,
     HeadBoy
   },
 
   data () {
     return {
-      name: 'kevinhu',
-      welcome: this.$t('homePage.welcome'),
+      strokeDashText: 'kevinhu',
+      typingWriteText: this.$t('homePage.welcome'),
       VueParticlesConfig: {
-        className: 'particles-background',
+        // className: 'particles-background',
         color: '#fff',
         moveSpeed: 1.5
       }

@@ -8,10 +8,12 @@ storiesOf('Plugin', module)
   .add('vue-particles', () => ({
     template: `
       <div>
-        <div class="absolute">
+        <div
+          class="absolute">
           defaultConfig: <pre>{{ defaultConfig }}</pre>
         </div>
-        <vue-particles></vue-particles>
+        <vue-particles>
+        </vue-particles>
       </div>
     `,
     data () {

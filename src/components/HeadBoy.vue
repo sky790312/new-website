@@ -1,9 +1,15 @@
 <template>
-  <div id="head-boy">
-    <div class="head">
-      <div class="eyes"></div>
+  <div
+    id="head-boy">
+    <div
+      class="head">
+      <div
+        class="eyes">
+      </div>
     </div>
-    <div class="feets"></div>
+    <div
+      class="feets">
+    </div>
   </div>
 </template>
 
