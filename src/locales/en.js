@@ -5,6 +5,11 @@ const en = {
   },
   homePage: {
     welcome: 'Welcome to my website, feel free to contact me!'
+  },
+  sidebar: {
+    profile: 'Profile',
+    skill: 'Skill',
+    projects: 'Projects'
   }
 }
 

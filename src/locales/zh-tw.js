@@ -5,6 +5,11 @@ const tw = {
   },
   homePage: {
     welcome: '歡迎來到我的工作室，有任何疑問歡迎聯絡我！'
+  },
+  sidebar: {
+    profile: '簡歷',
+    skill: '技能',
+    projects: '作品集'
   }
 }
 
