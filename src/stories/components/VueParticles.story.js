@@ -4,8 +4,10 @@ import { storiesOf } from '@storybook/vue'
 import Vue from 'vue'
 import VueParticles from 'vue-particles'
 
-storiesOf('Plugin', module)
-  .add('vue-particles', () => ({
+const stories = storiesOf('VueParticles')
+
+stories
+  .add('default', () => ({
     template: `
       <div>
         <div

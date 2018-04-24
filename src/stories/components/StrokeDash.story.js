@@ -1,36 +1,29 @@
 /* eslint-disable */
 import { storiesOf } from '@storybook/vue'
+import Centered from '@storybook/addon-centered';
+import { withKnobs, text } from '@storybook/addon-knobs/vue';
 
-import strokeDash from '../../components/StrokeDash.vue'
+import StrokeDash from '../../components/StrokeDash.vue'
 
-storiesOf('strokeDash', module)
-  .add('default', () => ({
-    components: { strokeDash },
-    template: `
-      <div>
-        <input type="text" v-model="strokeDashText">
-        <button @click="refresh">refresh</button>
-        <div class="container">
-          <stroke-dash
-            v-if="shouldShow"
-            :text="strokeDashText">
-          </stroke-dash>
-        </div>
-      </div>
-    `,
-    data () {
-      return {
-        strokeDashText: 'KevinHu',
-        shouldShow: true
-      }
-    },
-    methods: {
-      refresh () {
-        this.shouldShow = false
-        setTimeout(() => {
-          this.shouldShow = true
-        }, 100)
+const stories = storiesOf('StrokeDash')
+stories.addDecorator(withKnobs)
+stories.addDecorator(Centered)
+
+stories
+  .add('default', () => {
+    const strokeDashText = text('text', 'KevinHu')
+    return {
+      components: { StrokeDash },
+      template: `
+        <stroke-dash
+          :text="strokeDashText">
+        </stroke-dash>
+      `,
+      data () {
+        return {
+          strokeDashText: strokeDashText
+        }
       }
     }
-  })
+  }
 )
