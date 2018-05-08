@@ -74,7 +74,7 @@ $dash-color-5 = #3D72CA
 .text {
   fill: none
   stroke-width: 2
-  stroke-dasharray: 80 320
+  stroke-dasharray: 80 20
   stroke-dashoffset: 0
   animation: stroke 10s infinite linear
 
