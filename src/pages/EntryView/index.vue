@@ -92,6 +92,8 @@ export default {
             this.el.addEventListener('click', event =>
               setTimeout(() =>
                 vm.$emit('shouldShowEntryView', false), 500)
+                // const page = { name: 'home' }
+                // self.$router.push(page)
             )
           }
         })

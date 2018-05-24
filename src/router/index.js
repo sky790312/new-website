@@ -1,10 +1,16 @@
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 
-import Home from '@/pages/Home'
+// import Home from '@/pages/Home'
 // import Entry from '@/pages/Entry'
-import Profile from '@/pages/Profile'
-import Skill from '@/pages/Skill'
-import Projects from '@/pages/Projects'
+// import Profile from '@/pages/Profile'
+// import Skill from '@/pages/Skill'
+// import Projects from '@/pages/Projects'
+
+const Home = () => import('@/pages/Home.vue')
+// const Entry = () => import('@/pages/Entry.vue')
+const Profile = () => import('@/pages/Profile.vue')
+const Skill = () => import('@/pages/Skill.vue')
+const Projects = () => import('@/pages/Projects.vue')
 
 const routes = [{
   path: '/',
@@ -33,4 +39,10 @@ const routes = [{
   // meta: { shouldShowMenu: true }
 }]
 
-export default new Router({ routes })
+const router = new VueRouter({
+  routes,
+  mode: 'history',
+  linkActiveClass: 'active'
+})
+
+export default router
