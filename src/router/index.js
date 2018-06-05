@@ -1,16 +1,16 @@
 import VueRouter from 'vue-router'
 
-// import Home from '@/pages/Home'
-// import Entry from '@/pages/Entry'
-// import Profile from '@/pages/Profile'
-// import Skill from '@/pages/Skill'
-// import Projects from '@/pages/Projects'
+// import Home from '@/views/Home'
+// import Entry from '@/views/Entry'
+// import Profile from '@/views/Profile'
+// import Skill from '@/views/Skill'
+// import Projects from '@/views/Projects'
 
-const Home = () => import('@/pages/Home.vue')
-// const Entry = () => import('@/pages/Entry.vue')
-const Profile = () => import('@/pages/Profile.vue')
-const Skill = () => import('@/pages/Skill.vue')
-const Projects = () => import('@/pages/Projects.vue')
+const Home = () => import('@/views/Home.vue')
+// const Entry = () => import('@/views/Entry.vue')
+const Profile = () => import('@/views/Profile.vue')
+const Skill = () => import('@/views/Skill.vue')
+const Projects = () => import('@/views/Projects.vue')
 
 const routes = [{
   path: '/',
