@@ -1,11 +1,23 @@
 <template>
   <div
     id="home">
-    <vue-particles
+    <!-- <vue-particles
       class="particles-background"
       :color="VueParticlesConfig.color"
       :moveSpeed="VueParticlesConfig.moveSpeed">
-    </vue-particles>
+    </vue-particles> -->
+    <!-- <div class="masthead segment">
+      <div class="ui page grid">
+        <div class="column">
+          <div class="introduction">
+            <h1 class="ui inverted header">
+              <span class="text">Perspective background from old <a href="https://www.semantic-ui.com/" target="_new">Semantic UI</a> website</span>
+            </h1>
+            <div class="ui hidden divider"></div>
+          </div>
+        </div>
+      </div>
+    </div> -->
     <stroke-dash
       :text="strokeDashText">
     </stroke-dash>
@@ -107,4 +119,45 @@ export default {
      opacity: 1
    }
 }
+
+#home {
+  position: relative
+  background-size: cover
+  background-color: $dark-gray
+  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.95))
+  // transform-style: preserve-3d;
+  // transform: translate3d(0, 0, 0);
+  // transition: background-color 3s ease-in-out 2s;
+  // perspective: 1000px;
+
+  &:after {
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    content: ''
+    background: $black url(../assets/bkg.jpg)
+    transform-origin: 50% 50%
+    transform-style: preserve-3d
+    animation-name: splash
+    transition: opacity 3s ease-in-out, transform 5s ease-in-out
+    opacity: 0.06
+    animation-duration: 15s
+    animation-fill-mode: both
+    animation-timing-function: linear
+    animation-iteration-count: infinite
+    // transform: rotateX(50deg) rotateY(0deg) rotateZ(0deg) translateY(-14%) translateX(-14%) translateZ(370px)
+  }
+}
+
+@keyframes splash {
+  0% {
+    background-position: 0% 0%
+  }
+  100% {
+    background-position: 0% -540px
+  }
+}
+
 </style>
