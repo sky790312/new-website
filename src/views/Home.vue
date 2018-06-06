@@ -21,6 +21,7 @@
     <stroke-dash
       :text="strokeDashText">
     </stroke-dash>
+    Frontend developer | Full stack developer
     <typing-write
       :text="typingWriteText">
     </typing-write>
@@ -58,12 +59,12 @@ export default {
   data () {
     return {
       strokeDashText: 'kevinhu',
-      typingWriteText: this.$t('homePage.welcome'),
-      VueParticlesConfig: {
-        // className: 'particles-background',
-        color: '#fff',
-        moveSpeed: 1.5
-      }
+      typingWriteText: 'homePage.welcome'
+      // VueParticlesConfig: {
+      //   // className: 'particles-background',
+      //   color: '#fff',
+      //   moveSpeed: 1.5
+      // }
     }
   },
 
@@ -97,13 +98,13 @@ export default {
   flex-direction: column
 }
 
-.particles-background {
-  position: absolute
-  width: 100%
-  height: 100%
-  opacity: 0
-  animation: opacity-fadein 1.5s ease forwards
-}
+// .particles-background {
+//   position: absolute
+//   width: 100%
+//   height: 100%
+//   opacity: 0
+//   animation: opacity-fadein 1.5s ease forwards
+// }
 
 // .question-container {
 //   display: flex
@@ -154,17 +155,12 @@ export default {
     top: 0
     left: 0
     content: ''
-    background: $black url(../assets/bkg.jpg)
-    transform-origin: 50% 50%
-    transform-style: preserve-3d
-    animation-name: splash
+    background-image: url('~assets/bkg.jpg')
+    // transform-origin: 50% 50%
+    // transform-style: preserve-3d
     transition: opacity 3s ease-in-out, transform 5s ease-in-out
     opacity: 0.06
-    animation-duration: 15s
-    animation-fill-mode: both
-    animation-timing-function: linear
-    animation-iteration-count: infinite
-    // transform: rotateX(50deg) rotateY(0deg) rotateZ(0deg) translateY(-14%) translateX(-14%) translateZ(370px)
+    animation: splash 15s linear infinite both
   }
 }
 

@@ -3,7 +3,7 @@
     id="typing-write">
     <p
       :class="['typing-word', color]">
-      {{ text }}
+      {{ $t(text) }}
     </p>
   </div>
 </template>

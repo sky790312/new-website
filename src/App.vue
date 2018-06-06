@@ -33,7 +33,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 import AppSidebar from '@/commons/AppSidebar'
-import EntryView from '@/pages/EntryView'
+import EntryView from '@/views/EntryView'
 
 export default {
   name: 'app',
