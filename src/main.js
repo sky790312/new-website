@@ -1,10 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import VueI18n from 'vue-i18n'
 // import VueParticles from 'vue-particles'
 
-import locales from '@/locales'
+import { i18n } from '@/setup/i18n-setup'
 import router from '@/router'
 import store from '@/store'
 
@@ -12,7 +11,7 @@ import App from '@/App'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
-Vue.use(VueI18n)
+// Vue.use(VueI18n)
 // Vue.use(VueParticles)
 
 Vue.http.interceptors.push((request, next) => {
@@ -23,16 +22,9 @@ Vue.http.interceptors.push((request, next) => {
 })
 
 Vue.config.productionTip = false
-const lang = 'en'
-
-const i18n = new VueI18n({
-  locale: lang,
-  messages: locales,
-  silentTranslationWarn: true
-})
 
 /* eslint-disable */
-new Vue({
+export const app = new Vue({
   el: '#app',
   store,
   router,

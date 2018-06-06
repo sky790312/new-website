@@ -43,6 +43,8 @@
 import StrokeDash from '@/components/StrokeDash'
 import TypingWrite from '@/components/TypingWrite'
 import HeadBoy from '@/components/HeadBoy'
+// import { loadLanguageAsync } from '@/setup/i18n-setup'
+// import { mapActions } from 'vuex'
 
 export default {
   name: 'home',
@@ -65,8 +67,23 @@ export default {
     }
   },
 
+  methods: {
+    ...mapActions([
+      'setLanguage'
+      // 'exampleGetFirebaseData',
+      // 'examplePostFirebaseData'
+    ])
+  },
+
   beforeMount () {
     // Vue.use(VueParticles)
+    // const language = 'zh-tw'
+    // setTimeout(() => {
+    //   this.setLanguage(language)
+    //     .then(() => {
+    //       this.$i18n.locale = language
+    //     })
+    // }, 6000)
   }
 }
 </script>
