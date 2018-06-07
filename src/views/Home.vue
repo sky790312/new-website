@@ -69,11 +69,11 @@ export default {
   },
 
   methods: {
-    ...mapActions([
-      'setLanguage'
-      // 'exampleGetFirebaseData',
-      // 'examplePostFirebaseData'
-    ])
+    // ...mapActions([
+    //   'setLanguage'
+    //   // 'exampleGetFirebaseData',
+    //   // 'examplePostFirebaseData'
+    // ])
   },
 
   beforeMount () {
