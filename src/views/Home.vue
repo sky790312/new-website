@@ -25,6 +25,8 @@
       id="job-title">
       {{ $t('jobTitle') }}
     </h3>
+    <tag>
+    </tag>
     <typing-write
       :text="typingWriteText">
     </typing-write>
@@ -47,6 +49,7 @@
 import StrokeDash from '@/components/StrokeDash'
 import TypingWrite from '@/components/TypingWrite'
 import HeadBoy from '@/components/HeadBoy'
+import Tag from '@/components/Tag'
 // import { mapActions } from 'vuex'
 
 export default {
@@ -55,13 +58,14 @@ export default {
   components: {
     StrokeDash,
     TypingWrite,
-    HeadBoy
+    HeadBoy,
+    Tag
   },
 
   data () {
     return {
       strokeDashText: 'kevinhu',
-      typingWriteText: 'homePage.welcome'
+      typingWriteText: this.$t('homePage.welcome')
       // VueParticlesConfig: {
       //   // className: 'particles-background',
       //   color: '#fff',
