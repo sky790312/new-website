@@ -21,7 +21,10 @@
     <stroke-dash
       :text="strokeDashText">
     </stroke-dash>
-    Frontend developer
+    <h3
+      id="job-title">
+      {{ $t('jobTitle') }}
+    </h3>
     <typing-write
       :text="typingWriteText">
     </typing-write>
@@ -116,13 +119,21 @@ export default {
 //   }
 // }
 
+#job-title {
+  color: $white
+  cursor: default
+  opacity: 0
+  margin-top: 0
+  animation: opacity-fadein 2.2s ease forwards
+}
+
 >>> #head-boy {
   position: fixed
   bottom: -20px
   right: 20px
   opacity: 0
   cursor: pointer
-  animation: opacity-fadein 1.5s ease forwards
+  animation: opacity-fadein 2.2s ease forwards
 }
 
 @keyframes opacity-fadein {

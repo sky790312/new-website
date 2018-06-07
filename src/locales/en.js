@@ -10,7 +10,8 @@ const en = {
     profile: 'Profile',
     skill: 'Skill',
     projects: 'Projects'
-  }
+  },
+  jobTitle: 'Frontend Developer'
 }
 
 export default en
