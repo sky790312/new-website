@@ -5,32 +5,32 @@ import axios from 'axios'
 
 Vue.use(VueI18n)
 
-const loadedLanguages = ['en'] // default language
+const alreadyLoadedLanguages = ['en'] // default language
 
 export const i18n = new VueI18n({
-  locale: 'en', // set locale
+  locale: 'en',
   fallbackLocale: 'en',
   messages: locales,
   silentTranslationWarn: true
 })
 
-function setI18nLanguage (lang) {
-  i18n.locale = lang
-  axios.defaults.headers.common['Accept-Language'] = lang
-  document.documentElement.lang = lang
-  return lang
+const setI18nLanguage = language => {
+  i18n.locale = language
+  axios.defaults.headers.common['Accept-Language'] = language
+  document.documentElement.language = language
+  return language
 }
 
-export function loadLanguageAsync (lang) {
-  if (i18n.locale !== lang) {
-    if (!loadedLanguages.includes(lang)) {
-      return import(`@/locales/${lang}`).then(msgs => {
-        i18n.setLocaleMessage(lang, msgs.default)
-        loadedLanguages.push(lang)
-        return setI18nLanguage(lang)
+export const loadLanguageAsync = language => {
+  if (i18n.locale !== language) {
+    if (!alreadyLoadedLanguages.includes(language)) {
+      return import(`@/locales/${language}`).then(locales => {
+        i18n.setLocaleMessage(language, locales.default)
+        alreadyLoadedLanguages.push(language)
+        return setI18nLanguage(language)
       })
     }
-    return Promise.resolve(setI18nLanguage(lang))
+    return Promise.resolve(setI18nLanguage(language))
   }
-  return Promise.resolve(lang)
+  return Promise.resolve(language)
 }

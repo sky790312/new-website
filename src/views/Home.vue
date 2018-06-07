@@ -21,7 +21,7 @@
     <stroke-dash
       :text="strokeDashText">
     </stroke-dash>
-    Frontend developer | Full stack developer
+    Frontend developer
     <typing-write
       :text="typingWriteText">
     </typing-write>
@@ -44,7 +44,6 @@
 import StrokeDash from '@/components/StrokeDash'
 import TypingWrite from '@/components/TypingWrite'
 import HeadBoy from '@/components/HeadBoy'
-// import { loadLanguageAsync } from '@/setup/i18n-setup'
 // import { mapActions } from 'vuex'
 
 export default {
@@ -81,9 +80,6 @@ export default {
     // const language = 'zh-tw'
     // setTimeout(() => {
     //   this.setLanguage(language)
-    //     .then(() => {
-    //       this.$i18n.locale = language
-    //     })
     // }, 6000)
   }
 }
