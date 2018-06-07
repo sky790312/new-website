@@ -2,7 +2,7 @@
   <div
     id="head-boy">
     <div
-      class="head">
+      :class="['head', {moving: isMoving}]">
       <div
         class="eyes">
       </div>
@@ -15,7 +15,16 @@
 
 <script>
 export default {
-  name: 'headBoy'
+  name: 'headBoy',
+
+  props: {
+    isMoving: {
+      type: Boolean,
+      default () {
+        return false
+      }
+    }
+  }
 }
 </script>
 
@@ -40,7 +49,10 @@ $head-boy-feets-color = $dark-gray
   height: 85px
   border-radius: 50%
   background-color: $head-boy-color
-  animation: head 1.2s infinite
+
+  &.moving {
+    animation: head 1.2s infinite
+  }
 }
 
 .feets {
