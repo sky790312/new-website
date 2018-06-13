@@ -81,9 +81,6 @@ export default {
     // const language = 'zh-tw'
     // setTimeout(() => {
     //   this.setLanguage(language)
-    //     .then(() => {
-    //       this.$i18n.locale = language
-    //     })
     // }, 6000)
   }
 }
