@@ -6,11 +6,15 @@ import VueRouter from 'vue-router'
 // import Skill from '@/views/Skill'
 // import Projects from '@/views/Projects'
 
-const Home = () => import('@/views/Home.vue')
-// const Entry = () => import('@/views/Entry.vue')
-const Profile = () => import('@/views/Profile.vue')
-const Skill = () => import('@/views/Skill.vue')
-const Projects = () => import('@/views/Projects.vue')
+const asyncLoad = (view) => {
+  return () => import(`@/views/${view}.vue`)
+}
+
+const Home = () => asyncLoad('Home')
+// const Entry = () => asyncLoad('Home')
+const Profile = () => asyncLoad('Profile')
+const Skill = () => asyncLoad('Skill')
+const Projects = () => asyncLoad('Projects')
 
 const routes = [{
   path: '/',
