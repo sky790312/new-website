@@ -42,9 +42,11 @@ $white = #fff
     padding-right: 5px
     letter-spacing: .15em
     animation: typing 2.8s steps(30, end) forwards, blink-caret 1.15s step-end infinite forwards
+
     &.white {
       color: $white
     }
+
     &.primary-color {
 
     }

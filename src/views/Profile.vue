@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../stylus/variables'
+@import '~styl/variables'
 
 #profile {
 }

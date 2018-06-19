@@ -29,7 +29,10 @@
         name="headboy-slide"
         mode="out-in"
         appear>
-        <head-boy>
+        <head-boy
+          :class="headBoy.className"
+          :isActive="headBoy.isActive"
+          @onHeadBoyClick="handleHeadBoyClick()">
         </head-boy>
       </transition>
     </template>
@@ -54,7 +57,11 @@ export default {
 
   data () {
     return {
-      isEntryView: true
+      isEntryView: true,
+      headBoy: {
+        className: '',
+        isActive: false
+      }
     }
   },
 
@@ -72,6 +79,11 @@ export default {
 
     handleEntryView ($event) {
       this.isEntryView = $event
+    },
+
+    handleHeadBoyClick () {
+      this.headBoy.className = 'active'
+      this.headBoy.isActive = true
     }
 
     // handleAddUserButton () {
@@ -111,6 +123,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styl/variables'
+@import '~styl/extends'
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif
@@ -173,6 +186,14 @@ export default {
 
   &:hover {
     margin-bottom: 5px
+  }
+
+  &.active {
+    @extend .absolute-center
+
+    &:hover {
+      margin-bottom: auto
+    }
   }
 }
 

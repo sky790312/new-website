@@ -1,14 +1,15 @@
 <template>
   <div
-    id="head-boy">
+    id="head-boy"
+    @click="onHeadBoyClick()">
     <div
-      :class="['head', {moving: isMoving}]">
+      :class="['head', {moving: isActive}]">
       <div
         class="eyes">
       </div>
     </div>
     <div
-      class="feets">
+      :class="['feets', {moving: isActive}]">
     </div>
   </div>
 </template>
@@ -18,11 +19,17 @@ export default {
   name: 'headBoy',
 
   props: {
-    isMoving: {
+    isActive: {
       type: Boolean,
       default () {
         return false
       }
+    }
+  },
+
+  methods: {
+    onHeadBoyClick () {
+      this.$emit('onHeadBoyClick')
     }
   }
 }
@@ -40,6 +47,7 @@ $head-boy-feets-color = $dark-gray
 #head-boy {
   z-index: 1
   height: 85px
+  width: 85px
 }
 
 .head {
@@ -57,6 +65,7 @@ $head-boy-feets-color = $dark-gray
 .feets {
   position: relative
   top: -10px
+
   &:before, &:after {
     content: ''
     position: absolute
@@ -65,15 +74,25 @@ $head-boy-feets-color = $dark-gray
     border-radius: 50%
     background-color: $head-boy-feets-color
   }
+
   &:before {
     left: 25px
-    z-index: 1
-    animation: feets-left 1.2s infinite
+    z-index: -1
   }
+
   &:after {
     left: 45px
     z-index: -1
-    animation: feets-right 1.2s infinite
+  }
+
+  &.moving {
+    &:before {
+      animation: feets-left 1.2s infinite
+      z-index: 1
+    }
+    &:after {
+      animation: feets-right 1.2s infinite
+    }
   }
 }
 
