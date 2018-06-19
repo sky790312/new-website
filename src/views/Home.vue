@@ -1,54 +1,46 @@
 <template>
   <div
     id="home">
-    <!-- <vue-particles
-      class="particles-background"
-      :color="VueParticlesConfig.color"
-      :moveSpeed="VueParticlesConfig.moveSpeed">
-    </vue-particles> -->
-    <!-- <div class="masthead segment">
-      <div class="ui page grid">
-        <div class="column">
-          <div class="introduction">
-            <h1 class="ui inverted header">
-              <span class="text">Perspective background from old <a href="https://www.semantic-ui.com/" target="_new">Semantic UI</a> website</span>
-            </h1>
-            <div class="ui hidden divider"></div>
-          </div>
-        </div>
+    <transition
+      name="fade"
+      appear>
+      <stroke-dash
+        :text="strokeDashText">
+      </stroke-dash>
+    </transition>
+    <transition
+      name="fade"
+      appear>
+      <h3
+        class="job-title">
+        {{ $t('jobTitle') }}
+      </h3>
+    </transition>
+    <transition
+      name="fade"
+      appear>
+      <div class="tags">
+        <tag
+          v-for="tag in tags"
+          :key="tag.name"
+          :text="tag.text">
+        </tag>
       </div>
-    </div> -->
-    <stroke-dash
-      :text="strokeDashText">
-    </stroke-dash>
-    <h3
-      id="job-title">
-      {{ $t('jobTitle') }}
-    </h3>
-    <tag>
-    </tag>
-    <typing-write
-      :text="typingWriteText">
-    </typing-write>
-    <head-boy>
-    </head-boy>
-    <!-- <div class="question-container">
-      <h3 class="start">start</h3>
-      <head-boy></head-boy>
-    </div> -->
-    <!-- <router-link :to="{name: 'about'}">
-      to about
-    </router-link> -->
+    </transition>
+    <transition
+      name="fade"
+      appear>
+      <typing-write
+        :text="typingWriteText">
+      </typing-write>
+    </transition>
   </div>
 </template>
 
 <script>
-// import Vue from 'vue'
-// import VueParticles from 'vue-particles'
 
 import StrokeDash from '@/components/StrokeDash'
 import TypingWrite from '@/components/TypingWrite'
-import HeadBoy from '@/components/HeadBoy'
 import Tag from '@/components/Tag'
 // import { mapActions } from 'vuex'
 
@@ -58,19 +50,29 @@ export default {
   components: {
     StrokeDash,
     TypingWrite,
-    HeadBoy,
     Tag
   },
 
   data () {
     return {
       strokeDashText: 'kevinhu',
-      typingWriteText: this.$t('homePage.welcome')
-      // VueParticlesConfig: {
-      //   // className: 'particles-background',
-      //   color: '#fff',
-      //   moveSpeed: 1.5
-      // }
+      typingWriteText: this.$t('homePage.welcome'),
+      tags: [{
+        name: 'vue',
+        text: 'Vue'
+      }, {
+        name: 'aframe',
+        text: 'A-Frame'
+      }, {
+        name: 'd3',
+        text: 'D3.js'
+      }, {
+        name: 'nodejs',
+        text: 'Node.js'
+      }, {
+        name: 'firebase',
+        text: 'Firebase'
+      }]
     }
   },
 
@@ -83,7 +85,6 @@ export default {
   },
 
   beforeMount () {
-    // Vue.use(VueParticles)
     // const language = 'zh-tw'
     // setTimeout(() => {
     //   this.setLanguage(language)
@@ -101,56 +102,24 @@ export default {
   flex-direction: column
 }
 
-// .particles-background {
-//   position: absolute
-//   width: 100%
-//   height: 100%
-//   opacity: 0
-//   animation: opacity-fadein 1.5s ease forwards
-// }
-
-// .question-container {
-//   display: flex
-//   justify-content: center
-//   align-items: center
-//   margin-top: 40px
-//
-//   .start {
-//     color: $white
-//     font-size: 4em
-//     margin-right: 20px
-//     cursor: pointer
-//   }
-// }
-
-#job-title {
+.job-title {
   color: $white
   cursor: default
-  opacity: 0
   margin-top: 0
-  animation: opacity-fadein 2.2s ease forwards
 }
 
->>> #head-boy {
-  position: fixed
-  bottom: -20px
-  right: 20px
-  opacity: 0
-  cursor: pointer
-  animation: opacity-fadein 2.2s ease forwards
+.tags {
+  display: flex
+  margin-bottom: 40px
 }
 
-@keyframes opacity-fadein {
-   from {
-     opacity: 0
-   }
-   to {
-     opacity: 1
-   }
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 2s ease
 }
 
 #home {
   position: relative
+  z-index: 0
   background-size: cover
   background-color: $dark-gray
   background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.95))
@@ -166,11 +135,12 @@ export default {
     top: 0
     left: 0
     content: ''
+    z-index: -1
+    opacity: 0.06
     background-image: url('~assets/bkg.jpg')
     // transform-origin: 50% 50%
     // transform-style: preserve-3d
     transition: opacity 3s ease-in-out, transform 5s ease-in-out
-    opacity: 0.06
     animation: splash 15s linear infinite both
   }
 }

@@ -25,6 +25,13 @@
           </router-view>
         </keep-alive>
       </transition>
+      <transition
+        name="headboy-slide"
+        mode="out-in"
+        appear>
+        <head-boy>
+        </head-boy>
+      </transition>
     </template>
   </div>
 </template>
@@ -34,13 +41,15 @@ import { mapGetters, mapActions } from 'vuex'
 
 import AppSidebar from '@/commons/AppSidebar'
 import EntryView from '@/views/EntryView'
+import HeadBoy from '@/components/HeadBoy'
 
 export default {
   name: 'app',
 
   components: {
     EntryView,
-    AppSidebar
+    AppSidebar,
+    HeadBoy
   },
 
   data () {
@@ -102,6 +111,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styl/variables'
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
@@ -134,25 +144,48 @@ export default {
     justify-content: center
     align-items: center
   }*/
+}
 
-  .route-view {
-    position: relative
-    width: 100%
-    height: 100%
-    /*margin: auto*/
-  }
+.route-view {
+  position: relative
+  width: 100%
+  height: 100%
+  /*margin: auto*/
+}
 
-  .sidebar-slide-enter-active, .sidebar-slide-leave-active {
-    transition: all 2s ease
-  }
+.sidebar-slide-enter-active, .sidebar-slide-leave-active {
+  transition: all 2s ease
+}
 
-  .sidebar-slide-enter, .sidebar-slide-leave-active {
-    // transform: translateY(-50px)
-    opacity: 0
-    // @media (min-width: 768px) {
-    transform: translateX(-50px)
-    // }
+.sidebar-slide-enter, .sidebar-slide-leave-to {
+  // transform: translateY(-50px)
+  opacity: 0
+  // @media (min-width: 768px) {
+  transform: translateX(-50px)
+  // }
+}
+
+>>> #head-boy {
+  position: fixed
+  bottom: -20px
+  right: 20px
+  cursor: pointer
+
+  &:hover {
+    margin-bottom: 5px
   }
+}
+
+.headboy-slide-enter-active, .headboy-slide-leave-active {
+  transition: all 2s ease
+}
+
+.headboy-slide-enter, .headboy-slide-leave-to {
+  // transform: translateY(-50px)
+  opacity: 0
+  // @media (min-width: 768px) {
+  transform: translateY(50px)
+  // }
 }
 
 </style>

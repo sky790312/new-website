@@ -58,9 +58,7 @@ $dash-color-4 = #2471F2
 $dash-color-5 = #3D72CA
 
 .stroke-dash {
-	opacity: 0
   cursor: default
-	animation: opacity-fadein 2.2s ease forwards
 }
 
 #svg-text {
@@ -101,15 +99,6 @@ $dash-color-5 = #3D72CA
     stroke: $dash-color-5
     animation-delay: -10s
   }
-}
-
-@keyframes opacity-fadein {
-   from {
-     opacity: 0
-   }
-   to {
-     opacity: 1
-   }
 }
 
 @keyframes stroke {

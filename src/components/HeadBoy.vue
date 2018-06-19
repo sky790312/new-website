@@ -40,7 +40,6 @@ $head-boy-feets-color = $dark-gray
 #head-boy {
   z-index: 1
   height: 85px
-  /*animation: opacity-fadein .5s*/
 }
 
 .head {
