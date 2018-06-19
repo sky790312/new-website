@@ -33,7 +33,7 @@ export default {
       sidebarMenu: [{
         name: 'profile',
         className: 'menu',
-        text: 'sidebar.profile',
+        text: 'menus.profile',
         icon: 'fa-address-card-o',
         route: {
           name: 'profile'
@@ -41,16 +41,24 @@ export default {
       }, {
         name: 'skill',
         className: 'menu',
-        text: 'sidebar.skill',
+        text: 'menus.skill',
         icon: 'fa-bar-chart-o',
         route: {
           name: 'skill'
         }
       }, {
+        name: 'experience',
+        className: 'menu',
+        text: 'menus.experience',
+        icon: 'fa-file-text-o',
+        route: {
+          name: 'experience'
+        }
+      }, {
         name: 'projects',
         className: 'menu',
-        text: 'sidebar.projects',
-        icon: 'fa-archive',
+        text: 'menus.projects',
+        icon: 'fa-list-ol',
         route: {
           name: 'projects'
         }

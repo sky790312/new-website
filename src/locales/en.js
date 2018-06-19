@@ -6,9 +6,10 @@ const en = {
   homePage: {
     welcome: 'Welcome to my website, feel free to contact me!'
   },
-  sidebar: {
+  menus: {
     profile: 'Profile',
     skill: 'Skill',
+    experience: 'Experience',
     projects: 'Projects'
   },
   jobTitle: 'Frontend Developer'
