@@ -35,6 +35,14 @@
           @onHeadBoyClick="handleHeadBoyClick()">
         </head-boy>
       </transition>
+      <div
+        class="helper-container">
+        <rotate-in-menus
+          :isActive="headBoy.isActive"
+          :menus="rotateInMenus"
+          @onRotateInMenusClick="onRotateInMenusClick()">
+        </rotate-in-menus>
+      </div>
     </template>
   </div>
 </template>
@@ -42,9 +50,10 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
-import AppSidebar from '@/commons/AppSidebar'
 import EntryView from '@/views/EntryView'
+import AppSidebar from '@/commons/AppSidebar'
 import HeadBoy from '@/components/HeadBoy'
+import RotateInMenus from '@/components/RotateInMenus'
 
 export default {
   name: 'app',
@@ -52,7 +61,8 @@ export default {
   components: {
     EntryView,
     AppSidebar,
-    HeadBoy
+    HeadBoy,
+    RotateInMenus
   },
 
   data () {
@@ -61,7 +71,28 @@ export default {
       headBoy: {
         className: '',
         isActive: false
-      }
+      },
+      rotateInMenus: [{
+        name: 1,
+        text: '1',
+        status: 'completed'
+      }, {
+        name: 2,
+        text: '2',
+        status: 'completed'
+      }, {
+        name: 3,
+        text: '3',
+        status: 'completed'
+      }, {
+        name: 4,
+        text: '4',
+        status: 'completed'
+      }, {
+        name: 5,
+        text: '5',
+        status: 'pending'
+      }]
     }
   },
 
@@ -207,6 +238,19 @@ export default {
   // @media (min-width: 768px) {
   transform: translateY(50px)
   // }
+}
+
+.helper-container {
+  position: fixed
+  top: 50%
+  left: 50%
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  width: 85px
+  height: 85px
+  margin: auto
 }
 
 </style>

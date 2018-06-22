@@ -13,6 +13,7 @@
     </symbol>
     <use
       v-for="dash in dashCount"
+      :key="dash"
       xlink:href="#svg-text"
       class="text">
     </use>
