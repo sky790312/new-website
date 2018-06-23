@@ -1,12 +1,12 @@
 <template>
-  <div class="tag">
+  <div class="i-tag">
     {{ text }}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'tag',
+  name: 'ITag',
   props: {
     text: {
       type: String,
@@ -28,7 +28,7 @@ $tag-color = $white
 $tag-bkg-color = $light-blue
 $tag-bkg-hover-color = $light-blue2
 
-.tag {
+.i-tag {
 	margin: 5px
 	padding: 5px 8px
 	color: $tag-color

@@ -4,9 +4,9 @@
     <transition
       name="fade"
       appear>
-      <stroke-dash-text
-        :text="strokeDashText">
-      </stroke-dash-text>
+      <i-stroke-dash-text
+        :text="myName">
+      </i-stroke-dash-text>
     </transition>
     <transition
       name="fade"
@@ -19,45 +19,45 @@
     <transition
       name="fade"
       appear>
-      <div class="tags">
-        <tag
-          v-for="tag in tags"
-          :key="tag.name"
-          :text="tag.text">
-        </tag>
+      <div class="main-skill-tags-container">
+        <i-tag
+          v-for="mainSkill in mainSkillTags"
+          :key="mainSkill.name"
+          :text="mainSkill.text">
+        </i-tag>
       </div>
     </transition>
     <transition
       name="fade"
       appear>
-      <typing-text
-        :text="typingText">
-      </typing-text>
+      <i-typing-text
+        :text="welcomeText">
+      </i-typing-text>
     </transition>
   </div>
 </template>
 
 <script>
 
-import StrokeDashText from '@/components/StrokeDashText'
-import TypingText from '@/components/TypingText'
-import Tag from '@/components/Tag'
+import IStrokeDashText from '@/components/IStrokeDashText'
+import ITypingText from '@/components/ITypingText'
+import ITag from '@/components/ITag'
 // import { mapActions } from 'vuex'
 
 export default {
-  name: 'home',
+  name: 'Home',
 
   components: {
-    StrokeDashText,
-    TypingText,
-    Tag
+    IStrokeDashText,
+    ITypingText,
+    ITag
   },
 
   data () {
     return {
-      strokeDashText: 'kevinhu',
-      typingText: this.$t('homePage.welcome'),
-      tags: [{
+      myName: 'kevinhu',
+      welcomeText: this.$t('homePage.welcome'),
+      mainSkillTags: [{
         name: 'vue',
         text: 'Vue'
       }, {
@@ -108,7 +108,7 @@ export default {
   margin-top: 0
 }
 
-.tags {
+.main-skill-tags-container {
   display: flex
   margin-bottom: 40px
 }

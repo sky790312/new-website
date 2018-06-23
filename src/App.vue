@@ -8,7 +8,7 @@
     <template
       v-else>
       <transition
-        name="sidebar-slide"
+        name="app-sidebar-slide"
         mode="out-in"
         appear>
         <app-sidebar
@@ -36,12 +36,12 @@
         </i-head-boy>
       </transition>
       <div
-        class="rotate-in-menus-container">
-        <rotate-in-menus
+        class="helper-menus-container">
+        <i-rotate-in-menus
           :isActive="helperMajor.isActive"
-          :menus="rotateInMenus"
-          @onRotateInMenusClick="onRotateInMenusClick()">
-        </rotate-in-menus>
+          :menus="helperMenus"
+          @onIRotateInMenusClick="handleHelperMenusClick()">
+        </i-rotate-in-menus>
       </div>
     </template>
   </div>
@@ -53,7 +53,7 @@ import { mapGetters, mapActions } from 'vuex'
 import EntryView from '@/views/EntryView'
 import AppSidebar from '@/commons/AppSidebar'
 import IHeadBoy from '@/components/IHeadBoy'
-import RotateInMenus from '@/components/RotateInMenus'
+import IRotateInMenus from '@/components/IRotateInMenus'
 
 export default {
   name: 'app',
@@ -62,7 +62,7 @@ export default {
     EntryView,
     AppSidebar,
     IHeadBoy,
-    RotateInMenus
+    IRotateInMenus
   },
 
   data () {
@@ -72,7 +72,7 @@ export default {
         className: ['helper-major'],
         isActive: false
       },
-      rotateInMenus: [{
+      helperMenus: [{
         name: 1,
         text: '1',
         status: 'completed'
@@ -115,6 +115,10 @@ export default {
     handleHelperMajorClick () {
       this.helperMajor.className.push('active')
       this.helperMajor.isActive = true
+    },
+
+    handleHelperMenusClick () {
+      console.log('in handleHelperMenusClick')
     }
 
     // handleAddUserButton () {
@@ -197,11 +201,11 @@ export default {
   /*margin: auto*/
 }
 
-.sidebar-slide-enter-active, .sidebar-slide-leave-active {
+.app-sidebar-slide-enter-active, .app-sidebar-slide-leave-active {
   transition: all 2s ease
 }
 
-.sidebar-slide-enter, .sidebar-slide-leave-to {
+.app-sidebar-slide-enter, .app-sidebar-slide-leave-to {
   // transform: translateY(-50px)
   opacity: 0
   // @media (min-width: 768px) {
@@ -240,7 +244,7 @@ export default {
   // }
 }
 
-.rotate-in-menus-container {
+.helper-menus-container {
   @extend .absolute-center
   width: 85px
   height: 85px

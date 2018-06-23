@@ -15,7 +15,7 @@ describe('TypingWrite', () => {
   it('should use props and rendor to typing', () => {
     const text = 'test'
     const vm = generateTypingWrite(text)
-    const typingWord = vm.$el.querySelector('.typing-text .typing-word')
+    const typingWord = vm.$el.querySelector('.i-typing-text .typing-word')
     expect(typingWord.textContent.trim()).to.equal(text)
   })
 
@@ -23,7 +23,7 @@ describe('TypingWrite', () => {
     const text = 'test'
     const color = 'white'
     const vm = generateTypingWrite(text, color)
-    const typingWord = vm.$el.querySelector('.typing-text .typing-word')
+    const typingWord = vm.$el.querySelector('.i-typing-text .typing-word')
     expect(Array.prototype.slice.call(typingWord.classList)).to.include(color)
   })
 
@@ -31,7 +31,7 @@ describe('TypingWrite', () => {
     const text = 'test'
     const color = 'primary-color'
     const vm = generateTypingWrite(text, color)
-    const typingWord = vm.$el.querySelector('.typing-text .typing-word')
+    const typingWord = vm.$el.querySelector('.i-typing-text .typing-word')
     expect(Array.prototype.slice.call(typingWord.classList)).to.include(color)
   })
 })

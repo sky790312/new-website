@@ -1,6 +1,6 @@
 <template>
   <ul
-    :class="['rotate-in-menus', {'active': isActive}]">
+    :class="['i-rotate-in-menus', {'active': isActive}]">
     <li
       v-for="menu in menus"
       :key="menu.name"
@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'rotateInMenus',
+  name: 'IRotateInMenus',
 
   props: {
     isActive: {
@@ -38,8 +38,8 @@ export default {
   },
 
   methods: {
-    onRotateInMenusClick () {
-      this.$emit('onRotateInMenusClick')
+    onIRotateInMenusClick () {
+      this.$emit('onIRotateInMenusClick')
     }
   }
 }
@@ -56,14 +56,14 @@ $item-color = $white
 $item-background = $light-blue
 
 for $i in (1..$item-count) {
-  .rotate-in-menus {
+  .i-rotate-in-menus {
     li:nth-child({$i}) a {
       transform: rotate(-180deg / ($item-count - 1) * ($i - 1))
     }
   }
 }
 
-.rotate-in-menus {
+.i-rotate-in-menus {
   visibility: hidden
 
   &.active {

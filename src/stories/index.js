@@ -3,8 +3,8 @@
 
 import { storiesOf } from '@storybook/vue'
 
-import './components/TypingText.story.js'
-import './components/StrokeDashText.story.js'
+import './components/ITypingText.story.js'
+import './components/IStrokeDashText.story.js'
 import './components/IHeadBoy.story.js'
 import './components/VueParticles.story.js'
 // import './components/EntryView.story.js'

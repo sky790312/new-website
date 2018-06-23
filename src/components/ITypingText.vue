@@ -1,6 +1,6 @@
 <template>
   <div
-    class="typing-text">
+    class="i-typing-text">
     <p
       :class="['text', color]">
       {{ text }}
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'typingText',
+  name: 'ITypingText',
   props: {
     text: {
       type: String,
@@ -32,7 +32,7 @@ export default {
 
 $white = #fff
 
-.typing-text {
+.i-typing-text {
   .text {
     overflow: hidden
     border-right: .15em solid $white

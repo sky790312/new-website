@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'experience',
+  name: 'Experience',
 
   components: {
   },
@@ -27,7 +27,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~styl/variables'
 
-#profile {
+#experience {
 }
 
 </style>

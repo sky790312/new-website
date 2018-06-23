@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: 'appSidebar',
+  name: 'AppSidebar',
   data () {
     return {
       sidebarMenu: [{
