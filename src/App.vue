@@ -51,7 +51,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 import EntryView from '@/views/EntryView'
-import AppSidebar from '@/commons/AppSidebar'
+import AppSidebar from '@/views/layout/AppSidebar'
 import IHeadBoy from '@/components/IHeadBoy'
 import IRotateInMenus from '@/components/IRotateInMenus'
 
