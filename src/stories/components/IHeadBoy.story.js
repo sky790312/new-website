@@ -2,17 +2,17 @@
 import { storiesOf } from '@storybook/vue'
 import Centered from '@storybook/addon-centered';
 
-import HeadBoy from '../../components/HeadBoy.vue'
+import IHeadBoy from '../../components/IHeadBoy.vue'
 
-const stories = storiesOf('HeadBoy')
+const stories = storiesOf('IHeadBoy')
 stories.addDecorator(Centered)
 
 stories
   .add('default', () => ({
-    components: { HeadBoy },
+    components: { IHeadBoy },
     template: `
-      <head-boy>
-      </head-boy>
+      <i-head-boy>
+      </i-head-boy>
     `
   })
 )

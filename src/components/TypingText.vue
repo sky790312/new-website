@@ -1,8 +1,8 @@
 <template>
   <div
-    id="typing-write">
+    class="typing-text">
     <p
-      :class="['typing-word', color]">
+      :class="['text', color]">
       {{ text }}
     </p>
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'typingWrite',
+  name: 'typingText',
   props: {
     text: {
       type: String,
@@ -32,8 +32,8 @@ export default {
 
 $white = #fff
 
-#typing-write {
-  .typing-word {
+.typing-text {
+  .text {
     overflow: hidden
     border-right: .15em solid $white
     white-space: nowrap

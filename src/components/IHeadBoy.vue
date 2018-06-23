@@ -1,7 +1,7 @@
 <template>
   <div
-    id="head-boy"
-    @click="onHeadBoyClick()">
+    class="i-head-boy"
+    @click="onIHeadBoyClick()">
     <div
       :class="['head', {moving: isActive}]">
       <div
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: 'headBoy',
+  name: 'IHeadBoy',
 
   props: {
     isActive: {
@@ -28,8 +28,8 @@ export default {
   },
 
   methods: {
-    onHeadBoyClick () {
-      this.$emit('onHeadBoyClick')
+    onIHeadBoyClick () {
+      this.$emit('onIHeadBoyClick')
     }
   }
 }
@@ -40,11 +40,11 @@ export default {
 $dark-gray = #444
 $light-gray = #bbb
 
-$head-boy-color = $light-gray
-$head-boy-eyes-color = $dark-gray
-$head-boy-feets-color = $dark-gray
+$i-head-boy-color = $light-gray
+$i-head-boy-eyes-color = $dark-gray
+$i-head-boy-feets-color = $dark-gray
 
-#head-boy {
+.i-head-boy {
   z-index: 1
   height: 85px
   width: 85px
@@ -55,7 +55,7 @@ $head-boy-feets-color = $dark-gray
   width: 85px
   height: 85px
   border-radius: 50%
-  background-color: $head-boy-color
+  background-color: $i-head-boy-color
 
   &.moving {
     animation: head 1.2s infinite
@@ -72,7 +72,7 @@ $head-boy-feets-color = $dark-gray
     width: 20px
     height: 20px
     border-radius: 50%
-    background-color: $head-boy-feets-color
+    background-color: $i-head-boy-feets-color
   }
 
   &:before {
@@ -103,8 +103,8 @@ $head-boy-feets-color = $dark-gray
   width: 6px
   height: 6px
   border-radius: 50%
-  background-color: $head-boy-eyes-color
-  box-shadow: 20px 0 0 $head-boy-eyes-color
+  background-color: $i-head-boy-eyes-color
+  box-shadow: 20px 0 0 $i-head-boy-eyes-color
   animation: eyes 2.5s infinite
 }
 

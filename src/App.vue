@@ -26,19 +26,19 @@
         </keep-alive>
       </transition>
       <transition
-        name="headboy-slide"
+        name="helper-major-slide"
         mode="out-in"
         appear>
-        <head-boy
-          :class="headBoy.className"
-          :isActive="headBoy.isActive"
-          @onHeadBoyClick="handleHeadBoyClick()">
-        </head-boy>
+        <i-head-boy
+          :class="helperMajor.className"
+          :isActive="helperMajor.isActive"
+          @onIHeadBoyClick="handleHelperMajorClick()">
+        </i-head-boy>
       </transition>
       <div
-        class="helper-container">
+        class="rotate-in-menus-container">
         <rotate-in-menus
-          :isActive="headBoy.isActive"
+          :isActive="helperMajor.isActive"
           :menus="rotateInMenus"
           @onRotateInMenusClick="onRotateInMenusClick()">
         </rotate-in-menus>
@@ -52,7 +52,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 import EntryView from '@/views/EntryView'
 import AppSidebar from '@/commons/AppSidebar'
-import HeadBoy from '@/components/HeadBoy'
+import IHeadBoy from '@/components/IHeadBoy'
 import RotateInMenus from '@/components/RotateInMenus'
 
 export default {
@@ -61,15 +61,15 @@ export default {
   components: {
     EntryView,
     AppSidebar,
-    HeadBoy,
+    IHeadBoy,
     RotateInMenus
   },
 
   data () {
     return {
       isEntryView: true,
-      headBoy: {
-        className: '',
+      helperMajor: {
+        className: ['helper-major'],
         isActive: false
       },
       rotateInMenus: [{
@@ -112,9 +112,9 @@ export default {
       this.isEntryView = $event
     },
 
-    handleHeadBoyClick () {
-      this.headBoy.className = 'active'
-      this.headBoy.isActive = true
+    handleHelperMajorClick () {
+      this.helperMajor.className.push('active')
+      this.helperMajor.isActive = true
     }
 
     // handleAddUserButton () {
@@ -209,7 +209,7 @@ export default {
   // }
 }
 
->>> #head-boy {
+.helper-major {
   position: fixed
   bottom: -20px
   right: 20px
@@ -228,11 +228,11 @@ export default {
   }
 }
 
-.headboy-slide-enter-active, .headboy-slide-leave-active {
+.helper-major-slide-enter-active, .helper-major-slide-leave-active {
   transition: all 2s ease
 }
 
-.headboy-slide-enter, .headboy-slide-leave-to {
+.helper-major-slide-enter, .helper-major-slide-leave-to {
   // transform: translateY(-50px)
   opacity: 0
   // @media (min-width: 768px) {
@@ -240,14 +240,8 @@ export default {
   // }
 }
 
-.helper-container {
-  position: fixed
-  top: 50%
-  left: 50%
-  top: 0
-  bottom: 0
-  left: 0
-  right: 0
+.rotate-in-menus-container {
+  @extend .absolute-center
   width: 85px
   height: 85px
   margin: auto

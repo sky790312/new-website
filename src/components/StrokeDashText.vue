@@ -1,7 +1,6 @@
 <template>
   <svg
-    id="stroke-dash"
-    class="stroke-dash">
+    class="stroke-dash-text">
     <symbol id="svg-text">
       <text
         :text-anchor="textConfig.textAnchor"
@@ -22,7 +21,7 @@
 
 <script>
 export default {
-  name: 'strokeDash',
+  name: 'strokeDashText',
   props: {
     text: {
       type: String,
@@ -58,7 +57,7 @@ $dash-color-3 = #4EAFFA
 $dash-color-4 = #2471F2
 $dash-color-5 = #3D72CA
 
-.stroke-dash {
+.stroke-dash-text {
   cursor: default
 }
 

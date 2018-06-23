@@ -4,9 +4,9 @@
     <transition
       name="fade"
       appear>
-      <stroke-dash
+      <stroke-dash-text
         :text="strokeDashText">
-      </stroke-dash>
+      </stroke-dash-text>
     </transition>
     <transition
       name="fade"
@@ -30,17 +30,17 @@
     <transition
       name="fade"
       appear>
-      <typing-write
-        :text="typingWriteText">
-      </typing-write>
+      <typing-text
+        :text="typingText">
+      </typing-text>
     </transition>
   </div>
 </template>
 
 <script>
 
-import StrokeDash from '@/components/StrokeDash'
-import TypingWrite from '@/components/TypingWrite'
+import StrokeDashText from '@/components/StrokeDashText'
+import TypingText from '@/components/TypingText'
 import Tag from '@/components/Tag'
 // import { mapActions } from 'vuex'
 
@@ -48,15 +48,15 @@ export default {
   name: 'home',
 
   components: {
-    StrokeDash,
-    TypingWrite,
+    StrokeDashText,
+    TypingText,
     Tag
   },
 
   data () {
     return {
       strokeDashText: 'kevinhu',
-      typingWriteText: this.$t('homePage.welcome'),
+      typingText: this.$t('homePage.welcome'),
       tags: [{
         name: 'vue',
         text: 'Vue'
