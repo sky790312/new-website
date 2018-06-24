@@ -45,7 +45,6 @@ $i-head-boy-eyes-color = $dark-gray
 $i-head-boy-feets-color = $dark-gray
 
 .i-head-boy {
-  z-index: 1
   height: 85px
   width: 85px
 }

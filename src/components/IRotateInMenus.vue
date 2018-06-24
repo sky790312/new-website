@@ -6,7 +6,7 @@
       :key="menu.name"
       class="menu-container">
       <a
-        @click="onRotateInMenusClick()"
+        @click="onIRotateInMenusClick(menu)"
         :class="['menu', menu.status]">
         <strong
           class="menu-text">
@@ -38,8 +38,8 @@ export default {
   },
 
   methods: {
-    onIRotateInMenusClick () {
-      this.$emit('onIRotateInMenusClick')
+    onIRotateInMenusClick (menu) {
+      this.$emit('onIRotateInMenusClick', menu)
     }
   }
 }

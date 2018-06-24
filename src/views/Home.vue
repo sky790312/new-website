@@ -100,24 +100,6 @@ export default {
 #home {
   @extend .flex-center
   flex-direction: column
-}
-
-.job-title {
-  color: $white
-  cursor: default
-  margin-top: 0
-}
-
-.main-skill-tags-container {
-  display: flex
-  margin-bottom: 40px
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 2s ease
-}
-
-#home {
   position: relative
   z-index: 0
   background-size: cover
@@ -152,6 +134,21 @@ export default {
   100% {
     background-position: 0% -540px
   }
+}
+
+.job-title {
+  color: $white
+  cursor: default
+  margin-top: 0
+}
+
+.main-skill-tags-container {
+  display: flex
+  margin-bottom: 40px
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 2s ease
 }
 
 </style>

@@ -26,23 +26,12 @@
         </keep-alive>
       </transition>
       <transition
-        name="helper-major-slide"
+        name="helper-slide"
         mode="out-in"
         appear>
-        <i-head-boy
-          :class="helperMajor.className"
-          :isActive="helperMajor.isActive"
-          @onIHeadBoyClick="handleHelperMajorClick()">
-        </i-head-boy>
+        <helper>
+        </helper>
       </transition>
-      <div
-        class="helper-menus-container">
-        <i-rotate-in-menus
-          :isActive="helperMajor.isActive"
-          :menus="helperMenus"
-          @onIRotateInMenusClick="handleHelperMenusClick()">
-        </i-rotate-in-menus>
-      </div>
     </template>
   </div>
 </template>
@@ -51,48 +40,21 @@
 import { mapGetters, mapActions } from 'vuex'
 
 import EntryView from '@/views/EntryView'
-import AppSidebar from '@/views/layout/AppSidebar'
-import IHeadBoy from '@/components/IHeadBoy'
-import IRotateInMenus from '@/components/IRotateInMenus'
+import AppSidebar from '@/views/AppCommon/AppSidebar'
+import Helper from '@/views/AppCommon/Helper'
 
 export default {
-  name: 'app',
+  name: 'App',
 
   components: {
     EntryView,
     AppSidebar,
-    IHeadBoy,
-    IRotateInMenus
+    Helper
   },
 
   data () {
     return {
-      isEntryView: true,
-      helperMajor: {
-        className: ['helper-major'],
-        isActive: false
-      },
-      helperMenus: [{
-        name: 1,
-        text: '1',
-        status: 'completed'
-      }, {
-        name: 2,
-        text: '2',
-        status: 'completed'
-      }, {
-        name: 3,
-        text: '3',
-        status: 'completed'
-      }, {
-        name: 4,
-        text: '4',
-        status: 'completed'
-      }, {
-        name: 5,
-        text: '5',
-        status: 'pending'
-      }]
+      isEntryView: true
     }
   },
 
@@ -110,15 +72,6 @@ export default {
 
     handleEntryView ($event) {
       this.isEntryView = $event
-    },
-
-    handleHelperMajorClick () {
-      this.helperMajor.className.push('active')
-      this.helperMajor.isActive = true
-    },
-
-    handleHelperMenusClick () {
-      console.log('in handleHelperMenusClick')
     }
 
     // handleAddUserButton () {
@@ -213,42 +166,16 @@ export default {
   // }
 }
 
-.helper-major {
-  position: fixed
-  bottom: -20px
-  right: 20px
-  cursor: pointer
-
-  &:hover {
-    margin-bottom: 5px
-  }
-
-  &.active {
-    @extend .absolute-center
-
-    &:hover {
-      margin-bottom: auto
-    }
-  }
-}
-
-.helper-major-slide-enter-active, .helper-major-slide-leave-active {
+#helper.helper-slide-enter-active, #helper.helper-slide-leave-active {
   transition: all 2s ease
 }
 
-.helper-major-slide-enter, .helper-major-slide-leave-to {
+.helper-slide-enter, .helper-slide-leave-to {
   // transform: translateY(-50px)
   opacity: 0
   // @media (min-width: 768px) {
   transform: translateY(50px)
   // }
-}
-
-.helper-menus-container {
-  @extend .absolute-center
-  width: 85px
-  height: 85px
-  margin: auto
 }
 
 </style>

@@ -3,17 +3,16 @@
     id="app-sidebar">
     <h1>
       <router-link
-        class="main-menu"
+        class="logo"
         :to="{name: 'home'}">
         KevinHu
       </router-link>
     </h1>
     <div
-      v-for="menu in sidebarMenu"
-      :class="menu.className"
-      :key="menu.name">
+      v-for="menu in sidebarMenus"
+      :key="menu.name"
+      class="menu">
       <router-link
-        class="router-link"
         :to="menu.route">
         <i
           :class="['fa', menu.icon]"
@@ -28,11 +27,11 @@
 <script>
 export default {
   name: 'AppSidebar',
+
   data () {
     return {
-      sidebarMenu: [{
+      sidebarMenus: [{
         name: 'profile',
-        className: 'menu',
         text: 'menus.profile',
         icon: 'fa-address-card-o',
         route: {
@@ -40,7 +39,6 @@ export default {
         }
       }, {
         name: 'skill',
-        className: 'menu',
         text: 'menus.skill',
         icon: 'fa-bar-chart-o',
         route: {
@@ -48,7 +46,6 @@ export default {
         }
       }, {
         name: 'experience',
-        className: 'menu',
         text: 'menus.experience',
         icon: 'fa-file-text-o',
         route: {
@@ -56,7 +53,6 @@ export default {
         }
       }, {
         name: 'projects',
-        className: 'menu',
         text: 'menus.projects',
         icon: 'fa-list-ol',
         route: {
@@ -78,7 +74,7 @@ export default {
   padding: 0 15px
 }
 
-.main-menu {
+.logo {
   color: $white
   text-decoration: none
 }
@@ -86,15 +82,15 @@ export default {
 .menu {
   padding: 10px 0
 
-  .router-link {
+  a {
     color: $white
-    text-decoration: none
 
-    &:hover {
+    &:not(.active):hover {
       opacity: .7
     }
 
-    &.router-link-active {
+    &.active {
+      cursor: default
       font-weight: bold
     }
   }
