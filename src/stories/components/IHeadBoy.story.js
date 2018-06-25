@@ -1,18 +1,29 @@
 /* eslint-disable */
 import { storiesOf } from '@storybook/vue'
 import Centered from '@storybook/addon-centered';
+import { withKnobs, boolean } from '@storybook/addon-knobs/vue';
 
 import IHeadBoy from '../../components/IHeadBoy.vue'
 
 const stories = storiesOf('IHeadBoy')
+stories.addDecorator(withKnobs)
 stories.addDecorator(Centered)
 
 stories
-  .add('default', () => ({
-    components: { IHeadBoy },
-    template: `
-      <i-head-boy>
-      </i-head-boy>
-    `
-  })
+  .add('default', () => {
+    const isActive = boolean('active: ', false)
+    return {
+      components: { IHeadBoy },
+      template: `
+        <i-head-boy
+          :isActive="isActive">
+        </i-head-boy>
+      `,
+      data () {
+        return {
+          isActive: isActive
+        }
+      }
+    }
+  }
 )

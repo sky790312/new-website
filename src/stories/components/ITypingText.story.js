@@ -26,7 +26,7 @@ stories
       `,
       data () {
         return {
-          typingTextText: typingTextText,
+          typingText: typingText,
           typingTextColor: typingTextColor
         }
       }

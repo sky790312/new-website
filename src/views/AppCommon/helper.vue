@@ -77,7 +77,7 @@ export default {
   bottom: -30px
   right: 20px
   cursor: pointer
-  transition: all .3s linear
+  transition: all .2s linear
 
   &:hover {
     margin-bottom: 5px
