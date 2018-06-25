@@ -11,7 +11,6 @@ function resolve (dir) {
 module.exports = {
   cache: true,
   entry: {
-    'babel-polyfill': 'babel-polyfill',
     app: './src/main.js'
   },
   output: {
