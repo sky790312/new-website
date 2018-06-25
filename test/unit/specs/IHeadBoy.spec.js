@@ -1,12 +1,12 @@
 import Vue from 'vue'
-import HeadBoy from '@/components/HeadBoy'
+import IHeadBoy from '@/components/IHeadBoy'
 
 const generateHeadBoy = () => {
-  const Constructor = Vue.extend(HeadBoy)
+  const Constructor = Vue.extend(IHeadBoy)
   return new Constructor().$mount()
 }
 
-describe('HeadBoy', () => {
+describe('IHeadBoy', () => {
   it('should has head with eyes class', () => {
     const vm = generateHeadBoy()
     const head = vm.$el.childNodes[0]
