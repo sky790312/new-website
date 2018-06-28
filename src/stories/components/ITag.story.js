@@ -3,25 +3,25 @@ import { storiesOf } from '@storybook/vue'
 import Centered from '@storybook/addon-centered';
 import { withKnobs, text } from '@storybook/addon-knobs/vue';
 
-import IStrokeDashText from '@/components/IStrokeDashText'
+import ITag from '@/components/ITag'
 
-const stories = storiesOf('IStrokeDashText')
+const stories = storiesOf('ITag')
 stories.addDecorator(withKnobs)
 stories.addDecorator(Centered)
 
 stories
   .add('default', () => {
-    const strokeDashText = text('text', 'KevinHu')
+    const tagText = text('text', 'testTag')
     return {
-      components: { IStrokeDashText },
+      components: { ITag },
       template: `
-        <i-stroke-dash-text
-          :text="strokeDashText">
-        </i-stroke-dash-text>
+        <i-tag
+          :text="tagText">
+        </i-tag>
       `,
       data () {
         return {
-          strokeDashText: strokeDashText
+          tagText: tagText
         }
       }
     }

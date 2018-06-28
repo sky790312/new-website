@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/vue'
 import Centered from '@storybook/addon-centered';
 import { withKnobs, text, select } from '@storybook/addon-knobs/vue';
 
-import ITypingText from '@/components/ITypingText.vue'
+import ITypingText from '@/components/ITypingText'
 
 const stories = storiesOf('ITypingText')
 stories.addDecorator(withKnobs)

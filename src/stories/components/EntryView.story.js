@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions'
 import VueI18n from 'vue-i18n'
 
 import locales from '@/locales'
-import EntryView from '@/views/EntryView/index.vue'
+import EntryView from '@/views/EntryView'
 
 storiesOf('Page', module)
   .add('entry view', () => ({
