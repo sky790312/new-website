@@ -83,10 +83,24 @@ export default {
   padding: 10px 0
 
   a {
+    position: relative
     color: $white
 
-    &:not(.active):hover {
-      opacity: .7
+    &:not(.active) {
+      &:after {
+        content: ''
+        position: absolute
+        bottom: -1px
+        left: 0
+        width: 0
+        height: 1px
+        background-color: $white
+        transition: width .3s ease
+      }
+
+      &:hover:after {
+        width: 100%
+      }
     }
 
     &.active {
