@@ -5,7 +5,7 @@ const generateITag = (text = '') => {
   const Constructor = Vue.extend(ITag)
   return new Constructor({
     propsData: {
-      text: text
+      text
     }
   }).$mount()
 }

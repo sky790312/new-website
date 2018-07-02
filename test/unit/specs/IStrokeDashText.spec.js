@@ -5,7 +5,7 @@ const generateStrokeDash = (text = '') => {
   const Constructor = Vue.extend(IStrokeDashText)
   return new Constructor({
     propsData: {
-      text: text
+      text
     }
   }).$mount()
 }
