@@ -92,6 +92,15 @@ export default {
     display: flex
     align-items: center
     justify-content: center
+    background-color: rgba($black, .85)
+  }
+
+  .helper-menu {
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
   }
 }
 
