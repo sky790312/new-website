@@ -89,9 +89,9 @@ export default {
     right: 0
     bottom: 0
     left: 0
-    width: 85px
-    height: 85px
-    margin: auto
+    display: flex
+    align-items: center
+    justify-content: center
   }
 }
 
