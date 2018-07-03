@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import IHeadBoy from '@/components/IHeadBoy'
 
-const generateHeadBoy = () => {
+const generateHeadBoy = (isActive = false) => {
   const Constructor = Vue.extend(IHeadBoy)
-  return new Constructor().$mount()
+  return new Constructor({
+    propsData: {
+      isActive
+    }
+  }).$mount()
 }
 
 describe('IHeadBoy', () => {
@@ -11,13 +15,22 @@ describe('IHeadBoy', () => {
     const vm = generateHeadBoy()
     const head = vm.$el.childNodes[0]
     const eyes = head.childNodes[0]
-    expect(Array.prototype.slice.call(head.classList)).to.include('head')
-    expect(Array.prototype.slice.call(eyes.classList)).to.include('eyes')
+    expect(head.classList.contains('head')).to.equal(true)
+    expect(eyes.classList.contains('eyes')).to.equal(true)
   })
 
   it('should has feets class', () => {
     const vm = generateHeadBoy()
     const feets = vm.$el.childNodes[2]
-    expect(Array.prototype.slice.call(feets.classList)).to.include('feets')
+    expect(feets.classList.contains('feets')).to.equal(true)
+  })
+
+  it('should has moving class when receive active props', () => {
+    const isActive = true
+    const vm = generateHeadBoy(isActive)
+    const head = vm.$el.childNodes[0]
+    expect(head.classList.contains('moving')).to.equal(true)
+    const feets = vm.$el.childNodes[2]
+    expect(feets.classList.contains('moving')).to.equal(true)
   })
 })
