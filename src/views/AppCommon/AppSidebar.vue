@@ -3,7 +3,7 @@
     id="app-sidebar">
     <h1>
       <router-link
-        class="logo"
+        class="logo router-link"
         :to="{name: 'home'}">
         KevinHu
       </router-link>
@@ -13,6 +13,7 @@
       :key="menu.name"
       class="menu">
       <router-link
+        class="router-link"
         :to="menu.route">
         <i
           :class="['fa', menu.icon]"
@@ -70,19 +71,17 @@ export default {
 #app-sidebar {
   background-color: $black
   border-right: 1px groove $white
-  color: $white
   padding: 0 15px
 }
 
 .logo {
   color: $white
-  text-decoration: none
 }
 
 .menu {
   padding: 10px 0
 
-  a {
+  .router-link {
     color: $white
 
     &:not(.active):hover {

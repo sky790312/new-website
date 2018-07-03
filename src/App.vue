@@ -21,7 +21,7 @@
         appear>
         <keep-alive>
           <router-view
-            class="route-view">
+            class="router-view">
           </router-view>
         </keep-alive>
       </transition>
@@ -139,7 +139,7 @@ export default {
     grid-area: sidebar
   }*/
 
-  /*.route-view {
+  /*.router-view {
     grid-area: content
     display: flex
     justify-content: center
@@ -147,7 +147,7 @@ export default {
   }*/
 }
 
-.route-view {
+.router-view {
   position: relative
   width: 100%
   height: 100%
