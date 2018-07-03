@@ -72,25 +72,25 @@ export default {
   background-color: $black
   border-right: 1px groove $white
   padding: 0 15px
-}
 
-.logo {
-  color: $white
-}
-
-.menu {
-  padding: 10px 0
-
-  .router-link {
+  .logo {
     color: $white
+  }
 
-    &:not(.active):hover {
-      opacity: .7
-    }
+  .menu {
+    padding: 10px 0
 
-    &.active {
-      cursor: default
-      font-weight: bold
+    .router-link {
+      color: $white
+
+      &:not(.active):hover {
+        opacity: .7
+      }
+
+      &.active {
+        cursor: default
+        font-weight: bold
+      }
     }
   }
 }
