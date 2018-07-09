@@ -2,16 +2,16 @@
   <div
     id="helper"
     :class="{'active': helper.isActive}">
-    <i-head-boy
-      class="helper-major"
-      :isActive="helper.isActive"
-      @onIHeadBoyClick="handleHelperMajorClick">
-    </i-head-boy>
     <i-rotate-in-menus
       class="helper-menu"
       :isActive="helper.isActive"
       :menus="helper.menus"
       @onIRotateInMenusClick="handleHelperMenusClick">
+      <i-head-boy
+        class="helper-major"
+        :isActive="helper.isActive"
+        @onIHeadBoyClick="handleHelperMajorClick">
+      </i-head-boy>
     </i-rotate-in-menus>
   </div>
 </template>
@@ -93,14 +93,6 @@ export default {
     align-items: center
     justify-content: center
     background-color: rgba($black, .85)
-  }
-
-  .helper-menu {
-    position: absolute
-    top: 0
-    right: 0
-    bottom: 0
-    left: 0
   }
 }
 
