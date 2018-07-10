@@ -3,7 +3,7 @@
     id="app-sidebar">
     <h1>
       <router-link
-        class="logo"
+        class="logo router-link"
         :to="{name: 'home'}">
         KevinHu
       </router-link>
@@ -13,6 +13,7 @@
       :key="menu.name"
       class="menu">
       <router-link
+        class="router-link"
         :to="menu.route">
         <i
           :class="['fa', menu.icon]"
@@ -70,42 +71,45 @@ export default {
 #app-sidebar {
   background-color: $black
   border-right: 1px groove $white
-  color: $white
   padding: 0 15px
-}
+  box-sizing: border-box
 
-.logo {
-  color: $white
-  text-decoration: none
-}
+  @media screen and (min-width: $mobileBreakPoint) {
+    width: $appSidebarWidth
+  }
 
-.menu {
-  padding: 10px 0
-
-  a {
-    position: relative
+  .logo {
     color: $white
+  }
 
-    &:not(.active) {
-      &:after {
-        content: ''
-        position: absolute
-        bottom: -1px
-        left: 0
-        width: 0
-        height: 1px
-        background-color: $white
-        transition: width .3s ease
+  .menu {
+    padding: 10px 0
+
+    .router-link {
+      position: relative
+      color: $white
+
+      &.active {
+        cursor: default
+        font-weight: bold
       }
 
-      &:hover:after {
-        width: 100%
-      }
-    }
+      &:not(.active) {
+        &:after {
+          content: ''
+          position: absolute
+          bottom: -1px
+          left: 0
+          width: 0
+          height: 1px
+          background-color: $white
+          transition: width .3s ease
+        }
 
-    &.active {
-      cursor: default
-      font-weight: bold
+        &:hover:after {
+          width: 100%
+        }
+      }
     }
   }
 }

@@ -21,7 +21,7 @@
         appear>
         <keep-alive>
           <router-view
-            class="route-view">
+            class="router-view">
           </router-view>
         </keep-alive>
       </transition>
@@ -139,7 +139,7 @@ export default {
     grid-area: sidebar
   }*/
 
-  /*.route-view {
+  /*.router-view {
     grid-area: content
     display: flex
     justify-content: center
@@ -147,11 +147,15 @@ export default {
   }*/
 }
 
-.route-view {
+.router-view {
   position: relative
-  width: 100%
-  height: 100%
+  width: 100vw
+  height: calc(100vh - 230px)
   /*margin: auto*/
+  @media screen and (min-width: $mobileBreakPoint) {
+    width: "calc(100vw - %s)" % $appSidebarWidth
+    height: 100vh
+  }
 }
 
 .app-sidebar-slide-enter-active, .app-sidebar-slide-leave-active {

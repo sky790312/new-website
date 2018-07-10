@@ -125,6 +125,21 @@ export default {
     transition: opacity 3s ease-in-out, transform 5s ease-in-out
     animation: splash 15s linear infinite both
   }
+
+  .job-title {
+    color: $white
+    cursor: default
+    margin-top: 0
+  }
+
+  .main-skill-tags-container {
+    display: flex
+    margin-bottom: 40px
+  }
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 2s ease
+  }
 }
 
 @keyframes splash {
@@ -134,21 +149,6 @@ export default {
   100% {
     background-position: 0% -540px
   }
-}
-
-.job-title {
-  color: $white
-  cursor: default
-  margin-top: 0
-}
-
-.main-skill-tags-container {
-  display: flex
-  margin-bottom: 40px
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 2s ease
 }
 
 </style>

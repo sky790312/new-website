@@ -9,11 +9,8 @@
         class="menu">
         <a
           @click="onIRotateInMenusClick(menu)"
-          :class="['menu-item', menu.status]">
-          <strong
-            class="menu-text">
+          :class="['menu-title', menu.status]">
             {{ menu.text }}
-          </strong>
         </a>
       </li>
     </ul>
@@ -63,7 +60,7 @@ $item-background = $light-blue
 }
 
 for $i in (1..$item-count) {
-  .menu:nth-child({$i}) .menu-item {
+  .menu:nth-child({$i}) .menu-title {
     transform: rotate(-180deg / ($item-count - 1) * ($i - 1))
   }
 }
@@ -95,23 +92,25 @@ for $i in (1..$item-count) {
   transition: opacity .5s, transform .5s
 }
 
-.menu-item {
-  display: block
+.menu-title {
+  display: flex
+  justify-content: center
+  align-items: center
   width: inherit
   height: inherit
   color: $item-color
-  background: $item-background
+  background-color: $item-background
   border-radius: 50%
-  text-align: center
   text-decoration: none
   font-size: 12px
+  font-weight: bold
   cursor: pointer
   transition: .2s
 
   &.completed {
     &:hover {
       box-shadow: 0 0 0 ($item-size / 40) rgba($white, 0.3)
-      background: rgba($item-background, 0.3)
+      background-color: rgba($item-background, 0.3)
     }
   }
 
@@ -120,19 +119,9 @@ for $i in (1..$item-count) {
     cursor: default
 
     &:hover {
-      background: $item-background
+      background-color: $item-background
     }
   }
-}
-
-.menu-text {
-  display: block
-  position: relative
-  top: 50%
-  width: ($item-size - 10px)
-  margin: auto
-  word-wrap: break-word
-  transform: translateY(-50%)
 }
 
 </style>

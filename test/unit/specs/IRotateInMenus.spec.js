@@ -30,25 +30,24 @@ const menus = [
 describe('IRotateInMenus', () => {
   it('should render correct menu number', () => {
     const vm = generateIRotateInMenus(menus)
-    const menuNumber = vm.$el.querySelectorAll('.menu-item').length
+    const menuNumber = vm.$el.querySelectorAll('.menu').length
     expect(menuNumber).to.equal(menus.length)
   })
 
   it('should each menu has correct text and class from status', () => {
     const vm = generateIRotateInMenus(menus)
-    const completedMenu = vm.$el.querySelectorAll('.menu-item')[0]
-    expect(completedMenu.querySelector('.menu-text').textContent.trim()).to.equal(completedObj.text)
-    expect(completedMenu.classList.contains(completedObj.status)).to.equal(true)
-    const pendingMenu = vm.$el.querySelectorAll('.menu-item')[1]
-    expect(pendingMenu.querySelector('.menu-text').textContent.trim()).to.equal(pendingObj.text)
-    expect(pendingMenu.classList.contains(pendingObj.status)).to.equal(true)
+    const completedMenu = vm.$el.querySelectorAll('.menu')[0]
+    expect(completedMenu.querySelector('.menu-title').textContent.trim()).to.equal(completedObj.text)
+    expect(completedMenu.querySelector('.menu-title').classList.contains(completedObj.status)).to.equal(true)
+    const pendingMenu = vm.$el.querySelectorAll('.menu')[1]
+    expect(pendingMenu.querySelector('.menu-title').textContent.trim()).to.equal(pendingObj.text)
+    expect(pendingMenu.querySelector('.menu-title').classList.contains(pendingObj.status)).to.equal(true)
   })
 
   it('should has active class when receive active props', () => {
     const isActive = true
     const vm = generateIRotateInMenus(menus, isActive)
     const menus = vm.$el.querySelector('.menus')
-    console.log('menus: ', menus)
     expect(menus.classList.contains('active')).to.equal(true)
   })
 })

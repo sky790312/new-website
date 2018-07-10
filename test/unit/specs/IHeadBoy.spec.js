@@ -21,7 +21,7 @@ describe('IHeadBoy', () => {
 
   it('should has feets class', () => {
     const vm = generateHeadBoy()
-    const feets = vm.$el.childNodes[2]
+    const feets = vm.$el.childNodes[1]
     expect(feets.classList.contains('feets')).to.equal(true)
   })
 
@@ -30,7 +30,7 @@ describe('IHeadBoy', () => {
     const vm = generateHeadBoy(isActive)
     const head = vm.$el.childNodes[0]
     expect(head.classList.contains('moving')).to.equal(true)
-    const feets = vm.$el.childNodes[2]
+    const feets = vm.$el.childNodes[1]
     expect(feets.classList.contains('moving')).to.equal(true)
   })
 })
