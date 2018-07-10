@@ -72,6 +72,11 @@ export default {
   background-color: $black
   border-right: 1px groove $white
   padding: 0 15px
+  width: 100%
+  box-sizing: border-box
+  @media (min-width: 768px) {
+    width: $appSidebarWidth
+  }
 
   .logo {
     color: $white

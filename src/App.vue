@@ -149,9 +149,13 @@ export default {
 
 .router-view {
   position: relative
-  width: 100%
-  height: 100%
+  width: 100vw
+  height: calc(100vh - 230px)
   /*margin: auto*/
+  @media (min-width: 768px) {
+    width: "calc(100vw - %s)" % $appSidebarWidth
+    height: 100vh
+  }
 }
 
 .app-sidebar-slide-enter-active, .app-sidebar-slide-leave-active {
