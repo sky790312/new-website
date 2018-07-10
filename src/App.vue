@@ -127,7 +127,7 @@ export default {
   flex-direction: column
   background-color: $black
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: $mobileBreakPoint) {
     flex-direction: row
     /*grid-template-areas:
       "sidebar content"
@@ -152,7 +152,7 @@ export default {
   width: 100vw
   height: calc(100vh - 230px)
   /*margin: auto*/
-  @media (min-width: 768px) {
+  @media screen and (min-width: $mobileBreakPoint) {
     width: "calc(100vw - %s)" % $appSidebarWidth
     height: 100vh
   }
@@ -165,7 +165,7 @@ export default {
 .app-sidebar-slide-enter, .app-sidebar-slide-leave-to {
   // transform: translateY(-50px)
   opacity: 0
-  // @media (min-width: 768px) {
+  // @media screen and (min-width: $mobileBreakPoint) {
   transform: translateX(-50px)
   // }
 }
@@ -177,7 +177,7 @@ export default {
 .helper-slide-enter, .helper-slide-leave-to {
   // transform: translateY(-50px)
   opacity: 0
-  // @media (min-width: 768px) {
+  // @media screen and (min-width: $mobileBreakPoint) {
   transform: translateY(50px)
   // }
 }

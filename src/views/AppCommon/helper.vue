@@ -2,16 +2,16 @@
   <div
     id="helper"
     :class="{'active': helper.isActive}">
-    <i-head-boy
-      class="helper-major"
-      :isActive="helper.isActive"
-      @onIHeadBoyClick="handleHelperMajorClick">
-    </i-head-boy>
     <i-rotate-in-menus
       class="helper-menu"
       :isActive="helper.isActive"
       :menus="helper.menus"
       @onIRotateInMenusClick="handleHelperMenusClick">
+      <i-head-boy
+        class="helper-major"
+        :isActive="helper.isActive"
+        @onIHeadBoyClick="handleHelperMajorClick">
+      </i-head-boy>
     </i-rotate-in-menus>
   </div>
 </template>
@@ -77,7 +77,7 @@ export default {
   bottom: -30px
   right: 20px
   cursor: pointer
-  transition: all .2s linear
+  transition: all .2s ease
 
   &:hover {
     margin-bottom: 5px
@@ -89,9 +89,10 @@ export default {
     right: 0
     bottom: 0
     left: 0
-    width: 85px
-    height: 85px
-    margin: auto
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: rgba($black, .85)
   }
 }
 

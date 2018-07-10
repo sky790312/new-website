@@ -72,9 +72,9 @@ export default {
   background-color: $black
   border-right: 1px groove $white
   padding: 0 15px
-  width: 100%
   box-sizing: border-box
-  @media (min-width: 768px) {
+
+  @media screen and (min-width: $mobileBreakPoint) {
     width: $appSidebarWidth
   }
 
@@ -86,15 +86,29 @@ export default {
     padding: 10px 0
 
     .router-link {
+      position: relative
       color: $white
-
-      &:not(.active):hover {
-        opacity: .7
-      }
 
       &.active {
         cursor: default
         font-weight: bold
+      }
+
+      &:not(.active) {
+        &:after {
+          content: ''
+          position: absolute
+          bottom: -1px
+          left: 0
+          width: 0
+          height: 1px
+          background-color: $white
+          transition: width .3s ease
+        }
+
+        &:hover:after {
+          width: 100%
+        }
       }
     }
   }

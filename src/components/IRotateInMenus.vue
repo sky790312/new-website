@@ -1,17 +1,20 @@
 <template>
-  <ul
-    :class="['i-rotate-in-menus', {'active': isActive}]">
-    <li
-      v-for="menu in menus"
-      :key="menu.name"
-      class="menu">
-      <a
-        @click="onIRotateInMenusClick(menu)"
-        :class="['menu-text', menu.status]">
-          {{ menu.text }}
-      </a>
-    </li>
-  </ul>
+  <div class="i-rotate-in-menus">
+    <slot></slot>
+    <ul
+      :class="['menus', {'active': isActive}]">
+      <li
+        v-for="menu in menus"
+        :key="menu.name"
+        class="menu">
+        <a
+          @click="onIRotateInMenusClick(menu)"
+          :class="['menu-title', menu.status]">
+            {{ menu.text }}
+        </a>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -52,22 +55,24 @@ $item-size = 70px
 $item-color = $white
 $item-background = $light-blue
 
+.i-rotate-in-menus {
+  z-index: 0
+}
+
 for $i in (1..$item-count) {
-  .i-rotate-in-menus {
-    li:nth-child({$i}) a {
-      transform: rotate(-180deg / ($item-count - 1) * ($i - 1))
-    }
+  .menu:nth-child({$i}) .menu-title {
+    transform: rotate(-180deg / ($item-count - 1) * ($i - 1))
   }
 }
 
-.i-rotate-in-menus {
+.menus {
   visibility: hidden
 
   &.active {
     visibility: visible
 
     for $i in (1..$item-count) {
-      li:nth-child({$i}) {
+      .menu:nth-child({$i}) {
         transform: rotate(180deg / ($item-count - 1) * ($i - 1)) translateX(-($item-size + 50px))
       }
     }
@@ -87,7 +92,7 @@ for $i in (1..$item-count) {
   transition: opacity .5s, transform .5s
 }
 
-.menu-text {
+.menu-title {
   display: flex
   justify-content: center
   align-items: center
