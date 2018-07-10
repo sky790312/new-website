@@ -110,7 +110,7 @@ for $i in (1..$item-count) {
 
   &.completed {
     &:hover {
-      box-shadow: 0 0 0 $item-size / 40 rgba($white, 0.3)
+      box-shadow: 0 0 0 ($item-size / 40) rgba($white, 0.3)
       background: rgba($item-background, 0.3)
     }
   }
