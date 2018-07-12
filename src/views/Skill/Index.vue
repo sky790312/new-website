@@ -52,134 +52,310 @@ export default {
       skills: [{
         name: 'main',
         title: 'Main skills',
-        x: 6,
-        y: 3,
+        position: {
+          pc: {
+            x: 6,
+            y: 3
+          },
+          mobile: {
+            x: 9,
+            y: 1
+          }
+        },
         child: [{
           name: 'vue',
           title: 'Vue',
           desc: 'Vuex, VueI18n, Vue Router',
-          x: 4,
-          y: 5
+          position: {
+            pc: {
+              x: 4,
+              y: 5
+            },
+            mobile: {
+              x: 7,
+              y: 3
+            }
+          }
         }, {
           name: 'es2015',
           title: 'ES2015',
           desc: 'Async / Await',
-          x: 5,
-          y: 5
+          position: {
+            pc: {
+              x: 5,
+              y: 5
+            },
+            mobile: {
+              x: 8,
+              y: 3
+            }
+          }
         }, {
           name: 'test',
           title: 'Test',
           desc: 'unit test: Karma, Jest, e2e test: Cypress',
-          x: 6,
-          y: 5
+          position: {
+            pc: {
+              x: 6,
+              y: 5
+            },
+            mobile: {
+              x: 9,
+              y: 3
+            }
+          }
         }, {
           name: 'aframe',
           title: 'A-Frame',
           desc: 'three.js, WebVR, WebGL, 3dio.js',
-          x: 7,
-          y: 5
+          position: {
+            pc: {
+              x: 7,
+              y: 5
+            },
+            mobile: {
+              x: 10,
+              y: 3
+            }
+          }
         }, {
           name: 'css',
           title: 'CSS',
           desc: 'CSS3, postcss, sass/scss, less, stylus',
-          x: 8,
-          y: 5
+          position: {
+            pc: {
+              x: 8,
+              y: 5
+            },
+            mobile: {
+              x: 11,
+              y: 3
+            }
+          }
         }, {
           name: 'd3',
           title: 'D3.js',
           desc: 'charts',
-          x: 4,
-          y: 6
+          position: {
+            pc: {
+              x: 4,
+              y: 6
+            },
+            mobile: {
+              x: 7,
+              y: 4
+            }
+          }
         }, {
           name: 'thirdparty',
           title: 'Third party APIs',
           desc: 'gapi, ga, fb..',
-          x: 5,
-          y: 6
+          position: {
+            pc: {
+              x: 5,
+              y: 6
+            },
+            mobile: {
+              x: 8,
+              y: 4
+            }
+          }
         }, {
           name: 'tools',
           title: 'tools',
           desc: 'webpack, Git, Shell script, Jenkins',
-          x: 6,
-          y: 6
+          position: {
+            pc: {
+              x: 6,
+              y: 6
+            },
+            mobile: {
+              x: 9,
+              y: 4
+            }
+          }
         }, {
           name: 'scrum',
           title: 'Scrum',
           desc: 'Redmine, Trello',
-          x: 7,
-          y: 6
+          position: {
+            pc: {
+              x: 7,
+              y: 6
+            },
+            mobile: {
+              x: 10,
+              y: 4
+            }
+          }
         }, {
           name: 'nodejs',
           title: 'Node.js',
           desc: 'Express',
-          x: 8,
-          y: 6
+          position: {
+            pc: {
+              x: 8,
+              y: 6
+            },
+            mobile: {
+              x: 11,
+              y: 4
+            }
+          }
         }]
       }, {
         name: 'other',
         title: 'Other skills',
-        x: 13,
-        y: 3,
+        position: {
+          pc: {
+            x: 13,
+            y: 3
+          },
+          mobile: {
+            x: 9,
+            y: 6
+          }
+        },
         child: [{
           name: 'react',
           title: 'React',
           desc: 'react-redux, react-route, react-thunk, css module',
-          x: 11,
-          y: 5
+          position: {
+            pc: {
+              x: 11,
+              y: 5
+            },
+            mobile: {
+              x: 7,
+              y: 8
+            }
+          }
         }, {
           name: 'reactnative',
           title: 'React Native',
           desc: 'Shoutem UI, NativeBase, Navigator',
-          x: 12,
-          y: 5
+          position: {
+            pc: {
+              x: 12,
+              y: 5
+            },
+            mobile: {
+              x: 8,
+              y: 8
+            }
+          }
         }, {
           name: 'seo',
           title: 'SEO',
           desc: 'Google Analytics',
-          x: 13,
-          y: 5
+          position: {
+            pc: {
+              x: 13,
+              y: 5
+            },
+            mobile: {
+              x: 9,
+              y: 8
+            }
+          }
         }, {
           name: 'baas',
           title: 'BaaS',
           desc: 'Firebase, LeanCloud',
-          x: 14,
-          y: 5
+          position: {
+            pc: {
+              x: 14,
+              y: 5
+            },
+            mobile: {
+              x: 10,
+              y: 8
+            }
+          }
         }, {
           name: 'paas',
           title: 'PaaS',
           desc: 'GCP, AWS EC2, Azure',
-          x: 15,
-          y: 5
+          position: {
+            pc: {
+              x: 15,
+              y: 5
+            },
+            mobile: {
+              x: 11,
+              y: 8
+            }
+          }
         }, {
           name: 'jquery',
           title: 'jQuery',
           desc: '',
-          x: 11,
-          y: 6
+          position: {
+            pc: {
+              x: 11,
+              y: 6
+            },
+            mobile: {
+              x: 7,
+              y: 9
+            }
+          }
         }, {
           name: 'angularjs',
           title: 'AngularJS',
           desc: '',
-          x: 12,
-          y: 6
+          position: {
+            pc: {
+              x: 12,
+              y: 6
+            },
+            mobile: {
+              x: 8,
+              y: 9
+            }
+          }
         }, {
           name: 'mvc',
           title: 'MVC',
           desc: 'Ruby on Rails, Java Play',
-          x: 13,
-          y: 6
+          position: {
+            pc: {
+              x: 13,
+              y: 6
+            },
+            mobile: {
+              x: 9,
+              y: 9
+            }
+          }
         }, {
           name: 'database',
           title: 'Database',
           desc: 'MySQL, NoSQL',
-          x: 14,
-          y: 6
+          position: {
+            pc: {
+              x: 14,
+              y: 6
+            },
+            mobile: {
+              x: 10,
+              y: 9
+            }
+          }
         }, {
           name: 'cms',
           title: 'CMS',
           desc: 'WordPress',
-          x: 15,
-          y: 6
+          position: {
+            pc: {
+              x: 15,
+              y: 6
+            },
+            mobile: {
+              x: 11,
+              y: 9
+            }
+          }
         }]
       }]
     }
@@ -230,8 +406,8 @@ export default {
       objects.push(css3dObject)
 
       let object3d = new THREE.Object3D()
-      object3d.position.x = (skill.x * 170) - 1615
-      object3d.position.y = -(skill.y * 200) + 900
+      object3d.position.x = (skill.position.pc.x * 170) - 1615
+      object3d.position.y = -(skill.position.pc.y * 200) + 900
       object3d.position.z = -2650
       targets.table.push(object3d)
     },
