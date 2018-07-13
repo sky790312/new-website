@@ -35,9 +35,8 @@ import 'three/examples/js/libs/tween.min'
 import 'three/examples/js/controls/TrackballControls'
 import 'three/examples/js/renderers/CSS3DRenderer.js'
 import {
-  SKILLS,
-  transform
-} from '@/views/Skill/helper.js'
+  SKILLS
+} from '@/views/Skill/data.js'
 
 let camera, scene, renderer, controls
 let css3dObjects = []
@@ -47,7 +46,7 @@ export default {
 
   data () {
     return {
-      isMobileView: false,
+      isPcView: true,
       targets: {
         pcView: [],
         mobileView: []
@@ -57,22 +56,20 @@ export default {
   },
 
   mounted () {
-    this.isMobileView = !(window.innerWidth >= 768)
+    this.isPcView = (window.innerWidth >= 1024)
     this.init()
     this.animate()
-    transform(this.targets.pcView, 2000, css3dObjects, this.render)
+    this.transform(this.targets.pcView, 2000)
   },
 
   watch: {
-    'isMobileView': {
+    'isPcView': {
       handler (newVal) {
-        if(newVal) {
-          camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
-          transform(this.targets.mobileView, 500, css3dObjects, this.render)
-        } else {
-          camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
-          transform(this.targets.pcView, 500, css3dObjects, this.render)
-        }
+        let view = (newVal)
+          ? this.targets.pcView
+          : this.targets.mobileView
+        camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
+        this.transform(view, 500)
       },
       deep: true
     }
@@ -80,7 +77,7 @@ export default {
 
   computed: {
     cameraFov () {
-      return this.isMobileView ? 80 : 40
+      return this.isPcView ? 40 : 60
     }
   },
 
@@ -136,18 +133,18 @@ export default {
       if (view === 'pc') {
         object3d.position.x = (skill.position.pc.x * 170) - 1615
         object3d.position.y = -(skill.position.pc.y * 200) + 900
-        object3d.position.z = -2650
+        object3d.position.z = -3000
         this.targets.pcView.push(object3d)
       } else {
         object3d.position.x = (skill.position.mobile.x * 170) - 1615
-        object3d.position.y = -(skill.position.mobile.y * 200) + 900
+        object3d.position.y = -(skill.position.mobile.y * 200) + 1200
         object3d.position.z = -2650
         this.targets.mobileView.push(object3d)
       }
     },
 
     updateRender () {
-      this.isMobileView = !(window.innerWidth >= 768)
+      this.isPcView = (window.innerWidth >= 1024)
 
       camera.aspect = this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight
       camera.updateProjectionMatrix()
@@ -163,6 +160,33 @@ export default {
 
     render () {
       renderer.render(scene, camera)
+    },
+
+    transform (targets, duration) {
+      TWEEN.removeAll()
+      css3dObjects.map((object, index) => {
+        let target = targets[index]
+        new TWEEN.Tween(object.position)
+          .to({
+            x: target.position.x,
+            y: target.position.y,
+            z: target.position.z},
+            Math.random() * duration + duration)
+          .easing(TWEEN.Easing.Exponential.InOut)
+          .start()
+        new TWEEN.Tween(object.rotation)
+          .to({
+            x: target.rotation.x,
+            y: target.rotation.y,
+            z: target.rotation.z},
+            Math.random() * duration + duration)
+          .easing(TWEEN.Easing.Exponential.InOut)
+          .start()
+      })
+      new TWEEN.Tween()
+        .to({}, duration * 2)
+        .onUpdate(this.render)
+        .start()
     }
   },
 

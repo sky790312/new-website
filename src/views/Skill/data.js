@@ -310,29 +310,3 @@ export const SKILLS = [{
 }]
 
 /* eslint-disable */
-export const transform = (targets, duration, css3dObjects, render) => {
-  TWEEN.removeAll()
-  css3dObjects.map((object, index) => {
-    let target = targets[index]
-    new TWEEN.Tween(object.position)
-      .to({
-        x: target.position.x,
-        y: target.position.y,
-        z: target.position.z},
-        Math.random() * duration + duration)
-      .easing(TWEEN.Easing.Exponential.InOut)
-      .start()
-    new TWEEN.Tween(object.rotation)
-      .to({
-        x: target.rotation.x,
-        y: target.rotation.y,
-        z: target.rotation.z},
-        Math.random() * duration + duration)
-      .easing(TWEEN.Easing.Exponential.InOut)
-      .start()
-  })
-  new TWEEN.Tween()
-    .to({}, duration * 2)
-    .onUpdate(render)
-    .start()
-}
