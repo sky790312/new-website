@@ -32,13 +32,16 @@
 <script>
 /* eslint-disable */
 import 'three/examples/js/libs/tween.min'
-import 'three/examples/js/controls/TrackballControls'
-import 'three/examples/js/renderers/CSS3DRenderer.js'
+// import 'three/examples/js/controls/TrackballControls'
+import 'three/examples/js/renderers/CSS3DRenderer'
+import {
+  throttle
+} from '@/utils'
 import {
   SKILLS
-} from '@/views/Skill/data.js'
+} from '@/views/Skill/data'
 
-let camera, scene, renderer, controls
+let camera, scene, renderer
 let css3dObjects = []
 
 export default {
@@ -46,7 +49,10 @@ export default {
 
   data () {
     return {
-      isPcView: true,
+      viewSize: '',
+      // currentView: [],
+      // isPcView: true,
+      windowWidth: 0,
       targets: {
         pcView: [],
         mobileView: []
@@ -56,20 +62,16 @@ export default {
   },
 
   mounted () {
-    this.isPcView = (window.innerWidth >= 1024)
     this.init()
     this.animate()
-    this.transform(this.targets.pcView, 2000)
+    this.getViewSize()
+    this.transform(this.currentView, 2000)
   },
 
   watch: {
-    'isPcView': {
+    'viewSize': {
       handler (newVal) {
-        let view = (newVal)
-          ? this.targets.pcView
-          : this.targets.mobileView
         camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
-        this.transform(view, 500)
       },
       deep: true
     }
@@ -77,15 +79,27 @@ export default {
 
   computed: {
     cameraFov () {
-      return this.isPcView ? 40 : 60
+      let cameraFov
+      if (this.viewSize === 's') {
+        cameraFov = 60
+      } else if (this.viewSize === 'm') {
+        cameraFov = 55
+      } else {
+        cameraFov = 40
+      }
+      return cameraFov
+    },
+
+    currentView () {
+      return (this.viewSize === 'l') ? this.targets.pcView : this.targets.mobileView
     }
   },
 
   methods: {
     init () {
-      camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
+      // camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
       // depth
-      camera.position.z = 3000
+      // camera.position.z = 1000
       scene = new THREE.Scene()
 
       this.initElementPositions()
@@ -94,24 +108,22 @@ export default {
       renderer.setSize(this.$refs.skillContainer.offsetWidth, this.$refs.skillContainer.offsetHeight)
       this.$refs.skillContainer.appendChild(renderer.domElement)
 
-      controls = new THREE.TrackballControls(camera, renderer.domElement)
-      controls.rotateSpeed = 0.5
-      controls.minDistance = 500
-      controls.maxDistance = 6000
+      // controls = new THREE.TrackballControls(camera, renderer.domElement)
+      // controls.rotateSpeed = 0.5
+      // controls.minDistance = 500
+      // controls.maxDistance = 6000
 
-      controls.addEventListener('change', this.render)
-      window.addEventListener('resize', this.updateRender, false)
+      // controls.addEventListener('change', this.render)
+      window.addEventListener('resize', throttle(this.onWindowResize, 250), false)
     },
 
     initElementPositions () {
       scene = new THREE.Scene()
       this.skills.map(skill => {
         this.generateElementsPosition(skill, this.$refs[`${skill.name}`][0])
-        if (skill.child) {
-          skill.child.map((subSkill, index) => {
-            this.generateElementsPosition(subSkill, this.$refs[`${skill.name}${index}`][0])
-          })
-        }
+        skill.child.map((subSkill, index) => {
+          this.generateElementsPosition(subSkill, this.$refs[`${skill.name}${index}`][0])
+        })
       })
     },
 
@@ -143,19 +155,33 @@ export default {
       }
     },
 
-    updateRender () {
-      this.isPcView = (window.innerWidth >= 1024)
+    getViewSize () {
+      let viewSize
+      if (window.innerWidth < 768) {
+        viewSize = 's'
+      } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+        viewSize = 'm'
+      } else {
+        viewSize = 'l'
+      }
+      this.viewSize = viewSize
+    },
+
+    onWindowResize () {
+      this.getViewSize()
+      this.transform(this.currentView, 500)
 
       camera.aspect = this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight
       camera.updateProjectionMatrix()
       renderer.setSize(this.$refs.skillContainer.offsetWidth, this.$refs.skillContainer.offsetHeight)
       this.render()
+
     },
 
     animate () {
       requestAnimationFrame(this.animate)
       TWEEN.update()
-      controls.update()
+      // controls.update()
     },
 
     render () {
@@ -191,8 +217,8 @@ export default {
   },
 
   beforeDestroy () {
-    document.removeEventListener('resize', this.updateRender)
-    controls.removeEventListener('change', this.render)
+    document.removeEventListener('resize', throttle(this.onWindowResize, 250))
+    // controls.removeEventListener('change', this.render)
   }
 }
 </script>
