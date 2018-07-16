@@ -1,6 +1,7 @@
 <template>
   <div
-    id="skill">
+    id="skill"
+    :ref="'skillContainer'">
     <div
       v-for="skill in skills"
       :key="skill.name"
@@ -33,183 +34,65 @@
 import 'three/examples/js/libs/tween.min'
 import 'three/examples/js/controls/TrackballControls'
 import 'three/examples/js/renderers/CSS3DRenderer.js'
-// import {
-  // SKILLS
-// } from '@/views/Skill/data.js'
+import {
+  SKILLS
+} from '@/views/Skill/data.js'
 
-let skillContainer, camera, scene, renderer, controls
-let objects = []
-let targets = {
-  table: [],
-  grid: []
-}
+let camera, scene, renderer, controls
+let css3dObjects = []
 
 export default {
   name: 'Skill',
 
   data () {
     return {
-      skills: [{
-        name: 'main',
-        title: 'Main skills',
-        x: 6,
-        y: 3,
-        child: [{
-          name: 'vue',
-          title: 'Vue',
-          desc: 'Vuex, VueI18n, Vue Router',
-          x: 4,
-          y: 5
-        }, {
-          name: 'es2015',
-          title: 'ES2015',
-          desc: 'Async / Await',
-          x: 5,
-          y: 5
-        }, {
-          name: 'test',
-          title: 'Test',
-          desc: 'unit test: Karma, Jest, e2e test: Cypress',
-          x: 6,
-          y: 5
-        }, {
-          name: 'aframe',
-          title: 'A-Frame',
-          desc: 'three.js, WebVR, WebGL, 3dio.js',
-          x: 7,
-          y: 5
-        }, {
-          name: 'css',
-          title: 'CSS',
-          desc: 'CSS3, postcss, sass/scss, less, stylus',
-          x: 8,
-          y: 5
-        }, {
-          name: 'd3',
-          title: 'D3.js',
-          desc: 'charts',
-          x: 4,
-          y: 6
-        }, {
-          name: 'thirdparty',
-          title: 'Third party APIs',
-          desc: 'gapi, ga, fb..',
-          x: 5,
-          y: 6
-        }, {
-          name: 'tools',
-          title: 'tools',
-          desc: 'webpack, Git, Shell script, Jenkins',
-          x: 6,
-          y: 6
-        }, {
-          name: 'scrum',
-          title: 'Scrum',
-          desc: 'Redmine, Trello',
-          x: 7,
-          y: 6
-        }, {
-          name: 'nodejs',
-          title: 'Node.js',
-          desc: 'Express',
-          x: 8,
-          y: 6
-        }]
-      }, {
-        name: 'other',
-        title: 'Other skills',
-        x: 13,
-        y: 3,
-        child: [{
-          name: 'react',
-          title: 'React',
-          desc: 'react-redux, react-route, react-thunk, css module',
-          x: 11,
-          y: 5
-        }, {
-          name: 'reactnative',
-          title: 'React Native',
-          desc: 'Shoutem UI, NativeBase, Navigator',
-          x: 12,
-          y: 5
-        }, {
-          name: 'seo',
-          title: 'SEO',
-          desc: 'Google Analytics',
-          x: 13,
-          y: 5
-        }, {
-          name: 'baas',
-          title: 'BaaS',
-          desc: 'Firebase, LeanCloud',
-          x: 14,
-          y: 5
-        }, {
-          name: 'paas',
-          title: 'PaaS',
-          desc: 'GCP, AWS EC2, Azure',
-          x: 15,
-          y: 5
-        }, {
-          name: 'jquery',
-          title: 'jQuery',
-          desc: '',
-          x: 11,
-          y: 6
-        }, {
-          name: 'angularjs',
-          title: 'AngularJS',
-          desc: '',
-          x: 12,
-          y: 6
-        }, {
-          name: 'mvc',
-          title: 'MVC',
-          desc: 'Ruby on Rails, Java Play',
-          x: 13,
-          y: 6
-        }, {
-          name: 'database',
-          title: 'Database',
-          desc: 'MySQL, NoSQL',
-          x: 14,
-          y: 6
-        }, {
-          name: 'cms',
-          title: 'CMS',
-          desc: 'WordPress',
-          x: 15,
-          y: 6
-        }]
-      }]
+      isPcView: true,
+      targets: {
+        pcView: [],
+        mobileView: []
+      },
+      skills: SKILLS
     }
   },
 
   mounted () {
-    skillContainer = document.getElementById('skill')
+    this.isPcView = (window.innerWidth >= 1024)
     this.init()
     this.animate()
-    this.transform(targets.table, 2000)
+    this.transform(this.targets.pcView, 2000)
+  },
+
+  watch: {
+    'isPcView': {
+      handler (newVal) {
+        let view = (newVal)
+          ? this.targets.pcView
+          : this.targets.mobileView
+        camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
+        this.transform(view, 500)
+      },
+      deep: true
+    }
+  },
+
+  computed: {
+    cameraFov () {
+      return this.isPcView ? 40 : 60
+    }
   },
 
   methods: {
     init () {
-      camera = new THREE.PerspectiveCamera(40, skillContainer.offsetWidth / skillContainer.offsetHeight, 1, 10000)
+      camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
       // depth
       camera.position.z = 3000
       scene = new THREE.Scene()
-      this.skills.map(skill => {
-        this.generateElementPosition(skill, this.$refs[`${skill.name}`][0])
-        if (skill.child) {
-          skill.child.map((subSkill, index) => {
-            this.generateElementPosition(subSkill, this.$refs[`${skill.name}${index}`][0])
-          })
-        }
-      })
+
+      this.initElementPositions()
 
       renderer = new THREE.CSS3DRenderer()
-      renderer.setSize(skillContainer.offsetWidth, skillContainer.offsetHeight)
-      skillContainer.appendChild(renderer.domElement)
+      renderer.setSize(this.$refs.skillContainer.offsetWidth, this.$refs.skillContainer.offsetHeight)
+      this.$refs.skillContainer.appendChild(renderer.domElement)
 
       controls = new THREE.TrackballControls(camera, renderer.domElement)
       controls.rotateSpeed = 0.5
@@ -220,27 +103,69 @@ export default {
       window.addEventListener('resize', this.updateRender, false)
     },
 
-    generateElementPosition (skill, item) {
+    initElementPositions () {
+      scene = new THREE.Scene()
+      this.skills.map(skill => {
+        this.generateElementsPosition(skill, this.$refs[`${skill.name}`][0])
+        if (skill.child) {
+          skill.child.map((subSkill, index) => {
+            this.generateElementsPosition(subSkill, this.$refs[`${skill.name}${index}`][0])
+          })
+        }
+      })
+    },
+
+    generateElementsPosition (skill, item) {
       let css3dObject = new THREE.CSS3DObject(item)
       css3dObject.position.x = Math.random() * 4000 - 2000
       css3dObject.position.y = Math.random() * 4000 - 2000
       css3dObject.position.z = Math.random() * 4000 - 2000
 
       scene.add(css3dObject)
-      objects.push(css3dObject)
+      css3dObjects.push(css3dObject)
 
+      this.generatePosition('pc', skill, item)
+      this.generatePosition('mobile', skill, item)
+    },
+
+    generatePosition (view, skill, item) {
       let object3d = new THREE.Object3D()
-      object3d.position.x = (skill.x * 170) - 1615
-      object3d.position.y = -(skill.y * 200) + 900
-      object3d.position.z = -2650
-      targets.table.push(object3d)
+      if (view === 'pc') {
+        object3d.position.x = (skill.position.pc.x * 170) - 1615
+        object3d.position.y = -(skill.position.pc.y * 200) + 900
+        object3d.position.z = -3000
+        this.targets.pcView.push(object3d)
+      } else {
+        object3d.position.x = (skill.position.mobile.x * 170) - 1615
+        object3d.position.y = -(skill.position.mobile.y * 200) + 1200
+        object3d.position.z = -2650
+        this.targets.mobileView.push(object3d)
+      }
+    },
+
+    updateRender () {
+      this.isPcView = (window.innerWidth >= 1024)
+
+      camera.aspect = this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight
+      camera.updateProjectionMatrix()
+      renderer.setSize(this.$refs.skillContainer.offsetWidth, this.$refs.skillContainer.offsetHeight)
+      this.render()
+    },
+
+    animate () {
+      requestAnimationFrame(this.animate)
+      TWEEN.update()
+      controls.update()
+    },
+
+    render () {
+      renderer.render(scene, camera)
     },
 
     transform (targets, duration) {
       TWEEN.removeAll()
-      for (var i = 0; i < objects.length; i++) {
-        let object = objects[i]
-        let target = targets[i]
+      css3dObjects.map((object, index) => {
+        let target = targets[index]
         new TWEEN.Tween(object.position)
           .to({
             x: target.position.x,
@@ -257,28 +182,11 @@ export default {
             Math.random() * duration + duration)
           .easing(TWEEN.Easing.Exponential.InOut)
           .start()
-      }
-      new TWEEN.Tween(this)
+      })
+      new TWEEN.Tween()
         .to({}, duration * 2)
         .onUpdate(this.render)
         .start()
-    },
-
-    animate () {
-      requestAnimationFrame(this.animate)
-      TWEEN.update()
-      controls.update()
-    },
-
-    updateRender () {
-      camera.aspect = skillContainer.offsetWidth / skillContainer.offsetHeight
-      camera.updateProjectionMatrix()
-      renderer.setSize(skillContainer.offsetWidth, skillContainer.offsetHeight)
-      this.render()
-    },
-
-    render () {
-      renderer.render(scene, camera)
     }
   },
 
