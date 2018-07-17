@@ -104,7 +104,7 @@ export default {
   z-index: 0
   background-size: cover
   background-color: $dark-gray
-  background-image: radial-gradient(farthest-corner, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.95))
+  background-image: radial-gradient(farthest-corner, rgba($black, 0.3), rgba($black, 0.95))
   // transform-style: preserve-3d;
   // transform: translate3d(0, 0, 0);
   // transition: background-color 3s ease-in-out 2s;

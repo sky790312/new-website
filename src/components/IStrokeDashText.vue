@@ -22,6 +22,7 @@
 <script>
 export default {
   name: 'IStrokeDashText',
+
   props: {
     text: {
       type: String,
@@ -30,6 +31,7 @@ export default {
       }
     }
   },
+
   data () {
     return {
       dashCount: 5,
@@ -41,6 +43,7 @@ export default {
       }
     }
   },
+
   computed: {
     capitalText () {
       return this.text.toUpperCase()

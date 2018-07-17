@@ -11,6 +11,7 @@
 <script>
 export default {
   name: 'ITypingText',
+
   props: {
     text: {
       type: String,
@@ -18,6 +19,7 @@ export default {
         return ''
       }
     },
+
     color: {
       type: String,
       default () {

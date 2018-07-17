@@ -32,7 +32,6 @@
 <script>
 /* eslint-disable */
 import 'three/examples/js/libs/tween.min'
-// import 'three/examples/js/controls/TrackballControls'
 import 'three/examples/js/renderers/CSS3DRenderer'
 import {
   throttle
@@ -49,11 +48,8 @@ export default {
 
   data () {
     return {
-      viewSize: '',
-      // currentView: [],
-      // isPcView: true,
-      windowWidth: 0,
-      targets: {
+      windowSize: '',
+      views: {
         pcView: [],
         mobileView: []
       },
@@ -64,12 +60,12 @@ export default {
   mounted () {
     this.init()
     this.animate()
-    this.getViewSize()
+    this.getWindowSize()
     this.transform(this.currentView, 2000)
   },
 
   watch: {
-    'viewSize': {
+    'windowSize': {
       handler (newVal) {
         camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
       },
@@ -80,9 +76,9 @@ export default {
   computed: {
     cameraFov () {
       let cameraFov
-      if (this.viewSize === 's') {
+      if (this.windowSize === 's') {
         cameraFov = 60
-      } else if (this.viewSize === 'm') {
+      } else if (this.windowSize === 'm') {
         cameraFov = 55
       } else {
         cameraFov = 40
@@ -91,34 +87,22 @@ export default {
     },
 
     currentView () {
-      return (this.viewSize === 'l') ? this.targets.pcView : this.targets.mobileView
+      return (this.windowSize === 'l') ? this.views.pcView : this.views.mobileView
     }
   },
 
   methods: {
     init () {
-      // camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
-      // depth
-      // camera.position.z = 1000
       scene = new THREE.Scene()
-
-      this.initElementPositions()
-
       renderer = new THREE.CSS3DRenderer()
+      this.initElementsPosition()
       renderer.setSize(this.$refs.skillContainer.offsetWidth, this.$refs.skillContainer.offsetHeight)
       this.$refs.skillContainer.appendChild(renderer.domElement)
 
-      // controls = new THREE.TrackballControls(camera, renderer.domElement)
-      // controls.rotateSpeed = 0.5
-      // controls.minDistance = 500
-      // controls.maxDistance = 6000
-
-      // controls.addEventListener('change', this.render)
       window.addEventListener('resize', throttle(this.onWindowResize, 250), false)
     },
 
-    initElementPositions () {
-      scene = new THREE.Scene()
+    initElementsPosition () {
       this.skills.map(skill => {
         this.generateElementsPosition(skill, this.$refs[`${skill.name}`][0])
         skill.child.map((subSkill, index) => {
@@ -136,62 +120,57 @@ export default {
       scene.add(css3dObject)
       css3dObjects.push(css3dObject)
 
-      this.generatePosition('pc', skill, item)
-      this.generatePosition('mobile', skill, item)
+      this.generateView(skill, item)
     },
 
-    generatePosition (view, skill, item) {
-      let object3d = new THREE.Object3D()
-      if (view === 'pc') {
-        object3d.position.x = (skill.position.pc.x * 170) - 1615
-        object3d.position.y = -(skill.position.pc.y * 200) + 900
-        object3d.position.z = -3000
-        this.targets.pcView.push(object3d)
-      } else {
-        object3d.position.x = (skill.position.mobile.x * 170) - 1615
-        object3d.position.y = -(skill.position.mobile.y * 200) + 1200
-        object3d.position.z = -2650
-        this.targets.mobileView.push(object3d)
-      }
+    generateView (skill, item) {
+      let pcObject3d = new THREE.Object3D()
+      pcObject3d.position.x = (skill.position.pc.x * 170) - 1615
+      pcObject3d.position.y = -(skill.position.pc.y * 200) + 900
+      pcObject3d.position.z = -3000
+      this.views.pcView.push(pcObject3d)
+      let mobileObject3d = new THREE.Object3D()
+      mobileObject3d.position.x = (skill.position.mobile.x * 170) - 1615
+      mobileObject3d.position.y = -(skill.position.mobile.y * 200) + 1200
+      mobileObject3d.position.z = -2650
+      this.views.mobileView.push(mobileObject3d)
     },
 
-    getViewSize () {
-      let viewSize
+    getWindowSize () {
+      let windowSize
       if (window.innerWidth < 768) {
-        viewSize = 's'
+        windowSize = 's'
       } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-        viewSize = 'm'
+        windowSize = 'm'
       } else {
-        viewSize = 'l'
+        windowSize = 'l'
       }
-      this.viewSize = viewSize
+      this.windowSize = windowSize
     },
 
     onWindowResize () {
-      this.getViewSize()
+      this.getWindowSize()
       this.transform(this.currentView, 500)
 
       camera.aspect = this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight
       camera.updateProjectionMatrix()
       renderer.setSize(this.$refs.skillContainer.offsetWidth, this.$refs.skillContainer.offsetHeight)
       this.render()
-
     },
 
     animate () {
       requestAnimationFrame(this.animate)
       TWEEN.update()
-      // controls.update()
     },
 
     render () {
       renderer.render(scene, camera)
     },
 
-    transform (targets, duration) {
+    transform (views, duration) {
       TWEEN.removeAll()
       css3dObjects.map((object, index) => {
-        let target = targets[index]
+        let target = views[index]
         new TWEEN.Tween(object.position)
           .to({
             x: target.position.x,
@@ -218,7 +197,6 @@ export default {
 
   beforeDestroy () {
     document.removeEventListener('resize', throttle(this.onWindowResize, 250))
-    // controls.removeEventListener('change', this.render)
   }
 }
 </script>
@@ -226,56 +204,79 @@ export default {
 <style lang="stylus" scoped>
 @import '~styl/variables'
 
+$mainItemWidth = 360px
+$mainItemHeight = 320px
+$subItemWidth = 150px
+$subItemHeight = 180px
+
+$mainFontSize = 42px
+$mainFontSizeHover = 56px
+$subFontSize = 26px
+$subFontSizeHover = 32px
+$detailFontSize = 18px
+
+
 #skill {
   height: 100%
 
   .item {
-    box-shadow: 0px 0px 12px rgba(0, 255, 255, .5)
-    border: 1px solid rgba(127, 255, 255, .25)
+    box-sizing: border-box
+    box-shadow: 0px 0px 12px rgba($cyan, .5)
+    border: 1px solid rgba($cyan2, .25)
     padding: 10px
     text-align: center
     cursor: default
     word-wrap: break-word
-    box-sizing: border-box
 
-    &:hover {
-      box-shadow: 0px 0px 12px rgba(0, 255, 255, .75)
-      border: 1px solid rgba(127, 255, 255, .75)
-    }
-
-    &.main {
-      display: flex
-      justify-content: center
-      align-items: center
-      width: 360px
-      height: 320px
-      background-color: rgba(0, 127, 127, 1)
-
-      .title {
-        font-size: 42px
-        font-weight: bold
-        color: rgba(255, 255, 255, .75)
-        text-shadow: 0 0 10px rgba(0, 255, 255, .95)
-      }
-    }
-
-    &.sub {
-      width: 150px
-      height: 180px
-
-      .title {
-        margin: 5px 0
-        font-size: 26px
-        font-weight: bold
-        color: rgba(255, 255, 255, .75)
-        text-shadow: 0 0 10px rgba(0, 255, 255, .95)
-      }
+    .title {
+      margin: 5px 0
+      font-weight: bold
+      color: rgba($white, .75)
+      text-shadow: 0 0 10px rgba($cyan, .95)
+      transition: font-size .5s
     }
 
     .detail {
       line-height: 28px
-      font-size: 18px
-      color: rgba(127, 255, 255, .75)
+      font-size: $detailFontSize
+      color: rgba($cyan2, .75)
+    }
+  }
+
+  .main {
+    display: flex
+    justify-content: center
+    align-items: center
+    width: $mainItemWidth
+    height: $mainItemHeight
+    background-color: $green2
+
+    &:hover {
+      .title {
+        font-size: $mainFontSizeHover
+      }
+    }
+
+    .title {
+      font-size: $mainFontSize
+    }
+  }
+
+  .sub {
+    width: $subItemWidth
+    height: $subItemHeight
+
+    &:hover {
+      box-shadow: 0px 0px 12px rgba($cyan, .75)
+      border: 1px solid rgba($cyan2, .75)
+
+      .title {
+        font-size: $subFontSizeHover
+      }
+    }
+
+    .title {
+      font-size: $subFontSize
     }
   }
 }
