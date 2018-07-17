@@ -3,26 +3,28 @@
     id="skill"
     :ref="'skillContainer'">
     <div
-      v-for="skill in skills"
-      :key="skill.name"
-      :ref="`${skill.name}`"
-      class="item main">
+      class="item main"
+      v-for="skillCategory in skills"
+      :key="skillCategory.name"
+      :ref="`${skillCategory.name}`"
+      >
       <div
         class="title">
-        {{ skill.title }}
+        {{ skillCategory.title }}
       </div>
       <div
-        v-for="(subSkill, index) in skill.child"
-        :key="subSkill.name"
-        :ref="`${skill.name}${index}`"
-        class="item sub">
+        class="item sub"
+        v-for="(skill, index) in skillCategory.child"
+        :key="skill.name"
+        :ref="`${skillCategory.name}${index}`"
+        @click="onSkillClick(skill)">
         <div
           class="title">
-          {{ subSkill.title }}
+          {{ skill.title }}
         </div>
         <div
           class="detail">
-          {{ subSkill.desc }}
+          {{ skill.desc }}
         </div>
       </div>
     </div>
@@ -34,7 +36,8 @@
 import 'three/examples/js/libs/tween.min'
 import 'three/examples/js/renderers/CSS3DRenderer'
 import {
-  throttle
+  throttle,
+  getWindowSize
 } from '@/utils'
 import {
   SKILLS
@@ -60,7 +63,7 @@ export default {
   mounted () {
     this.init()
     this.animate()
-    this.getWindowSize()
+    this.windowSize = getWindowSize()
     this.transform(this.currentView, 2000)
   },
 
@@ -136,20 +139,12 @@ export default {
       this.views.mobileView.push(mobileObject3d)
     },
 
-    getWindowSize () {
-      let windowSize
-      if (window.innerWidth < 768) {
-        windowSize = 's'
-      } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-        windowSize = 'm'
-      } else {
-        windowSize = 'l'
-      }
-      this.windowSize = windowSize
+    onSkillClick (skill) {
+      console.log(skill)
     },
 
     onWindowResize () {
-      this.getWindowSize()
+      this.windowSize = getWindowSize()
       this.transform(this.currentView, 500)
 
       camera.aspect = this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight
@@ -225,7 +220,6 @@ $detailFontSize = 18px
     border: 1px solid rgba($cyan2, .25)
     padding: 10px
     text-align: center
-    cursor: default
     word-wrap: break-word
 
     .title {
@@ -250,6 +244,7 @@ $detailFontSize = 18px
     width: $mainItemWidth
     height: $mainItemHeight
     background-color: $green2
+    cursor: default
 
     &:hover {
       .title {
@@ -265,6 +260,7 @@ $detailFontSize = 18px
   .sub {
     width: $subItemWidth
     height: $subItemHeight
+    cursor: pointer
 
     &:hover {
       box-shadow: 0px 0px 12px rgba($cyan, .75)

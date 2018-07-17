@@ -29,3 +29,15 @@ export const throttle = (func, wait = 0, options = {}) => {
     return result
   }
 }
+
+export const getWindowSize = () => {
+  let windowSize
+  if (window.innerWidth < 768) {
+    windowSize = 's'
+  } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+    windowSize = 'm'
+  } else {
+    windowSize = 'l'
+  }
+  return windowSize
+}
