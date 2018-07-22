@@ -28,6 +28,14 @@
         </div>
       </div>
     </div>
+    <i-modal
+      v-if="shouldSkillModalShow"
+      @closeModal="shouldSkillModalShow = false">
+      <h3
+        slot="header">
+        custom header
+      </h3>
+    </i-modal>
   </div>
 </template>
 
@@ -42,12 +50,17 @@ import {
 import {
   SKILLS
 } from '@/views/Skill/data'
+import IModal from '@/components/IModal'
 
 let camera, scene, renderer
 let css3dObjects = []
 
 export default {
   name: 'Skill',
+
+  components: {
+    IModal
+  },
 
   data () {
     return {
@@ -56,7 +69,8 @@ export default {
         pcView: [],
         mobileView: []
       },
-      skills: SKILLS
+      skills: SKILLS,
+      shouldSkillModalShow: false
     }
   },
 
@@ -141,6 +155,7 @@ export default {
 
     onSkillClick (skill) {
       console.log(skill)
+      this.shouldSkillModalShow = true
     },
 
     onWindowResize () {
