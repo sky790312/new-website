@@ -13,7 +13,8 @@
       appear>
       <h3
         class="job-title">
-        {{ $t('jobTitle') }}
+        Frontend Developer
+        <!-- {{ $t('jobTitle') }} -->
       </h3>
     </transition>
     <transition

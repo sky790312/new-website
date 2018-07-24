@@ -33,8 +33,12 @@
       @closeModal="shouldSkillModalShow = false">
       <h3
         slot="header">
-        custom header
+        {{ currentSkill.name }}
       </h3>
+      <div
+        slot="body">
+        {{ $t(currentSkillDetail) }}
+      </div>
     </i-modal>
   </div>
 </template>
@@ -70,7 +74,8 @@ export default {
         mobileView: []
       },
       skills: SKILLS,
-      shouldSkillModalShow: false
+      shouldSkillModalShow: false,
+      currentSkill: {}
     }
   },
 
@@ -105,6 +110,10 @@ export default {
 
     currentView () {
       return (this.windowSize === 'l') ? this.views.pcView : this.views.mobileView
+    },
+
+    currentSkillDetail () {
+      return `skills.${this.currentSkill.name}`
     }
   },
 
@@ -155,6 +164,7 @@ export default {
 
     onSkillClick (skill) {
       console.log(skill)
+      this.currentSkill = skill
       this.shouldSkillModalShow = true
     },
 
