@@ -1,25 +1,40 @@
 <template>
-  <transition name="modal">
+  <transition
+    name="modal">
     <div
       class="i-modal"
-      @click.self="closeModal">
-      <div class="modal-container">
-        <div class="modal-header">
-          <slot name="header">
+      @click.self="closeModalByBackground">
+      <div
+        class="modal-container"
+        :style="{width, height}">
+        <div
+          v-if="hasCloseButton"
+          class="modal-close"
+          @click="closeModal">
+          x
+        </div>
+        <div
+          class="modal-header">
+          <slot
+            name="header">
             default header
           </slot>
         </div>
-        <div class="modal-body">
-          <slot name="body">
+        <div
+          class="modal-body">
+          <slot
+            name="body">
             default body
           </slot>
         </div>
-        <div class="modal-footer">
-          <slot name="footer">
+        <div
+          class="modal-footer">
+          <slot
+            name="footer">
             default footer
-            <button class="modal-default-button" @click="closeModal">
-              OK
-            </button>
+            <!-- <button class="modal-default-button" @click="closeModal">
+              close
+            </button> -->
           </slot>
         </div>
       </div>
@@ -28,19 +43,59 @@
 </template>
 
 <script>
+const minWidth = 'auto'
+const minHeight = 'auto'
+
 export default {
   name: 'IModal',
 
   props: {
+    width: {
+      type: String,
+      default () {
+        return minWidth
+      }
+    },
 
+    height: {
+      type: String,
+      default () {
+        return minHeight
+      }
+    },
+
+    canCloseByEsc: {
+      type: Boolean,
+      default () {
+        return true
+      }
+    },
+
+    canCloseByBackground: {
+      type: Boolean,
+      default () {
+        return true
+      }
+    },
+
+    hasCloseButton: {
+      type: Boolean,
+      default () {
+        return true
+      }
+    }
   },
 
   mounted () {
-    document.addEventListener('keyup', this.closeModalByEsc)
+    if (this.canCloseByEsc) {
+      document.addEventListener('keyup', this.closeModalByEsc)
+    }
   },
 
   beforeDestroy () {
-    document.removeEventListener('keyup', this.closeModalByEsc)
+    if (this.canCloseByEsc) {
+      document.removeEventListener('keyup', this.closeModalByEsc)
+    }
   },
 
   methods: {
@@ -53,14 +108,22 @@ export default {
       if (event.keyCode === 27) {
         this.closeModal()
       }
+    },
+
+    closeModalByBackground () {
+      if (this.canCloseByBackground) {
+        this.closeModal()
+      }
     }
   }
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 
+$mobileBreakPoint = 768px
 $black = #000
+$white = #fff
 
 .i-modal {
   position: fixed
@@ -77,26 +140,51 @@ $black = #000
 }
 
 .modal-container {
-  width: 300px
-  margin: 0px auto
+  position: relative
+  margin: 20px
   padding: 20px 30px
-  background-color: #fff
+  // min-width: calc(100% - 100px)
+  min-width: 300px
+  width: 100%
+  box-sizing: border-box
+  background-color: $white
   border-radius: 2px
   box-shadow: 0 2px 8px rgba($black, .33)
   transition: all .3s ease
+
+  @media screen and (min-width: $mobileBreakPoint) {
+    min-width: 300px
+    margin: auto
+  }
 }
 
-// .modal-header h3 {
-//   margin-top: 0
-// }
+.modal-close {
+  position: absolute
+  top: 5px
+  right: 10px
+  cursor: pointer
+  font-size: 20px
+  font-weight: bold
+  line-height: 20px
+  opacity: .6
+
+  &:hover {
+    opacity: .8
+  }
+}
+
+.modal-header h3 {
+  margin: 0
+}
 
 .modal-body {
   margin: 20px 0
 }
 
-// .modal-default-button {
-//   float: right
-// }
+.modal-footer {
+  display: flex
+  justify-content: flex-end
+}
 
 .modal-enter {
   opacity: 0
