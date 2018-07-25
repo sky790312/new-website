@@ -2,6 +2,11 @@
   <div
     id="helper"
     :class="{'active': helper.isActive}">
+    <i-speech-bubble
+      v-if="helper.isSpeeching"
+      class="speech-container">
+      speeching..
+    </i-speech-bubble>
     <i-rotate-in-menus
       class="helper-menu"
       :isActive="helper.isActive"
@@ -17,12 +22,14 @@
 </template>
 
 <script>
+import ISpeechBubble from '@/components/ISpeechBubble'
 import IHeadBoy from '@/components/IHeadBoy'
 import IRotateInMenus from '@/components/IRotateInMenus'
 export default {
   name: 'Helper',
 
   components: {
+    ISpeechBubble,
     IHeadBoy,
     IRotateInMenus
   },
@@ -30,6 +37,7 @@ export default {
   data () {
     return {
       helper: {
+        isSpeeching: true,
         isActive: false,
         menus: [{
           name: 1,
@@ -76,7 +84,6 @@ export default {
   position: fixed
   bottom: -30px
   right: 20px
-  cursor: pointer
   transition: all .2s ease
 
   &:hover {
@@ -93,6 +100,16 @@ export default {
     align-items: center
     justify-content: center
     background-color: rgba($black, .85)
+  }
+
+  .helper-menu {
+    cursor: pointer
+  }
+
+  .speech-container {
+    position: absolute
+    top: -90px
+    right: 27px
   }
 }
 
