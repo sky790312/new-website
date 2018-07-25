@@ -16,6 +16,9 @@ const en = {
     vue: `Familiar with vue ecosystem and build the pure vue component. This website is the best example.`,
     es2015: `Familiar to use async/await with promise and other features in project. I think it's more easly now to build an application by class and constructor without any framework.`,
     test: `Unit test: using Karma/Jest to test vue. E2e test: using Cypress to test user flow. I can't accept the project without any testing but I think don't lose yourself to pursue the coverage at the same time.`
+  },
+  helperMermer: {
+    vue: 'Already use vue to develop over 2 years'
   }
   // jobTitle: 'Frontend Developer'
 }

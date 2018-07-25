@@ -6,6 +6,7 @@ import Vuex from 'vuex'
 // import * as mutations from '@/store/mutations'
 // import others from '@/store/modules/others'
 import language from '@/store/modules/language'
+import speechBubble from '@/store/modules/speechBubble'
 
 Vue.use(Vuex)
 
@@ -19,7 +20,8 @@ const store = new Vuex.Store({
   // actions,
   // mutations,
   modules: {
-    language
+    language,
+    speechBubble
     // others
   },
   strict: true

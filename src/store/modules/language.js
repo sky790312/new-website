@@ -1,5 +1,9 @@
 import { loadLanguageAsync } from '@/setup/i18n-setup'
 
+const types = {
+  SET_LANGUAGE: 'SET_LANGUAGE'
+}
+
 const state = {
   language: 'en'
 }
@@ -11,13 +15,13 @@ const getters = {
 const actions = {
   async setLanguage ({ commit }, language = 'en') {
     await loadLanguageAsync(language)
-    commit('SET_LANGUAGE', language)
+    commit(types.SET_LANGUAGE, language)
     return language
   }
 }
 
 const mutations = {
-  SET_LANGUAGE (state, language = 'en') {
+  [types.SET_LANGUAGE] (state, language = 'en') {
     state.language = language
   }
 }

@@ -1,11 +1,10 @@
 <template>
   <div
     id="helper"
-    :class="{'active': helper.isActive}">
+    :class="{'active': helper.isActive, 'speeching': shouldShowSpeechBubble}">
     <i-speech-bubble
-      v-if="helper.isSpeeching"
-      class="speech-container">
-      speeching..
+      v-if="shouldShowSpeechBubble"
+      :text="currentSpeechBubbleTitle">
     </i-speech-bubble>
     <i-rotate-in-menus
       class="helper-menu"
@@ -22,6 +21,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import ISpeechBubble from '@/components/ISpeechBubble'
 import IHeadBoy from '@/components/IHeadBoy'
 import IRotateInMenus from '@/components/IRotateInMenus'
@@ -37,7 +37,6 @@ export default {
   data () {
     return {
       helper: {
-        isSpeeching: true,
         isActive: false,
         menus: [{
           name: 1,
@@ -64,6 +63,17 @@ export default {
     }
   },
 
+  computed: {
+    ...mapGetters([
+      'speechBubbleTitle',
+      'shouldShowSpeechBubble'
+    ]),
+
+    currentSpeechBubbleTitle () {
+      return this.$t(`helperMermer.${this.speechBubbleTitle}`)
+    }
+  },
+
   methods: {
     handleHelperMajorClick () {
       this.helper.isActive = true
@@ -86,7 +96,7 @@ export default {
   right: 20px
   transition: all .2s ease
 
-  &:hover {
+  &:hover, &.speeching {
     margin-bottom: 5px
   }
 
@@ -104,12 +114,6 @@ export default {
 
   .helper-menu {
     cursor: pointer
-  }
-
-  .speech-container {
-    position: absolute
-    top: -90px
-    right: 27px
   }
 }
 

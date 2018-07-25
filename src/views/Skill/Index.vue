@@ -17,7 +17,9 @@
         v-for="(skill, index) in skillCategory.child"
         :key="skill.name"
         :ref="`${skillCategory.name}${index}`"
-        @click="onSkillClick(skill)">
+        @click="onSkillClick(skill)"
+        @mouseenter="onSkillHover(skill, true)"
+        @mouseleave="onSkillHover(skill,false)">
         <div
           class="title">
           {{ skill.title }}
@@ -29,8 +31,8 @@
       </div>
     </div>
     <i-modal
-      v-if="shouldSkillModalShow"
-      @closeModal="shouldSkillModalShow = false">
+      v-if="shouldShowSkillModal"
+      @closeModal="shouldShowSkillModal = false">
       <h3
         slot="header">
         {{ currentSkill.name }}
@@ -51,6 +53,7 @@ import {
   throttle,
   getWindowSize
 } from '@/utils'
+import { mapActions } from 'vuex'
 import {
   SKILLS
 } from '@/views/Skill/data'
@@ -74,7 +77,7 @@ export default {
         mobileView: []
       },
       skills: SKILLS,
-      shouldSkillModalShow: false,
+      shouldShowSkillModal: false,
       currentSkill: {}
     }
   },
@@ -118,6 +121,11 @@ export default {
   },
 
   methods: {
+    ...mapActions([
+      'setSpeechBubbleTitle',
+      'setShouldShowSpeechBubble'
+    ]),
+
     init () {
       scene = new THREE.Scene()
       renderer = new THREE.CSS3DRenderer()
@@ -163,9 +171,14 @@ export default {
     },
 
     onSkillClick (skill) {
-      console.log(skill)
       this.currentSkill = skill
-      this.shouldSkillModalShow = true
+      this.shouldShowSkillModal = true
+    },
+
+    onSkillHover (skill, isHover) {
+      const speechBubbleTitle = isHover ? skill.name : ''
+      this.setSpeechBubbleTitle(speechBubbleTitle)
+      this.setShouldShowSpeechBubble(isHover)
     },
 
     onWindowResize () {

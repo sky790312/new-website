@@ -1,3 +1,17 @@
+export const requiredParam = (param) => {
+  const requiredParamError = new Error(
+   `Required parameter, "${param}" is missing.`
+  )
+  // preserve original stack trace
+  if (typeof Error.captureStackTrace === 'function') {
+    Error.captureStackTrace(
+      requiredParamError,
+      requiredParam
+    )
+  }
+  throw requiredParamError
+}
+
 export const throttle = (func, wait = 0, options = {}) => {
   let context, args, result
   let timeout = null
