@@ -1,7 +1,11 @@
 <template>
   <div
-    class="i-speech-bubble">
-    <slot></slot>
+    class="i-speech-bubble right-bottom">
+    <div
+      class="speech-text"
+      :style="{width}">
+      {{ text }}
+    </div>
   </div>
 </template>
 
@@ -10,25 +14,41 @@ export default {
   name: 'ISpeechBubble',
 
   props: {
+    text: {
+      type: String,
+      default () {
+        return ''
+      }
+    },
 
+    width: {
+      type: String,
+      default () {
+        return ''
+      }
+    }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
 
+$mobileBreakPoint = 768px
 $white = #fff
 $black = #000
 
 .i-speech-bubble {
   position: relative
-  min-width: 300px
   border: 1px solid $white
+  border-radius: 5px
   padding: 20px
-  // text-align: center;
-  // font-weight: 900;
   color: $white
-  // font-family: arial;
+
+  &.right-bottom {
+    position: absolute
+    top: -90px
+    right: 27px
+  }
 
   &:before {
     content: ''
@@ -55,5 +75,11 @@ $black = #000
     border-top: 10px solid $black
     border-bottom: 10px solid transparent
   }
+}
+
+.speech-text {
+  white-space: nowrap
+  overflow:hidden
+  text-overflow: ellipsis
 }
 </style>

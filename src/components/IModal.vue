@@ -122,8 +122,8 @@ export default {
 <style lang="stylus">
 
 $mobileBreakPoint = 768px
-$black = #000
 $white = #fff
+$black = #000
 
 .i-modal {
   position: fixed
