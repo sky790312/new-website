@@ -266,7 +266,7 @@ export const SKILLS = [{
     }
   }, {
     name: 'mvc',
-    title: 'MVC',
+    title: 'backend MVC',
     desc: 'Ruby on Rails, Java Play',
     position: {
       pc: {

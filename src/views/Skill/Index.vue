@@ -218,12 +218,15 @@ $mainItemWidth = 360px
 $mainItemHeight = 320px
 $subItemWidth = 150px
 $subItemHeight = 180px
+$subItemWidthHover = 200px
+$subItemHeightHover = 240px
 
 $mainFontSize = 42px
 $mainFontSizeHover = 56px
 $subFontSize = 26px
-$subFontSizeHover = 32px
+$subFontSizeHover = 36px
 $detailFontSize = 18px
+$detailFontSizeHover = 32px
 
 
 #skill {
@@ -242,13 +245,18 @@ $detailFontSize = 18px
       font-weight: bold
       color: rgba($white, .75)
       text-shadow: 0 0 10px rgba($cyan, .95)
-      transition: font-size .5s
+      transition: font-size .3s
     }
 
     .detail {
       line-height: 28px
-      font-size: $detailFontSize
       color: rgba($cyan2, .75)
+    }
+
+    &:hover {
+      .title {
+        margin: 10px 0
+      }
     }
   }
 
@@ -276,18 +284,30 @@ $detailFontSize = 18px
     width: $subItemWidth
     height: $subItemHeight
     cursor: pointer
+    transition: width .3s, height .3s
 
     &:hover {
+      width: $subItemWidthHover
+      height: $subItemHeightHover
       box-shadow: 0px 0px 12px rgba($cyan, .75)
       border: 1px solid rgba($cyan2, .75)
 
       .title {
         font-size: $subFontSizeHover
       }
+
+      .detail {
+        font-size: $detailFontSizeHover
+        line-height: 36px
+      }
     }
 
     .title {
       font-size: $subFontSize
+    }
+
+    .detail {
+      font-size: $detailFontSize
     }
   }
 }
