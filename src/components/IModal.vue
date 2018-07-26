@@ -159,12 +159,20 @@ $black = #000
   }
 }
 
-.modal-header h3 {
-  margin: 0
+.modal-header {
+  h3 {
+    margin: 0
+  }
 }
 
 .modal-body {
   margin: 20px 0
+  max-height: calc(100vh - 140px)
+  overflow-y: scroll
+
+  @media screen and (min-width: $mobileBreakPoint) {
+    max-height: 400px
+  }
 }
 
 // .modal-footer {
