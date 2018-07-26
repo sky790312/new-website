@@ -70,7 +70,7 @@ export default {
     ]),
 
     currentSpeechBubbleTitle () {
-      return this.$t(`helperMermer.${this.speechBubbleTitle}`)
+      return this.$t(`mermer.${this.speechBubbleTitle}`)
     }
   },
 

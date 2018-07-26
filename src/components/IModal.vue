@@ -27,16 +27,13 @@
             default body
           </slot>
         </div>
-        <div
+        <!-- <div
           class="modal-footer">
           <slot
             name="footer">
             default footer
-            <!-- <button class="modal-default-button" @click="closeModal">
-              close
-            </button> -->
           </slot>
-        </div>
+        </div> -->
       </div>
     </div>
   </transition>
@@ -143,8 +140,6 @@ $black = #000
   position: relative
   margin: 20px
   padding: 20px 30px
-  // min-width: calc(100% - 100px)
-  min-width: 300px
   width: 100%
   box-sizing: border-box
   background-color: $white
@@ -181,10 +176,10 @@ $black = #000
   margin: 20px 0
 }
 
-.modal-footer {
-  display: flex
-  justify-content: flex-end
-}
+// .modal-footer {
+//   display: flex
+//   justify-content: flex-end
+// }
 
 .modal-enter {
   opacity: 0
