@@ -40,8 +40,6 @@
 </template>
 
 <script>
-const minWidth = 'auto'
-const minHeight = 'auto'
 
 export default {
   name: 'IModal',
@@ -50,14 +48,7 @@ export default {
     width: {
       type: String,
       default () {
-        return minWidth
-      }
-    },
-
-    height: {
-      type: String,
-      default () {
-        return minHeight
+        return ''
       }
     },
 
@@ -149,7 +140,7 @@ $black = #000
 
   @media screen and (min-width: $mobileBreakPoint) {
     min-width: 300px
-    margin: auto
+    max-width: 560px
   }
 }
 

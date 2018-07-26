@@ -33,7 +33,6 @@ export default {
 
 <style lang="stylus" scoped>
 
-$mobileBreakPoint = 768px
 $white = #fff
 $black = #000
 
