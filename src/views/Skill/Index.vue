@@ -254,6 +254,7 @@ $detailFontSizeHover = 32px
 
 #skill {
   height: 100%
+  padding: 0
 
   .item {
     box-sizing: border-box
