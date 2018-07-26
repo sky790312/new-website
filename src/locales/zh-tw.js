@@ -4,7 +4,7 @@ const tw = {
     entryDesc: `請拖曳至該區塊並點擊進入我的網站！`
   },
   homePage: {
-    welcome: `歡迎來到我的工作室，有任何疑問歡迎聯絡我！`
+    welcome: `歡迎來到我的工作室，有任何問題歡迎聯絡我！`
   },
   menus: {
     profile: `簡介`,

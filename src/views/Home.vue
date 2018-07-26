@@ -135,6 +135,8 @@ export default {
 
   .main-skill-tags-container {
     display: flex
+    flex-wrap: wrap
+    justify-content: center
     margin-bottom: 40px
   }
 
