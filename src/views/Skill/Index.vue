@@ -33,10 +33,16 @@
     <i-modal
       v-if="shouldShowSkillModal"
       @closeModal="shouldShowSkillModal = false">
-      <h3
+      <div
         slot="header">
-        {{ currentSkill.name }}
-      </h3>
+        <h3 class="skill-modal-title">
+          {{ currentSkill.title }}
+        </h3>
+        <p
+          class="skill-modal-desc">
+          {{ currentSkill.desc }}
+        <p/>
+      </div>
       <div
         slot="body">
         {{ $t(currentSkillDetail) }}
@@ -249,7 +255,7 @@ $mainFontSizeHover = 56px
 $subFontSize = 26px
 $subFontSizeHover = 36px
 $detailFontSize = 18px
-$detailFontSizeHover = 32px
+$detailFontSizeHover = 30px
 
 
 #skill {
@@ -333,6 +339,14 @@ $detailFontSizeHover = 32px
     .detail {
       font-size: $detailFontSize
     }
+  }
+
+  .skill-modal-title {
+    font-size: 22px
+  }
+
+  .skill-modal-desc {
+    margin: 0
   }
 }
 
