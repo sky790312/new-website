@@ -1,27 +1,37 @@
 <template>
   <div
     id="app-sidebar">
-    <h1>
+    <h1
+      class="main-menu">
       <router-link
-        class="logo router-link"
+        class="name router-link"
         :to="{name: 'home'}">
-        KevinHu
+        Kevin Hu
+        <h4
+          class="title">
+          Frontend Developer
+        </h4>
       </router-link>
     </h1>
-    <div
-      v-for="menu in sidebarMenus"
-      :key="menu.name"
-      class="menu">
-      <router-link
-        class="router-link"
-        :to="menu.route">
-        <i
-          :class="['fa', menu.icon]"
-          aria-hidden="true">
-        </i>
-        {{ $t(menu.text) }}
-      </router-link>
-    </div>
+    <nav
+      class="sub-menu">
+      <ul>
+        <li
+          v-for="menu in sidebarMenus"
+          :key="menu.name"
+          class="menu">
+          <router-link
+            class="router-link"
+            :to="menu.route">
+            <i
+              :class="['fa', menu.icon]"
+              aria-hidden="true">
+            </i>
+            {{ $t(menu.text) }}
+          </router-link>
+        </li>
+      </ul>
+    </nav>
   </div>
 </template>
 
@@ -70,20 +80,42 @@ export default {
 
 #app-sidebar {
   background-color: $black
-  border-right: 1px groove $white
-  padding: 0 15px
+  // padding: 0 15px
   box-sizing: border-box
 
   @media screen and (min-width: $mobileBreakPoint) {
     width: $appSidebarWidth
+    border-right: 1px groove $white
   }
 
-  .logo {
-    color: $white
+  .main-menu {
+    padding-bottom: 10px
+    text-align: center
+
+    .name {
+      color: $white
+      padding-bottom: 10px
+    }
+
+    .title {
+      font-size: 12px
+      margin: 0
+      color: $light-gray
+    }
   }
 
-  .menu {
-    padding: 10px 0
+  .sub-menu {
+    position: fixed
+    left: - $appSidebarWidth
+    padding: 0
+
+    @media screen and (min-width: $mobileBreakPoint) {
+      position: relative
+    }
+
+    .menu {
+      padding: 10px 15px
+    }
 
     .router-link {
       position: relative

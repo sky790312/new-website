@@ -31,7 +31,9 @@ $tag-bkg-hover-color = $light-blue2
 
 .i-tag {
 	margin: 5px
-	padding: 5px 8px
+	padding: 0 8px
+  height: 30px
+  line-height: 30px
 	color: $tag-color
 	background-color: $tag-bkg-color
 	cursor: default
