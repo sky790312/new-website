@@ -17,7 +17,7 @@ const tw = {
     es2015: `使用async/await搭配promise已是基本配備, 其他特性也靈活運用中. 個人認為善用class constructor不依靠任何framework已能輕鬆地建立任何一個應用.`,
     test: `Unit test: 使用Karma/Jest測試vue相關生態系. E2e test: 使用cypress為主, 依據user flow撰寫test case. 結合CI, 現在已不太能接受沒有寫任何測試的專案, 但也不應該有覆蓋率的迷失.`,
     aframe: `從0.2版就開始作為主要開發, 更榮登aframe weekly posts. webVR的最佳framework, 3dio.js更是結合aframe的最佳典範. 使用aframe更脫離不了threejs.`,
-    css: `早期維護過到ie9, polyfill, 沒有flex/grid時光, 打下了css底基. 從less, scss, stylus都實際在專案中實戰過, 從css preprocessor到css in js甚至是css自身的演化, 都比以前好很多了. 個人最喜愛vue對css的處理方式.`,
+    css: `早期維護過到ie9, polyfill, 沒有flex/grid時光, 打下了css底基. 從less, scss, stylus都實際在專案中實戰過, 在某一次專案中, 更接觸了RTL語系排版的需求, 過程中專研並實現幾乎不多寫一行css來實現RTL語系排版. 從css preprocessor到css in js甚至是css自身的演化, 都比以前好很多了. 個人最喜愛vue對css的處理方式.`,
     d3: `d3處理視覺化資料上有很大的彈性, 能做到許多其他library做不到的, 非常全面. 曾使用d3 v4版本來處理某個專案過, 視覺化資料有很多library可以選擇, 只要選擇一個喜歡的並符合你需求的即可. `,
     thirdparty: `串接第三方api是非常常見的, 我們經常會使用fb, google甚至是wechat來作為服務的登入. Google analytic, google map api也是非常常見的, 提供給我們在專案中使用.`,
     tools: `直到現在, Webpack已經幾乎是一統江湖了, 前端開發必備. 版本控管基本上也看不到svn囉, 我們更以shell script, jenkins來做前端自動化. `,
