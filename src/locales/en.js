@@ -28,7 +28,11 @@ const en = {
     seo: `There are many ways to help seo, write correct html's structure, server side render, prerender, xml, sitemap..etc. Equitment the ability to use google analytics, search console and adwords is necessary. Seo change every year like using social media, PWA..etc. We must keep focus on it.`,
     baas: `Backend as a Service like leancloud, firebase let us has the ability to handle backend's job which is a good choice to build a simple project. You can use it with your backend service which can reduce backend's loading. But you must know the pro and con first.`,
     pass: `Platform as a Service like GCP, AWS EC2, Azure is very powerful! It can reduce the cost on your service in the early stage. When your service group up, you can enhance your service progressively. But it still has the pro and con, remember to monitor you servive.`,
-    jquery: `jQuery is what I use in my early career. I believe every frontend developer for over 3 years can use jquery proficient. A senior frontend developer must use it and structure it very well. It still a goot library, but it's not it's time now. It still very suit for some short time event by it's ecosystem.`
+    jquery: `jQuery is what I use in my early career. I believe every frontend developer for over 3 years can use jquery proficient. A senior frontend developer must use it and structure it very well. It still a goot library, but it's not it's time now. It still very suit for some short time event by it's ecosystem.`,
+    angularjs: `In the beginning of the new era of Frontend Development's world, there is full of mvvm library like ember, backbone, knoutout, angularjs..etc. The most famous also the most people use is angularjs. I think it raise up frontend developer's position, let people know that Frontend Development's job is not only html, css, jquery in that time.`,
+    mvc: `Backend mvc framework is very common like ruby on rails, java play, even nodejs express..etc. For me, it has the same concept just in different language. Although there are more and more api server structure, mvc structure still can be a choice which combined with frontend's framework appropriately.`,
+    database: `I used to write sql in one project that make me understand what relational database is. There are some library let you not write sql directly now. Nosql is another choice of dabase like mongodb, redis..etc. Some baas service is using nosql like fireebase which let me gain some knowledge of nosql.`,
+    cms: `Cms system is very helpful and fast to build a official website like wordpress, joomla..etc. I used to build some website by wordpress in some case. It's a very powerful tool.`
   },
   mermer: {
     vue: `Over 2 years using vue to develop..`,
@@ -46,8 +50,11 @@ const en = {
     seo: `Seo is part of frontend developer's duty..`,
     baas: `There are more and more baas service appear..`,
     paas: `There are many Paas service which are very powerful..`,
-    jquery: `I haven't used jquery for a long time..`
-    // angularjs: `Angularjs used to dominatd the world but now..`
+    jquery: `I haven't used jquery for a long time..`,
+    angularjs: `Angularjs used to dominatd the world but now..`,
+    mvc: `Backend mvc is still one of the most common structure people choice..`,
+    database: `Having the knowledge of database is very useful..`,
+    cms: `Cms system is very helpful and fast to build a ofiicial website..`
   }
   // jobTitle: 'Frontend Developer'
 }
