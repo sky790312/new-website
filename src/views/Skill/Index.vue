@@ -170,7 +170,7 @@ export default {
       pcObject3d.position.z = -3000
       this.views.pcView.push(pcObject3d)
       let mobileObject3d = new THREE.Object3D()
-      mobileObject3d.position.x = (skill.position.mobile.x * 170) - 1615
+      mobileObject3d.position.x = (skill.position.mobile.x * 170) - 1520
       mobileObject3d.position.y = -(skill.position.mobile.y * 200) + 1200
       mobileObject3d.position.z = -2650
       this.views.mobileView.push(mobileObject3d)
