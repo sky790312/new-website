@@ -149,8 +149,9 @@ export default {
 
 .router-view {
   position: relative
-  width: 100vw
+  // width: 100vw
   height: calc(100vh - 230px)
+  padding: 20px
   /*margin: auto*/
   @media screen and (min-width: $mobileBreakPoint) {
     width: "calc(100vw - %s)" % $appSidebarWidth
