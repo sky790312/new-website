@@ -22,7 +22,17 @@ const tw = {
     thirdparty: `串接第三方api是非常常見的, 我們經常會使用fb, google甚至是wechat來作為服務的登入. Google analytic, google map api也是非常常見的, 提供給我們在專案中使用.`,
     tools: `直到現在, Webpack已經幾乎是一統江湖了, 前端開發必備. 版本控管基本上也看不到svn囉, 我們更以shell script, jenkins來做前端自動化. `,
     scrum: `Scrum是最有名的aglie敏捷開發之一, 另外我們常用Redmine, trello搭配使用做專案管理. 如果你們團隊也試著導入scrum, 千萬不要讓他變成假scrum真waterfall..`,
-    nodejs: `使用同樣為javascript的nodejs作為開發, 是非常常見的一個選項. nodejs v8引擎也越來越強大. 在這個大前端時代, 應用端這端也是不可被忽略的. 沒有一點相關的經驗與知識可是不行的.`
+    nodejs: `使用同樣為javascript的nodejs作為開發, 是非常常見的一個選項. nodejs v8引擎也越來越強大. 在這個大前端時代, 應用端這端也是不可被忽略的. 沒有一點相關的經驗與知識可是不行的.`,
+    react: `React的社群非常豐富也非常活躍, 這是vue所沒有的. 在react生態系中, 大家可以用各種方式開發. 個人目前最喜愛react-observable的處理方式, 也讓我間接了解Rxjs. React對於css的處理一直不是很喜歡, 目前覺得css module較為合適. angularjs讓大家看見前端, 讓前端的地位提升, 最後卻讓大家失望. 人們需要一點慰藉, 而react也適時出現了! 結果就如現況, React為前端提升了很大的地位與薪資水平.`,
+    reactnative: `在這大前端時代, React native是不可或缺的功成之一, 我們可以用開發web的方式開發一個native app. 依靠著react生態系, react native已經在mobile app佔有一席之地. 希望vue能慢慢迎頭趕上. 使用react native開發還是有許多限制, 很多時候我們還是需要針對ios/android處理, 但是真的精通三方的人幾乎是沒有! 所以如果您也打算導入react native的話, 請一定要好好先評估過您的需求啊.`,
+    seo: `Seo有很多提升的方式, 像是撰寫正確的html架構, 使用server side render, prernder, 提交xml, sitemap等等之類. 使用google analytics, search console, adwords 的能力是不可或缺的. Seo每年都會調整, 像是多使用社群的網站, 使用PWA技術等等, 必須要持續關注.`,
+    baas: `Backend as a Service讓我們有能力去處理以前backend處理的事, 很適合處理一些小型的project. 也因此能夠減輕backend的loading. 但也不全然只有好處, 在確定要導入之前, 可一定要了解導入後的結果.`,
+    pass: `Platform as a Service像是GCP, AWS EC2, Azure都是非常強大的! 在你的產品剛開始的階段, 這些服務可以有效減少server side的成本. 當你的系統越來越茁壯的時候, 你也可以漸進式的增強你的系統. 使用這些服務時, 可不要忘了其優缺點並隨時monitor你的系統啊`,
+    jquery: `在我剛成為前端工程師時, jquery可是人人具備的一個工具. 我相信每個超過3年經驗的前端都曾活用過jquery. . 一個資深的前端工程師必能活用並用架構其專案. jquery還是一個很好的工具, 只是現在已經不是jquery的時代. 不過在其豐富的library資源下, 還是很適合拿來做一些活動網站的.`,
+    angularjs: `在這大前端時代的開端, 有許多mvvm library的先驅, 像是ember, backbone, knoutout, angularjs等等. 其中最知名且最多人用的就是angularjs! 我認為angularjs讓人們開始重視前端的角色, 並讓人們開始知道前端不只是寫寫html, css, jquery.`,
+    mvc: `Backend mvc架構是非常常見的, 如ruby on rails, java play, 甚至nodejs express等等..對我來說, 他們的概念都很相似, 只是不同語言有不同的特性. 雖然現在已經越來越多的api server架構, mvc架構再適當的結合前端framework下扔然是個開發好選擇.`,
+    database: `在過去, 我曾經在某個專案中, 直接寫sql來處理資料庫, 這讓我對關聯式資料庫的了解幫助不少. 現在已經蠻多library可以讓我們不用直接寫sql處理資料庫了. 至於nosql的資料庫像是mogodb, redis等等..也是一種選擇. 許多baas的服務都是用nosql的概念去實作像是firebase, 在使用這些服務的過程中也讓我對nosql了解不少.`,
+    cms: `cms內容管理系統像是wordpress, joomla等等..用來建立官網是非常有幫助且快速的. 我過去也使用過wordpress建立了不少網站, 甚至接案. 是個非常好用的工具.`
   },
   mermer: {
     vue: '使用vue作為主要開發已超過2年..',
@@ -33,7 +43,17 @@ const tw = {
     d3: `視覺化資料是前端不可或缺的一部份..`,
     thirdparty: `串接第三方api如fb, google是非常常見的..`,
     tools: `現在已經不是直接寫寫html, css, js的世界囉..`,
-    scrum: `Scrum vs waterfall, 你的團隊喜歡哪一個..`
+    scrum: `Scrum vs waterfall, 你的團隊喜歡哪一個..`,
+    react: `React是在angularjs之後最後歡迎的framewrok之一..`,
+    reactnative: `我相信react native是人們更願意選擇react的原因之一..`,
+    seo: `Seo也是前端工程師需具備的一部份..`,
+    baas: `Baas服務已經越來越多了..`,
+    paas: `Paas服務是非常強大的..`,
+    jquery: `已經有好一陣子沒用jquery了..`,
+    angularjs: `曾經幾乎一統江湖的angularjs現在..`,
+    mvc: `Backend mvc扔是一個業界非常常見的架構之一..`,
+    database: `擁有資料庫的相關知識是非常有幫助的..`,
+    cms: `使用cms內容管理系統來建立官網是非常有幫助且快速的..`
   }
   // jobTitle: 'Frontend Developer'
 }

@@ -197,7 +197,7 @@ export const SKILLS = [{
   }, {
     name: 'seo',
     title: 'SEO',
-    desc: 'Google Analytics',
+    desc: 'Google Analytics, Search Console',
     position: {
       pc: {
         x: 13,

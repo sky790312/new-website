@@ -22,7 +22,17 @@ const en = {
     thirdparty: `Third party api like google, facebook, wechat, is part of web application. We offen use google / facebook even wechat to login. Google analytic, google map api is very powerful to let us use in our project.`,
     tools: `Webpack is the first choose for project now. We offen use webpack to develop, use git for version control, use shell script and jenkins for CI/CD.`,
     scrum: `Scrum is one of agile which many company use. Redmine, trello help us to control our project. If your team wanna use scrum, don't let it become waterfall.`,
-    nodejs: `Being part of javascript, using nodejs as backend service is very common. Nodejs v8 engine is become very powerful now. In the new era of Frontend Development, you can't have no experience and knowledge to face the nodejs application server side.`
+    nodejs: `Being part of javascript, using nodejs as backend service is very common. Nodejs v8 engine is become very powerful now. In the new era of Frontend Development, you should have more experience and knowledge to face the nodejs application server side.`,
+    react: `React ecosystem has more power than vue, it's no doubt. Everyone can use react to develop in different way. I like the react-observable more than others which help me go through rxjs and I really don't like what react handle css. If let me choice, I will use css module. angularjs let everyone take a look at Frontend but let everyone down. People need solace of a kind and react is shown. Anyway, React create lots of job and raise Frontend Developer's position.`,
+    reactnative: `React native let us develop native app like develop web which open the new era of Frontend Development. Base on it's ecosystem, it has a place in mobile app now. I wish vue can catch it up. There is still some limit what react native can't do. Sometimes, you still need to focus on ios/android side but there is no one who can familiar with both web and ios/android side. So if you want to use react native, please confirm and access the requirement in you app first.`,
+    seo: `There are many ways to help seo, write correct html's structure, server side render, prerender, xml, sitemap..etc. Equitment the ability to use google analytics, search console and adwords is necessary. Seo change every year like using social media, PWA..etc. We must keep focus on it.`,
+    baas: `Backend as a Service like leancloud, firebase let us has the ability to handle backend's job which is a good choice to build a simple project. You can use it with your backend service which can reduce backend's loading. But you must know the pro and con first.`,
+    pass: `Platform as a Service like GCP, AWS EC2, Azure is very powerful! It can reduce the cost on your service in the early stage. When your service group up, you can enhance your service progressively. But it still has the pro and con, remember to monitor you servive.`,
+    jquery: `jQuery is what I use in my early career. I believe every frontend developer for over 3 years can use jquery proficient. A senior frontend developer must use it and structure it very well. It still a goot library, but it's not it's time now. It still very suit for some short time event by it's ecosystem.`,
+    angularjs: `In the beginning of the new era of Frontend Development's world, there is full of mvvm library like ember, backbone, knoutout, angularjs..etc. The most famous also the most people use is angularjs. I think it raise up frontend developer's position, let people know that Frontend Development's job is not only html, css, jquery in that time.`,
+    mvc: `Backend mvc framework is very common like ruby on rails, java play, even nodejs express..etc. For me, it has the same concept just in different language. Although there are more and more api server structure, mvc structure still can be a choice which combined with frontend's framework appropriately.`,
+    database: `I used to write sql in one project that make me understand what relational database is. There are some library let you not write sql directly now. Nosql is another choice of dabase like mongodb, redis..etc. Some baas service is using nosql like fireebase which let me gain some knowledge of nosql.`,
+    cms: `Cms system is very helpful and fast to build a official website like wordpress, joomla..etc. I used to build some website by wordpress in some case. It's a very powerful tool.`
   },
   mermer: {
     vue: `Over 2 years using vue to develop..`,
@@ -34,7 +44,17 @@ const en = {
     thirdparty: `It's very common to use third party api in application..`,
     tools: `It's not the world just writing html, css, js directly..`,
     scrum: `Scrum vs waterfall, which one suit for your team..`,
-    nodejs: `nodejs express has take its place in the world..`
+    nodejs: `nodejs has take its place in the world..`,
+    react: `React has already become the most popular framework after angularjs..`,
+    reactnative: `I believe one of the reason people choice react is because of react native..`,
+    seo: `Seo is part of frontend developer's duty..`,
+    baas: `There are more and more baas service appear..`,
+    paas: `There are many Paas service which are very powerful..`,
+    jquery: `I haven't used jquery for a long time..`,
+    angularjs: `Angularjs used to dominatd the world but now..`,
+    mvc: `Backend mvc is still one of the most common structure people choice..`,
+    database: `Having the knowledge of database is very useful..`,
+    cms: `Cms system is very helpful and fast to build a ofiicial website..`
   }
   // jobTitle: 'Frontend Developer'
 }
