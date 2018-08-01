@@ -38,6 +38,7 @@ stories
       status: 'completed'
     }, 'menus-group')
     const menus = [menu1, menu2, menu3, menu4, menu5]
+    const isActive = false
     return {
       components: { IRotateInMenus },
       template: `
@@ -54,8 +55,8 @@ stories
       `,
       data () {
         return {
-          isActive: false,
-          menus: menus
+          isActive,
+          menus
         }
       }
     }

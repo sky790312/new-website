@@ -6,7 +6,7 @@
       @click.self="closeModalByBackground">
       <div
         class="modal-container"
-        :style="{width, height}">
+        :style="{width}">
         <div
           v-if="hasCloseButton"
           class="modal-close"
@@ -137,6 +137,10 @@ $black = #000
   border-radius: 2px
   box-shadow: 0 2px 8px rgba($black, .33)
   transition: all .3s ease
+
+  * {
+    color: $black
+  }
 
   @media screen and (min-width: $mobileBreakPoint) {
     min-width: 300px

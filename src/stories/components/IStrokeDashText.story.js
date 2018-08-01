@@ -21,7 +21,7 @@ stories
       `,
       data () {
         return {
-          strokeDashText: strokeDashText
+          strokeDashText
         }
       }
     }

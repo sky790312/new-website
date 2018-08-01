@@ -21,7 +21,7 @@ stories
       `,
       data () {
         return {
-          isActive: isActive
+          isActive
         }
       }
     }
