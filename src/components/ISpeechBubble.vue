@@ -1,6 +1,8 @@
 <template>
   <div
-    class="i-speech-bubble right-bottom">
+    v-show="shouldShowSpeechBubble"
+    :class="['i-speech-bubble', speechPointTo]"
+    :style="centerPosition">
     <div
       class="speech-text"
       :style="{width}">
@@ -14,6 +16,20 @@ export default {
   name: 'ISpeechBubble',
 
   props: {
+    isActive: {
+      type: Boolean,
+      default () {
+        return false
+      }
+    },
+
+    speechPointTo: {
+      type: String,
+      default () {
+        return 'right-bottom'
+      }
+    },
+
     text: {
       type: String,
       default () {
@@ -27,27 +43,81 @@ export default {
         return ''
       }
     }
+  },
+
+  data () {
+    return {
+      targetEl: {},
+      shouldShowSpeechBubble: false,
+      centerPosition: {
+        top: 'unset',
+        right: 'unset',
+        bottom: 'unset',
+        left: 'unset'
+      }
+    }
+  },
+
+  watch: {
+    'isActive': {
+      handler (newVal) {
+        this.shouldShowSpeechBubble = newVal
+      },
+      immediate: true
+    }
+  },
+  mounted () {
+    this.targetEl = this.$parent.$el
+    if (this.targetEl) {
+      this.targetEl.addEventListener('mouseenter', this.toggleSpeechBubble, false)
+      this.targetEl.addEventListener('mouseleave', this.toggleSpeechBubble, false)
+
+      this.centerPosition = this.getCenterPosition(this.speechPointTo)
+    }
+  },
+
+  beforeDestroy () {
+    if (this.targetEl) {
+      this.targetEl.removeEventListener('mouseenter', this.toggleSpeechBubble)
+      this.targetEl.removeEventListener('mouseleave', this.toggleSpeechBubble)
+    }
+  },
+
+  methods: {
+    toggleSpeechBubble () {
+      this.shouldShowSpeechBubble = !this.shouldShowSpeechBubble
+    },
+
+    getCenterPosition (type) {
+      const position = {
+        top: 'unset',
+        right: 'unset',
+        bottom: 'unset',
+        left: 'unset'
+      }
+
+      if (type === 'right-bottom') {
+        position.top = `-90px`
+        position.right = `${(this.targetEl.offsetWidth / 2) - 15}px`
+      }
+      return position
+    }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
 
+$mobileBreakPoint = 768px
 $white = #fff
 $black = #000
 
 .i-speech-bubble {
-  position: relative
+  position: absolute
   border: 1px solid $white
   border-radius: 5px
   padding: 20px
   color: $white
-
-  &.right-bottom {
-    position: absolute
-    top: -90px
-    right: 27px
-  }
 
   &:before {
     content: ''
@@ -77,8 +147,14 @@ $black = #000
 }
 
 .speech-text {
-  white-space: nowrap
   overflow:hidden
   text-overflow: ellipsis
+  width: 80vw
+  white-space: normal
+
+  @media screen and (min-width: $mobileBreakPoint) {
+    width: auto
+    white-space: nowrap
+  }
 }
 </style>
