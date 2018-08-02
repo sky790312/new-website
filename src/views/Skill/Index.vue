@@ -6,8 +6,7 @@
       class="item main"
       v-for="skillCategory in skills"
       :key="skillCategory.name"
-      :ref="`${skillCategory.name}`"
-      >
+      :ref="`${skillCategory.name}`">
       <div
         class="title">
         {{ skillCategory.title }}
@@ -245,7 +244,7 @@ export default {
 
 $mainItemWidth = 360px
 $mainItemHeight = 320px
-$subItemWidth = 150px
+$subItemWidth = 160px
 $subItemHeight = 180px
 $subItemWidthHover = 200px
 $subItemHeightHover = 240px

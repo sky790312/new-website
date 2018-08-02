@@ -12,6 +12,14 @@
 </template>
 
 <script>
+
+const defaultPosition = {
+  top: 'unset',
+  right: 'unset',
+  bottom: 'unset',
+  left: 'unset'
+}
+
 export default {
   name: 'ISpeechBubble',
 
@@ -56,12 +64,7 @@ export default {
     return {
       targetEl: {},
       shouldShowSpeechBubble: false,
-      centerPosition: {
-        top: 'unset',
-        right: 'unset',
-        bottom: 'unset',
-        left: 'unset'
-      }
+      centerPosition: defaultPosition
     }
   },
 
@@ -100,12 +103,7 @@ export default {
     },
 
     getCenterPosition (type) {
-      const position = {
-        top: 'unset',
-        right: 'unset',
-        bottom: 'unset',
-        left: 'unset'
-      }
+      const position = defaultPosition
 
       if (type === 'right-bottom') {
         position.top = `-90px`
