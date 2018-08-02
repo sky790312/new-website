@@ -20,7 +20,8 @@
       </h1>
     </div>
     <nav
-      :class="['sub-menu', {'mobile-slide': shouldShowSubMenu}]">
+      :class="['sub-menu', {'mobile-slide': shouldShowSubMenu}]"
+      @click.self="closeSubMemu">
       <ul>
         <li
           v-for="menu in sidebarMenus"
@@ -28,7 +29,8 @@
           class="menu">
           <router-link
             class="router-link"
-            :to="menu.route">
+            :to="menu.route"
+            @click.native="closeSubMemu">
             <i
               :class="['fa', menu.icon]"
               aria-hidden="true">
@@ -83,6 +85,11 @@ export default {
   methods: {
     onSubMenuBarsClick () {
       this.shouldShowSubMenu = true
+    },
+
+    closeSubMemu () {
+      console.log('in')
+      this.shouldShowSubMenu = false
     }
   }
 }
@@ -93,7 +100,6 @@ export default {
 
 #app-sidebar {
   background-color: $black
-  // padding: 0 15px
 
   @media screen and (min-width: $mobileBreakPoint) {
     width: $appSidebarWidth
@@ -123,34 +129,40 @@ export default {
     height: 100vh
     z-index: 1
     background: rgba(0, 0, 0, .8)
-    border-right: 1px solid $light-gray
     padding: 20px
-    transition: left .5s
+    transition: left .3s
 
-    &.mobile-slide {
+    @media screen and (min-width: $mobileBreakPoint) {
+      position: relative
       left: 0
+      padding: 0 20px
     }
 
-    &:before {
+    &:after {
       display: block
       content: ''
       position: absolute
       top: 0
-      left: 0
-      width: 100vw
+      left: $appSidebarWidth
       height: 100vh
+      width: "calc(100vw - %s)" % $appSidebarWidth
       background-color: rgba($black, 0.7)
+      border-left: 1px groove $white
+      pointer-events: all
 
       @media screen and (min-width: $mobileBreakPoint) {
         display: none
       }
     }
 
-    @media screen and (min-width: $mobileBreakPoint) {
-      position: relative
+    &.mobile-slide {
       left: 0
-      padding: 0 20px
-      border-right: none
+      width: $appSidebarWidth
+      pointer-events: none
+
+      ul {
+        pointer-events: all
+      }
     }
 
     .menu {
@@ -191,7 +203,7 @@ export default {
     left: 20px
     z-index: 1
     color: $white
-    display: block
+    cursor: pointer
 
     @media screen and (min-width: $mobileBreakPoint) {
       display: none
