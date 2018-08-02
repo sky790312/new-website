@@ -23,6 +23,13 @@ export default {
       }
     },
 
+    disabledHover: {
+      type: Boolean,
+      default () {
+        return false
+      }
+    },
+
     speechPointTo: {
       type: String,
       default () {
@@ -68,24 +75,28 @@ export default {
   },
   mounted () {
     this.targetEl = this.$parent.$el
-    if (this.targetEl) {
-      this.targetEl.addEventListener('mouseenter', this.toggleSpeechBubble, false)
-      this.targetEl.addEventListener('mouseleave', this.toggleSpeechBubble, false)
+    if (this.targetEl && !this.disabledHover) {
+      this.targetEl.addEventListener('mouseenter', this.show, false)
+      this.targetEl.addEventListener('mouseleave', this.hide, false)
 
       this.centerPosition = this.getCenterPosition(this.speechPointTo)
     }
   },
 
   beforeDestroy () {
-    if (this.targetEl) {
-      this.targetEl.removeEventListener('mouseenter', this.toggleSpeechBubble)
-      this.targetEl.removeEventListener('mouseleave', this.toggleSpeechBubble)
+    if (this.targetEl && !this.disabledHover) {
+      this.targetEl.removeEventListener('mouseenter', this.show)
+      this.targetEl.removeEventListener('mouseleave', this.hide)
     }
   },
 
   methods: {
-    toggleSpeechBubble () {
-      this.shouldShowSpeechBubble = !this.shouldShowSpeechBubble
+    show () {
+      this.shouldShowSpeechBubble = true
+    },
+
+    hide () {
+      this.shouldShowSpeechBubble = false
     },
 
     getCenterPosition (type) {
@@ -149,7 +160,7 @@ $black = #000
 .speech-text {
   overflow:hidden
   text-overflow: ellipsis
-  width: 80vw
+  width: 70vw
   white-space: normal
 
   @media screen and (min-width: $mobileBreakPoint) {

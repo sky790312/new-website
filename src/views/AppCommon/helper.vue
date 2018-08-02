@@ -3,7 +3,7 @@
     id="helper"
     :class="{'active': helper.isActive, 'speeching': shouldShowSpeechBubble}">
     <i-speech-bubble
-      v-if="shouldShowSpeechBubble"
+      :isActive="shouldShowSpeechBubble"
       :text="currentSpeechBubbleTitle">
     </i-speech-bubble>
     <i-rotate-in-menus
