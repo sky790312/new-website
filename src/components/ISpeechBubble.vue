@@ -76,13 +76,14 @@ export default {
       immediate: true
     }
   },
+
   mounted () {
     this.targetEl = this.$parent.$el
+    this.centerPosition = this.getCenterPosition(this.speechPointTo)
+
     if (this.targetEl && !this.disabledHover) {
       this.targetEl.addEventListener('mouseenter', this.show, false)
       this.targetEl.addEventListener('mouseleave', this.hide, false)
-
-      this.centerPosition = this.getCenterPosition(this.speechPointTo)
     }
   },
 
