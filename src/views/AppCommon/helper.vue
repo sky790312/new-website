@@ -4,6 +4,7 @@
     :class="{'active': helper.isActive, 'speeching': shouldShowSpeechBubble}">
     <i-speech-bubble
       :isActive="shouldShowSpeechBubble"
+      :disabledHover="true"
       :text="currentSpeechBubbleTitle">
     </i-speech-bubble>
     <i-rotate-in-menus

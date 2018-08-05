@@ -13,7 +13,7 @@ const en = {
     projects: `Projects`
   },
   skills: {
-    vue: `Familiar with vue ecosystem and build the pure vue component. Clarify project/common component. This website is the best example.`,
+    vue: `Familiar with vue ecosystem and build the pure vue component. Clarify project/common component and using vuepress to build document. This website is the best example.`,
     es2015: `Familiar to use async/await with promise and other features in project. I think it's more easly now to build an application by class and constructor without any framework.`,
     test: `Unit test: using Karma/Jest to test vue. E2e test: using Cypress to test user flow. By combining with CI, I can't accept the project without any testing but I think don't lose yourself to pursue the coverage at the same time.`,
     aframe: `Using aframe to develop from 0.2 version and can seem the post at Aframe weekly post. Aframe is the best of webVR framework. 3dio is the best implement combined with aframe. Last, using aframe can't be separated threejs.`,

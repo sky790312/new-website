@@ -15,7 +15,7 @@ export const SKILLS = [{
   child: [{
     name: 'vue',
     title: 'Vue',
-    desc: 'Vuex, VueI18n, Vue Router',
+    desc: 'Vuex, VueI18n, Vue Router, VuePress',
     position: {
       pc: {
         x: 4,
