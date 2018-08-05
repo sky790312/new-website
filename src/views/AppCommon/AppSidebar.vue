@@ -159,8 +159,6 @@ export default {
       height: 100vh
       width: "calc(100vw - %s)" % $appSidebarWidth
       background-color: rgba($black, 0.7)
-      border-left: 1px groove $white
-      pointer-events: all
 
       @media screen and (min-width: $mobileBreakPoint) {
         display: none
@@ -170,6 +168,7 @@ export default {
     &.mobile-view {
       left: 0
       width: $appSidebarWidth
+      border-right: 1px groove $white
     }
 
     .menu {
