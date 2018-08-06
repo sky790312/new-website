@@ -3,7 +3,7 @@
     :class="['i-speech-bubble', speechPointTo]"
     :style="centerPosition">
     <div
-      class="speech-text"
+      class="text"
       :style="{width}">
       {{ text }}
     </div>
@@ -23,13 +23,6 @@ export default {
   name: 'ISpeechBubble',
 
   props: {
-    isActive: {
-      type: Boolean,
-      default () {
-        return false
-      }
-    },
-
     disabledHover: {
       type: Boolean,
       default () {
@@ -118,34 +111,31 @@ $black = #000
   padding: 20px
   color: $white
 
-  &:before {
+  &:before, &:after {
     content: ''
     position: absolute
-    right: 13px
-    bottom: -21px
     width: 0
     height: 0
     border-left: 10px solid transparent
+    border-bottom: 10px solid transparent
+  }
+
+  &:before {
+    right: 13px
+    bottom: -21px
     border-right: 10px solid $white
     border-top: 10px solid $white
-    border-bottom: 10px solid transparent
   }
 
   &:after {
-    content: ''
-    position: absolute
     right: 15px
     bottom: -17px
-    width: 0
-    height: 0
-    border-left: 10px solid transparent
     border-right: 10px solid $black
     border-top: 10px solid $black
-    border-bottom: 10px solid transparent
   }
 }
 
-.speech-text {
+.text {
   overflow:hidden
   text-overflow: ellipsis
   width: 70vw
