@@ -3,9 +3,10 @@
     id="helper"
     :class="{'active': helper.isActive, 'speeching': shouldShowSpeechBubble}">
     <i-speech-bubble
-      :isActive="shouldShowSpeechBubble"
+      v-show="shouldShowSpeechBubble"
+      :text="currentSpeechBubbleTitle"
       :disabledHover="true"
-      :text="currentSpeechBubbleTitle">
+      @onMouseHover="onSpeechBubbleHover">
     </i-speech-bubble>
     <i-rotate-in-menus
       class="helper-menu"
@@ -22,7 +23,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import ISpeechBubble from '@/components/ISpeechBubble'
 import IHeadBoy from '@/components/IHeadBoy'
 import IRotateInMenus from '@/components/IRotateInMenus'
@@ -76,12 +77,20 @@ export default {
   },
 
   methods: {
+    ...mapActions([
+      'setShouldShowSpeechBubble'
+    ]),
+
     handleHelperMajorClick () {
       this.helper.isActive = true
     },
 
     handleHelperMenusClick (menu) {
       console.log('in handleHelperMenusClick', menu)
+    },
+
+    onSpeechBubbleHover (shouldShow) {
+      this.setShouldShowSpeechBubble(shouldShow)
     }
   }
 }

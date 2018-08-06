@@ -11,7 +11,7 @@ stories.addDecorator(Centered)
 
 stories
   .add('default', () => {
-    const isActive = boolean('active: ', false)
+    let shouldShow = boolean('shouldShow: ', false)
     const disabledHover = boolean('disabledHover: ', false)
     const speechBubbleText = text('text', `speech bubble will get its parent's position and centered`)
     return {
@@ -20,17 +20,24 @@ stories
         <div style="position: relative;">
           target inside parent
           <i-speech-bubble
-            :isActive="isActive"
+            v-show="shouldShow"
             :text="speechBubbleText"
-            :disabledHover="disabledHover">
+            :disabledHover="disabledHover"
+            @onMouseHover="onSpeechBubbleHover">
           </i-speech-bubble>
         </div>
       `,
       data () {
         return {
-          isActive,
+          shouldShow,
           disabledHover,
           speechBubbleText
+        }
+      },
+      methods: {
+        onSpeechBubbleHover (shouldShowNewValue) {
+          this.shouldShow = shouldShowNewValue
+          shouldShow = boolean('shouldShow: ', shouldShowNewValue)
         }
       }
     }

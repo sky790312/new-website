@@ -1,6 +1,5 @@
 <template>
   <div
-    v-show="shouldShowSpeechBubble"
     :class="['i-speech-bubble', speechPointTo]"
     :style="centerPosition">
     <div
@@ -63,17 +62,7 @@ export default {
   data () {
     return {
       targetEl: {},
-      shouldShowSpeechBubble: false,
       centerPosition: defaultPosition
-    }
-  },
-
-  watch: {
-    'isActive': {
-      handler (newVal) {
-        this.shouldShowSpeechBubble = newVal
-      },
-      immediate: true
     }
   },
 
@@ -96,11 +85,11 @@ export default {
 
   methods: {
     show () {
-      this.shouldShowSpeechBubble = true
+      this.$emit('onMouseHover', true)
     },
 
     hide () {
-      this.shouldShowSpeechBubble = false
+      this.$emit('onMouseHover', false)
     },
 
     getCenterPosition (type) {

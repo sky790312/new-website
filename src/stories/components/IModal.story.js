@@ -11,7 +11,7 @@ stories.addDecorator(Centered)
 
 stories
   .add('default', () => {
-    let isActive = boolean('active: ', true)
+    let shouldShow = boolean('active: ', true)
     const canCloseByEsc = boolean('canCloseByEsc: ', true)
     const canCloseByBackground = boolean('canCloseByBackground: ', true)
     const hasCloseButton = boolean('hasCloseButton: ', true)
@@ -19,7 +19,7 @@ stories
       components: { IModal },
       template: `
         <i-modal
-          v-if="isActive"
+          v-if="shouldShow"
           :canCloseByEsc="canCloseByEsc"
           :canCloseByBackground="canCloseByBackground"
           :hasCloseButton="hasCloseButton"
@@ -28,7 +28,7 @@ stories
       `,
       data () {
         return {
-          isActive,
+          shouldShow,
           canCloseByEsc,
           canCloseByBackground,
           hasCloseButton
@@ -36,8 +36,8 @@ stories
       },
       methods: {
         closeModal () {
-          this.isActive = false
-          isActive = boolean('active: ', false)
+          this.shouldShow = false
+          shouldShow = boolean('active: ', false)
         }
       }
     }
