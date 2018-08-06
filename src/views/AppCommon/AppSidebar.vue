@@ -7,21 +7,21 @@
         class="sub-menu-bars fa fa-2x fa-bars"
         @click.stop="onSubMenuBarsClick">
       </i>
-      <h1>
-        <router-link
-          class="name router-link"
-          :to="{name: 'home'}">
+      <router-link
+        class="router-link"
+        :to="{name: 'home'}">
+        <h1 class="name">
           Kevin Hu
-          <h4
-            class="title">
-            Frontend Developer
-          </h4>
-        </router-link>
-      </h1>
+        </h1>
+        <h4
+          class="title">
+          Frontend Developer
+        </h4>
+      </router-link>
     </div>
     <nav
-      :class="['sub-menu', {'mobile-slide': shouldShowSubMenu}]"
-      @click.self="closeSubMemu">
+      :class="['sub-menu', {'mobile-view': shouldShowSubMenu}]"
+      @click.self="onMobileViewClick">
       <ul>
         <li
           v-for="menu in sidebarMenus"
@@ -88,8 +88,16 @@ export default {
     },
 
     closeSubMemu () {
-      console.log('in')
       this.shouldShowSubMenu = false
+    },
+
+    onMobileViewClick (event) {
+      const appSidebarWidth = 180
+      if (event.clientX <= appSidebarWidth) {
+        return
+      }
+
+      this.closeSubMemu()
     }
   }
 }
@@ -107,17 +115,21 @@ export default {
   }
 
   .main-menu {
-    padding-bottom: 10px
-    text-align: center
+    .router-link {
+      display: block
+      width: $appSidebarWidth
+      margin: auto
+      color: $white
+      text-align: center
+    }
 
     .name {
-      color: $white
-      padding-bottom: 10px
+      margin-bottom: 0
     }
 
     .title {
       font-size: 12px
-      margin: 0
+      margin-top: 0
       color: $light-gray
     }
   }
@@ -147,22 +159,16 @@ export default {
       height: 100vh
       width: "calc(100vw - %s)" % $appSidebarWidth
       background-color: rgba($black, 0.7)
-      border-left: 1px groove $white
-      pointer-events: all
 
       @media screen and (min-width: $mobileBreakPoint) {
         display: none
       }
     }
 
-    &.mobile-slide {
+    &.mobile-view {
       left: 0
       width: $appSidebarWidth
-      pointer-events: none
-
-      ul {
-        pointer-events: all
-      }
+      border-right: 1px groove $white
     }
 
     .menu {
