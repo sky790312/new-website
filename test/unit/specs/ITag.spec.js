@@ -14,7 +14,7 @@ describe('ITag', () => {
   it('should use props rendor text', () => {
     const text = 'test'
     const vm = generateITag(text)
-    const tagText = vm.$el
-    expect(tagText.textContent.trim()).to.equal(text)
+    const tag = vm.$el
+    expect(tag.textContent.trim()).to.equal(text)
   })
 })
