@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="['i-speech-bubble', speechPointTo]"
+    :class="['i-speech-bubble', pointTo]"
     :style="centerPosition">
     <div
       class="text"
@@ -61,7 +61,7 @@ export default {
 
   mounted () {
     this.targetEl = this.$parent.$el
-    this.centerPosition = this.getCenterPosition(this.speechPointTo)
+    this.centerPosition = this.getCenterPosition(this.pointTo)
 
     if (this.targetEl && !this.disabledHover) {
       this.targetEl.addEventListener('mouseenter', this.show, false)
@@ -76,13 +76,28 @@ export default {
     }
   },
 
+  computed: {
+    pointTo () {
+      let pointTo = ''
+      switch (this.speechPointTo) {
+        case 'right-bottom':
+          pointTo = 'right-bottom'
+          break
+        default:
+          pointTo = 'right-bottom'
+          break
+      }
+      return pointTo
+    }
+  },
+
   methods: {
     show () {
-      this.$emit('onMouseHover', true)
+      this.$emit('onMouseEnter')
     },
 
     hide () {
-      this.$emit('onMouseHover', false)
+      this.$emit('onMouseLeave')
     },
 
     getCenterPosition (type) {

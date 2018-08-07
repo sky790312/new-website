@@ -17,7 +17,7 @@ describe('ISpeechBubble', () => {
     expect(speechText.style.width).to.equal(width)
   })
 
-  it('should speechPointTo have default value: right-bottom', () => {
+  it(`should speechPointTo be default value 'right-bottom' if not set`, () => {
     const defaultSpeechPointTo = 'right-bottom'
     const Constructor = Vue.extend(ISpeechBubble)
     const vm = new Constructor({
@@ -25,5 +25,31 @@ describe('ISpeechBubble', () => {
     }).$mount()
     const speechBubble = vm.$el
     expect(speechBubble.classList.contains(defaultSpeechPointTo)).to.equal(true)
+  })
+
+  it(`should speechPointTo be default value 'right-bottom' if not match:`, () => {
+    const speechPointTo = 'abc'
+    const defaultSpeechPointTo = 'right-bottom'
+    const Constructor = Vue.extend(ISpeechBubble)
+    const vm = new Constructor({
+      propsData: {
+        speechPointTo
+      }
+    }).$mount()
+    const speechBubble = vm.$el
+    expect(speechBubble.classList.contains(speechPointTo)).to.equal(false)
+    expect(speechBubble.classList.contains(defaultSpeechPointTo)).to.equal(true)
+  })
+
+  it(`should speechPointTo be set if match:`, () => {
+    const speechPointTo = 'right-bottom'
+    const Constructor = Vue.extend(ISpeechBubble)
+    const vm = new Constructor({
+      propsData: {
+        speechPointTo
+      }
+    }).$mount()
+    const speechBubble = vm.$el
+    expect(speechBubble.classList.contains(speechPointTo)).to.equal(true)
   })
 })

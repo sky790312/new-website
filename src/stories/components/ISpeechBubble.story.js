@@ -23,7 +23,8 @@ stories
             v-show="shouldShow"
             :text="speechBubbleText"
             :disabledHover="disabledHover"
-            @onMouseHover="onSpeechBubbleHover">
+            @onMouseEnter="onSpeechBubbleEnter"
+            @onMouseLeave="onSpeechBubbleLeave">
           </i-speech-bubble>
         </div>
       `,
@@ -35,9 +36,14 @@ stories
         }
       },
       methods: {
-        onSpeechBubbleHover (shouldShowNewValue) {
-          this.shouldShow = shouldShowNewValue
-          shouldShow = boolean('shouldShow: ', shouldShowNewValue)
+        onSpeechBubbleEnter () {
+          this.shouldShow = true
+          shouldShow = boolean('shouldShow: ', true)
+        },
+
+        onSpeechBubbleLeave () {
+          this.shouldShow = false
+          shouldShow = boolean('shouldShow: ', false)
         }
       }
     }
