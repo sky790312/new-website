@@ -1,6 +1,6 @@
 <template>
   <div
-    id="profile">
+    id="about">
     profile page
     <router-link
       :to="{name: 'home'}">
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'Profile',
+  name: 'About',
 
   components: {
   },
@@ -27,7 +27,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~styl/variables'
 
-#profile {
+#about {
 }
 
 </style>
