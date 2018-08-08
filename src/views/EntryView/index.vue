@@ -21,9 +21,9 @@ import AFRAME from 'aframe'
 import { mapActions } from 'vuex'
 import 'aframe-draw-component/dist/aframe-draw-component.min'
 
-import EntryText from '@/views/EntryView/EntryText'
-import EntryCamera from '@/views/EntryView/EntryCamera'
-import EntryPlane from '@/views/EntryView/EntryPlane'
+const EntryText = () => import('@/views/EntryView/EntryText')
+const EntryCamera = () => import('@/views/EntryView/EntryCamera')
+const EntryPlane = () => import('@/views/EntryView/EntryPlane')
 
 export default {
   name: 'entryView',

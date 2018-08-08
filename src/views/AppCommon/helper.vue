@@ -25,9 +25,11 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import ISpeechBubble from '@/components/ISpeechBubble'
-import IHeadBoy from '@/components/IHeadBoy'
-import IRotateInMenus from '@/components/IRotateInMenus'
+
+const ISpeechBubble = () => import('@/components/ISpeechBubble')
+const IHeadBoy = () => import('@/components/IHeadBoy')
+const IRotateInMenus = () => import('@/components/IRotateInMenus')
+
 export default {
   name: 'Helper',
 
