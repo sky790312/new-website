@@ -7,7 +7,7 @@ const en = {
     welcome: `Welcome to my website, enjoy and have fun!`
   },
   menus: {
-    profile: `Profile`,
+    about: `About`,
     skill: `Skill`,
     experience: `Experience`,
     projects: `Projects`

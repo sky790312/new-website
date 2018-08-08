@@ -51,11 +51,11 @@ export default {
     return {
       shouldShowSubMenu: false,
       sidebarMenus: [{
-        name: 'profile',
-        text: 'menus.profile',
+        name: 'about',
+        text: 'menus.about',
         icon: 'fa-address-card-o',
         route: {
-          name: 'profile'
+          name: 'about'
         }
       }, {
         name: 'skill',

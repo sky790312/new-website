@@ -1,7 +1,7 @@
 <template>
   <div
     id="about">
-    profile page
+    about page
     <router-link
       :to="{name: 'home'}">
       to home
