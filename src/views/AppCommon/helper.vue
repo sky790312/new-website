@@ -44,16 +44,16 @@ export default {
       helper: {
         isActive: false,
         menus: [{
-          name: 1,
-          text: '1',
+          name: 'aboutWebsite',
+          text: this.$t('helper.aboutWebsite'),
           status: 'completed'
         }, {
-          name: 2,
-          text: '2',
+          name: 'oldwebsite',
+          text: this.$t('helper.oldWebsite'),
           status: 'completed'
         }, {
-          name: 3,
-          text: '3',
+          name: 'messageBoard',
+          text: this.$t('helper.oldWebsite'),
           status: 'completed'
         }, {
           name: 4,
@@ -75,7 +75,7 @@ export default {
     ]),
 
     currentSpeechBubbleTitle () {
-      return this.$t(`mermer.${this.speechBubbleTitle}`)
+      return this.$t(`helper.mermer.${this.speechBubbleTitle}`)
     }
   },
 
@@ -111,6 +111,7 @@ export default {
   position: fixed
   bottom: -30px
   right: 20px
+  z-index: 1
   transition: all .2s ease
 
   &:hover, &.speeching {
