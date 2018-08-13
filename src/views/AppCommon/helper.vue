@@ -19,6 +19,7 @@
         :isActive="helper.isActive"
         @onIHeadBoyClick="handleHelperMajorClick">
       </i-head-boy>
+      <!-- <p>Cick me back!</p> -->
     </i-rotate-in-menus>
   </div>
 </template>
@@ -45,15 +46,15 @@ export default {
         isActive: false,
         menus: [{
           name: 'aboutWebsite',
-          text: this.$t('helper.aboutWebsite'),
+          text: this.$t('helper.menu.aboutWebsite'),
           status: 'completed'
         }, {
           name: 'oldwebsite',
-          text: this.$t('helper.oldWebsite'),
+          text: this.$t('helper.menu.oldWebsite'),
           status: 'completed'
         }, {
           name: 'messageBoard',
-          text: this.$t('helper.oldWebsite'),
+          text: this.$t('helper.menu.messageBoard'),
           status: 'completed'
         }, {
           name: 4,

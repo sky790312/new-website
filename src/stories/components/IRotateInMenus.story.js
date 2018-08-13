@@ -14,17 +14,17 @@ stories
     // const isActive = boolean('active: ', false)
     const menu1 = object('1', {
       name: 1,
-      text: '1',
-      status: 'completed'
+      text: 'no status menu',
+      status: ''
     }, 'menus-group')
     const menu2 = object('2', {
       name: 2,
-      text: '2',
-      status: 'completed'
+      text: 'pending menu',
+      status: 'pending'
     }, 'menus-group')
     const menu3 = object('3', {
       name: 3,
-      text: '3',
+      text: 'complete menu',
       status: 'completed'
     }, 'menus-group')
     const menu4 = object('4', {

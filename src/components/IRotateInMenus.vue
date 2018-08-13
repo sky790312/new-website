@@ -41,6 +41,12 @@ export default {
     onIRotateInMenusClick (menu) {
       this.$emit('onIRotateInMenusClick', menu)
     }
+  },
+
+  mounted () {
+    if (this.menus.length !== 5) {
+      console.warn('IRotateInMenus menus shoud only be 5 now..')
+    }
   }
 }
 </script>
@@ -104,6 +110,7 @@ for $i in (1..$item-count) {
   text-decoration: none
   font-size: 12px
   font-weight: bold
+  text-align: center
   cursor: pointer
   transition: .2s
 
