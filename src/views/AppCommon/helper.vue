@@ -6,8 +6,8 @@
       v-show="shouldShowSpeechBubble"
       :text="currentSpeechBubbleTitle"
       :disabledHover="true"
-      @onMouseEnter="onSpeechBubbleEnter"
-      @onMouseLeave="onSpeechBubbleLeave">
+      @onMouseEnter="handleSpeechBubbleEnter"
+      @onMouseLeave="handleSpeechBubbleLeave">
     </i-speech-bubble>
     <i-rotate-in-menus
       class="helper-menu"
@@ -93,11 +93,11 @@ export default {
       console.log('in handleHelperMenusClick', menu)
     },
 
-    onSpeechBubbleEnter () {
+    handleSpeechBubbleEnter () {
       this.setShouldShowSpeechBubble(true)
     },
 
-    onSpeechBubbleLeave () {
+    handleSpeechBubbleLeave () {
       this.setShouldShowSpeechBubble(false)
     }
   }
