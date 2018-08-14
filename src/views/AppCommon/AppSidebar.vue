@@ -147,6 +147,7 @@ export default {
     @media screen and (min-width: $mobileBreakPoint) {
       position: relative
       left: 0
+      height: auto
       padding: 0 20px
     }
 

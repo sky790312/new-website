@@ -1,7 +1,8 @@
 /* eslint-disable */
 import { storiesOf } from '@storybook/vue'
 import Centered from '@storybook/addon-centered';
-import { withKnobs, array, object } from '@storybook/addon-knobs/vue';
+import { action } from '@storybook/addon-actions'
+import { withKnobs, object } from '@storybook/addon-knobs/vue';
 
 import IRotateInMenus from '@/components/IRotateInMenus'
 
@@ -45,7 +46,8 @@ stories
       <div>
         <i-rotate-in-menus
           :isActive="isActive"
-          :menus="menus">
+          :menus="menus"
+          @onIRotateInMenusClick="handleIRotateInMenusClick">
           <div>
             <p>menu-major</p>
             active: <input v-model="isActive" type="checkbox">
@@ -58,6 +60,9 @@ stories
           isActive,
           menus
         }
+      },
+      methods: { 
+        handleIRotateInMenusClick: action('click menu: ')
       }
     }
   }
