@@ -1,8 +1,8 @@
 # new-website
 
-[![Build Status](https://travis-ci.org/sky790312/new-website.svg?branch=master)](https://travis-ci.org/sky790312/new-website)
-
 > Welcome to KevinHu's website !
+
+[![Build Status](https://travis-ci.org/sky790312/new-website.svg?branch=master)](https://travis-ci.org/sky790312/new-website)
 
 ## Build Setup
 

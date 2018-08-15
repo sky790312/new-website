@@ -47,23 +47,28 @@ export default {
         menus: [{
           name: 'aboutWebsite',
           text: this.$t('helper.menu.aboutWebsite'),
-          status: 'completed'
+          status: 'completed',
+          method: () => {}
         }, {
           name: 'oldwebsite',
           text: this.$t('helper.menu.oldWebsite'),
-          status: 'completed'
+          status: 'completed',
+          method: () => { this.handleOldwebsiteMenu() }
         }, {
           name: 'messageBoard',
           text: this.$t('helper.menu.messageBoard'),
-          status: 'completed'
+          status: 'completed',
+          method: () => {}
         }, {
           name: 4,
           text: '4',
-          status: 'completed'
+          status: 'completed',
+          method: () => {}
         }, {
           name: 5,
           text: '5',
-          status: 'pending'
+          status: 'pending',
+          method: () => {}
         }]
       }
     }
@@ -90,7 +95,7 @@ export default {
     },
 
     handleHelperMenusClick (menu) {
-      console.log('in handleHelperMenusClick', menu)
+      menu.method()
     },
 
     handleSpeechBubbleEnter () {
@@ -99,6 +104,10 @@ export default {
 
     handleSpeechBubbleLeave () {
       this.setShouldShowSpeechBubble(false)
+    },
+
+    handleOldwebsiteMenu () {
+      window.open('https://sky790312.herokuapp.com')
     }
   }
 }
@@ -113,7 +122,7 @@ export default {
   bottom: -30px
   right: 20px
   z-index: 1
-  transition: all .2s ease
+  transition: margin .2s ease
 
   &:hover, &.speeching {
     margin-bottom: 5px
