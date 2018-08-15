@@ -166,6 +166,7 @@ export default {
 .app-sidebar-slide-enter, .app-sidebar-slide-leave-to {
   // transform: translateY(-50px)
   opacity: 0
+  width: 0
   // @media screen and (min-width: $mobileBreakPoint) {
   transform: translateX(-50px)
   // }

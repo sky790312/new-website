@@ -4,21 +4,22 @@
     class="grid-container">
     <div class="grid-item header">
       <div>New era of Frontend Development</div>
-      <div>標語...</div>
+      <!-- <h4>Everything happen in Frontend Development</h4> -->
+      <!-- <div>A senior frontend developer should always clearly issue and .</div> -->
     </div>
-    <div class="grid-item main">
+    <div class="grid-item pie-chart">
       <div>放一個skill chart</div>
     </div>
-    <div class="grid-item sidebar2">
+    <div class="grid-item line-chart">
      <div>放一個line chart</div>
    </div>
-    <div class="grid-item sidebar">
-      <div>年資</div>
+    <div class="grid-item section1">
+      <div>年資 </div>
     </div>
-    <div class="grid-item footer">
+    <div class="grid-item section2">
       <div>duty</div>
     </div>
-      <div class="grid-item footer2">
+      <div class="grid-item section3">
       <div>Adwards</div>
     </div>
   </div>
@@ -46,64 +47,63 @@ export default {
   color: $white
 
   &.grid-container {
-    display: grid;
-    grid-template-columns: 0.167fr 0.167fr 0.167fr 0.167fr 0.167fr 0.167fr;
-    grid-template-rows: 0.2fr 0.4fr 0.4fr;
+    display: grid
+    grid-template-columns: 0.167fr 0.167fr 0.167fr 0.167fr 0.167fr 0.167fr
+    grid-template-rows: 0.2fr 0.4fr 0.4fr
     grid-template-areas:
       "header header header header header header"\
-      "main main main main main main"\
-      "sidebar2 sidebar2 sidebar2 sidebar2 sidebar2 sidebar2"\
-      "sidebar sidebar sidebar sidebar sidebar sidebar"\
-      "footer footer footer footer footer footer"\
-      "footer2 footer2 footer2 footer2 footer2 footer2";
-    grid-column-gap: 10px;
-    grid-row-gap: 15px;
+      "pie-chart pie-chart pie-chart pie-chart pie-chart pie-chart"\
+      "line-chart line-chart line-chart line-chart line-chart line-chart"\
+      "section1 section1 section1 section1 section1 section1"\
+      "section2 section2 section2 section2 section2 section2"\
+      "section3 section3 section3 section3 section3 section3"
+    grid-column-gap: 15px
+    grid-row-gap: 15px
 
     @media screen and (min-width: $mobileBreakPoint) {
       grid-template-areas:
         "header header header header header header"\
-        "main main main sidebar2 sidebar2 sidebar2"\
-        "sidebar sidebar footer footer footer2 footer2";
+        "pie-chart pie-chart pie-chart line-chart line-chart line-chart"\
+        "section1 section1 section2 section2 section3 section3"
     }
   }
 
-  .grid-item div {
-    display: flex;
-    color: #fff;
-    font-size: 2em;
-    justify-content: center;
-    align-items: center;
+  .grid-item {
+    display: flex
+    color: $white
+    font-size: 2em
+    justify-content: center
+    align-items: center
     // height: 100%;
   }
 
   .header {
-    background-color: #8BC574;
-    grid-area: header;
+    grid-area: header
   }
 
-  .main {
-    background-color: #748CC5;
-    grid-area: main;
+  .pie-chart {
+    background-color: #748CC5
+    grid-area: pie-chart
   }
 
-  .sidebar {
-    background-color: #C57474;
-    grid-area: sidebar;
+  .section1 {
+    background-color: #8174c5
+    grid-area: section1
   }
 
-  .sidebar2 {
-    background-color: #C57474;
-    grid-area: sidebar2;
+  .line-chart {
+    background-color: #C57474
+    grid-area: line-chart
   }
 
-  .footer {
-    background-color: #FCE052;
-    grid-area: footer;
+  .section2 {
+    background-color: #FCE052
+    grid-area: section2
   }
 
-  .footer2 {
-    background-color: #FCE052;
-    grid-area: footer2;
+  .section3 {
+    background-color: #8BC574
+    grid-area: section3
   }
 }
 
