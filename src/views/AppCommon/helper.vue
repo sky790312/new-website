@@ -6,8 +6,8 @@
       v-show="shouldShowSpeechBubble"
       :text="currentSpeechBubbleTitle"
       :disabledHover="true"
-      @onMouseEnter="onSpeechBubbleEnter"
-      @onMouseLeave="onSpeechBubbleLeave">
+      @onMouseEnter="handleSpeechBubbleEnter"
+      @onMouseLeave="handleSpeechBubbleLeave">
     </i-speech-bubble>
     <i-rotate-in-menus
       class="helper-menu"
@@ -19,15 +19,18 @@
         :isActive="helper.isActive"
         @onIHeadBoyClick="handleHelperMajorClick">
       </i-head-boy>
+      <!-- <p>Cick me back!</p> -->
     </i-rotate-in-menus>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import ISpeechBubble from '@/components/ISpeechBubble'
-import IHeadBoy from '@/components/IHeadBoy'
-import IRotateInMenus from '@/components/IRotateInMenus'
+
+const ISpeechBubble = () => import('@/components/ISpeechBubble')
+const IHeadBoy = () => import('@/components/IHeadBoy')
+const IRotateInMenus = () => import('@/components/IRotateInMenus')
+
 export default {
   name: 'Helper',
 
@@ -42,25 +45,30 @@ export default {
       helper: {
         isActive: false,
         menus: [{
-          name: 1,
-          text: '1',
-          status: 'completed'
+          name: 'aboutWebsite',
+          text: this.$t('helper.menu.aboutWebsite'),
+          status: 'completed',
+          method: () => {}
         }, {
-          name: 2,
-          text: '2',
-          status: 'completed'
+          name: 'oldwebsite',
+          text: this.$t('helper.menu.oldWebsite'),
+          status: 'completed',
+          method: () => { this.handleOldwebsiteMenu() }
         }, {
-          name: 3,
-          text: '3',
-          status: 'completed'
+          name: 'messageBoard',
+          text: this.$t('helper.menu.messageBoard'),
+          status: 'completed',
+          method: () => {}
         }, {
           name: 4,
           text: '4',
-          status: 'completed'
+          status: 'completed',
+          method: () => {}
         }, {
           name: 5,
           text: '5',
-          status: 'pending'
+          status: 'pending',
+          method: () => {}
         }]
       }
     }
@@ -73,7 +81,7 @@ export default {
     ]),
 
     currentSpeechBubbleTitle () {
-      return this.$t(`mermer.${this.speechBubbleTitle}`)
+      return this.$t(`helper.mermer.${this.speechBubbleTitle}`)
     }
   },
 
@@ -87,15 +95,19 @@ export default {
     },
 
     handleHelperMenusClick (menu) {
-      console.log('in handleHelperMenusClick', menu)
+      menu.method()
     },
 
-    onSpeechBubbleEnter () {
+    handleSpeechBubbleEnter () {
       this.setShouldShowSpeechBubble(true)
     },
 
-    onSpeechBubbleLeave () {
+    handleSpeechBubbleLeave () {
       this.setShouldShowSpeechBubble(false)
+    },
+
+    handleOldwebsiteMenu () {
+      window.open('https://sky790312.herokuapp.com')
     }
   }
 }
@@ -109,7 +121,8 @@ export default {
   position: fixed
   bottom: -30px
   right: 20px
-  transition: all .2s ease
+  z-index: 1
+  transition: margin .2s ease
 
   &:hover, &.speeching {
     margin-bottom: 5px

@@ -36,10 +36,12 @@ describe('IRotateInMenus', () => {
 
   it('should each menu has correct text and class from status', () => {
     const vm = generateIRotateInMenus(menus)
-    const completedMenu = vm.$el.querySelectorAll('.menu')[0]
+    const completedMenuIndex = menus.findIndex(menu => menu.status === 'completed')
+    const completedMenu = vm.$el.querySelectorAll('.menu')[completedMenuIndex]
     expect(completedMenu.querySelector('.menu-title').textContent.trim()).to.equal(completedObj.text)
     expect(completedMenu.querySelector('.menu-title').classList.contains(completedObj.status)).to.equal(true)
-    const pendingMenu = vm.$el.querySelectorAll('.menu')[1]
+    const pendingMenuIndex = menus.findIndex(menu => menu.status === 'pending')
+    const pendingMenu = vm.$el.querySelectorAll('.menu')[pendingMenuIndex]
     expect(pendingMenu.querySelector('.menu-title').textContent.trim()).to.equal(pendingObj.text)
     expect(pendingMenu.querySelector('.menu-title').classList.contains(pendingObj.status)).to.equal(true)
   })

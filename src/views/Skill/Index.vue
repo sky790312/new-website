@@ -62,7 +62,8 @@ import { mapActions } from 'vuex'
 import {
   SKILLS
 } from '@/views/Skill/data'
-import IModal from '@/components/IModal'
+
+const IModal = () => import('@/components/IModal')
 
 let camera, scene, renderer
 let css3dObjects = []

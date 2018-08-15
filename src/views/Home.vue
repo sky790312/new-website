@@ -40,10 +40,11 @@
 
 <script>
 
-import IStrokeDashText from '@/components/IStrokeDashText'
-import ITypingText from '@/components/ITypingText'
-import ITag from '@/components/ITag'
 // import { mapActions } from 'vuex'
+
+const IStrokeDashText = () => import('@/components/IStrokeDashText')
+const ITypingText = () => import('@/components/ITypingText')
+const ITag = () => import('@/components/ITag')
 
 export default {
   name: 'Home',

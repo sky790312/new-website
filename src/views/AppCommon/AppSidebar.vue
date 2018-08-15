@@ -51,11 +51,11 @@ export default {
     return {
       shouldShowSubMenu: false,
       sidebarMenus: [{
-        name: 'profile',
-        text: 'menus.profile',
+        name: 'about',
+        text: 'menus.about',
         icon: 'fa-address-card-o',
         route: {
-          name: 'profile'
+          name: 'about'
         }
       }, {
         name: 'skill',
@@ -147,6 +147,7 @@ export default {
     @media screen and (min-width: $mobileBreakPoint) {
       position: relative
       left: 0
+      height: auto
       padding: 0 20px
     }
 

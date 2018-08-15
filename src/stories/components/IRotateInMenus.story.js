@@ -1,7 +1,8 @@
 /* eslint-disable */
 import { storiesOf } from '@storybook/vue'
 import Centered from '@storybook/addon-centered';
-import { withKnobs, array, object } from '@storybook/addon-knobs/vue';
+import { action } from '@storybook/addon-actions'
+import { withKnobs, object } from '@storybook/addon-knobs/vue';
 
 import IRotateInMenus from '@/components/IRotateInMenus'
 
@@ -14,17 +15,17 @@ stories
     // const isActive = boolean('active: ', false)
     const menu1 = object('1', {
       name: 1,
-      text: '1',
-      status: 'completed'
+      text: 'no status menu',
+      status: ''
     }, 'menus-group')
     const menu2 = object('2', {
       name: 2,
-      text: '2',
-      status: 'completed'
+      text: 'pending menu',
+      status: 'pending'
     }, 'menus-group')
     const menu3 = object('3', {
       name: 3,
-      text: '3',
+      text: 'complete menu',
       status: 'completed'
     }, 'menus-group')
     const menu4 = object('4', {
@@ -45,7 +46,8 @@ stories
       <div>
         <i-rotate-in-menus
           :isActive="isActive"
-          :menus="menus">
+          :menus="menus"
+          @onIRotateInMenusClick="handleIRotateInMenusClick">
           <div>
             <p>menu-major</p>
             active: <input v-model="isActive" type="checkbox">
@@ -58,6 +60,9 @@ stories
           isActive,
           menus
         }
+      },
+      methods: { 
+        handleIRotateInMenusClick: action('click menu: ')
       }
     }
   }

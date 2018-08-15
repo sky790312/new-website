@@ -39,9 +39,9 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
-import EntryView from '@/views/EntryView'
-import AppSidebar from '@/views/AppCommon/AppSidebar'
-import Helper from '@/views/AppCommon/Helper'
+const EntryView = () => import('@/views/EntryView')
+const AppSidebar = () => import('@/views/AppCommon/AppSidebar')
+const Helper = () => import('@/views/AppCommon/Helper')
 
 export default {
   name: 'App',

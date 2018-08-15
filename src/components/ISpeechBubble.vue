@@ -102,10 +102,9 @@ export default {
 
     getCenterPosition (type) {
       const position = defaultPosition
-
       if (type === 'right-bottom') {
         position.top = `-90px`
-        position.right = `${(this.targetEl.offsetWidth / 2) - 15}px`
+        position.right = `${(this.targetEl.clientWidth / 2) - 15}px`
       }
       return position
     }
