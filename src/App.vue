@@ -150,7 +150,7 @@ export default {
 .router-view {
   position: relative
   // width: 100vw
-  height: calc(100vh - 230px)
+  height: calc(100vh - 85px)
   padding: 20px
   /*margin: auto*/
   @media screen and (min-width: $mobileBreakPoint) {
@@ -166,7 +166,6 @@ export default {
 .app-sidebar-slide-enter, .app-sidebar-slide-leave-to {
   // transform: translateY(-50px)
   opacity: 0
-  width: 0
   // @media screen and (min-width: $mobileBreakPoint) {
   transform: translateX(-50px)
   // }

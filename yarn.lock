@@ -2788,6 +2788,12 @@ ecdsa-sig-formatter@1.0.9:
     base64url "^2.0.0"
     safe-buffer "^5.0.1"
 
+echarts@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/echarts/-/echarts-4.1.0.tgz#d588c95f73c1a9928b9c73d5b769751c3185bcdc"
+  dependencies:
+    zrender "4.0.4"
+
 editorconfig@^0.13.2:
   version "0.13.3"
   resolved "https://registry.yarnpkg.com/editorconfig/-/editorconfig-0.13.3.tgz#e5219e587951d60958fd94ea9a9a008cdeff1b34"
@@ -7754,10 +7760,6 @@ three@^0.84.0:
   version "0.84.0"
   resolved "https://registry.yarnpkg.com/three/-/three-0.84.0.tgz#95be85a55a0fa002aa625ed559130957dcffd918"
 
-three@^0.94.0:
-  version "0.94.0"
-  resolved "https://registry.yarnpkg.com/three/-/three-0.94.0.tgz#4ce6db7f2bfbf79c2d73444aa6e3cfc08a32d762"
-
 throttleit@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/throttleit/-/throttleit-1.0.0.tgz#9e785836daf46743145a5984b6268d828528ac6c"
@@ -8532,3 +8534,7 @@ yauzl@2.4.1:
 yeast@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
+
+zrender@4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/zrender/-/zrender-4.0.4.tgz#910e60d888f00c9599073f23758dd23345fe48fd"

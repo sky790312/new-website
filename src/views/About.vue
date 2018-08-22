@@ -2,30 +2,57 @@
   <div
     id="about"
     class="grid-container">
-    <div class="grid-item header">
-      <div>New era of Frontend Development</div>
+    <div class="grid-item brief">
+      <h1>New era of Frontend Development</h1>
+      <h3>I'm a creative frontend developer with about 5 years of professional experience, based in Taiwan now.</h3>
+      <h3>I develop modern, interactive, responsive, multiple-language and cross browser's web application. Always keep in touch to the modern frontend's world and extend my ability to backend's and UIUX's world.</h3>
       <!-- <h4>Everything happen in Frontend Development</h4> -->
+      <!-- <h3 style="text-align: center;">I believe that being a senior rontend developer, not only have to focus on how deep frontend world is, but alse need to have relevant field domain. Knowing what backend＆Design thinking and why.</h3>
+      <h1 style="text-align: right;">By Kevin Hu</h1> -->
       <!-- <div>A senior frontend developer should always clearly issue and .</div> -->
     </div>
-    <div class="grid-item pie-chart">
-      <div>放一個skill chart</div>
+    <div class="grid-item personality-radar">
+      <div id="test" style="width: 100%;height: 100%;"></div>
     </div>
-    <div class="grid-item line-chart">
+    <div class="grid-item skill-treemap">
      <div>放一個line chart</div>
    </div>
-    <div class="grid-item section1">
-      <div>年資 </div>
+    <div class="grid-item mermer-container">
+      <h3>Mermer: </h3>
+      <div>A senior frontend developer should always clearly issue and find the best solution for different situation. Has hide communication skill with backend and UIUX even with PM.</div>
+      <div style="text-align: right;">Kevin Hu</div>
     </div>
-    <div class="grid-item section2">
-      <div>duty</div>
+    <div class="grid-item duty-container">
+      <h3>Duty: </h3>
+      <ul>
+        <li>RWD</li>
+        <li>SPA</li>
+        <li>SSR</li>
+        <li>Cross browser support</li>
+        <li>Multiple-language RTL website</li>
+      </ul>
     </div>
-      <div class="grid-item section3">
-      <div>Adwards</div>
+    <div class="grid-item award-container">
+      <h3>Awards: </h3>
+      <ul>
+        <li>JSDC Taiwan 2017 speaker</li>
+        <li>Aframe weekly post</li>
+        <li>Tutor and piecework</li>
+      </ul>
     </div>
+    <!-- <div class="grid-item section4">
+      <h3>I believe that being a senior rontend developer, not only have to focus on how deep frontend world is, but alse need to have relevant field domain. Knowing what backend＆Design thinking and why.</h3>
+      <h1 style="text-align: right;">By Kevin Hu</h1>
+    </div> -->
   </div>
 </template>
 
 <script>
+import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/chart/radar'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/title'
+
 export default {
   name: 'About',
 
@@ -36,6 +63,53 @@ export default {
     return {
 
     }
+  },
+
+  mounted () {
+    var dom = document.getElementById('test')
+    var myChart = echarts.init(dom) // eslint-disable-line
+    var option = {
+      // title: {
+      //   text: 'Ability'
+      // },
+      tooltip: {
+        trigger: 'axis'
+      },
+      radar: [{
+        indicator: [
+          {text: 'Frontend', max: 100},
+          {text: 'Backend', max: 100},
+          {text: 'Seo', max: 100},
+          {text: 'Unit, e2e test', max: 100},
+          {text: 'Git', max: 100}
+        ],
+        radius: 80
+      }],
+      series: [{
+        type: 'radar',
+        tooltip: {
+          trigger: 'item'
+        },
+        itemStyle: {normal: {areaStyle: {type: 'default'}}},
+        data: [{
+          value: [85, 70, 70, 70, 75],
+          name: 'Skills'
+        }]
+      }],
+      textStyle: {
+        color: '#fff'
+      },
+      lineStyle: {
+        color: '#fff'
+      },
+      itemStyle: {
+        color: '#fff'
+      }
+    }
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option, true)
+    }
   }
 }
 </script>
@@ -45,66 +119,75 @@ export default {
 
 #about {
   color: $white
+  overflow auto
 
   &.grid-container {
     display: grid
-    grid-template-columns: 0.167fr 0.167fr 0.167fr 0.167fr 0.167fr 0.167fr
-    grid-template-rows: 0.2fr 0.4fr 0.4fr
     grid-template-areas:
-      "header header header header header header"\
-      "pie-chart pie-chart pie-chart pie-chart pie-chart pie-chart"\
-      "line-chart line-chart line-chart line-chart line-chart line-chart"\
-      "section1 section1 section1 section1 section1 section1"\
-      "section2 section2 section2 section2 section2 section2"\
-      "section3 section3 section3 section3 section3 section3"
+      "brief"\
+      "personality-radar"\
+      "skill-treemap"\
+      "mermer-container"\
+      "duty-container"\
+      "award-container"
     grid-column-gap: 15px
     grid-row-gap: 15px
+    // grid-auto-columns: auto
+    // grid-auto-rows: minmax(400px, auto)
 
     @media screen and (min-width: $mobileBreakPoint) {
+      grid-template-columns: repeat(6, 1fr)
+      grid-template-rows: 1fr 2fr 2fr
       grid-template-areas:
-        "header header header header header header"\
-        "pie-chart pie-chart pie-chart line-chart line-chart line-chart"\
-        "section1 section1 section2 section2 section3 section3"
+        "brief brief brief brief brief brief"\
+        "personality-radar personality-radar personality-radar skill-treemap skill-treemap skill-treemap"\
+        "mermer-container mermer-container duty-container duty-container award-container award-container"
     }
   }
 
   .grid-item {
-    display: flex
+    padding: 20px
+    // display: flex
     color: $white
-    font-size: 2em
-    justify-content: center
-    align-items: center
+    // font-size: 2em
+    // justify-content: center
+    // align-items: center
     // height: 100%;
   }
 
-  .header {
-    grid-area: header
+  .brief {
+    grid-area: brief
   }
 
-  .pie-chart {
+  .personality-radar {
     background-color: #748CC5
-    grid-area: pie-chart
+    grid-area: personality-radar
+    padding: 0
   }
 
-  .section1 {
+  .mermer-container {
     background-color: #8174c5
-    grid-area: section1
+    grid-area: mermer-container
   }
 
-  .line-chart {
+  .skill-treemap {
     background-color: #C57474
-    grid-area: line-chart
+    grid-area: skill-treemap
   }
 
-  .section2 {
-    background-color: #FCE052
-    grid-area: section2
+  .duty-container {
+    background-color: #dfc024
+    grid-area: duty-container
   }
 
-  .section3 {
+  .award-container {
     background-color: #8BC574
-    grid-area: section3
+    grid-area: award-container
   }
+
+  // .section4 {
+  //   grid-area: section4
+  // }
 }
 
 </style>
