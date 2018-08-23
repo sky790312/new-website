@@ -11,11 +11,13 @@
       <h1 style="text-align: right;">By Kevin Hu</h1> -->
       <!-- <div>A senior frontend developer should always clearly issue and .</div> -->
     </div>
-    <div class="grid-item personality-radar">
-      <div id="test" style="width: 100%;height: 100%;"></div>
+    <div 
+      id="personality-radar"
+      class="grid-item personality-radar">
     </div>
-    <div class="grid-item skill-treemap">
-     <div>放一個line chart</div>
+    <div
+      id="skill-radar"
+      class="grid-item skill-radar">
    </div>
     <div class="grid-item mermer-container">
       <h3>Mermer: </h3>
@@ -40,10 +42,6 @@
         <li>Tutor and piecework</li>
       </ul>
     </div>
-    <!-- <div class="grid-item section4">
-      <h3>I believe that being a senior rontend developer, not only have to focus on how deep frontend world is, but alse need to have relevant field domain. Knowing what backend＆Design thinking and why.</h3>
-      <h1 style="text-align: right;">By Kevin Hu</h1>
-    </div> -->
   </div>
 </template>
 
@@ -52,6 +50,9 @@ import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/radar'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
+import {
+  throttle
+} from '@/utils'
 
 export default {
   name: 'About',
@@ -61,55 +62,113 @@ export default {
 
   data () {
     return {
-
+      personalityRadarChart: {},
+      skillRadarChart: {},
+      personalityRadarOption: {
+        tooltip: {
+          trigger: 'axis'
+        },
+        radar: [{
+          indicator: [
+            {text: 'Responsiveness', max: 100},
+            {text: 'Patience', max: 100},
+            {text: 'Leading', max: 100},
+            {text: 'Communication', max: 100}
+          ],
+          radius: 80
+        }],
+        series: [{
+          type: 'radar',
+          tooltip: {
+            trigger: 'item'
+          },
+          itemStyle: {
+            normal: {
+              areaStyle: {
+                type: 'default'
+              }
+            }
+          },
+          data: [{
+            value: [90, 80, 75, 80],
+            name: 'Personality: '
+          }]
+        }],
+        textStyle: {
+          color: '#fff'
+        },
+        lineStyle: {
+          color: '#fff'
+        },
+        itemStyle: {
+          color: '#fff'
+        }
+      },
+      skillRadarOption: {
+        tooltip: {
+          trigger: 'axis'
+        },
+        radar: [{
+          indicator: [
+            {text: 'Frontend', max: 100},
+            {text: 'Backend', max: 100},
+            {text: 'Seo', max: 100},
+            {text: 'Test', max: 100},
+            {text: 'Git', max: 100}
+          ],
+          radius: 80
+        }],
+        series: [{
+          type: 'radar',
+          tooltip: {
+            trigger: 'item'
+          },
+          itemStyle: {
+            normal: {
+              areaStyle: {
+                type: 'default'
+              }
+            }
+          },
+          data: [{
+            value: [90, 70, 80, 80, 80],
+            name: 'Skills: '
+          }]
+        }],
+        textStyle: {
+          color: '#fff'
+        },
+        lineStyle: {
+          color: '#fff'
+        },
+        itemStyle: {
+          color: '#fff'
+        }
+      }
     }
   },
 
   mounted () {
-    var dom = document.getElementById('test')
-    var myChart = echarts.init(dom) // eslint-disable-line
-    var option = {
-      // title: {
-      //   text: 'Ability'
-      // },
-      tooltip: {
-        trigger: 'axis'
-      },
-      radar: [{
-        indicator: [
-          {text: 'Frontend', max: 100},
-          {text: 'Backend', max: 100},
-          {text: 'Seo', max: 100},
-          {text: 'Unit, e2e test', max: 100},
-          {text: 'Git', max: 100}
-        ],
-        radius: 80
-      }],
-      series: [{
-        type: 'radar',
-        tooltip: {
-          trigger: 'item'
-        },
-        itemStyle: {normal: {areaStyle: {type: 'default'}}},
-        data: [{
-          value: [85, 70, 70, 70, 75],
-          name: 'Skills'
-        }]
-      }],
-      textStyle: {
-        color: '#fff'
-      },
-      lineStyle: {
-        color: '#fff'
-      },
-      itemStyle: {
-        color: '#fff'
-      }
-    }
+    const personalityRadar = document.getElementById('personality-radar')
+    this.personalityRadarChart = echarts.init(personalityRadar)
+    this.personalityRadarChart.setOption(this.personalityRadarOption, true)
 
-    if (option && typeof option === 'object') {
-      myChart.setOption(option, true)
+    const skillRadar = document.getElementById('skill-radar')
+    this.skillRadarChart = echarts.init(skillRadar)
+    this.skillRadarChart.setOption(this.skillRadarOption, true)
+
+    window.addEventListener('resize', throttle(this.onWindowResize, 250), false)
+  },
+
+  methods: {
+    onWindowResize () {
+      this.personalityRadarChart.resize()
+      this.skillRadarChart.resize()
     }
+  },
+
+  beforeDestroy () {
+    document.removeEventListener('resize', throttle(this.onWindowResize, 250))
   }
 }
 </script>
@@ -126,21 +185,20 @@ export default {
     grid-template-areas:
       "brief"\
       "personality-radar"\
-      "skill-treemap"\
+      "skill-radar"\
       "mermer-container"\
       "duty-container"\
       "award-container"
     grid-column-gap: 15px
     grid-row-gap: 15px
-    // grid-auto-columns: auto
-    // grid-auto-rows: minmax(400px, auto)
+    grid-auto-columns: minmax(auto, 100%)
 
     @media screen and (min-width: $mobileBreakPoint) {
       grid-template-columns: repeat(6, 1fr)
       grid-template-rows: 1fr 2fr 2fr
       grid-template-areas:
         "brief brief brief brief brief brief"\
-        "personality-radar personality-radar personality-radar skill-treemap skill-treemap skill-treemap"\
+        "personality-radar personality-radar personality-radar skill-radar skill-radar skill-radar"\
         "mermer-container mermer-container duty-container duty-container award-container award-container"
     }
   }
@@ -162,17 +220,18 @@ export default {
   .personality-radar {
     background-color: #748CC5
     grid-area: personality-radar
-    padding: 0
+    min-height: 300px
+  }
+
+  .skill-radar {
+    background-color: #C57474
+    grid-area: skill-radar
+    min-height: 300px
   }
 
   .mermer-container {
     background-color: #8174c5
     grid-area: mermer-container
-  }
-
-  .skill-treemap {
-    background-color: #C57474
-    grid-area: skill-treemap
   }
 
   .duty-container {
@@ -184,10 +243,6 @@ export default {
     background-color: #8BC574
     grid-area: award-container
   }
-
-  // .section4 {
-  //   grid-area: section4
-  // }
 }
 
 </style>
