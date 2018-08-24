@@ -2,9 +2,10 @@
   <a-camera
     :position="camera.position">
     <a-cursor
+      id="cursor"
       :color="cursor.color"
       :geometry="cursor.geometry"
-      listener>
+      cursor-listener>
       <a-animation
         :begin="cursor.animation.begin"
         :easing="cursor.animation.easing"
@@ -32,7 +33,7 @@ export default {
         geometry: 'primitive: ring; radiusOuter: 0.03; radiusInner: 0.02',
         animation: {
           attribute: 'scale',
-          begin: 'click',
+          begin: this.isMobileOrTablet() ? 5000 : 'click',
           from: '1 1 1',
           to: '1000 1000 1000',
           easing: 'ease-in',

@@ -113,7 +113,7 @@ export const SKILLS = [{
   }, {
     name: 'tools',
     title: 'tools',
-    desc: 'webpack, Git, Shell script, Jenkins, Travis CI',
+    desc: 'webpack, Shell script, Jenkins, Travis CI',
     position: {
       pc: {
         x: 6,

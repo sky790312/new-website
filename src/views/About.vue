@@ -235,7 +235,7 @@ export default {
   }
 
   .duty-container {
-    background-color: #dfc024
+    background-color: #ccaf1c
     grid-area: duty-container
   }
 

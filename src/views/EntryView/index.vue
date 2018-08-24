@@ -6,24 +6,25 @@
       <a-sky
         matrix>
       </a-sky>
-      <entry-text>
-      </entry-text>
-      <entry-plane>
-      </entry-plane>
-      <entry-camera>
-      </entry-camera>
+      <entry-text></entry-text>
+      <entry-plane></entry-plane>
+      <entry-camera></entry-camera>
     </a-scene>
+    <countdown-timer
+      v-if="isMobileOrTablet()">
+    </countdown-timer>
   </div>
 </template>
 
 <script>
 import AFRAME from 'aframe'
-import { mapActions } from 'vuex'
 import 'aframe-draw-component/dist/aframe-draw-component.min'
+import { mapActions } from 'vuex'
 
 const EntryText = () => import('@/views/EntryView/EntryText')
 const EntryCamera = () => import('@/views/EntryView/EntryCamera')
 const EntryPlane = () => import('@/views/EntryView/EntryPlane')
+const CountdownTimer = () => import('@/views/EntryView/CountdownTimer')
 
 export default {
   name: 'entryView',
@@ -31,7 +32,8 @@ export default {
   components: {
     EntryText,
     EntryCamera,
-    EntryPlane
+    EntryPlane,
+    CountdownTimer
   },
 
   data () {
@@ -87,11 +89,10 @@ export default {
     initListener () {
       if (typeof (AFRAME.components.listener) === 'undefined') {
         const vm = this
-        AFRAME.registerComponent('listener', {
+        AFRAME.registerComponent('cursor-listener', {
           init () {
             this.el.addEventListener('click', event =>
-              setTimeout(() =>
-                vm.$emit('shouldShowEntryView', false), 500)
+              setTimeout(() => vm.$emit('shouldShowEntryView', false), 500)
                 // const page = { name: 'home' }
                 // self.$router.push(page)
             )
@@ -101,9 +102,12 @@ export default {
     }
   },
 
-  beforeMount () {
+  mounted () {
     this.initMatrix()
     this.initListener()
+    if (this.isMobileOrTablet()) {
+      setTimeout(() => this.$emit('shouldShowEntryView', false), 6000)
+    }
   }
 }
 </script>
