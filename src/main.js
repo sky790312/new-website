@@ -8,6 +8,7 @@ import router from '@/router'
 import store from '@/store'
 
 import App from '@/App'
+import globalMixinMethods from '@/mixins/globalMixinMethods'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -19,6 +20,10 @@ Vue.http.interceptors.push((request, next) => {
   next(response => {
     console.log('get response: ', response)
   })
+})
+
+Vue.mixin({
+  methods: globalMixinMethods
 })
 
 Vue.config.productionTip = false
