@@ -19,7 +19,6 @@
         :isActive="helper.isActive"
         @onIHeadBoyClick="handleHelperMajorClick">
       </i-head-boy>
-      <p style="color: white">Cick me back!</p>
     </i-rotate-in-menus>
   </div>
 </template>
@@ -119,7 +118,7 @@ export default {
 
 #helper {
   position: fixed
-  bottom: -70px
+  bottom: -30px
   right: 20px
   z-index: 1
   transition: margin .2s ease
@@ -138,13 +137,6 @@ export default {
     align-items: center
     justify-content: center
     background-color: rgba($black, .85)
-
-    .helper-menu {
-      display: flex
-      flex-direction: column
-      align-items: center
-      margin-top: 50px
-    }
   }
 
   .helper-menu {

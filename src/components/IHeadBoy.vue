@@ -56,6 +56,16 @@ $i-head-boy-feets-color = $dark-gray
   border-radius: 50%
   background-color: $i-head-boy-color
 
+  &:after {
+    content: 'Click me back!'
+    position: absolute
+    top: 105px
+    left: -15px
+    width: 120px
+    color: $light-gray
+    font-size: 18px
+  }
+
   &.moving {
     animation: head 1.2s infinite
   }
