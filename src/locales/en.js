@@ -12,6 +12,17 @@ const en = {
     experience: `Experience`,
     projects: `Projects`
   },
+  about: {
+    newEra: `New era of Frontend Development`,
+    brief1: `I'm a creative frontend developer with about 5 years of professional experience, based in Taiwan now.`,
+    brief2: `I develop modern, interactive, responsive, multiple-language and cross browser's web application. Always keep in touch to the modern frontend's world and extend my ability to backend's and UIUX's world.`,
+    quote: `Quote`,
+    quoteDesc: `A senior frontend developer should always clearly issue and find the best solution for different situation. Has hide communication skill with backend and UIUX even with PM.`,
+    duty: `Duty`,
+    special: `Special`,
+    speaker: `speaker`,
+    tutorPiecework: `Tutor and piecework`
+  },
   skills: {
     vue: `Familiar with vue ecosystem and build the pure vue component. Clarify project/common component and using vuepress to build document. This website is the best example.`,
     es2015: `Familiar to use async/await with promise and other features in project. I think it's more easly now to build an application by class and constructor without any framework.`,

@@ -12,6 +12,17 @@ const tw = {
     experience: `經歷`,
     projects: `作品集`
   },
+  about: {
+    newEra: `大前端時代`,
+    brief1: `在開發經驗邁入第五年的同時, 成為一資深前端工程師, 目前在台灣發展`,
+    brief2: `我善於開發modern, interactive, responsive, multiple-language and cross browser的web application. 持續追尋整個前端生態精進自己並且慢慢擴展個人的backend技能與uiux思考能力`,
+    quote: `引述`,
+    quoteDesc: `A senior frontend developer should always clearly issue and find the best solution for different situation. Has hide communication skill with backend and UIUX even with PM.`,
+    duty: `職責`,
+    special: `特殊經歷`,
+    speaker: `講者`,
+    tutorPiecework: `家教與接案`
+  },
   skills: {
     vue: `熟悉vue生態系, 擅長打造pure vue元件並使用vuepress來產生文件. 在專案中分清楚project/common元件差異, 這個網站就是最好的範例.`,
     es2015: `使用async/await搭配promise已是基本配備, 其他特性也靈活運用中. 個人認為善用class constructor不依靠任何framework已能輕鬆地建立任何一個應用.`,

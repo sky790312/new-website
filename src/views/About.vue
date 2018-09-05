@@ -3,9 +3,9 @@
     id="about"
     class="grid-container">
     <div class="grid-item brief">
-      <h1>New era of Frontend Development</h1>
-      <h3>I'm a creative frontend developer with about 5 years of professional experience, based in Taiwan now.</h3>
-      <h3>I develop modern, interactive, responsive, multiple-language and cross browser's web application. Always keep in touch to the modern frontend's world and extend my ability to backend's and UIUX's world.</h3>
+      <h1>{{ $t('about.newEra') }}</h1>
+      <h3>{{ $t('about.brief1') }}</h3>
+      <h3>{{ $t('about.brief2') }}</h3>
       <!-- <h4>Everything happen in Frontend Development</h4> -->
       <!-- <h3 style="text-align: center;">I believe that being a senior rontend developer, not only have to focus on how deep frontend world is, but alse need to have relevant field domain. Knowing what backend＆Design thinking and why.</h3>
       <h1 style="text-align: right;">By Kevin Hu</h1> -->
@@ -19,13 +19,13 @@
       id="skill-radar"
       class="grid-item skill-radar">
    </div>
-    <div class="grid-item mermer-container">
-      <h3>Mermer: </h3>
-      <div>A senior frontend developer should always clearly issue and find the best solution for different situation. Has hide communication skill with backend and UIUX even with PM.</div>
-      <div style="text-align: right;">Kevin Hu</div>
+    <div class="grid-item quote-container">
+      <h3>{{ $t('about.quote') }}: </h3>
+      <div>{{ $t('about.quoteDesc') }}</div>
+      <div class="quote-author">Kevin Hu</div>
     </div>
     <div class="grid-item duty-container">
-      <h3>Duty: </h3>
+      <h3>{{ $t('about.duty') }}: </h3>
       <ul>
         <li>RWD</li>
         <li>SPA</li>
@@ -34,12 +34,12 @@
         <li>Multiple-language RTL website</li>
       </ul>
     </div>
-    <div class="grid-item award-container">
-      <h3>Awards: </h3>
+    <div class="grid-item special-container">
+      <h3>{{ $t('about.special') }}: </h3>
       <ul>
-        <li>JSDC Taiwan 2017 speaker</li>
-        <li>Aframe weekly post</li>
-        <li>Tutor and piecework</li>
+        <li>JSDC Taiwan 2017 {{ $t('about.speaker') }}: <a href="http://2017.jsdc.tw/speaker.html">Link</a></li>
+        <li>Aframe weekly post: <a href="https://aframe.io/blog/istaging/">Link</a></li>
+        <li>{{ $t('about.tutorPiecework') }}</li>
       </ul>
     </div>
   </div>
@@ -186,9 +186,9 @@ export default {
       "brief"\
       "personality-radar"\
       "skill-radar"\
-      "mermer-container"\
+      "quote-container"\
       "duty-container"\
-      "award-container"
+      "special-container"
     grid-column-gap: 15px
     grid-row-gap: 15px
     grid-auto-columns: minmax(auto, 100%)
@@ -199,7 +199,7 @@ export default {
       grid-template-areas:
         "brief brief brief brief brief brief"\
         "personality-radar personality-radar personality-radar skill-radar skill-radar skill-radar"\
-        "mermer-container mermer-container duty-container duty-container award-container award-container"
+        "quote-container quote-container duty-container duty-container special-container special-container"
     }
   }
 
@@ -207,6 +207,15 @@ export default {
     padding: 20px
     // display: flex
     color: $white
+
+    a {
+      color: $blue
+      text-decoration none
+
+      &:hover {
+        text-decoration underline
+      }
+    }
     // font-size: 2em
     // justify-content: center
     // align-items: center
@@ -229,9 +238,14 @@ export default {
     min-height: 300px
   }
 
-  .mermer-container {
+  .quote-container {
     background-color: #8174c5
-    grid-area: mermer-container
+    grid-area: quote-container
+
+    .quote-author {
+      margin-top: 20px
+      text-align right
+    }
   }
 
   .duty-container {
@@ -239,9 +253,9 @@ export default {
     grid-area: duty-container
   }
 
-  .award-container {
+  .special-container {
     background-color: #8BC574
-    grid-area: award-container
+    grid-area: special-container
   }
 }
 
