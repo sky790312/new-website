@@ -119,7 +119,7 @@ export default {
 #helper {
   position: fixed
   bottom: -30px
-  right: 20px
+  right: 40px
   z-index: 1
   transition: margin .2s ease
 

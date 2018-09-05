@@ -259,7 +259,6 @@ $detailFontSizeHover = 30px
 
 
 #skill {
-  height: 100%
   padding: 0
 
   .item {

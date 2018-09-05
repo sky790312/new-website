@@ -61,7 +61,7 @@ $i-head-boy-feets-color = $dark-gray
     position: absolute
     top: 105px
     left: -15px
-    width: 120px
+    width: 130px
     color: $light-gray
     font-size: 18px
   }

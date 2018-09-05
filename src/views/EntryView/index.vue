@@ -106,7 +106,7 @@ export default {
     this.initMatrix()
     this.initListener()
     if (this.isMobileOrTablet()) {
-      setTimeout(() => this.$emit('shouldShowEntryView', false), 6000)
+      setTimeout(() => this.$emit('shouldShowEntryView', false), 6800)
     }
   }
 }
