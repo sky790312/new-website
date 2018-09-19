@@ -121,7 +121,7 @@ export default {
     content: ''
     z-index: -1
     opacity: 0.06
-    background-image: url('~assets/bkg.jpg')
+    background-image: url('~assets/home/bkg.jpg')
     // transform-origin: 50% 50%
     // transform-style: preserve-3d
     transition: opacity 3s ease-in-out, transform 5s ease-in-out

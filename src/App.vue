@@ -151,6 +151,7 @@ export default {
   position: relative
   // width: 100vw
   height: calc(100vh - 85px)
+  overflow: auto
   padding: 20px
   /*margin: auto*/
   @media screen and (min-width: $mobileBreakPoint) {
@@ -171,7 +172,7 @@ export default {
   // }
 }
 
-#helper.helper-slide-enter-active, #helper.helper-slide-leave-active {
+.helper-slide-enter-active, .helper-slide-leave-active {
   transition: all 2s ease
 }
 

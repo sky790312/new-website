@@ -1,0 +1,131 @@
+export const PROJECTS = [{
+  name: '179',
+  type: 'aite',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/aite/179.jpg')
+}, {
+  name: 'aiteOfficial',
+  type: 'aite',
+  linkUrl: 'http://www.aite.com.tw',
+  imageUrl: require('~assets/projects/aite/aite-official.jpg')
+}, {
+  name: 'cpcOfficial',
+  type: 'aite',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/aite/cpc-official.jpg')
+}, {
+  name: 'lejetbcOfficial',
+  type: 'aite',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/aite/lejetbc-official.jpg')
+}, {
+  name: 'lejetbc',
+  type: 'aite',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/aite/lejetbc.jpg')
+}, {
+  name: 'spotmeDashboard',
+  type: 'istaging',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/aite/spotme-dashboard.jpg')
+}, {
+  name: 'spotme',
+  type: 'aite',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/aite/spotme.jpg')
+}, {
+  name: 'spotrainer',
+  type: 'aite',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/aite/spotrainer.jpg')
+}, {
+  name: 'couponTaiwan',
+  type: 'eztravel',
+  linkUrl: 'https://activity.eztravel.com.tw/taiwan',
+  imageUrl: require('~assets/projects/eztravel/coupon-taiwan.jpg')
+}, {
+  name: 'homepage',
+  type: 'eztravel',
+  linkUrl: 'https://www.eztravel.com.tw',
+  imageUrl: require('~assets/projects/eztravel/homepage.jpg')
+}, {
+  name: 'ucar',
+  type: 'eztravel',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/eztravel/ucar.jpg')
+}, {
+  name: 'ucarApp',
+  type: 'eztravel',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/eztravel/ucar-app.jpg')
+}, {
+  name: '3dDollhouse',
+  type: 'istaging',
+  linkUrl: 'https://www.istaging.com/dollhouse',
+  imageUrl: require('~assets/projects/istaging/3d-dollhouse.jpg')
+}, {
+  name: 'furniture',
+  type: 'istaging',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/istaging/furniture.jpg')
+}, {
+  name: 'furnitureDashboard',
+  type: 'istaging',
+  linkUrl: 'http://www.staging.com.tw/furniture_dashboard_us',
+  imageUrl: require('~assets/projects/istaging/furniture-dashboard.jpg')
+}, {
+  name: 'vreditorCn',
+  type: 'istaging',
+  linkUrl: 'https://vreditor.istaging.com.cn',
+  imageUrl: require('~assets/projects/istaging/vreditor-cn.jpg')
+}, {
+  name: 'vreditorUs',
+  type: 'istaging',
+  linkUrl: 'https://vreditor.istaging.com',
+  imageUrl: require('~assets/projects/istaging/vreditor-us.jpg')
+}, {
+  name: 'vreditorSdk',
+  type: 'istaging',
+  linkUrl: 'https://github.com/iStaging/vreditor-sdk',
+  imageUrl: require('~assets/projects/istaging/vreditor-sdk.jpg')
+}, {
+  name: 'vrviewer',
+  type: 'istaging',
+  linkUrl: 'https://livetour.istaging.com/261da9fb-f700-4cf9-aee6-39d96eb1afae',
+  imageUrl: require('~assets/projects/istaging/vrviewer.jpg')
+}, {
+  name: 'vrviewerSdk',
+  type: 'istaging',
+  linkUrl: 'https://github.com/iStaging/vrviewer-sdk',
+  imageUrl: require('~assets/projects/istaging/vrviewer-sdk.jpg')
+}, {
+  name: 'vrsdkDoc',
+  type: 'istaging',
+  linkUrl: 'https://evs-doc-test.istaging.com.cn',
+  imageUrl: require('~assets/projects/istaging/vrsdk-doc.jpg')
+}, {
+  name: 'vrportal',
+  type: 'istaging',
+  linkUrl: 'https://portal.istaging.com/',
+  imageUrl: require('~assets/projects/istaging/vrportal.jpg')
+}, {
+  name: 'vrlive',
+  type: 'istaging',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/istaging/vrlive.jpg')
+}, {
+  name: 'oldWebsite',
+  type: 'others',
+  linkUrl: 'https://sky790312.herokuapp.com',
+  imageUrl: require('~assets/projects/others/old-website.jpg')
+}, {
+  name: 'requestAnimationProfolio',
+  type: 'others',
+  linkUrl: '',
+  imageUrl: require('~assets/projects/others/requestanimation-profolio.jpg')
+}, {
+  name: 'updownrightleftProfolio',
+  type: 'others',
+  linkUrl: 'https://sky790312.github.io/full-screen-presentation-website/presentation.html',
+  imageUrl: require('~assets/projects/others/updownrightleft-profolio.jpg')
+}]
