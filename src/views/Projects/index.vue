@@ -13,13 +13,17 @@
         <div 
           v-for="project in projects"
           :key="project.name"
-          class="project"
-          :style="{'background-image': `url('${project.imageUrl}')`}">
-          <a
+          class="project">
+          <!-- <a
             class="project-title">
             {{ project.name }}
-          </a>
-          <!-- <img :src="project.imageUrl"> -->
+          </a> -->
+          <img
+            :src="project.imageUrl"
+            class="project-image">
+          <div class="project-title">
+            {{ project.name }}
+          </div>
         </div>
       </transition-group>
     </div>
@@ -79,26 +83,41 @@ export default {
   }
 
   .project {
+    position relative
     display: flex
     align-items: center
     justify-content center
     margin: 20px
     width: 200px
     height: 150px
-    background-size: cover
+    cursor: pointer
+    overflow: hidden
     transition: all .3s
 
-    .project-title {
-      opacity: 0
-      transition: opacity .3s
-    }
-
     &:hover {
-      opacity: .7
+      padding: 5px
+
+      .project-image {
+        opacity: .3
+      }
 
       .project-title {
         opacity: 1
       }
+    }
+
+    .project-image, .project-title {
+      transition: opacity .3s ease
+    }
+
+    .project-title {
+      position absolute
+      width: 100%
+      height: 100%
+      display flex
+      justify-content: center
+      align-items: center
+      opacity: 0
     }
   }
 
