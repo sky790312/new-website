@@ -12,32 +12,11 @@
           v-for="(menuState, mainMenu) in mainMenusState"
           :key="mainMenu"
           :class="['control-main-menu', {
-            'active' : menuState,
+            'active': menuState,
             'filtering': activeFilters[mainMenu].length
           }]"
           @click="setMainMenusState(mainMenu, menuState)">
           {{ mainMenu }}
-        </li>
-        <transition
-          name="fade">
-          <li
-            v-show="activeFilters.companies.length || activeFilters.skills.length"
-            class="control-main-menu clear-all"
-            @click="clearAllFilters">
-            Clear all
-          </li>
-        </transition>
-      </menu>
-      <menu>
-        <li
-          v-for="(activeFilterArray, activeFilter) in activeFilters"
-          :key="activeFilter">
-          {{ activeFilter }}:
-          <span
-            v-for="filter in activeFilterArray"
-            :key="filter">
-            {{ filter }}
-          </span>
         </li>
       </menu>
     </nav>
@@ -56,12 +35,38 @@
         <li 
           v-for="(filterState, filter) in mainFilterArray"
           :key="filter"
-          :class="['control-sub-menu', { 'active': filterState }]"
+          :class="['menu', { 'active': filterState }]"
           @click="setFilter(mainFilter, filter)">
           {{ filter }}
         </li>
       </menu>
     </transition-group>
+
+    <section 
+      class="active-menu-container"
+      v-show="hasActiveFilters">
+      <menu
+        class="active-menus"
+        v-for="(activeFilterArray, activeFilter) in activeFilters"
+        :key="activeFilter">
+        {{ activeFilter }}:
+        <li
+          v-for="filter in activeFilterArray"
+          :key="filter"
+          class="menu active has-close"
+          @click="setFilter(activeFilter, filter)">
+          {{ filter }}
+        </li>
+      </menu>
+      <menu
+        class="clear-menu">
+        <li
+          class="clear-all has-close"
+          @click="clearAllFilters">
+          Clear all
+        </li>
+      </menu>
+    </section>
 
     <transition-group 
       name="project"
@@ -135,6 +140,10 @@ export default {
         companies: Object.keys(this.filters.companies).filter(company => this.filters.companies[company]),
         skills: Object.keys(this.filters.skills).filter(skill => this.filters.skills[skill])
       }
+    },
+
+    hasActiveFilters () {
+      return this.activeFilters.companies.length || this.activeFilters.skills.length
     }
   },
 
@@ -205,42 +214,35 @@ export default {
     display: flex
     justify-content: space-between
     align-items: center
-    white-space: nowrap
-    margin: 0 1rem
-    padding: 2rem 0.5rem 1rem
+    margin-top: 40px
     border-bottom: 1px solid $light-gray
+  }
 
-    .control-main-menus {
-      display: flex
+  .control-main-menu {
+    position: relative
+    padding: 0
+    z-index: 1
+    cursor: pointer
+
+    &::after {
+      content: '\2022'
+      color: $purple
+      width: 5px
+      transition: transform .15s ease-in-out
+      opacity: 0
     }
 
-    .control-main-menu {
-      position: relative
-      margin-left: 1rem
-      text-transform: capitalize
-      z-index: 1
-      cursor: pointer
+    &:not(:last-child) {
+      margin-right: 20px
+    }
+    
+    &.active {
+      color: $purple
+    }
 
+    &.filtering {
       &::after {
-        content: '\00d7'
-        display: inline-block
-        color: transparent
-        width: 0.5rem
-        font-weight: 400
-        transform: scale(0)
-        transition: transform .15s ease-in-out
-      }
-
-      &.clear-all {
-        color: #f68185
-      }
-
-      &.filtering {
-        &::after {
-          content: '\2022'
-          transform: scale(1)
-          color: $green2
-        }
+        opacity: 1
       }
     }
   }
@@ -249,7 +251,7 @@ export default {
     position: relative
     height: 0
     overflow: hidden
-    transition: height 350ms
+    transition: height .35s
 
     &::after {
       content: ''
@@ -257,7 +259,7 @@ export default {
       bottom: 0
       left: 0
       width: 100%
-      height: 1rem
+      height: 20px
       background-image: linear-gradient(to top, $white, rgba($white, 0))
     }
 
@@ -275,46 +277,86 @@ export default {
     &-leave-active {
       position: absolute
       width: 100%
-      transition: opacity 200ms ease-in-out
+      transition: opacity .2s ease-in-out
     }
 
     &-enter-active {
-      transition-delay: 100ms
+      transition-delay: .1s
     }
   }
 
+  .active-menu-container {
+    display: flex
+    flex-direction: column
+    margin: 10px 0 20px
+
+    @media screen and (min-width: $mobileBreakPoint) {
+      flex-direction: row
+    }
+  }
+
+  .control-main-menus {
+    display: flex
+    padding: 0
+  }
+
   .control-sub-menus {
-    padding: 0 1rem
     display: flex
     flex-wrap: wrap
-    align-items: flex-start
+  }
 
-    .control-sub-menu {
-      margin-top: 0.5rem
-      margin-right: 0.5rem
-      padding: 0.25rem 0.5rem
-      border: 1px solid $light-gray
-      border-radius: 6px
-      font-size: 0.8rem
-      line-height: 1.35
-      cursor: pointer
-      transition: all 275ms
+  .active-menus, .clear-menu {
+    margin: 15px 10px 0 0
+    padding: 0
+    display: flex
+    align-items: center
+  }
 
-      &:hover {
-        border-color: $green2
-      }
+  .menu {
+    margin: 5px
+    padding: 5px 10px
+    border: 1px solid $light-gray
+    border-radius: 6px
+    font-size: 0.8rem
+    font-size: 14px
+    cursor: pointer
+    transition: all 275ms
 
-      &.active {
-        color: white
-        border-color: $green2
-        background-color: $green2
-      }
+    &:hover {
+      border-color: $purple
+    }
+
+    &.active {
+      color: white
+      border-color: $purple
+      background-color: $purple
+    }
+  }
+
+  .has-close {
+    &::after {
+      content: '\00d7'
+    }
+  }
+
+  .clear-all {
+    cursor: pointer
+    padding: 5px
+    border: 1px solid $white
+
+    &:hover {
+      opacity: .7
     }
   }
 
   .project-container {
     display: flex
     flex-wrap: wrap
+    justify-content: center
+
+    @media screen and (min-width: $mobileBreakPoint) {
+      justify-content: flex-start
+    }
   }
 
   .project {
@@ -354,15 +396,15 @@ export default {
     }
 
     &-move { 
-      transition: all 600ms ease-in-out 50ms 
+      transition: all .6s ease-in-out .05s
     }
 
     &-enter-active {
-      transition: all 300ms ease-out
+      transition: all .3s ease-out
     }
 
     &-leave-active {
-      transition: all 200ms ease-in
+      transition: all .2s ease-in
       position: absolute
       z-index: 0
     }
