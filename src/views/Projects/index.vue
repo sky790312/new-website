@@ -131,7 +131,11 @@ export default {
 
         const currectCompany = this.companySkills.find(companySkill => companySkill.company === this.activeFilters.companies[0])
         Object.keys(this.filters.skills).forEach(skill => {
-          this.filters.skills[skill].shouldShow = currectCompany.skills.includes(skill)
+          const isSkillInCurrentCompany = currectCompany.skills.includes(skill)
+          this.filters.skills[skill].shouldShow = isSkillInCurrentCompany
+          if (!isSkillInCurrentCompany) {
+            this.filters.skills[skill].isActive = false
+          }
         })
       }
 
