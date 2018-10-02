@@ -29,13 +29,14 @@
       <menu 
         v-for="(mainFilterArray, mainFilter) in filters"
         :key="mainFilter"
-        class="control-sub-menus"
         v-show="mainMenusState[mainFilter]"
+        class="control-sub-menus"
         :ref="mainFilter">
         <li 
-          v-for="(filterState, filter) in mainFilterArray"
+          v-for="(subFilterArray, filter) in mainFilterArray"
           :key="filter"
-          :class="['menu', { 'active': filterState }]"
+          v-show="subFilterArray.shouldShow"
+          :class="['menu', { 'active': subFilterArray.isActive }]"
           @click="setFilter(mainFilter, filter)">
           {{ filter }}
         </li>
@@ -92,6 +93,9 @@
 import {
   PROJECTS
 } from '@/views/Projects/data'
+import {
+  throttle
+} from '@/utils'
 
 export default {
   name: 'Projects',
@@ -102,6 +106,7 @@ export default {
   data () {
     return {
       projects: PROJECTS,
+      companySkills: [],
       subMenuContainerStyle: {
         height: ''
       },
@@ -118,88 +123,134 @@ export default {
 
   computed: {
     filteredProjects () {
-      return this.projects.filter(project => {
-        if (this.activeFilters.companies.length && !~this.activeFilters.companies.indexOf(project.company)) {
-          return false
-        }
+      let projects = this.projects
 
-        return !this.activeFilters.skills.length || this.activeFilters.skills.every(skill => ~project.skills.indexOf(skill))
-      })
+      if (this.activeFilters.companies.length) {
+        projects = projects.filter(project => {
+          return !(this.activeFilters.companies.length && !~this.activeFilters.companies.indexOf(project.company))
+        })
+
+        const currectCompany = this.companySkills.find(companySkill => companySkill.company === this.activeFilters.companies[0])
+        Object.keys(this.filters.skills).forEach(skill => {
+          this.filters.skills[skill].shouldShow = currectCompany.skills.includes(skill)
+        })
+      }
+
+      if (this.activeFilters.skills.length) {
+        projects = projects.filter(project =>
+          !!project.skills.find(skill =>
+            this.activeFilters.skills.includes(skill)))
+      }
+
+      return projects
     },
 
     activeMainMenu () {
-      return Object.keys(this.mainMenusState).reduce((accumulator, currentMenu, index) => {
-        return (this.mainMenusState[currentMenu])
-            ? currentMenu
-            : accumulator
-      }, '')
+      return Object.keys(this.mainMenusState).reduce((accumulator, currentMenu, index) =>
+        (this.mainMenusState[currentMenu])
+          ? currentMenu
+          : accumulator
+      , '')
     },
 
     activeFilters () {
       return {
-        companies: Object.keys(this.filters.companies).filter(company => this.filters.companies[company]),
-        skills: Object.keys(this.filters.skills).filter(skill => this.filters.skills[skill])
+        companies: Object.keys(this.filters.companies).filter(company => this.filters.companies[company].isActive),
+        skills: Object.keys(this.filters.skills).filter(skill => this.filters.skills[skill].isActive)
       }
     },
 
     hasActiveFilters () {
-      return this.activeFilters.companies.length || this.activeFilters.skills.length
+      return !!(this.activeFilters.companies.length || this.activeFilters.skills.length)
     }
   },
 
   watch: {
-    activeMainMenu (oldVal, newVal) {
-      if (oldVal === newVal) {
-        return
-      }
-
+    'activeMainMenu' (oldVal, newVal) {
+      console.log(oldVal, newVal)
       this.$nextTick(() => {
-        if (!this.$refs[oldVal]) {
-          this.subMenuContainerStyle.height = 0
-          return
-        }
-
-        this.subMenuContainerStyle.height = (this.$refs[oldVal][0])
-          ? `${this.$refs[oldVal][0].clientHeight + 50}px`
-          : 0
+        this.setSubMenuContainerStyle()
       })
     }
   },
 
   methods: {
     setFilter (mainMenu, subMenu) {
-      if (mainMenu === 'companies') {
-        this.filters[mainMenu][subMenu] = !this.filters[mainMenu][subMenu]
-      } else {
-        this.clearFilter(mainMenu, subMenu, this.filters[mainMenu][subMenu])
-      }
+      (mainMenu === 'skills')
+        ? this.filters[mainMenu][subMenu].isActive = !this.filters[mainMenu][subMenu].isActive
+        : this.clearFilter(mainMenu, subMenu, this.filters[mainMenu][subMenu].isActive)
     },
 
-    clearFilter (mainMenu, subMenu, currentFilter) {
+    clearFilter (mainMenu, subMenu, state) {
       Object.keys(this.filters[mainMenu]).forEach(filterSubMenu => {
-        this.filters[mainMenu][filterSubMenu] = (!currentFilter && subMenu === filterSubMenu)
+        this.filters[mainMenu][filterSubMenu].isActive = (!state && subMenu === filterSubMenu)
       })
     },
 
     clearAllFilters () {
       Object.keys(this.filters).forEach(this.clearFilter)
+      this.projects.forEach(project => {
+        project.skills.forEach(skill => (
+          this.setDefaultState('skills', skill)
+        ))
+      })
+      this.$nextTick(() => {
+        this.setSubMenuContainerStyle()
+      })
     },
 
     setMainMenusState (currentMenu, currentMenuState) {
       Object.keys(this.mainMenusState).forEach(mainMenu => {
         this.mainMenusState[mainMenu] = (!currentMenuState && mainMenu === currentMenu)
       })
+    },
+
+    setDefaultState (items, item) {
+      const initState = {
+        shouldShow: true,
+        isActive: false
+      }
+      this.$set(this.filters[items], item, initState)
+    },
+
+    setSubMenuContainerStyle () {
+      if (!this.$refs[this.activeMainMenu]) {
+        this.subMenuContainerStyle.height = 0
+        return
+      }
+
+      this.subMenuContainerStyle.height = (this.$refs[this.activeMainMenu][0])
+        ? `${this.$refs[this.activeMainMenu][0].clientHeight + 50}px`
+        : 0
     }
   },
 
-  beforeMount () {
-    PROJECTS.forEach(project => {
-      this.$set(this.filters.companies, project.company, false)
-
+  mounted () {
+    this.projects.forEach(project => {
+      this.setDefaultState('companies', project.company)
       project.skills.forEach(skill => {
-        this.$set(this.filters.skills, skill, false)
+        this.setDefaultState('skills', skill)
       })
     })
+
+    const companySkills = this.projects.reduce((accumulator, { company, skills }, index, sourceArray) => {
+      if (!accumulator.get(company)) {
+        accumulator.set(company, {company, skills: new Set(skills)})
+      } else {
+        skills.forEach(skill => accumulator.get(company).skills.add(skill))
+      }
+      if (!sourceArray[index + 1]) {
+        accumulator.forEach(companySkill => (companySkill.skills = [...companySkill.skills]))
+      }
+      return accumulator
+    }, new Map()).values()
+
+    this.companySkills = Array.from(companySkills)
+    window.addEventListener('resize', throttle(this.setSubMenuContainerStyle, 250), false)
+  },
+
+  beforeDestroy () {
+    document.removeEventListener('resize', throttle(this.setSubMenuContainerStyle, 250))
   }
 }
 </script>
@@ -310,6 +361,7 @@ export default {
     padding: 0
     display: flex
     align-items: center
+    flex-wrap: wrap
   }
 
   .menu {
