@@ -27,17 +27,17 @@
       class="sub-menu-container"
       :style="subMenuContainerStyle">
       <menu 
-        v-for="(mainFilterArray, mainFilter) in filters"
-        :key="mainFilter"
-        v-show="mainMenusState[mainFilter]"
+        v-for="(filtersArray, filtersKey) in filters"
+        :key="filtersKey"
+        v-show="mainMenusState[filtersKey]"
         class="control-sub-menus"
-        :ref="mainFilter">
+        :ref="filtersKey">
         <li 
-          v-for="(subFilterArray, filter) in mainFilterArray"
+          v-for="(filterState, filter) in filtersArray"
           :key="filter"
-          v-show="subFilterArray.shouldShow"
-          :class="['menu', { 'active': subFilterArray.isActive }]"
-          @click="setFilter(mainFilter, filter)">
+          v-show="filterState.shouldShow"
+          :class="['menu', { 'active': filterState.isActive }]"
+          @click="setFilter(filtersKey, filter)">
           {{ filter }}
         </li>
       </menu>
@@ -48,15 +48,15 @@
       v-show="hasActiveFilters">
       <menu
         class="active-menus"
-        v-for="(activeFilterArray, activeFilter) in activeFilters"
-        :key="activeFilter">
-        {{ activeFilter }}:
+        v-for="(activeFilterArray, activeFilterKey) in activeFilters"
+        :key="activeFilterKey">
+        {{ activeFilterKey }}:
         <li
-          v-for="filter in activeFilterArray"
-          :key="filter"
+          v-for="activeFilter in activeFilterArray"
+          :key="activeFilter"
           class="menu active has-close"
-          @click="setFilter(activeFilter, filter)">
-          {{ filter }}
+          @click="setFilter(activeFilterKey, activeFilter)">
+          {{ activeFilter }}
         </li>
       </menu>
       <menu
@@ -124,7 +124,6 @@ export default {
   computed: {
     filteredProjects () {
       let projects = this.projects
-
       if (this.activeFilters.companies.length) {
         projects = projects.filter(project => {
           return !(this.activeFilters.companies.length && !~this.activeFilters.companies.indexOf(project.company))
@@ -167,7 +166,6 @@ export default {
 
   watch: {
     'activeMainMenu' (oldVal, newVal) {
-      console.log(oldVal, newVal)
       this.$nextTick(() => {
         this.setSubMenuContainerStyle()
       })
