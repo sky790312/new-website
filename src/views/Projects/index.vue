@@ -82,7 +82,7 @@
           class="project-image">
         <div 
           class="project-title">
-          {{ project.name }}
+          {{ project.title }}
         </div>
       </div>
     </transition-group>
