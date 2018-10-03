@@ -1,7 +1,7 @@
 <template>
   <div
     id="projects">
-    <h1>
+    <h1 class="page-title">
       {{ $t('menus.projects') }}
     </h1>
     <nav
@@ -263,6 +263,10 @@ export default {
 #projects {
   color: $white
 
+  .page-title {
+    padding: 20px 0 0 20px
+  }
+
   .main-menu-container {
     display: flex
     justify-content: space-between
@@ -277,12 +281,29 @@ export default {
     z-index: 1
     cursor: pointer
 
+    &::before {
+      content: ''
+      position: absolute
+      bottom: -2px
+      left: 0
+      width: 0
+      height: 1px
+      background-color: $purple
+      transition: width .3s ease
+    }
+
     &::after {
       content: '\2022'
       color: $purple
       width: 5px
       transition: transform .15s ease-in-out
       opacity: 0
+    }
+
+    &:hover {
+      &::before {
+        width: 100%
+      }
     }
 
     &:not(:last-child) {
@@ -329,7 +350,7 @@ export default {
 
   .control-main-menus {
     display: flex
-    padding: 0
+    padding: 0 0 0 20px
   }
 
   .control-sub-menus {

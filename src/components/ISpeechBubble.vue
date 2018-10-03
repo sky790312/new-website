@@ -125,7 +125,7 @@ $black = #000
   padding: 20px
   color: $white
 
-  &:before, &:after {
+  &::before, &::after {
     content: ''
     position: absolute
     width: 0
@@ -134,14 +134,14 @@ $black = #000
     border-bottom: 10px solid transparent
   }
 
-  &:before {
+  &::before {
     right: 13px
     bottom: -21px
     border-right: 10px solid $white
     border-top: 10px solid $white
   }
 
-  &:after {
+  &::after {
     right: 15px
     bottom: -17px
     border-right: 10px solid $black

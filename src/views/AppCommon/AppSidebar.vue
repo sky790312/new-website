@@ -151,7 +151,7 @@ export default {
       padding: 0 20px
     }
 
-    &:after {
+    &::after {
       display: block
       content: ''
       position: absolute
@@ -186,10 +186,10 @@ export default {
       }
 
       &:not(.active) {
-        &:after {
+        &::after {
           content: ''
           position: absolute
-          bottom: -1px
+          bottom: -2px
           left: 0
           width: 0
           height: 1px
@@ -197,8 +197,10 @@ export default {
           transition: width .3s ease
         }
 
-        &:hover:after {
-          width: 100%
+        &:hover {
+          &::after {
+            width: 100%
+          }
         }
       }
     }

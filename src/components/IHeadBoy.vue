@@ -56,7 +56,7 @@ $i-head-boy-feets-color = $dark-gray
   border-radius: 50%
   background-color: $i-head-boy-color
 
-  &:after {
+  &::after {
     content: 'Click me back!'
     position: absolute
     top: 105px
@@ -75,7 +75,7 @@ $i-head-boy-feets-color = $dark-gray
   position: relative
   top: -10px
 
-  &:before, &:after {
+  &::before, &::after {
     content: ''
     position: absolute
     width: 20px
@@ -84,22 +84,22 @@ $i-head-boy-feets-color = $dark-gray
     background-color: $i-head-boy-feets-color
   }
 
-  &:before {
+  &::before {
     left: 25px
     z-index: -1
   }
 
-  &:after {
+  &::after {
     left: 45px
     z-index: -1
   }
 
   &.moving {
-    &:before {
+    &::before {
       animation: feets-left 1.2s infinite
       z-index: 1
     }
-    &:after {
+    &::after {
       animation: feets-right 1.2s infinite
     }
   }

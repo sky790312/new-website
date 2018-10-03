@@ -112,7 +112,7 @@ export default {
   // transition: background-color 3s ease-in-out 2s;
   // perspective: 1000px;
 
-  &:after {
+  &::after {
     position: absolute
     width: 100%
     height: 100%
