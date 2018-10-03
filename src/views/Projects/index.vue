@@ -448,30 +448,30 @@ export default {
       align-items: center
       opacity: 0
     }
+  }
 
-    &-move { 
+      .project-move { 
       transition: all .6s ease-in-out .05s
     }
 
-    &-enter-active {
+    .project-enter-active {
       transition: all .3s ease-out
     }
 
-    &-leave-active {
+    .project-leave-active {
       transition: all .2s ease-in
       position: absolute
       z-index: 0
     }
 
-    &-enter,
-    &-leave-to {
+    .project-enter,
+    .project-leave-to {
       opacity: 0
     }
 
-    &-enter {
+    .project-enter {
       transform: scale(.9)
     }
-  }
 }
 
 </style>
