@@ -22,7 +22,7 @@
     </nav>
 
     <transition-group
-      name="sub-menu-container"
+      name="sub-menu"
       tag="section"
       class="sub-menu-container"
       :style="subMenuContainerStyle">
@@ -315,27 +315,6 @@ export default {
       height: 20px
       background-image: linear-gradient(to top, $white, rgba($white, 0))
     }
-
-    &-enter,
-    &-leave-to {
-      opacity: 0
-    }
-
-    &-leave,
-    &-enter-to {
-      opacity: 1
-    }
-
-    &-enter-active,
-    &-leave-active {
-      position: absolute
-      width: 100%
-      transition: opacity .2s ease-in-out
-    }
-
-    &-enter-active {
-      transition-delay: .1s
-    }
   }
 
   .active-menu-container {
@@ -450,28 +429,49 @@ export default {
     }
   }
 
-      .project-move { 
-      transition: all .6s ease-in-out .05s
-    }
+  .sub-menu-enter,
+  .sub-menu-leave-to {
+    opacity: 0
+  }
 
-    .project-enter-active {
-      transition: all .3s ease-out
-    }
+  .sub-menu-leave,
+  .sub-menu-enter-to {
+    opacity: 1
+  }
 
-    .project-leave-active {
-      transition: all .2s ease-in
-      position: absolute
-      z-index: 0
-    }
+  .sub-menu-enter-active,
+  .sub-menu-leave-active {
+    position: absolute
+    width: 100%
+    transition: opacity .2s ease-in-out
+  }
 
-    .project-enter,
-    .project-leave-to {
-      opacity: 0
-    }
+  .sub-menu-enter-active {
+    transition-delay: .1s
+  }
 
-    .project-enter {
-      transform: scale(.9)
-    }
+  .project-enter {
+    transform: scale(.9)
+  }
+
+  .project-enter,
+  .project-leave-to {
+    opacity: 0
+  }
+
+  .project-enter-active {
+    transition: all .3s ease-out
+  }
+
+  .project-leave-active {
+    transition: all .2s ease-in
+    position: absolute
+    z-index: 0
+  }
+
+  .project-move { 
+    transition: all .6s ease-in-out .05s
+  }
 }
 
 </style>
