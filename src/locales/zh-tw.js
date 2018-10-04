@@ -52,25 +52,27 @@ const tw = {
       messageBoard: `留言板`
     },
     mermer: {
-      vue: '使用vue作為主要開發已超過2年..',
-      es2015: `前端過去那些亂七八糟的年代已經過去了..`,
-      test: `前端的測試結合CI是很重要的..`,
-      aframe: `大前端時代, webVR也是不可缺少的一部份..`,
-      css: `ie走了, 移動端的世界緊接而來..`,
-      d3: `視覺化資料是前端不可或缺的一部份..`,
-      thirdparty: `串接第三方api如fb, google是非常常見的..`,
-      tools: `現在已經不是直接寫寫html, css, js的世界囉..`,
-      scrum: `Scrum vs waterfall, 你的團隊喜歡哪一個..`,
-      react: `React是在angularjs之後最後歡迎的framewrok之一..`,
-      reactnative: `我相信react native是人們更願意選擇react的原因之一..`,
-      seo: `Seo也是前端工程師需具備的一部份..`,
-      baas: `Baas服務已經越來越多了..`,
-      paas: `Paas服務是非常強大的..`,
-      jquery: `已經有好一陣子沒用jquery了..`,
-      angularjs: `曾經幾乎一統江湖的angularjs現在..`,
-      mvc: `Backend mvc扔是一個業界非常常見的架構之一..`,
-      database: `擁有資料庫的相關知識是非常有幫助的..`,
-      cms: `使用cms內容管理系統來建立官網是非常有幫助且快速的..`
+      skill: {
+        vue: '使用vue作為主要開發已超過2年..',
+        es2015: `前端過去那些亂七八糟的年代已經過去了..`,
+        test: `前端的測試結合CI是很重要的..`,
+        aframe: `大前端時代, webVR也是不可缺少的一部份..`,
+        css: `ie走了, 移動端的世界緊接而來..`,
+        d3: `視覺化資料是前端不可或缺的一部份..`,
+        thirdparty: `串接第三方api如fb, google是非常常見的..`,
+        tools: `現在已經不是直接寫寫html, css, js的世界囉..`,
+        scrum: `Scrum vs waterfall, 你的團隊喜歡哪一個..`,
+        react: `React是在angularjs之後最後歡迎的framewrok之一..`,
+        reactnative: `我相信react native是人們更願意選擇react的原因之一..`,
+        seo: `Seo也是前端工程師需具備的一部份..`,
+        baas: `Baas服務已經越來越多了..`,
+        paas: `Paas服務是非常強大的..`,
+        jquery: `已經有好一陣子沒用jquery了..`,
+        angularjs: `曾經幾乎一統江湖的angularjs現在..`,
+        mvc: `Backend mvc扔是一個業界非常常見的架構之一..`,
+        database: `擁有資料庫的相關知識是非常有幫助的..`,
+        cms: `使用cms內容管理系統來建立官網是非常有幫助且快速的..`
+      }
     }
   }
   // jobTitle: 'Frontend Developer'
