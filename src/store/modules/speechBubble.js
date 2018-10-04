@@ -3,23 +3,26 @@ import {
 } from '@/utils'
 
 const types = {
-  SET_SPEECH_BUBBLE_TITLE: 'SET_SPEECH_BUBBLE_TITLE',
+  SET_SPEECH_BUBBLE: 'SET_SPEECH_BUBBLE',
   SET_SHOULD_SHOW_SPEECH_BUBBLE: 'SET_SHOULD_SHOW_SPEECH_BUBBLE'
 }
 
 const state = {
-  speechBubbleTitle: '',
+  speechBubble: {
+    type: '',
+    text: ''
+  },
   shouldShowSpeechBubble: false
 }
 
 const getters = {
-  speechBubbleTitle: state => state.speechBubbleTitle,
+  speechBubble: state => state.speechBubble,
   shouldShowSpeechBubble: state => state.shouldShowSpeechBubble
 }
 
 const actions = {
-  setSpeechBubbleTitle ({ commit }, speechBubbleTitle = '') {
-    commit(types.SET_SPEECH_BUBBLE_TITLE, speechBubbleTitle)
+  setSpeechBubble ({ commit }, speechBubble = { type: '', text: '' }) {
+    commit(types.SET_SPEECH_BUBBLE, speechBubble)
   },
 
   setShouldShowSpeechBubble ({ commit }, shouldShowSpeechBubble = requiredParam('shouldShowSpeechBubble')) {
@@ -28,8 +31,8 @@ const actions = {
 }
 
 const mutations = {
-  [types.SET_SPEECH_BUBBLE_TITLE] (state, speechBubbleTitle) {
-    state.speechBubbleTitle = speechBubbleTitle
+  [types.SET_SPEECH_BUBBLE] (state, speechBubble) {
+    state.speechBubble = speechBubble
   },
 
   [types.SET_SHOULD_SHOW_SPEECH_BUBBLE] (state, shouldShowSpeechBubble) {

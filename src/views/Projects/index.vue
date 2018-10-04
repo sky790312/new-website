@@ -76,7 +76,9 @@
       <div
         v-for="project in filteredProjects"
         :key="project.name"
-        class="project">
+        class="project"
+        @mouseenter="onProjectHover(project, true)"
+        @mouseleave="onProjectHover(project,false)">
         <img
           :src="project.imageUrl"
           class="project-image">
@@ -171,7 +173,7 @@ export default {
 
   methods: {
     ...mapActions([
-      'setSpeechBubbleTitle',
+      'setSpeechBubble',
       'setShouldShowSpeechBubble'
     ]),
 
@@ -189,6 +191,16 @@ export default {
       (mainMenu === 'skills')
         ? this.filters[mainMenu][subMenu].isActive = !this.filters[mainMenu][subMenu].isActive
         : this.clearFilter(mainMenu, subMenu, this.filters[mainMenu][subMenu].isActive)
+    },
+
+    onProjectHover (project, isHover) {
+      const speechBubbleText = isHover ? project.name : ''
+      const speechBubble = {
+        type: 'project',
+        text: speechBubbleText
+      }
+      this.setSpeechBubble(speechBubble)
+      this.setShouldShowSpeechBubble(isHover)
     },
 
     clearFilter (mainMenu, subMenu, state) {

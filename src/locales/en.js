@@ -52,26 +52,31 @@ const en = {
       messageBoard: `Message board`
     },
     mermer: {
-      vue: `Over 2 years using vue to develop..`,
-      es2015: `Old era Frentend Development is gone..`,
-      test: `Test combined with CI is very important..`,
-      aframe: `webVR is part of the new era of Frontend Development..`,
-      css: `ie is already gone, mobile world is coming..`,
-      d3: `Visualizing data is part of Frontend Developer's job..`,
-      thirdparty: `It's very common to use third party api in application..`,
-      tools: `It's not the world just writing html, css, js directly..`,
-      scrum: `Scrum vs waterfall, which one suit for your team..`,
-      nodejs: `nodejs has take its place in the world..`,
-      react: `React has already become the most popular framework after angularjs..`,
-      reactnative: `I believe one of the reason people choice react is because of react native..`,
-      seo: `Seo is part of frontend developer's duty..`,
-      baas: `There are more and more baas service appear..`,
-      paas: `There are many Paas service which are very powerful..`,
-      jquery: `I haven't used jquery for a long time..`,
-      angularjs: `Angularjs used to dominatd the world but now..`,
-      mvc: `Backend mvc is still one of the most common structure people choice..`,
-      database: `Having the knowledge of database is very useful..`,
-      cms: `Cms system is very helpful and fast to build a ofiicial website..`
+      skill: {
+        vue: `Over 2 years using vue to develop..`,
+        es2015: `Old era Frentend Development is gone..`,
+        test: `Test combined with CI is very important..`,
+        aframe: `webVR is part of the new era of Frontend Development..`,
+        css: `ie is already gone, mobile world is coming..`,
+        d3: `Visualizing data is part of Frontend Developer's job..`,
+        thirdparty: `It's very common to use third party api in application..`,
+        tools: `It's not the world just writing html, css, js directly..`,
+        scrum: `Scrum vs waterfall, which one suit for your team..`,
+        nodejs: `nodejs has take its place in the world..`,
+        react: `React has already become the most popular framework after angularjs..`,
+        reactnative: `I believe one of the reason people choice react is because of react native..`,
+        seo: `Seo is part of frontend developer's duty..`,
+        baas: `There are more and more baas service appear..`,
+        paas: `There are many Paas service which are very powerful..`,
+        jquery: `I haven't used jquery for a long time..`,
+        angularjs: `Angularjs used to dominatd the world but now..`,
+        mvc: `Backend mvc is still one of the most common structure people choice..`,
+        database: `Having the knowledge of database is very useful..`,
+        cms: `Cms system is very helpful and fast to build a ofiicial website..`
+      },
+      project: {
+
+      }
     }
   }
   // jobTitle: 'Frontend Developer'

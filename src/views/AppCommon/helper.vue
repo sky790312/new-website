@@ -4,7 +4,7 @@
     :class="{'active': helper.isActive, 'speeching': shouldShowSpeechBubble}">
     <i-speech-bubble
       v-if="shouldShowSpeechBubble"
-      :text="currentSpeechBubbleTitle"
+      :text="currentSpeechBubbleText"
       :disabledHover="true"
       @onMouseEnter="handleSpeechBubbleEnter"
       @onMouseLeave="handleSpeechBubbleLeave">
@@ -75,12 +75,12 @@ export default {
 
   computed: {
     ...mapGetters([
-      'speechBubbleTitle',
+      'speechBubble',
       'shouldShowSpeechBubble'
     ]),
 
-    currentSpeechBubbleTitle () {
-      return this.$t(`helper.mermer.${this.speechBubbleTitle}`)
+    currentSpeechBubbleText () {
+      return this.$t(`helper.mermer.${this.speechBubble.type}.${this.speechBubble.text}`)
     }
   },
 

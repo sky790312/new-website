@@ -18,7 +18,7 @@
         :ref="`${skillCategory.name}${index}`"
         @click="onSkillClick(skill)"
         @mouseenter="onSkillHover(skill, true)"
-        @mouseleave="onSkillHover(skill,false)">
+        @mouseleave="onSkillHover(skill, false)">
         <div
           class="title">
           {{ skill.title }}
@@ -128,7 +128,7 @@ export default {
 
   methods: {
     ...mapActions([
-      'setSpeechBubbleTitle',
+      'setSpeechBubble',
       'setShouldShowSpeechBubble'
     ]),
 
@@ -182,8 +182,12 @@ export default {
     },
 
     onSkillHover (skill, isHover) {
-      const speechBubbleTitle = isHover ? skill.name : ''
-      this.setSpeechBubbleTitle(speechBubbleTitle)
+      const speechBubbleText = isHover ? skill.name : ''
+      const speechBubble = {
+        type: 'skill',
+        text: speechBubbleText
+      }
+      this.setSpeechBubble(speechBubble)
       this.setShouldShowSpeechBubble(isHover)
     },
 
