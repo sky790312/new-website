@@ -15,7 +15,7 @@
             'active': menuState,
             'filtering': activeFilters[mainMenu].length
           }]"
-          @click="setMainMenusState(mainMenu, menuState)">
+          @click="onMainMenuClick(mainMenu, menuState)">
           {{ mainMenu }}
         </li>
       </menu>
@@ -37,7 +37,7 @@
           :key="filter"
           v-show="filterState.shouldShow"
           :class="['menu', { 'active': filterState.isActive }]"
-          @click="setFilter(filtersKey, filter)">
+          @click="onMenuClick(filtersKey, filter)">
           {{ filter }}
         </li>
       </menu>
@@ -55,7 +55,7 @@
           v-for="activeFilter in activeFilterArray"
           :key="activeFilter"
           class="menu active has-close"
-          @click="setFilter(activeFilterKey, activeFilter)">
+          @click="onMenuClick(activeFilterKey, activeFilter)">
           {{ activeFilter }}
         </li>
       </menu>
@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import {
   PROJECTS
 } from '@/views/Projects/data'
@@ -168,16 +169,23 @@ export default {
     }
   },
 
-  watch: {
-    'activeMainMenu' (oldVal, newVal) {
+  methods: {
+    ...mapActions([
+      'setSpeechBubbleTitle',
+      'setShouldShowSpeechBubble'
+    ]),
+
+    onMainMenuClick (currentMenu, currentMenuState) {
+      Object.keys(this.mainMenusState).forEach(mainMenu => {
+        this.mainMenusState[mainMenu] = (!currentMenuState && mainMenu === currentMenu)
+      })
+
       this.$nextTick(() => {
         this.setSubMenuContainerStyle()
       })
-    }
-  },
+    },
 
-  methods: {
-    setFilter (mainMenu, subMenu) {
+    onMenuClick (mainMenu, subMenu) {
       (mainMenu === 'skills')
         ? this.filters[mainMenu][subMenu].isActive = !this.filters[mainMenu][subMenu].isActive
         : this.clearFilter(mainMenu, subMenu, this.filters[mainMenu][subMenu].isActive)
@@ -201,18 +209,28 @@ export default {
       })
     },
 
-    setMainMenusState (currentMenu, currentMenuState) {
-      Object.keys(this.mainMenusState).forEach(mainMenu => {
-        this.mainMenusState[mainMenu] = (!currentMenuState && mainMenu === currentMenu)
-      })
-    },
-
     setDefaultState (items, item) {
       const initState = {
         shouldShow: true,
         isActive: false
       }
       this.$set(this.filters[items], item, initState)
+    },
+
+    setCompanySkills () {
+      const companySkills = this.projects.reduce((accumulator, { company, skills }, index, sourceArray) => {
+        if (!accumulator.get(company)) {
+          accumulator.set(company, {company, skills: new Set(skills)})
+        } else {
+          skills.forEach(skill => accumulator.get(company).skills.add(skill))
+        }
+        if (!sourceArray[index + 1]) {
+          accumulator.forEach(companySkill => (companySkill.skills = [...companySkill.skills]))
+        }
+        return accumulator
+      }, new Map()).values()
+
+      this.companySkills = Array.from(companySkills)
     },
 
     setSubMenuContainerStyle () {
@@ -235,19 +253,8 @@ export default {
       })
     })
 
-    const companySkills = this.projects.reduce((accumulator, { company, skills }, index, sourceArray) => {
-      if (!accumulator.get(company)) {
-        accumulator.set(company, {company, skills: new Set(skills)})
-      } else {
-        skills.forEach(skill => accumulator.get(company).skills.add(skill))
-      }
-      if (!sourceArray[index + 1]) {
-        accumulator.forEach(companySkill => (companySkill.skills = [...companySkill.skills]))
-      }
-      return accumulator
-    }, new Map()).values()
+    this.setCompanySkills()
 
-    this.companySkills = Array.from(companySkills)
     window.addEventListener('resize', throttle(this.setSubMenuContainerStyle, 250), false)
   },
 

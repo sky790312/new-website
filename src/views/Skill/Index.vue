@@ -54,11 +54,11 @@
 /* eslint-disable */
 import 'three/examples/js/libs/tween.min'
 import 'three/examples/js/renderers/CSS3DRenderer'
+import { mapActions } from 'vuex'
 import {
   throttle,
   getWindowSize
 } from '@/utils'
-import { mapActions } from 'vuex'
 import {
   SKILLS
 } from '@/views/Skill/data'
