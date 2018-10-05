@@ -1,48 +1,55 @@
 export const PROJECTS = [{
   name: '179',
-  title: '179公益',
+  title: '179 charity',
   company: 'aite',
   skills: ['angularjs', 'jquery', 'nodejs'],
   linkUrl: '',
   imageUrl: require('~assets/projects/aite/179.jpg')
 }, {
-  name: 'couponTaiwan',
-  title: 'ez國內旅遊線別',
+  name: 'ezCouponTaiwan',
+  title: 'ez coupon in Taiwan',
   company: 'eztravel',
   skills: ['java play', 'knoukout', 'jquery'],
   linkUrl: 'https://activity.eztravel.com.tw/taiwan',
   imageUrl: require('~assets/projects/eztravel/coupon-taiwan.jpg')
 }, {
-  name: '3dDollhouse',
+  name: 'dollhouse',
   title: '3d dollhouse',
   company: 'istaging',
-  skills: ['3d.io', 'vue', 'aframe', 'nodejs'],
+  skills: ['3d.io', 'aframe', 'nodejs', 'webpack', 'es2015'],
   linkUrl: 'https://www.istaging.com/dollhouse',
   imageUrl: require('~assets/projects/istaging/3d-dollhouse.jpg')
 }, {
   name: 'aiteOfficial',
-  title: 'aite官網',
+  title: 'Aite official website',
   company: 'aite',
   skills: ['wordpress'],
   linkUrl: 'http://www.aite.com.tw',
   imageUrl: require('~assets/projects/aite/aite-official.jpg')
 }, {
-  name: 'furniture',
-  title: 'iStaging app',
+  name: 'oldFurnitureApp',
+  title: 'App iStaging - old',
   company: 'istaging',
-  skills: ['angularjs', 'nodejs'],
+  skills: ['angularjs', 'nodejs', 'grunt'],
   linkUrl: '',
-  imageUrl: require('~assets/projects/istaging/furniture.jpg')
+  imageUrl: require('~assets/projects/istaging/furniture-old.jpg')
+}, {
+  name: 'newFurnitureApp',
+  title: 'App iStaging - new',
+  company: 'istaging',
+  skills: ['react', 'react-native', 'webpack'],
+  linkUrl: '',
+  imageUrl: require('~assets/projects/istaging/furniture-new.jpg')
 }, {
   name: 'vrportal',
   title: 'User dashboard',
   company: 'istaging',
-  skills: ['vue', 'nodejs'],
+  skills: ['vue', 'nodejs', 'webpack', 'es2015', 'd3', 'google analytic api', 'firebase'],
   linkUrl: 'https://portal.istaging.com/',
   imageUrl: require('~assets/projects/istaging/vrportal.jpg')
 }, {
   name: 'cpcOfficial',
-  title: 'cpc官網',
+  title: 'cpc official website',
   company: 'aite',
   skills: ['wordpress'],
   linkUrl: '',
@@ -51,19 +58,19 @@ export const PROJECTS = [{
   name: 'vreditorCn',
   title: 'Livetour editor - cn',
   company: 'istaging',
-  skills: ['vue', 'aframe', 'nodejs'],
+  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'taobao api'],
   linkUrl: 'https://vreditor.istaging.com.cn',
   imageUrl: require('~assets/projects/istaging/vreditor-cn.jpg')
 }, {
-  name: 'homepage',
-  title: 'ez主首頁改版',
+  name: 'ezHomepage',
+  title: 'ez homepage revision',
   company: 'eztravel',
   skills: ['java play', 'knoukout', 'jquery'],
   linkUrl: 'https://www.eztravel.com.tw',
   imageUrl: require('~assets/projects/eztravel/homepage.jpg')
 }, {
   name: 'lejetbcOfficial',
-  title: 'lejetbc官網',
+  title: 'Lejetbc official website',
   company: 'aite',
   skills: ['wordpress'],
   linkUrl: '',
@@ -72,18 +79,18 @@ export const PROJECTS = [{
   name: 'vreditorSdk',
   title: 'Livetour editor sdk',
   company: 'istaging',
-  skills: ['vue', 'aframe', 'nodejs'],
+  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015'],
   linkUrl: 'https://github.com/iStaging/vreditor-sdk',
   imageUrl: require('~assets/projects/istaging/vreditor-sdk.jpg')
 }, {
   name: 'lejetbc',
-  title: 'lejetbc',
+  title: 'Lejetbc',
   company: 'aite',
   skills: ['angularjs', 'jquery', 'nodejs'],
   linkUrl: '',
   imageUrl: require('~assets/projects/aite/lejetbc.jpg')
 }, {
-  name: 'ucarApp',
+  name: 'ezUcarApp',
   title: 'ez ucar app',
   company: 'eztravel',
   skills: ['nodejs', 'jquery'],
@@ -98,7 +105,7 @@ export const PROJECTS = [{
   imageUrl: require('~assets/projects/aite/spotme-dashboard.jpg')
 }, {
   name: 'vrsdkDoc',
-  title: 'sdk document',
+  title: 'Sdk document',
   company: 'istaging',
   skills: ['vue', 'vuepress'],
   linkUrl: 'https://evs-doc-test.istaging.com.cn',
@@ -107,7 +114,7 @@ export const PROJECTS = [{
   name: 'vrviewer',
   title: 'Livetour',
   company: 'istaging',
-  skills: ['vue', 'krpano', 'nodejs'],
+  skills: ['vue', 'krpano', 'nodejs', 'webpack', 'es2015', 'firebase'],
   linkUrl: 'https://livetour.istaging.com/261da9fb-f700-4cf9-aee6-39d96eb1afae',
   imageUrl: require('~assets/projects/istaging/vrviewer.jpg')
 }, {
@@ -132,8 +139,8 @@ export const PROJECTS = [{
   linkUrl: '',
   imageUrl: require('~assets/projects/aite/spotrainer.jpg')
 }, {
-  name: 'ucar',
-  title: 'ez ucar專案',
+  name: 'ezUcar',
+  title: 'ez ucar',
   company: 'eztravel',
   skills: ['java play', 'knoukout', 'jquery'],
   linkUrl: '',
@@ -142,35 +149,35 @@ export const PROJECTS = [{
   name: 'furnitureDashboard',
   title: 'istaging furniture dashboard',
   company: 'istaging',
-  skills: ['angularjs', 'nodejs'],
+  skills: ['angularjs', 'nodejs', 'grunt'],
   linkUrl: 'http://www.staging.com.tw/furniture_dashboard_us',
   imageUrl: require('~assets/projects/istaging/furniture-dashboard.jpg')
 }, {
   name: 'vreditorUs',
   title: 'Livetour editor - us',
   company: 'istaging',
-  skills: ['vue', 'aframe', 'nodejs'],
+  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'firebase'],
   linkUrl: 'https://vreditor.istaging.com',
   imageUrl: require('~assets/projects/istaging/vreditor-us.jpg')
 }, {
   name: 'oldWebsite',
   title: 'Personal website - old',
   company: 'others',
-  skills: ['jquery', 'nodejs'],
+  skills: ['jquery', 'nodejs', 'webpack', 'es2015'],
   linkUrl: 'https://sky790312.herokuapp.com',
-  imageUrl: require('~assets/projects/others/old-website.jpg')
+  imageUrl: require('~assets/projects/others/website-old.jpg')
 }, {
   name: 'vrviewerSdk',
   title: 'Livetour sdk',
   company: 'istaging',
-  skills: ['vue', 'krpano', 'nodejs'],
+  skills: ['vue', 'krpano', 'nodejs', 'webpack', 'es2015'],
   linkUrl: 'https://github.com/iStaging/vrviewer-sdk',
   imageUrl: require('~assets/projects/istaging/vrviewer-sdk.jpg')
 }, {
   name: 'tourRing',
   title: 'TourRing',
   company: 'istaging',
-  skills: ['vue', 'aframe', 'nodejs'],
+  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015'],
   linkUrl: '',
   imageUrl: require('~assets/projects/istaging/vrlive.jpg')
 }, {

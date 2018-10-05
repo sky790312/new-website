@@ -76,7 +76,8 @@
       <div
         v-for="project in filteredProjects"
         :key="project.name"
-        class="project"
+        :class="['project', {'has-link': !!project.linkUrl}]"
+        @click="onProjectClick(project)"
         @mouseenter="onProjectHover(project, true)"
         @mouseleave="onProjectHover(project,false)">
         <img
@@ -201,6 +202,14 @@ export default {
       }
       this.setSpeechBubble(speechBubble)
       this.setShouldShowSpeechBubble(isHover)
+    },
+
+    onProjectClick (project) {
+      if (!project.linkUrl) {
+        return
+      }
+
+      window.open(project.linkUrl)
     },
 
     clearFilter (mainMenu, subMenu, state) {
@@ -441,7 +450,7 @@ export default {
     margin: 20px
     width: 200px
     height: 150px
-    cursor: pointer
+    cursor: default
     overflow: hidden
 
     &:hover {
@@ -452,6 +461,10 @@ export default {
       .project-title {
         opacity: 1
       }
+    }
+
+    &.has-link {
+      cursor: pointer
     }
 
     .project-image, .project-title {

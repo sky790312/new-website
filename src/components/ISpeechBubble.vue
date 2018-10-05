@@ -124,6 +124,7 @@ $black = #000
   border-radius: 5px
   padding: 20px
   color: $white
+  box-shadow: rgba($black, 0.7) 0px 0px 10px 5px
 
   &::before, &::after {
     content: ''
