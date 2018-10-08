@@ -37,8 +37,8 @@
     <div class="grid-item special-container">
       <h3>{{ $t('about.special') }}: </h3>
       <ul>
-        <li>JSDC Taiwan 2017 {{ $t('about.speaker') }}: <a href="http://2017.jsdc.tw/speaker.html">Link</a></li>
-        <li>Aframe weekly post: <a href="https://aframe.io/blog/istaging/">Link</a></li>
+        <li>JSDC Taiwan 2017 {{ $t('about.speaker') }}: <a target="_blank" href="http://2017.jsdc.tw/speaker.html">Link</a></li>
+        <li>Aframe weekly post: <a target="_blank" href="https://aframe.io/blog/istaging/">Link</a></li>
         <li>{{ $t('about.tutorPiecework') }}</li>
       </ul>
     </div>

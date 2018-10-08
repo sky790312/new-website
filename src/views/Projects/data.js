@@ -41,6 +41,13 @@ export const PROJECTS = [{
   linkUrl: '',
   imageUrl: require('~assets/projects/istaging/furniture-new.jpg')
 }, {
+  name: 'updownrightleftProfolio',
+  title: 'Practice profolio',
+  company: 'others',
+  skills: ['jquery'],
+  linkUrl: 'https://sky790312.github.io/full-screen-presentation-website/presentation.html',
+  imageUrl: require('~assets/projects/others/updownrightleft-profolio.jpg')
+}, {
   name: 'vrportal',
   title: 'User dashboard',
   company: 'istaging',
@@ -180,11 +187,4 @@ export const PROJECTS = [{
   skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015'],
   linkUrl: '',
   imageUrl: require('~assets/projects/istaging/vrlive.jpg')
-}, {
-  name: 'updownrightleftProfolio',
-  title: 'Practice profolio',
-  company: 'others',
-  skills: ['jquery'],
-  linkUrl: 'https://sky790312.github.io/full-screen-presentation-website/presentation.html',
-  imageUrl: require('~assets/projects/others/updownrightleft-profolio.jpg')
 }]
