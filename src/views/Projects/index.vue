@@ -287,6 +287,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styl/variables'
+@import '~styl/extends'
 
 #projects {
   color: $white
@@ -443,9 +444,7 @@ export default {
 
   .project {
     position relative
-    display: flex
-    align-items: center
-    justify-content center
+    @extend .flex-center
     color: $white
     margin: 20px
     width: 200px

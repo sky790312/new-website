@@ -100,7 +100,10 @@ export default {
 @import '~styl/extends'
 
 #home {
-  @extend .flex-center
+  // @extend .flex-center
+  display: flex
+  justify-content: flex-start
+  align-items: center
   flex-direction: column
   position: relative
   z-index: 0
@@ -126,6 +129,10 @@ export default {
     // transform-style: preserve-3d
     transition: opacity 3s ease-in-out, transform 5s ease-in-out
     animation: splash 15s linear infinite both
+  }
+
+  @media screen and (min-width: $mobileBreakPoint) {
+    justify-content center
   }
 
   .job-title {

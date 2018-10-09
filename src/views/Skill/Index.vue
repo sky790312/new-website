@@ -133,6 +133,7 @@ export default {
     ]),
 
     init () {
+      camera = new THREE.PerspectiveCamera(this.cameraFov, this.$refs.skillContainer.offsetWidth / this.$refs.skillContainer.offsetHeight, 1, 10000)
       scene = new THREE.Scene()
       renderer = new THREE.CSS3DRenderer()
       this.initElementsPosition()
@@ -246,6 +247,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styl/variables'
+@import '~styl/extends'
 
 $mainItemWidth = 360px
 $mainItemHeight = 320px
@@ -294,9 +296,7 @@ $detailFontSizeHover = 30px
   }
 
   .main {
-    display: flex
-    justify-content: center
-    align-items: center
+    @extend .flex-center
     width: $mainItemWidth
     height: $mainItemHeight
     background-color: $green2
