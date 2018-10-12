@@ -32,7 +32,7 @@ export default {
 
 <style lang="stylus" scoped>
 
-$mobileBreakPoint = 768px
+$mobile-break-point = 768px
 $white = #fff
 
 .i-typing-text {
@@ -46,7 +46,7 @@ $white = #fff
     letter-spacing: 0
     animation: typing 2.8s steps(30, end) forwards, blink-caret 1.15s step-end infinite forwards
 
-    @media screen and (min-width: $mobileBreakPoint) {
+    @media screen and (min-width: $mobile-break-point) {
       letter-spacing: .15em
     }
 

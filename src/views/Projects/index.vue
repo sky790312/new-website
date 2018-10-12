@@ -372,7 +372,7 @@ export default {
     flex-direction: column
     margin: 10px 0 20px
 
-    @media screen and (min-width: $mobileBreakPoint) {
+    @media screen and (min-width: $mobile-break-point) {
       flex-direction: row
     }
   }
@@ -437,7 +437,7 @@ export default {
     flex-wrap: wrap
     justify-content: center
 
-    @media screen and (min-width: $mobileBreakPoint) {
+    @media screen and (min-width: $mobile-break-point) {
       justify-content: flex-start
     }
   }

@@ -193,7 +193,7 @@ export default {
     grid-row-gap: 15px
     grid-auto-columns: minmax(auto, 100%)
 
-    @media screen and (min-width: $mobileBreakPoint) {
+    @media screen and (min-width: $mobile-break-point) {
       grid-template-columns: repeat(6, 1fr)
       grid-template-rows: 1fr 2fr 2fr
       grid-template-areas:

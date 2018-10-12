@@ -109,15 +109,15 @@ export default {
 #app-sidebar {
   background-color: $black
 
-  @media screen and (min-width: $mobileBreakPoint) {
-    width: $appSidebarWidth
+  @media screen and (min-width: $mobile-break-point) {
+    width: $app-sidebar-width
     border-right: 1px groove $white
   }
 
   .main-menu {
     .router-link {
       display: block
-      width: $appSidebarWidth
+      width: $app-sidebar-width
       margin: auto
       color: $white
       text-align: center
@@ -144,7 +144,7 @@ export default {
     padding: 20px
     transition: left .3s
 
-    @media screen and (min-width: $mobileBreakPoint) {
+    @media screen and (min-width: $mobile-break-point) {
       position: relative
       left: 0
       height: auto
@@ -156,19 +156,19 @@ export default {
       content: ''
       position: absolute
       top: 0
-      left: $appSidebarWidth
+      left: $app-sidebar-width
       height: 100vh
-      width: "calc(100vw - %s)" % $appSidebarWidth
+      width: "calc(100vw - %s)" % $app-sidebar-width
       background-color: rgba($black, 0.7)
 
-      @media screen and (min-width: $mobileBreakPoint) {
+      @media screen and (min-width: $mobile-break-point) {
         display: none
       }
     }
 
     &.mobile-view {
       left: 0
-      width: $appSidebarWidth
+      width: $app-sidebar-width
       border-right: 1px groove $white
     }
 
@@ -214,7 +214,7 @@ export default {
     color: $white
     cursor: pointer
 
-    @media screen and (min-width: $mobileBreakPoint) {
+    @media screen and (min-width: $mobile-break-point) {
       display: none
     }
   }

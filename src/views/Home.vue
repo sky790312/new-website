@@ -131,7 +131,7 @@ export default {
     animation: splash 15s linear infinite both
   }
 
-  @media screen and (min-width: $mobileBreakPoint) {
+  @media screen and (min-width: $mobile-break-point) {
     justify-content center
   }
 

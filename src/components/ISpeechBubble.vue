@@ -114,7 +114,7 @@ export default {
 
 <style lang="stylus" scoped>
 
-$mobileBreakPoint = 768px
+$mobile-break-point = 768px
 $white = #fff
 $black = #000
 
@@ -156,7 +156,7 @@ $black = #000
   width: 70vw
   white-space: normal
 
-  @media screen and (min-width: $mobileBreakPoint) {
+  @media screen and (min-width: $mobile-break-point) {
     width: auto
     white-space: nowrap
   }

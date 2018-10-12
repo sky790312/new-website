@@ -109,7 +109,7 @@ export default {
 
 <style lang="stylus">
 
-$mobileBreakPoint = 768px
+$mobile-break-point = 768px
 $white = #fff
 $black = #000
 
@@ -142,7 +142,7 @@ $black = #000
     color: $black
   }
 
-  @media screen and (min-width: $mobileBreakPoint) {
+  @media screen and (min-width: $mobile-break-point) {
     min-width: 300px
     max-width: 560px
   }
@@ -174,7 +174,7 @@ $black = #000
   max-height: calc(100vh - 140px)
   overflow-y: scroll
 
-  @media screen and (min-width: $mobileBreakPoint) {
+  @media screen and (min-width: $mobile-break-point) {
     max-height: 400px
   }
 }
