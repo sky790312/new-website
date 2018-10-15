@@ -8,7 +8,7 @@ const en = {
   },
   menus: {
     about: `About`,
-    skill: `Skill`,
+    skills: `Skills`,
     experience: `Experience`,
     projects: `Projects`
   },
@@ -52,7 +52,7 @@ const en = {
       messageBoard: `Message board`
     },
     mermer: {
-      skill: {
+      skills: {
         vue: `Over 2 years using vue to develop..`,
         es2015: `Old era Frentend Development is gone..`,
         test: `Test combined with CI is very important..`,
@@ -74,7 +74,7 @@ const en = {
         database: `Having the knowledge of database is very useful..`,
         cms: `Cms system is very helpful and fast to build a ofiicial website..`
       },
-      project: {
+      projects: {
         179: `Project 179 is a match mapping for charity, the website is not using now.`,
         ezCouponTaiwan: `Project ez domestic(Taiwan) coupon's revision handle by me and the other f2e developer together.`,
         dollhouse: `Project 3d dollhouse is a prototype which combined with aframe and 3d.io.`,

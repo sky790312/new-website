@@ -125,6 +125,7 @@ export default {
   grid-template-rows: 0.1fr 0.9fr*/
   display: flex
   flex-direction: column
+  color: $white
   background-color: $black
 
   @media screen and (min-width: $mobile-break-point) {

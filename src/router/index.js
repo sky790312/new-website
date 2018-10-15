@@ -4,7 +4,7 @@ const Home = () => import(`@/views/Home`)
 // const Entry = () => import(`@/views/Profile`)
 const About = () => import(`@/views/About`)
 const Experience = () => import(`@/views/Experience`)
-const Skill = () => import(`@/views/Skill`)
+const Skills = () => import(`@/views/Skills`)
 const Projects = () => import(`@/views/Projects`)
 
 const routes = [{
@@ -23,9 +23,9 @@ const routes = [{
   component: About
   // meta: { shouldShowMenu: true }
 }, {
-  path: '/skill',
-  name: 'skill',
-  component: Skill
+  path: '/skills',
+  name: 'skills',
+  component: Skills
   // meta: { shouldShowMenu: true }
 }, {
   path: '/experience',

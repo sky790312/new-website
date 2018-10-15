@@ -29,7 +29,7 @@
           class="menu">
           <router-link
             class="router-link"
-            :to="menu.route"
+            :to="menu.routeConfig"
             @click.native="closeSubMemu">
             <i
               :class="['fa', menu.icon]"
@@ -54,28 +54,28 @@ export default {
         name: 'about',
         text: 'menus.about',
         icon: 'fa-address-card-o',
-        route: {
+        routeConfig: {
           name: 'about'
         }
       }, {
-        name: 'skill',
-        text: 'menus.skill',
+        name: 'skills',
+        text: 'menus.skills',
         icon: 'fa-bar-chart-o',
-        route: {
-          name: 'skill'
+        routeConfig: {
+          name: 'skills'
         }
       }, {
         name: 'experience',
         text: 'menus.experience',
         icon: 'fa-file-text-o',
-        route: {
+        routeConfig: {
           name: 'experience'
         }
       }, {
         name: 'projects',
         text: 'menus.projects',
         icon: 'fa-list-ol',
-        route: {
+        routeConfig: {
           name: 'projects'
         }
       }]

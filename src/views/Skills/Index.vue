@@ -61,7 +61,7 @@ import {
 } from '@/utils'
 import {
   SKILLS
-} from '@/views/Skill/data'
+} from '@/views/Skills/data'
 
 const IModal = () => import('@/components/IModal')
 
@@ -185,7 +185,7 @@ export default {
     onSkillHover (skill, isHover) {
       const speechBubbleText = isHover ? skill.name : ''
       const speechBubble = {
-        type: 'skill',
+        type: 'skills',
         text: speechBubbleText
       }
       this.setSpeechBubble(speechBubble)

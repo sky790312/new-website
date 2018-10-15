@@ -197,7 +197,7 @@ export default {
     onProjectHover (project, isHover) {
       const speechBubbleText = isHover ? project.name : ''
       const speechBubble = {
-        type: 'project',
+        type: 'projects',
         text: speechBubbleText
       }
       this.setSpeechBubble(speechBubble)
@@ -290,12 +290,7 @@ export default {
 @import '~styl/extends'
 
 #projects {
-  color: $white
-
-  .page-title {
-    padding: 20px 0 0 20px
-  }
-
+  // color: $white
   .main-menu-container {
     display: flex
     justify-content: space-between

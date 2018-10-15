@@ -177,9 +177,6 @@ export default {
 @import '~styl/variables'
 
 #about {
-  color: $white
-  overflow auto
-
   &.grid-container {
     display: grid
     grid-template-areas:

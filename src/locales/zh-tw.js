@@ -8,7 +8,7 @@ const tw = {
   },
   menus: {
     about: `簡介`,
-    skill: `技能`,
+    skills: `技能`,
     experience: `經歷`,
     projects: `作品集`
   },
@@ -45,6 +45,9 @@ const tw = {
     database: `在過去, 我曾經在某個專案中, 直接寫sql來處理資料庫, 這讓我對關聯式資料庫的了解幫助不少. 現在已經蠻多library可以讓我們不用直接寫sql處理資料庫了. 至於nosql的資料庫像是mogodb, redis等等..也是一種選擇. 許多baas的服務都是用nosql的概念去實作像是firebase, 在使用這些服務的過程中也讓我對nosql了解不少.`,
     cms: `cms內容管理系統像是wordpress, joomla等等..用來建立官網是非常有幫助且快速的. 我過去也使用過wordpress建立了不少網站, 甚至接案. 是個非常好用的工具.`
   },
+  experience: {
+
+  },
   helper: {
     menu: {
       aboutWebsite: `關於新網站`,
@@ -52,7 +55,7 @@ const tw = {
       messageBoard: `留言板`
     },
     mermer: {
-      skill: {
+      skills: {
         vue: '使用vue作為主要開發已超過2年..',
         es2015: `前端過去那些亂七八糟的年代已經過去了..`,
         test: `前端的測試結合CI是很重要的..`,
@@ -73,7 +76,7 @@ const tw = {
         database: `擁有資料庫的相關知識是非常有幫助的..`,
         cms: `使用cms內容管理系統來建立官網是非常有幫助且快速的..`
       },
-      project: {
+      projects: {
         179: `179公益是個線上公益媒合平台, 現在已經沒在運作了.`,
         ezCouponTaiwan: `ezTravel是個主要專注於台灣的線上旅遊業, 國內票券線別改版主要由我與另一位前端開發.`,
         dollhouse: `dollhouse是個結合3d.io與webVR aframe的prototype.`,
