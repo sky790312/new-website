@@ -9,7 +9,7 @@ export const PROJECTS = [{
   name: 'ezCouponTaiwan',
   title: 'ez coupon in Taiwan',
   company: 'eztravel',
-  skills: ['java play', 'knoukout', 'jquery'],
+  skills: ['java play', 'knoukout', 'jquery', 'less'],
   linkUrl: 'https://activity.eztravel.com.tw/taiwan',
   imageUrl: require('~assets/projects/eztravel/coupon-taiwan.jpg')
 }, {
@@ -51,7 +51,7 @@ export const PROJECTS = [{
   name: 'vrportal',
   title: 'User dashboard',
   company: 'istaging',
-  skills: ['vue', 'nodejs', 'webpack', 'es2015', 'd3', 'google analytic api', 'firebase', 'mocha', 'cypress'],
+  skills: ['vue', 'nodejs', 'webpack', 'es2015', 'd3', 'google analytic api', 'firebase', 'mocha', 'cypress', 'stylus'],
   linkUrl: 'https://portal.istaging.com/',
   imageUrl: require('~assets/projects/istaging/vrportal.jpg')
 }, {
@@ -65,14 +65,14 @@ export const PROJECTS = [{
   name: 'vreditorCn',
   title: 'Livetour editor - cn',
   company: 'istaging',
-  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'taobao api'],
+  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'taobao api', 'stylus'],
   linkUrl: 'https://vreditor.istaging.com.cn',
   imageUrl: require('~assets/projects/istaging/vreditor-cn.jpg')
 }, {
   name: 'ezHomepage',
   title: 'ez homepage revision',
   company: 'eztravel',
-  skills: ['java play', 'knoukout', 'jquery'],
+  skills: ['java play', 'knoukout', 'jquery', 'less'],
   linkUrl: 'https://www.eztravel.com.tw',
   imageUrl: require('~assets/projects/eztravel/homepage.jpg')
 }, {
@@ -121,7 +121,7 @@ export const PROJECTS = [{
   name: 'vrviewer',
   title: 'Livetour',
   company: 'istaging',
-  skills: ['vue', 'krpano', 'nodejs', 'webpack', 'es2015', 'firebase', 'mocha', 'cypress'],
+  skills: ['vue', 'krpano', 'nodejs', 'webpack', 'es2015', 'firebase', 'mocha', 'cypress', 'stylus'],
   linkUrl: 'https://livetour.istaging.com/261da9fb-f700-4cf9-aee6-39d96eb1afae',
   imageUrl: require('~assets/projects/istaging/vrviewer.jpg')
 }, {
@@ -149,7 +149,7 @@ export const PROJECTS = [{
   name: 'ezUcar',
   title: 'ez ucar',
   company: 'eztravel',
-  skills: ['java play', 'knoukout', 'jquery'],
+  skills: ['java play', 'knoukout', 'jquery', 'less'],
   linkUrl: '',
   imageUrl: require('~assets/projects/eztravel/ucar.jpg')
 }, {
@@ -163,7 +163,7 @@ export const PROJECTS = [{
   name: 'vreditorUs',
   title: 'Livetour editor - us',
   company: 'istaging',
-  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'firebase', 'mocha', 'cypress'],
+  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'firebase', 'mocha', 'cypress', 'stylus'],
   linkUrl: 'https://vreditor.istaging.com',
   imageUrl: require('~assets/projects/istaging/vreditor-us.jpg')
 }, {
@@ -184,7 +184,7 @@ export const PROJECTS = [{
   name: 'tourRing',
   title: 'TourRing',
   company: 'istaging',
-  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015'],
+  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'jest', 'stylus'],
   linkUrl: '',
   imageUrl: require('~assets/projects/istaging/vrlive.jpg')
 }]

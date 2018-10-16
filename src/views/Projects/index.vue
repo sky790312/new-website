@@ -76,16 +76,28 @@
       <div
         v-for="project in filteredProjects"
         :key="project.name"
-        :class="['project', {'has-link': !!project.linkUrl}]"
-        @click="onProjectClick(project)"
+        class="project"
         @mouseenter="onProjectHover(project, true)"
-        @mouseleave="onProjectHover(project,false)">
-        <img
-          :src="project.imageUrl"
-          class="project-image">
-        <div 
-          class="project-title">
-          {{ project.title }}
+        @mouseleave="onProjectHover(project, false)">
+        <div
+          :class="['project-inner', {'has-link': !!project.linkUrl}]"
+          @click="onProjectClick(project)">
+          <div
+            class="project-title">
+            {{ project.title }}
+          </div>
+          <img
+            :src="project.imageUrl"
+            class="project-image">
+        </div>
+        <div
+          class="project-skills">
+          <span
+            v-for="skill in project.skills"
+            :key="skill"
+            class="menu">
+            {{ skill }}
+          </span>
         </div>
       </div>
     </transition-group>
@@ -439,13 +451,10 @@ export default {
 
   .project {
     position relative
-    @extend .flex-center
     color: $white
     margin: 20px
-    width: 200px
-    height: 150px
-    cursor: default
-    overflow: hidden
+    width: 250px
+    text-align: center
 
     &:hover {
       .project-image {
@@ -457,8 +466,12 @@ export default {
       }
     }
 
-    &.has-link {
-      cursor: pointer
+    .project-inner {
+      position: relative
+
+      &.has-link {
+        cursor: pointer
+      }
     }
 
     .project-image, .project-title {
@@ -469,10 +482,26 @@ export default {
       position absolute
       width: 100%
       height: 100%
-      display flex
-      justify-content: center
-      align-items: center
+      @extend .flex-center
       opacity: 0
+    }
+
+    .project-image {
+      max-width: 200px
+      max-height: 150px
+    }
+
+    .project-skills {
+      display: flex
+      flex-wrap: wrap
+      margin-top: 10px
+      padding-top: 10px
+      text-align: left
+      border-top: 1px solid $white
+    }
+
+    .menu {
+      cursor: default
     }
   }
 
