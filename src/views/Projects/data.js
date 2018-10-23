@@ -38,7 +38,7 @@ export const PROJECTS = [{
   title: 'App iStaging - new',
   company: 'istaging',
   skills: ['react', 'react-native', 'webpack'],
-  linkUrl: '',
+  linkUrl: 'https://play.google.com/store/apps/details?id=com.iStaging.furniture&hl=zh_TW',
   imageUrl: require('~assets/projects/istaging/furniture-new.jpg')
 }, {
   name: 'updownrightleftProfolio',
@@ -65,7 +65,7 @@ export const PROJECTS = [{
   name: 'vreditorCn',
   title: 'Livetour editor - cn',
   company: 'istaging',
-  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'taobao api', 'stylus'],
+  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'taobao api', 'leancloud', 'stylus'],
   linkUrl: 'https://vreditor.istaging.com.cn',
   imageUrl: require('~assets/projects/istaging/vreditor-cn.jpg')
 }, {
@@ -185,6 +185,6 @@ export const PROJECTS = [{
   title: 'TourRing',
   company: 'istaging',
   skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'jest', 'stylus'],
-  linkUrl: '',
+  linkUrl: 'https://tourring.istaging.com',
   imageUrl: require('~assets/projects/istaging/vrlive.jpg')
 }]

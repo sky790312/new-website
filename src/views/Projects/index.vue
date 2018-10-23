@@ -80,7 +80,7 @@
         @mouseenter="onProjectHover(project, true)"
         @mouseleave="onProjectHover(project, false)">
         <div
-          :class="['project-inner', {'has-link': !!project.linkUrl}]"
+          :class="['project-inner', {'no-link': !project.linkUrl}]"
           @click="onProjectClick(project)">
           <div
             class="project-title">
@@ -468,9 +468,14 @@ export default {
 
     .project-inner {
       position: relative
+      cursor: pointer
 
-      &.has-link {
-        cursor: pointer
+      &.no-link {
+        cursor: default
+
+        .project-title {
+          text-decoration: line-through
+        }
       }
     }
 
