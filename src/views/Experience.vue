@@ -5,35 +5,35 @@
         {{ $t('menus.experience') }}
       </h1>
       <section>
-        <div class="current-experience">
-          <template
-            v-if="Object.keys(currentExperience).length">
-            <img
-              :src="currentExperience.imageUrl">
-            <!-- <h2 class="experience-title">
-              {{ currentExperience.title }}
-            </h2> -->
-            <p>
-              {{ $t(currentExperience.desc) }}
-            </p>
-          </template>
-          <template
-            v-else>
-            <div>
-              <i
-                class="fa fa-3x fa-user">
-              </i>
-              <i
-                class="fa fa-3x fa-user-secret">
-              </i>
-              <i
-                class="fa fa-3x fa-user">
-              </i>
-            </div>
-            <h3>
-              {{ $t('experience.sentences') }}
-            </h3>
-          </template>
+        <div 
+          v-if="Object.keys(currentExperience).length"
+          class="current-experience experience-container">
+          <img
+            :src="currentExperience.imageUrl">
+          <!-- <h2 class="experience-title">
+            {{ currentExperience.title }}
+          </h2> -->
+          <p>
+            {{ $t(currentExperience.desc) }}
+          </p>
+        </div>
+        <div
+          v-else
+          class="default-experience experience-container">
+          <div>
+            <i
+              class="fa fa-3x fa-user">
+            </i>
+            <i
+              class="fa fa-3x fa-user-secret">
+            </i>
+            <i
+              class="fa fa-3x fa-user">
+            </i>
+          </div>
+          <h3>
+            {{ $t('experience.sentences') }}
+          </h3>
         </div>
         <div
           class="experience-timeline">
@@ -148,16 +148,19 @@ export default {
 $experience-circle-width = 50px
 
 #experience {
-  .current-experience {
-    text-align: center
+  .experience-container {
     color: $yellow
     margin: 80px 0
     height: 300px
     @extend .flex-center
     flex-direction: column
 
-    .fa {
-      margin: 0 5px
+    &.default-experience {
+      text-align: center
+
+      .fa {
+        margin: 0 5px
+      }
     }
   }
 

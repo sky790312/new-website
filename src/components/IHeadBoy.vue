@@ -45,6 +45,7 @@ $i-head-boy-eyes-color = $dark-gray
 $i-head-boy-feets-color = $dark-gray
 
 .i-head-boy {
+  position: relative
   height: 85px
   width: 85px
 }
@@ -55,16 +56,6 @@ $i-head-boy-feets-color = $dark-gray
   height: 85px
   border-radius: 50%
   background-color: $i-head-boy-color
-
-  &::after {
-    content: 'Click me back!'
-    position: absolute
-    top: 105px
-    left: -15px
-    width: 130px
-    color: $light-gray
-    font-size: 18px
-  }
 
   &.moving {
     animation: head 1.2s infinite

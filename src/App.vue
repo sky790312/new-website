@@ -11,8 +11,7 @@
         name="app-sidebar-slide"
         mode="out-in"
         appear>
-        <app-sidebar
-          v-show="!isEntryView">
+        <app-sidebar>
         </app-sidebar>
       </transition>
       <transition
@@ -169,8 +168,10 @@ export default {
 .app-sidebar-slide-enter, .app-sidebar-slide-leave-to {
   // transform: translateY(-50px)
   opacity: 0
+  // width: 0 !important
+  margin-left: - $app-sidebar-width
   // @media screen and (min-width: $mobile-break-point) {
-  transform: translateX(-50px)
+  transform: translateX(- $app-sidebar-width)
   // }
 }
 

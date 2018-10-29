@@ -1,7 +1,7 @@
 <template>
   <div
     id="helper"
-    :class="{'active': helper.isActive, 'speeching': shouldShowSpeechBubble}">
+    :class="{'active': helper.isActive}">
     <i-speech-bubble
       v-if="shouldShowSpeechBubble"
       :text="currentSpeechBubbleText"
@@ -17,7 +17,8 @@
       <i-head-boy
         class="helper-major"
         :isActive="helper.isActive"
-        @onIHeadBoyClick="handleHelperMajorClick">
+        @onIHeadBoyClick="handleHelperMajorClick"
+        :class="{'speeching': shouldShowSpeechBubble}">
       </i-head-boy>
     </i-rotate-in-menus>
   </div>
@@ -121,11 +122,6 @@ export default {
   bottom: -30px
   right: 40px
   z-index: 1
-  transition: margin .2s ease
-
-  &:hover, &.speeching {
-    margin-bottom: 5px
-  }
 
   &.active {
     position: absolute
@@ -137,6 +133,30 @@ export default {
     align-items: center
     justify-content: center
     background-color: rgba($black, .85)
+
+    .helper-major {
+      &:hover, &.speeching {
+        margin-bottom: 0
+      }
+    }
+  }
+
+  .helper-major {
+    transition: all .2s ease
+
+    &::after {
+      content: 'Click me back!'
+      position: absolute
+      top: 105px
+      left: -15px
+      width: 130px
+      color: $light-gray
+      font-size: 18px
+    }
+
+    &:hover, &.speeching {
+      margin-bottom: 5px
+    }
   }
 
   .helper-menu {
