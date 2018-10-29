@@ -76,11 +76,11 @@
       <div
         v-for="project in filteredProjects"
         :key="project.name"
-        class="project"
+        :class="['project', {'no-link': !project.linkUrl}]"
         @mouseenter="onProjectHover(project, true)"
         @mouseleave="onProjectHover(project, false)">
         <div
-          :class="['project-inner', {'no-link': !project.linkUrl}]"
+          class="project-inner"
           @click="onProjectClick(project)">
           <div
             class="project-title">
@@ -89,6 +89,18 @@
           <img
             :src="project.imageUrl"
             class="project-image">
+        </div>
+        <div
+          class="project-mtitle-container">
+          <p
+            class="project-mtitle">
+            {{ project.title }}
+          </p>
+          <p
+            class="project-non-active"
+            v-if="!project.linkUrl">
+            ({{ $t('projects.nonActive') }})
+          </p>
         </div>
         <div
           class="project-skills">
@@ -314,7 +326,6 @@ export default {
   .control-main-menu {
     position: relative
     padding: 0
-    z-index: 1
     cursor: pointer
 
     &::before {
@@ -457,21 +468,30 @@ export default {
     text-align: center
 
     &:hover {
-      .project-image {
-        opacity: .3
-      }
+      @media screen and (min-width: $mobile-break-point) {
+        .project-image {
+          opacity: .3
+        }
 
-      .project-title {
-        opacity: 1
+        .project-title {
+          opacity: 1
+        }
       }
     }
 
-    .project-inner {
-      position: relative
-      cursor: pointer
+    &.no-link {
+      opacity: .5
 
-      &.no-link {
-        cursor: default
+      .project-mtitle {
+        text-decoration: line-through
+      }
+
+      @media screen and (min-width: $mobile-break-point) {
+        opacity: 1
+
+        .project-inner {
+          cursor: default
+        }
 
         .project-title {
           text-decoration: line-through
@@ -479,21 +499,38 @@ export default {
       }
     }
 
+    .project-inner {
+      position: relative
+      cursor: pointer
+    }
+
     .project-image, .project-title {
       transition: opacity .3s ease
+    }
+
+    .project-image {
+      max-width: 200px
+      max-height: 150px
     }
 
     .project-title {
       position absolute
       width: 100%
       height: 100%
-      @extend .flex-center
       opacity: 0
+      @extend .flex-center
     }
 
-    .project-image {
-      max-width: 200px
-      max-height: 150px
+    .project-mtitle-container {
+      padding: 5px 0 0
+
+      @media screen and (min-width: $mobile-break-point) {
+        display: none
+      }
+
+      .project-mtitle, .project-non-active {
+        margin: 0
+      }
     }
 
     .project-skills {

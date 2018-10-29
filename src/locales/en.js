@@ -68,6 +68,9 @@ const en = {
       desc: `iStaging is a multinational corporation focus on AR/VR. Client and User all over the world. Multiple language's product is basic. Everything is fills with wonders and change quickly. It's the reason why I choose to work here. Here face some new thing like webVR, aframe and some new library or framework. I still remember one time to handle the arabic language's ui must revert's special case. There are 2 or 3 frontend developers here, we co-work together. I have a very special experience that participate the Mobile World Congress(MWC) in Barcelona with my colleagues. It help me to broaden my view. I have work many years now. I think the most important thing is keep in touch with the world and always open mind to learn without stop myself.`
     }
   },
+  projects: {
+    nonActive: `non-active`
+  },
   helper: {
     menu: {
       aboutWebsite: 'About new website',
@@ -98,7 +101,7 @@ const en = {
         cms: `Cms system is very helpful and fast to build a ofiicial website..`
       },
       projects: {
-        179: `Project 179 is a match mapping for charity, the website is not using now.`,
+        179: `Project 179 is a match mapping for charity, the website is non-active now.`,
         ezCouponTaiwan: `Project ez domestic(Taiwan) coupon's revision handle by me and the other f2e developer together.`,
         dollhouse: `Project 3d dollhouse is a prototype which combined with aframe and 3d.io.`,
         aiteOfficial: `Develop and maintain aite official website by wordpress`,
@@ -110,14 +113,14 @@ const en = {
         ezHomepage: `Project ez homepage's revision which involving some f2e developers. I was the f2e project leader to control all f2e relative thing.`,
         lejetbcOfficial: `Develop and maintain lejetbc official website by wordpress.`,
         vreditorSdk: `Vreditor sdk can download by npm and build virtual tour with more easy way by istaging api service.`,
-        lejetbc: `Project lejetbc is a offlice rental service, the website is not using now.`,
+        lejetbc: `Project lejetbc is a offlice rental service, the website is non-active now.`,
         ezUcarApp: `Help develop and maintain project ez ucar app which inside eztravel app.`,
         spotmeDashboard: `User in spotme editor can build your own personal website like aboutme, linkedin..etc.`,
         vrsdkDoc: `vreditor and vrviewer sdk's document website which made by vue and vuepress and markdown.`,
         vrviewer: `Livetour is the virtual tour which using krpano base on webVR, you can browse Livetour by glass and your mobile phone.`,
         spotme: `Spotme is a personal website like aboutme, linkedin..etc. match mapping for person and job.`,
         requestAnimationProfolio: `Practicing requestAnimation and use in my old website.`,
-        spotrainer: `Project spotrainer is a match mapping for lecturer and student, the website is not using now.`,
+        spotrainer: `Project spotrainer is a match mapping for lecturer and student, the website is non-active now.`,
         ezUcar: `Project ez ucar is a whole new projct which handle by me and the other f2e developer together.`,
         furnitureDashboard: `Maintain the old furniture dashboard by angularjs.`,
         vreditorUs: `User in vrmaker editor can login by fb, google api and build their virtual tour by aframe which combined with vue.`,

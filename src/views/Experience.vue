@@ -51,16 +51,19 @@
               class="experience-title">
               {{ experience.title }}
             </h3>
-            <img
-              class="experience-img"
-              :src="experience.imageUrl">
+            <div
+              class="experience-img-container"            >
+              <img
+                class="experience-img"
+                :src="experience.imageUrl">
+            </div>
             <h3
               class="experience-topic">
               {{ $t(experience.topic) }}
             </h3>
             <div
               v-show="experience.skills && experience.skills.length"
-              class="experience-skill">
+              class="experience-skills-container">
               skills: 
               <span
                 v-for="skill in experience.skills"
@@ -152,6 +155,10 @@ $experience-circle-width = 50px
     height: 300px
     @extend .flex-center
     flex-direction: column
+
+    .fa {
+      margin: 0 5px
+    }
   }
 
   .experience-timeline {
@@ -170,16 +177,15 @@ $experience-circle-width = 50px
 
   .experience {
     display: flex
-    align-items: center
     justify-content flex-end
-    text-align: center
+    flex-wrap: wrap
     outline: 1px dashed rgba(green, 0)
     padding-bottom: 40px
     margin: 0 0 0 -25px
-    flex-wrap: wrap
 
     &::before {
       content: ''
+      align-self: center
       width: $experience-circle-width
       height: $experience-circle-width
       background-color: $white
@@ -199,50 +205,75 @@ $experience-circle-width = 50px
     }
 
     @media screen and (min-width: $mobile-break-point) {
-      padding: 0 20px
-      margin: -50px 0 0 0
+      width: 33.33% // TODO: need calculate
       justify-content flex-start
       flex-direction: column
+      padding: 0 20px
+      margin: -50px 0 0 0
     }
   }
 
   .experience-title {
     display: none
+
     @media screen and (min-width: $mobile-break-point) {
       display: block
+      align-self: center
       height: 45px
     }
   }
 
   .experience-time {
+    align-self: center
+
     @media screen and (min-width: $mobile-break-point) {
       height: 40px
     }
   }
 
   .experience-topic {
+    align-self: center
+
     @media screen and (min-width: $mobile-break-point) {
       height: 105px
     }
   }
 
-  .experience-img, .experience-desc {
-    width: "calc(100% - %s)" % $experience-circle-width
-    
-    @media screen and (min-width: $mobile-break-point) {
-      display: none
+  .experience-img-container {
+    align-self: center
+
+    .experience-img {
+      max-width: 100%
     }
   }
 
-  .experience-title, .experience-time, .experience-topic, .experience-skill, .experience-desc {
+  .experience-skills-container {
+    border-top: 1px solid $white
+    border-bottom: 1px solid $white
+    padding: 10px 0
+
+    @media screen and (min-width: $mobile-break-point) {
+      border: none
+    }
+  }
+
+  .experience-title, .experience-time, .experience-topic, .experience-img-container, .experience-skills-container, .experience-desc {
     width: "calc(100% - %s)" % $experience-circle-width
+    padding-left: 20px
 
     @media screen and (min-width: $mobile-break-point) {
       width: auto
+      padding-left: 0
     }
 
     @media screen and (min-width: $pad-break-point) {
       height: auto
+    }
+  }
+
+  .experience-img-container, .experience-desc {
+    @media screen and (min-width: $mobile-break-point) {
+      display: none
     }
   }
 }

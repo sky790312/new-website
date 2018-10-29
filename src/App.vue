@@ -117,6 +117,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+  -webkit-overflow-scrolling: touch
   height: 100vh
   /*display: grid
   grid-template-areas:
@@ -151,13 +152,13 @@ export default {
 .router-view {
   position: relative
   // width: 100vw
-  height: calc(100vh - 85px)
+  // height: calc(100vh - 85px)
   overflow: auto
   padding: 20px
   /*margin: auto*/
   @media screen and (min-width: $mobile-break-point) {
     width: "calc(100vw - %s)" % $app-sidebar-width
-    height: 100vh
+    // height: auto
   }
 }
 

@@ -51,7 +51,7 @@ export const PROJECTS = [{
   name: 'vrportal',
   title: 'User dashboard',
   company: 'istaging',
-  skills: ['vue', 'nodejs', 'webpack', 'es2015', 'd3', 'google analytic api', 'firebase', 'mocha', 'cypress', 'stylus'],
+  skills: ['vue', 'nodejs', 'webpack', 'es2015', 'd3', 'google analytic api', 'firebase', 'mocha', 'cypress', 'stylus', 'i18n'],
   linkUrl: 'https://portal.istaging.com/',
   imageUrl: require('~assets/projects/istaging/vrportal.jpg')
 }, {
@@ -121,7 +121,7 @@ export const PROJECTS = [{
   name: 'vrviewer',
   title: 'Livetour',
   company: 'istaging',
-  skills: ['vue', 'krpano', 'nodejs', 'webpack', 'es2015', 'firebase', 'mocha', 'cypress', 'stylus'],
+  skills: ['vue', 'krpano', 'nodejs', 'webpack', 'es2015', 'firebase', 'mocha', 'cypress', 'stylus', 'i18n'],
   linkUrl: 'https://livetour.istaging.com/261da9fb-f700-4cf9-aee6-39d96eb1afae',
   imageUrl: require('~assets/projects/istaging/vrviewer.jpg')
 }, {
@@ -163,7 +163,7 @@ export const PROJECTS = [{
   name: 'vreditorUs',
   title: 'Livetour editor - us',
   company: 'istaging',
-  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'firebase', 'mocha', 'cypress', 'stylus'],
+  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'firebase', 'mocha', 'cypress', 'stylus', 'i18n'],
   linkUrl: 'https://vreditor.istaging.com',
   imageUrl: require('~assets/projects/istaging/vreditor-us.jpg')
 }, {
@@ -184,7 +184,7 @@ export const PROJECTS = [{
   name: 'tourRing',
   title: 'TourRing',
   company: 'istaging',
-  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'jest', 'stylus'],
+  skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'jest', 'stylus', 'i18n'],
   linkUrl: 'https://tourring.istaging.com',
   imageUrl: require('~assets/projects/istaging/vrlive.jpg')
 }]

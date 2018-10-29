@@ -265,7 +265,12 @@ $detailFontSizeHover = 30px
 
 
 #skill {
+  height: "calc(100vh - %s)" % $mobile-header-height
   padding: 0
+
+  @media screen and (min-width: $mobile-break-point) {
+    height: auto
+  }
 
   .item {
     box-sizing: border-box
