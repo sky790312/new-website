@@ -1,5 +1,5 @@
 import {
-  LANGUAGES,
+  LANGUAGE_KEYS,
   DEFAULT_LANGUAGE,
   FALLBACK_LANGUAGE
 } from '@/locales/setting'
@@ -18,10 +18,10 @@ files.keys().forEach(fileName => {
   }
 
   const moduleName = fileName.replace(/(\.\/|\.js)/g, '')
-  const foundLanguage = LANGUAGES.find(language => moduleName.includes(language))
+  const foundLanguageKey = LANGUAGE_KEYS.find(language => moduleName.includes(language))
 
-  if (foundLanguage) {
-    locales[foundLanguage] = files(fileName).default
+  if (foundLanguageKey) {
+    locales[foundLanguageKey] = files(fileName).default
   }
 })
 // console.log('locales: ', locales)
