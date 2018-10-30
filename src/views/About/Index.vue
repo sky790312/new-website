@@ -53,6 +53,10 @@ import 'echarts/lib/component/title'
 import {
   throttle
 } from '@/utils'
+import {
+  PERSONALITY_RADAR_SETTING,
+  SKILL_RADAR_SETTING
+} from '@/views/About/data'
 
 export default {
   name: 'About',
@@ -64,98 +68,19 @@ export default {
     return {
       personalityRadarChart: {},
       skillRadarChart: {},
-      personalityRadarOption: {
-        tooltip: {
-          trigger: 'axis'
-        },
-        radar: [{
-          indicator: [
-            {text: 'Responsiveness', max: 100},
-            {text: 'Patience', max: 100},
-            {text: 'Leading', max: 100},
-            {text: 'Communication', max: 100}
-          ],
-          radius: 80
-        }],
-        series: [{
-          type: 'radar',
-          tooltip: {
-            trigger: 'item'
-          },
-          itemStyle: {
-            normal: {
-              areaStyle: {
-                type: 'default'
-              }
-            }
-          },
-          data: [{
-            value: [90, 80, 75, 80],
-            name: 'Personality: '
-          }]
-        }],
-        textStyle: {
-          color: '#fff'
-        },
-        lineStyle: {
-          color: '#fff'
-        },
-        itemStyle: {
-          color: '#fff'
-        }
-      },
-      skillRadarOption: {
-        tooltip: {
-          trigger: 'axis'
-        },
-        radar: [{
-          indicator: [
-            {text: 'Frontend', max: 100},
-            {text: 'Backend', max: 100},
-            {text: 'Seo', max: 100},
-            {text: 'Test', max: 100},
-            {text: 'Git', max: 100}
-          ],
-          radius: 80
-        }],
-        series: [{
-          type: 'radar',
-          tooltip: {
-            trigger: 'item'
-          },
-          itemStyle: {
-            normal: {
-              areaStyle: {
-                type: 'default'
-              }
-            }
-          },
-          data: [{
-            value: [90, 70, 80, 80, 80],
-            name: 'Skills: '
-          }]
-        }],
-        textStyle: {
-          color: '#fff'
-        },
-        lineStyle: {
-          color: '#fff'
-        },
-        itemStyle: {
-          color: '#fff'
-        }
-      }
+      personalityRadarSetting: PERSONALITY_RADAR_SETTING,
+      skillRadarSetting: SKILL_RADAR_SETTING
     }
   },
 
   mounted () {
     const personalityRadar = document.getElementById('personality-radar')
     this.personalityRadarChart = echarts.init(personalityRadar)
-    this.personalityRadarChart.setOption(this.personalityRadarOption, true)
+    this.personalityRadarChart.setOption(this.personalityRadarSetting, true)
 
     const skillRadar = document.getElementById('skill-radar')
     this.skillRadarChart = echarts.init(skillRadar)
-    this.skillRadarChart.setOption(this.skillRadarOption, true)
+    this.skillRadarChart.setOption(this.skillRadarSetting, true)
 
     window.addEventListener('resize', throttle(this.onWindowResize, 250), false)
   },

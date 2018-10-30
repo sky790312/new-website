@@ -103,7 +103,7 @@ export default {
   // @extend .flex-center
   height: calc(100vh - 85px)
   display: flex
-  justify-content: flex-start
+  justify-content: center
   align-items: center
   flex-direction: column
   position: relative
@@ -134,7 +134,6 @@ export default {
 
   @media screen and (min-width: $mobile-break-point) {
     height: auto
-    justify-content center
   }
 
   .job-title {

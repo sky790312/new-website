@@ -455,7 +455,7 @@ export default {
     flex-wrap: wrap
     justify-content: center
 
-    @media screen and (min-width: $mobile-break-point) {
+    @media screen and (min-width: $pad-break-point) {
       justify-content: flex-start
     }
   }
