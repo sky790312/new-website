@@ -26,7 +26,7 @@ api.asyncRequest = async (urlEnd, type, payload = {}) => {
 api.exampleFirebaseAsyncRequest = async (urlEnd, type, payload = {}) => {
   console.log(firebaseConfig.url + urlEnd)
   // return await Vue.http.post('https://vue-boilerplate-a1aaa.firebaseio.com/data.json', 'test')
-  return await Vue.http[type](firebaseConfig.url + urlEnd, payload, api.timeout)
+  // return await Vue.http[type](firebaseConfig.url + urlEnd, payload, api.timeout)
 }
 
 export default api

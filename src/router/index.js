@@ -1,4 +1,7 @@
+import Vue from 'vue'
 import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
 
 const Home = () => import(`@/views/Home`)
 // const Entry = () => import(`@/views/Profile`)

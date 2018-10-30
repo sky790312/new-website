@@ -1,4 +1,28 @@
-import { loadLanguageAsync } from '@/setup/i18n-setup'
+import axios from 'axios'
+import { i18n } from '@/locales'
+
+const alreadyLoadedLanguages = ['en'] // default language
+
+const setI18nLanguage = language => {
+  i18n.locale = language
+  axios.defaults.headers.common['Accept-Language'] = language
+  document.documentElement.language = language
+  return language
+}
+
+const loadLanguageAsync = language => {
+  if (i18n.locale !== language) {
+    if (!alreadyLoadedLanguages.includes(language)) {
+      return import(`@/locales/${language}`).then(locales => {
+        i18n.setLocaleMessage(language, locales.default)
+        alreadyLoadedLanguages.push(language)
+        return setI18nLanguage(language)
+      })
+    }
+    return Promise.resolve(setI18nLanguage(language))
+  }
+  return Promise.resolve(language)
+}
 
 const types = {
   SET_LANGUAGE: 'SET_LANGUAGE'
