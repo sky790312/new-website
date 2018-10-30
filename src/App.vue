@@ -150,15 +150,10 @@ export default {
 
 .router-view {
   position: relative
-  // width: 100vw
-  // height: calc(100vh - 85px)
+  width: 100%
   overflow: auto
   padding: 20px
   /*margin: auto*/
-  @media screen and (min-width: $mobile-break-point) {
-    width: "calc(100vw - %s)" % $app-sidebar-width
-    // height: auto
-  }
 }
 
 .app-sidebar-slide-enter-active, .app-sidebar-slide-leave-active {

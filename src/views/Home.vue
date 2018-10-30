@@ -101,6 +101,7 @@ export default {
 
 #home {
   // @extend .flex-center
+  height: calc(100vh - 85px)
   display: flex
   justify-content: flex-start
   align-items: center
@@ -132,6 +133,7 @@ export default {
   }
 
   @media screen and (min-width: $mobile-break-point) {
+    height: auto
     justify-content center
   }
 
