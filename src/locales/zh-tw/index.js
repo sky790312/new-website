@@ -1,17 +1,17 @@
 import {
   EXPERIENCE_TW
-} from '@/locales/tw/experience'
+} from '@/locales/zh-tw/experience'
 import {
   ABOUT_TW
-} from '@/locales/tw/about'
+} from '@/locales/zh-tw/about'
 import {
   SKILLS_TW,
   MERMER_SKILLS_TW
-} from '@/locales/tw/skills'
+} from '@/locales/zh-tw/skills'
 import {
   PROJECTS_TW,
   MERMER_PROJECTS_TW
-} from '@/locales/tw/projects'
+} from '@/locales/zh-tw/projects'
 
 const tw = {
   entryView: {
