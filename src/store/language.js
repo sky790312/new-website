@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { i18n } from '@/locales'
+import i18n from '@/locales'
 
 const alreadyLoadedLanguages = ['en'] // default language
 
