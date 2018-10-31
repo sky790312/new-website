@@ -6,10 +6,6 @@
       <h1>{{ $t('about.newEra') }}</h1>
       <h3>{{ $t('about.brief1') }}</h3>
       <h3>{{ $t('about.brief2') }}</h3>
-      <!-- <h4>Everything happen in Frontend Development</h4> -->
-      <!-- <h3 style="text-align: center;">I believe that being a senior rontend developer, not only have to focus on how deep frontend world is, but alse need to have relevant field domain. Knowing what backend＆Design thinking and why.</h3>
-      <h1 style="text-align: right;">By Kevin Hu</h1> -->
-      <!-- <div>A senior frontend developer should always clearly issue and .</div> -->
     </div>
     <div 
       id="personality-radar"
@@ -60,9 +56,6 @@ import {
 
 export default {
   name: 'About',
-
-  components: {
-  },
 
   data () {
     return {
@@ -127,7 +120,6 @@ export default {
 
   .grid-item {
     padding: 20px
-    // display: flex
     color: $white
 
     a {
@@ -138,10 +130,6 @@ export default {
         text-decoration underline
       }
     }
-    // font-size: 2em
-    // justify-content: center
-    // align-items: center
-    // height: 100%;
   }
 
   .brief {

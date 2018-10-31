@@ -20,7 +20,6 @@
         </li>
       </menu>
     </nav>
-
     <transition-group
       name="sub-menu"
       tag="section"
@@ -42,7 +41,6 @@
         </li>
       </menu>
     </transition-group>
-
     <section 
       class="active-menu-container"
       v-show="hasActiveFilters">
@@ -68,7 +66,6 @@
         </li>
       </menu>
     </section>
-
     <transition-group 
       name="project"
       tag="div"
@@ -153,9 +150,7 @@ export default {
     filteredProjects () {
       let projects = this.projects
       if (this.activeFilters.companies.length) {
-        projects = projects.filter(project => {
-          return !(this.activeFilters.companies.length && !~this.activeFilters.companies.indexOf(project.company))
-        })
+        projects = projects.filter(project => (!(this.activeFilters.companies.length && !~this.activeFilters.companies.indexOf(project.company))))
 
         const currectCompany = this.companySkills.find(companySkill => companySkill.company === this.activeFilters.companies[0])
         Object.keys(this.filters.skills).forEach(skill => {

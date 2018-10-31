@@ -39,7 +39,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 const EntryView = () => import('@/views/EntryView')
-const AppSidebar = () => import('@/views/AppCommon/AppSidebar')
+const Sidebar = () => import('@/views/AppCommon/Sidebar')
 const Helper = () => import('@/views/AppCommon/Helper')
 
 export default {
@@ -47,7 +47,7 @@ export default {
 
   components: {
     EntryView,
-    AppSidebar,
+    Sidebar,
     Helper
   },
 

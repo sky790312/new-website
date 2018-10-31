@@ -1,6 +1,6 @@
 <template>
   <div
-    id="app-sidebar">
+    id="sidebar">
     <div
       class="main-menu">
       <i
@@ -44,41 +44,17 @@
 </template>
 
 <script>
+import {
+  SIDEBAR_MENUS
+} from '@/views/AppCommon/Sidebar/data'
+
 export default {
-  name: 'AppSidebar',
+  name: 'Sidebar',
 
   data () {
     return {
       shouldShowSubMenu: false,
-      sidebarMenus: [{
-        name: 'about',
-        text: 'menus.about',
-        icon: 'fa-address-card-o',
-        routeConfig: {
-          name: 'about'
-        }
-      }, {
-        name: 'skills',
-        text: 'menus.skills',
-        icon: 'fa-bar-chart-o',
-        routeConfig: {
-          name: 'skills'
-        }
-      }, {
-        name: 'experience',
-        text: 'menus.experience',
-        icon: 'fa-file-text-o',
-        routeConfig: {
-          name: 'experience'
-        }
-      }, {
-        name: 'projects',
-        text: 'menus.projects',
-        icon: 'fa-list-ol',
-        routeConfig: {
-          name: 'projects'
-        }
-      }]
+      sidebarMenus: SIDEBAR_MENUS
     }
   },
 
@@ -106,7 +82,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~styl/variables'
 
-#app-sidebar {
+#sidebar {
   background-color: $black
 
   @media screen and (min-width: $mobile-break-point) {

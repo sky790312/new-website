@@ -12,6 +12,7 @@
     <i-rotate-in-menus
       class="helper-menu"
       :isActive="helper.isActive"
+      :useI18n="true"
       :menus="helper.menus"
       @onIRotateInMenusClick="handleHelperMenusClick">
       <i-head-boy
@@ -30,6 +31,9 @@ import { mapGetters, mapActions } from 'vuex'
 const ISpeechBubble = () => import('@/components/ISpeechBubble')
 const IHeadBoy = () => import('@/components/IHeadBoy')
 const IRotateInMenus = () => import('@/components/IRotateInMenus')
+import {
+  MENUS
+} from '@/views/AppCommon/Helper/data'
 
 export default {
   name: 'Helper',
@@ -44,32 +48,7 @@ export default {
     return {
       helper: {
         isActive: false,
-        menus: [{
-          name: 'aboutWebsite',
-          text: this.$t('helper.menu.aboutWebsite'),
-          status: 'completed',
-          method: () => {}
-        }, {
-          name: 'oldwebsite',
-          text: this.$t('helper.menu.oldWebsite'),
-          status: 'completed',
-          method: () => { this.handleOldwebsiteMenu() }
-        }, {
-          name: 'messageBoard',
-          text: this.$t('helper.menu.messageBoard'),
-          status: 'completed',
-          method: () => {}
-        }, {
-          name: 4,
-          text: '4',
-          status: 'completed',
-          method: () => {}
-        }, {
-          name: 5,
-          text: '5',
-          status: 'pending',
-          method: () => {}
-        }]
+        menus: MENUS
       }
     }
   },
@@ -95,7 +74,12 @@ export default {
     },
 
     handleHelperMenusClick (menu) {
-      menu.method()
+      const menus = {
+        aboutWebsite: () => {},
+        oldWebsite: () => { this.handleOldwebsiteMenu() },
+        messageBoard: () => {}
+      }
+      return menus[menu.name]()
     },
 
     handleSpeechBubbleEnter () {

@@ -10,9 +10,6 @@
           class="current-experience experience-container">
           <img
             :src="currentExperience.imageUrl">
-          <!-- <h2 class="experience-title">
-            {{ currentExperience.title }}
-          </h2> -->
           <p>
             {{ $t(currentExperience.desc) }}
           </p>

@@ -10,7 +10,7 @@
         <a
           @click="onIRotateInMenusClick(menu)"
           :class="['menu-title', menu.status]">
-            {{ menu.text }}
+            {{ useI18n ? $t('menu.text') : menu.text }}
         </a>
       </li>
     </ul>
@@ -23,6 +23,13 @@ export default {
 
   props: {
     isActive: {
+      type: Boolean,
+      default () {
+        return false
+      }
+    },
+
+    useI18n: {
       type: Boolean,
       default () {
         return false
