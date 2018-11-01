@@ -3,7 +3,9 @@
     <div 
       class="item"
       v-for="item in items"
-      :key="item.key">
+      :key="item.key"
+      @mouseenter="onItemHover(item, true)"
+      @mouseleave="onItemHover(item, false)">
       <slot :item="item">
       </slot>
     </div>
@@ -20,6 +22,12 @@ export default {
       default () {
         return []
       }
+    }
+  },
+
+  methods: {
+    onItemHover (item, isHover) {
+      this.$emit('onItemHover', item, isHover)
     }
   },
 

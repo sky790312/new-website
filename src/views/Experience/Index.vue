@@ -39,7 +39,8 @@
           </div>
         </transition>
         <i-timeline
-          :items="experiences">
+          :items="experiences"
+          @onItemHover="handleExperienceHover">
           <template
             slot-scope="{ item }">
             <h4
@@ -101,7 +102,7 @@ export default {
   },
 
   methods: {
-    onExperienceHover (experience, isHover) {
+    handleExperienceHover (experience, isHover) {
       this.currentExperience = isHover ? experience : {}
       this.shouldShowCurrentExperience = isHover
     }
