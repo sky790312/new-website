@@ -10,7 +10,7 @@
         <a
           @click="onIRotateInMenusClick(menu)"
           :class="['menu-title', menu.status]">
-            {{ useI18n ? $t('menu.text') : menu.text }}
+            {{ useI18n ? $t(menu.text) : menu.text }}
         </a>
       </li>
     </ul>
