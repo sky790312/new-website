@@ -8,11 +8,11 @@
     <template
       v-else>
       <transition
-        name="app-sidebar-slide"
+        name="sidebar-slide"
         mode="out-in"
         appear>
-        <app-sidebar>
-        </app-sidebar>
+        <sidebar>
+        </sidebar>
       </transition>
       <transition
         name="fade"
@@ -136,7 +136,7 @@ export default {
     grid-template-rows: auto*/
   }
 
-  /*.app-sidebar {
+  /*.sidebar {
     grid-area: sidebar
   }*/
 
@@ -156,17 +156,17 @@ export default {
   /*margin: auto*/
 }
 
-.app-sidebar-slide-enter-active, .app-sidebar-slide-leave-active {
+.sidebar-slide-enter-active, .sidebar-slide-leave-active {
   transition: all 2s ease
 }
 
-.app-sidebar-slide-enter, .app-sidebar-slide-leave-to {
+.sidebar-slide-enter, .sidebar-slide-leave-to {
   // transform: translateY(-50px)
   opacity: 0
   // width: 0 !important
-  margin-left: - $app-sidebar-width
+  margin-left: - $sidebar-width
   // @media screen and (min-width: $mobile-break-point) {
-  transform: translateX(- $app-sidebar-width)
+  transform: translateX(- $sidebar-width)
   // }
 }
 

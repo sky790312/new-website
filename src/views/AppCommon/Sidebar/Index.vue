@@ -86,14 +86,14 @@ export default {
   background-color: $black
 
   @media screen and (min-width: $mobile-break-point) {
-    width: $app-sidebar-width
+    width: $sidebar-width
     border-right: 1px groove $white
   }
 
   .main-menu {
     .router-link {
       display: block
-      width: $app-sidebar-width
+      width: $sidebar-width
       margin: auto
       color: $white
       text-align: center
@@ -132,9 +132,9 @@ export default {
       content: ''
       position: absolute
       top: 0
-      left: $app-sidebar-width
+      left: $sidebar-width
       height: 100vh
-      width: "calc(100vw - %s)" % $app-sidebar-width
+      width: "calc(100vw - %s)" % $sidebar-width
       background-color: rgba($black, 0.7)
 
       @media screen and (min-width: $mobile-break-point) {
@@ -144,7 +144,7 @@ export default {
 
     &.mobile-view {
       left: 0
-      width: $app-sidebar-width
+      width: $sidebar-width
       border-right: 1px groove $white
     }
 
