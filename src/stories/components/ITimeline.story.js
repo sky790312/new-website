@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { storiesOf } from '@storybook/vue'
 import Centered from '@storybook/addon-centered';
+import { action } from '@storybook/addon-actions'
 import { withKnobs, object } from '@storybook/addon-knobs/vue';
 
 import ITimeline from '@/components/ITimeline'
@@ -35,7 +36,8 @@ stories
             It will divide the width equally with each item and it's RWD with 768px breakpoint.
           </p>
           <i-timeline
-            :items="items">
+            :items="items"
+            @onItemHover="handleItemHover">
             <template
               slot-scope="{ item }">
               <p>
@@ -52,6 +54,9 @@ stories
         return {
           items
         }
+      },
+      methods: { 
+        handleItemHover: action('hover item: ')
       }
     }
   }
