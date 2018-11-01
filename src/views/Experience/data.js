@@ -1,4 +1,5 @@
 export const EXPERIENCES = [{
+  key: 'fujenUniversity',
   name: 'fujenUniversity',
   title: 'Fu Jen University',
   time: '2009/9 - 2012/6',
@@ -7,6 +8,7 @@ export const EXPERIENCES = [{
   skills: [],
   imageUrl: require('~assets/experience/fujen.jpg')
 }, {
+  key: 'aite',
   name: 'aite',
   title: 'Aite',
   time: '2013/8 - 2014/11',
@@ -15,6 +17,7 @@ export const EXPERIENCES = [{
   skills: ['nodejs', 'jquery', 'angularjs', 'wordpress'],
   imageUrl: require('~assets/experience/aite.png')
 }, {
+  key: 'eztravel',
   name: 'eztravel',
   title: 'ezTravel',
   time: '2014/12 - 2016/6',
@@ -23,6 +26,7 @@ export const EXPERIENCES = [{
   skills: ['jquery', 'knoutout', 'java play', 'maven', 'nginx', 'jenkins'],
   imageUrl: require('~assets/experience/eztravel.png')
 }, {
+  key: 'istaging',
   name: 'istaging',
   title: 'iStaging',
   time: '2016/7 - now',

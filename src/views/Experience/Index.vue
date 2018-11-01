@@ -5,74 +5,76 @@
         {{ $t('menus.experience') }}
       </h1>
       <section>
-        <div 
-          v-if="Object.keys(currentExperience).length"
-          class="current-experience experience-container">
-          <img
-            :src="currentExperience.imageUrl">
-          <p>
-            {{ $t(currentExperience.desc) }}
-          </p>
-        </div>
-        <div
-          v-else
-          class="default-experience experience-container">
-          <div>
-            <i
-              class="fa fa-3x fa-user">
-            </i>
-            <i
-              class="fa fa-3x fa-user-secret">
-            </i>
-            <i
-              class="fa fa-3x fa-user">
-            </i>
-          </div>
-          <h3>
-            {{ $t('experience.sentences') }}
-          </h3>
-        </div>
-        <div
-          class="experience-timeline">
+        <transition
+          name="fade"
+          mode="out-in">
           <div 
-            class="experience"
-            v-for="experience in experiences"
-            :key="experience.name"
-            @mouseenter="onExperienceHover(experience, true)"
-            @mouseleave="onExperienceHover(experience, false)">
+            v-if="shouldShowCurrentExperience"
+            key="current-experience"
+            class="current-experience experience-container">
+            <img
+              :src="currentExperience.imageUrl">
+            <p>
+              {{ $t(currentExperience.desc) }}
+            </p>
+          </div>
+          <div
+            v-else
+            key="default-experience"
+            class="default-experience experience-container">
+            <div>
+              <i
+                class="fa fa-3x fa-user">
+              </i>
+              <i
+                class="fa fa-3x fa-user-secret">
+              </i>
+              <i
+                class="fa fa-3x fa-user">
+              </i>
+            </div>
+            <h3>
+              {{ $t('experience.sentences') }}
+            </h3>
+          </div>
+        </transition>
+        <i-timeline
+          :items="experiences">
+          <template
+            slot-scope="{ item }">
             <h4
               class="experience-time">
-              {{ experience.time }}
+              {{ item.time }}
             </h4>
             <h3
               class="experience-title">
-              {{ experience.title }}
+              {{ item.title }}
             </h3>
             <div
-              class="experience-img-container"            >
+              class="experience-img-container">
               <img
                 class="experience-img"
-                :src="experience.imageUrl">
+                :src="item.imageUrl">
             </div>
             <h3
               class="experience-topic">
-              {{ $t(experience.topic) }}
+              {{ $t(item.topic) }}
             </h3>
             <div
-              v-show="experience.skills && experience.skills.length"
+              v-show="item.skills && item.skills.length"
               class="experience-skills-container">
               skills: 
               <span
-                v-for="skill in experience.skills"
+                v-for="skill in item.skills"
                 :key="skill">
                 {{ skill }}
               </span>
             </div>
             <p class="experience-desc">
-              {{ $t(experience.desc) }}
+              {{ $t(item.desc) }}
             </p>
-          </div>
-        </div>
+          </template>
+        </i-timeline>
       </section>
   </div>
 </template>
@@ -81,15 +83,18 @@
 import {
   EXPERIENCES
 } from '@/views/Experience/data'
+const ITimeline = () => import('@/components/ITimeline')
 
 export default {
   name: 'Experience',
 
   components: {
+    ITimeline
   },
 
   data () {
     return {
+      shouldShowCurrentExperience: false,
       currentExperience: {},
       experiences: EXPERIENCES
     }
@@ -98,13 +103,7 @@ export default {
   methods: {
     onExperienceHover (experience, isHover) {
       this.currentExperience = isHover ? experience : {}
-      // const speechBubbleText = isHover ? project.name : ''
-      // const speechBubble = {
-      //   type: 'projects',
-      //   text: speechBubbleText
-      // }
-      // this.setSpeechBubble(speechBubble)
-      // this.setShouldShowSpeechBubble(isHover)
+      this.shouldShowCurrentExperience = isHover
     }
   }
 }
@@ -130,58 +129,6 @@ $experience-circle-width = 50px
       .fa {
         margin: 0 5px
       }
-    }
-  }
-
-  .experience-timeline {
-    outline: 1px dashed rgba(red, 0)
-    margin: 0 0 0 25px
-    border-left: 2px solid $white
-
-    @media screen and (min-width: $mobile-break-point) {
-      display: flex
-      border-left: none
-      border-top: 2px solid $white
-      padding-top: 20px
-      margin: 40px 0 0 0
-    }
-  }
-
-  .experience {
-    display: flex
-    justify-content flex-end
-    flex-wrap: wrap
-    outline: 1px dashed rgba(green, 0)
-    padding-bottom: 40px
-    margin: 0 0 0 -25px
-
-    &::before {
-      content: ''
-      align-self: center
-      width: $experience-circle-width
-      height: $experience-circle-width
-      background-color: $white
-      border-radius: 50%
-    }
-    
-    &:last-child {
-      padding-bottom: 0
-    }
-
-    &:hover {
-      &::before {
-        // width: 60px
-        // height: 60px
-        background-color: $yellow
-      }
-    }
-
-    @media screen and (min-width: $mobile-break-point) {
-      width: 33.33% // TODO: need calculate
-      justify-content flex-start
-      flex-direction: column
-      padding: 0 20px
-      margin: -50px 0 0 0
     }
   }
 
