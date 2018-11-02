@@ -1,40 +1,24 @@
 <template>
   <div
     id="home">
-    <transition
-      name="fade"
-      appear>
-      <i-stroke-dash-text
-        :text="myName">
-      </i-stroke-dash-text>
-    </transition>
-    <transition
-      name="fade"
-      appear>
-      <h3
-        class="job-title">
-        Frontend Developer
-        <!-- {{ $t('jobTitle') }} -->
-      </h3>
-    </transition>
-    <transition
-      name="fade"
-      appear>
-      <div class="main-skill-tags-container">
-        <i-tag
-          v-for="mainSkill in mainSkillTags"
-          :key="mainSkill.name"
-          :text="mainSkill.text">
-        </i-tag>
-      </div>
-    </transition>
-    <transition
-      name="fade"
-      appear>
-      <i-typing-text
-        :text="welcomeText">
-      </i-typing-text>
-    </transition>
+    <i-stroke-dash-text
+      :text="myName">
+    </i-stroke-dash-text>
+    <h3
+      class="job-title">
+      Frontend Developer
+      <!-- {{ $t('jobTitle') }} -->
+    </h3>
+    <div class="main-skill-tags-container">
+      <i-tag
+        v-for="mainSkill in mainSkillTags"
+        :key="mainSkill.name"
+        :text="mainSkill.text">
+      </i-tag>
+    </div>
+    <i-typing-text
+      :text="welcomeText">
+    </i-typing-text>
   </div>
 </template>
 
