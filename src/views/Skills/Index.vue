@@ -1,6 +1,6 @@
 <template>
   <div
-    id="skill"
+    id="skills"
     :ref="'skillContainer'">
     <div
       class="item main"
@@ -69,7 +69,7 @@ let camera, scene, renderer
 let css3dObjects = []
 
 export default {
-  name: 'Skill',
+  name: 'Skills',
 
   components: {
     IModal
@@ -264,14 +264,8 @@ $detailFontSize = 18px
 $detailFontSizeHover = 30px
 
 
-#skill {
-  height: "calc(100vh - %s)" % $mobile-header-height
-  width: 100vw
+#skills {
   padding: 0
-
-  @media screen and (min-width: $mobile-break-point) {
-    height: 100%
-  }
 
   .item {
     box-sizing: border-box

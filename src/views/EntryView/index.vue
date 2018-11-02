@@ -2,6 +2,7 @@
   <div
     id="entry-view">
     <a-scene
+      embedded
       :fog="scene.fog">
       <a-sky
         matrix>
@@ -116,5 +117,9 @@ export default {
 @import '~styl/variables'
 
 #entry-view {
+  a-scene {
+    height: 100vh
+    width: 100vw
+  }
 }
 </style>

@@ -1,7 +1,8 @@
 <template>
   <div
     id="experience">
-      <h1>
+      <h1
+        class="page-title">
         {{ $t('menus.experience') }}
       </h1>
       <section>

@@ -1,7 +1,8 @@
 <template>
   <div
     id="projects">
-    <h1 class="page-title">
+    <h1
+      class="page-title">
       {{ $t('menus.projects') }}
     </h1>
     <nav

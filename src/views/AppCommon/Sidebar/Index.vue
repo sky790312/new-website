@@ -84,9 +84,11 @@ export default {
 
 #sidebar {
   background-color: $black
+  height: $mobile-header-height
 
   @media screen and (min-width: $mobile-break-point) {
     width: $sidebar-width
+    height: auto
     border-right: 1px groove $white
   }
 

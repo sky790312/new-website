@@ -117,7 +117,6 @@ export default {
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   -webkit-overflow-scrolling: touch
-  height: 100vh
   /*display: grid
   grid-template-areas:
     "sidebar" "content"
@@ -139,13 +138,6 @@ export default {
   /*.sidebar {
     grid-area: sidebar
   }*/
-
-  /*.router-view {
-    grid-area: content
-    display: flex
-    justify-content: center
-    align-items: center
-  }*/
 }
 
 .router-view {
@@ -154,6 +146,12 @@ export default {
   overflow: auto
   padding: 20px
   /*margin: auto*/
+
+  height: "calc(100vh - %s)" % $mobile-header-height
+
+  @media screen and (min-width: $mobile-break-point) {
+    height: 100vh
+  }
 }
 
 .sidebar-slide-enter-active, .sidebar-slide-leave-active {

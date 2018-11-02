@@ -101,7 +101,6 @@ export default {
 
 #home {
   // @extend .flex-center
-  height: calc(100vh - 85px)
   display: flex
   justify-content: center
   align-items: center
@@ -130,10 +129,6 @@ export default {
     // transform-style: preserve-3d
     transition: opacity 3s ease-in-out, transform 5s ease-in-out
     animation: splash 15s linear infinite both
-  }
-
-  @media screen and (min-width: $mobile-break-point) {
-    height: auto
   }
 
   .job-title {
