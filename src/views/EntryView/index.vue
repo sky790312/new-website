@@ -4,19 +4,18 @@
     <a-scene
       embedded
       :fog="scene.fog">
-      <a-sky
-        matrix>
-      </a-sky>
       <entry-text></entry-text>
       <entry-plane></entry-plane>
       <entry-camera></entry-camera>
+      <a-sky
+        matrix>
+      </a-sky>
     </a-scene>
-    <countdown-timer
+    <!-- <countdown-timer
       v-if="isMobileOrTablet()">
-    </countdown-timer>
+    </countdown-timer> -->
   </div>
 </template>
-
 <script>
 import AFRAME from 'aframe'
 import 'aframe-draw-component/dist/aframe-draw-component.min'
@@ -58,14 +57,16 @@ export default {
           dependencies: ['draw'],
           init () {
             this.draw = this.el.components.draw
+            this.draw.canvas.width = '512'
+            this.draw.canvas.height = '512'
             this.canvas = this.draw.canvas
             this.drops = []
             const columns = this.canvas.width / fontSize
             for (let i = 0; i < columns; i++) {
               this.drops[i] = 1
             }
+            this.el.object3D.children[0].material.side = 1
           },
-
           tick () {
             const ctx = this.draw.ctx
             ctx.fillStyle = 'rgba(0,0,0,0.05)'
@@ -73,11 +74,10 @@ export default {
             ctx.fillStyle = '#0F0'
             ctx.font = `${fontSize} px helvetica`
             for (let i = 0; i < this.drops.length; i++) {
-              const txt = chars[Math.floor(Math.random() * chars.length)]
-              ctx.fillText(txt, i * fontSize, this.drops[i] * fontSize)
-              if (this.drops[i] * fontSize > this.canvas.height &&
-                Math.random() > 0.975) {
-                this.drops[i] = 0
+              const text = chars[Math.floor(Math.random() * chars.length)]
+              ctx.fillText(text, i * fontSize, this.drops[i] * fontSize)
+              if (this.drops[i] * fontSize > this.canvas.height && Math.random() > 0.975) {
+                this.drops[i] = 0 // back to the top
               }
               this.drops[i] = this.drops[i] + 1
             }
@@ -103,12 +103,12 @@ export default {
     }
   },
 
-  mounted () {
+  beforeMount () {
     this.initMatrix()
     this.initListener()
-    if (this.isMobileOrTablet()) {
-      setTimeout(() => this.$emit('shouldShowEntryView', false), 6800)
-    }
+    // if (this.isMobileOrTablet()) {
+    //   setTimeout(() => this.$emit('shouldShowEntryView', false), 6800)
+    // }
   }
 }
 </script>

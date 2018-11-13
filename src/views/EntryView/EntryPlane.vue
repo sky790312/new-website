@@ -23,13 +23,14 @@ export default {
   data () {
     return {
       plane: {
-        position: '0 0 0',
-        rotation: '-90 0 0',
+        position: '0 -1 -1',
+        rotation: '-77.5 0 0',
         width: 4,
         height: 4,
         color: '#f8f8f8',
         animation: {
           attribute: 'rotation',
+          from: '-90 0 0',
           to: '-90 0 360',
           repeat: 'indefinite',
           easing: 'linear',
