@@ -2,10 +2,10 @@
   <div
     id="sidebar">
     <div
-      class="main-menu">
+      class="main">
       <i
-        class="sub-menu-bars fa fa-2x fa-bars"
-        @click.stop="onSubMenuBarsClick">
+        class="mobile-menu-bars fa fa-2x fa-bars"
+        @click.stop="onMobileMenuBarsClick">
       </i>
       <router-link
         class="router-link"
@@ -19,34 +19,65 @@
         </h4>
       </router-link>
     </div>
-    <nav
-      :class="['sub-menu', {'mobile-view': shouldShowSubMenu}]"
+    <div
+      :class="['sidebar-content-container', {'mobile-view': shouldShowSubMenu}]"
       @click.self="onMobileViewClick">
-      <ul>
-        <li
-          v-for="menu in sidebarMenus"
-          :key="menu.name"
-          class="menu">
-          <router-link
-            class="router-link"
-            :to="menu.routeConfig"
-            @click.native="closeSubMemu">
+      <nav
+        class="sidebar-content">
+        <ul>
+          <li
+            v-for="menu in sidebarMenus"
+            :key="menu.name"
+            class="menu">
+            <router-link
+              class="router-link"
+              :to="menu.routeConfig"
+              @click.native="closeSubMemu">
+              <i
+                :class="['fa', menu.icon]"
+                aria-hidden="true">
+              </i>
+              {{ $t(menu.text) }}
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+      <div
+        class="sidebar-footer">
+        <div>
+          <a
+            v-for="social in socials"
+            :key="social.name"
+            :href="social.linkUrl"
+            class="social"
+            target="_blank">
             <i
-              :class="['fa', menu.icon]"
-              aria-hidden="true">
+              :class="['fa fa-2x', social.icon]">
             </i>
-            {{ $t(menu.text) }}
-          </router-link>
-        </li>
-      </ul>
-    </nav>
+          </a>
+        </div>
+        <div
+          class="language-container">
+          <a
+            v-for="settingLanguage in settingLanguages"
+            :key="settingLanguage.name"
+            :class="['language', { 'active': language === settingLanguage.name}]"
+            @click="onSettingLanguageClick(settingLanguage.name)">
+            {{ settingLanguage.text }}
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import {
-  SIDEBAR_MENUS
+  SIDEBAR_MENUS,
+  SETTING_LANGUAGES,
+  SOCIALS
 } from '@/views/AppCommon/Sidebar/data'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Sidebar',
@@ -54,12 +85,24 @@ export default {
   data () {
     return {
       shouldShowSubMenu: false,
-      sidebarMenus: SIDEBAR_MENUS
+      sidebarMenus: SIDEBAR_MENUS,
+      settingLanguages: SETTING_LANGUAGES,
+      socials: SOCIALS
     }
   },
 
+  computed: {
+    ...mapGetters([
+      'language'
+    ])
+  },
+
   methods: {
-    onSubMenuBarsClick () {
+    ...mapActions([
+      'setLanguage'
+    ]),
+
+    onMobileMenuBarsClick () {
       this.shouldShowSubMenu = true
     },
 
@@ -74,6 +117,14 @@ export default {
       }
 
       this.closeSubMemu()
+    },
+
+    onSettingLanguageClick (settingLanguage) {
+      if (settingLanguage === this.language) {
+        return
+      }
+
+      this.setLanguage(settingLanguage)
     }
   }
 }
@@ -92,7 +143,7 @@ export default {
     border-right: 1px groove $white
   }
 
-  .main-menu {
+  .main {
     .router-link {
       display: block
       width: $sidebar-width
@@ -112,11 +163,13 @@ export default {
     }
   }
 
-  .sub-menu {
+  .sidebar-content-container {
     position: fixed
     top: 0
     left: -100vw
     height: 100vh
+    display: flex
+    flex-direction: column
     z-index: 1
     background: rgba(0, 0, 0, .8)
     padding: 20px
@@ -125,7 +178,7 @@ export default {
     @media screen and (min-width: $mobile-break-point) {
       position: relative
       left: 0
-      height: auto
+      height: "calc(100vh - %s)" % $mobile-header-height
       padding: 0 20px
     }
 
@@ -149,7 +202,9 @@ export default {
       width: $sidebar-width
       border-right: 1px groove $white
     }
+  }
 
+  .sidebar-content {
     .menu {
       padding: 10px 15px
     }
@@ -184,7 +239,46 @@ export default {
     }
   }
 
-  .sub-menu-bars {
+  .sidebar-footer {
+    margin: auto 0 10px 0
+    text-align: center
+
+    .fa {
+      padding: 0 5px
+    }
+  }
+
+  .social {
+    color: $white
+    opacity: 1
+
+    &:hover {
+      opacity: 0.8
+    }
+  }
+
+  .language-container {
+    margin: 10px 0
+    padding-top: 10px
+    border-top: 1px solid white
+
+    .language {
+      opacity: 0.4
+
+      &:hover, &.active {
+        opacity: 1
+      }
+
+      &:not(:last-child) {
+        &:after {
+          content: '|'
+          opacity: 1
+        }
+      }
+    }
+  }
+
+  .mobile-menu-bars {
     position: absolute
     top: 25px
     left: 20px

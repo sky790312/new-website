@@ -27,3 +27,25 @@ export const SIDEBAR_MENUS = [{
     name: 'projects'
   }
 }]
+
+export const SETTING_LANGUAGES = [{
+  name: 'zh-tw',
+  text: '中文'
+}, {
+  name: 'en',
+  text: 'English'
+}]
+
+export const SOCIALS = [{
+  name: 'github',
+  icon: 'fa-github',
+  linkUrl: 'https://github.com/sky790312'
+}, {
+  name: 'medium',
+  icon: 'fa-medium',
+  linkUrl: 'https://medium.com/@sky790312'
+}, {
+  name: 'linkedin',
+  icon: 'fa-linkedin',
+  linkUrl: 'https://www.linkedin.com/in/sky790312'
+}]
