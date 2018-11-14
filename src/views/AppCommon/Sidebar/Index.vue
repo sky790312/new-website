@@ -167,7 +167,7 @@ export default {
     position: fixed
     top: 0
     left: -100vw
-    height: 100vh
+    height: 100%
     display: flex
     flex-direction: column
     z-index: 1
@@ -178,7 +178,7 @@ export default {
     @media screen and (min-width: $mobile-break-point) {
       position: relative
       left: 0
-      height: "calc(100vh - %s)" % $mobile-header-height
+      height: "calc(100% - %s)" % $mobile-header-height
       padding: 0 20px
     }
 
@@ -188,7 +188,7 @@ export default {
       position: absolute
       top: 0
       left: $sidebar-width
-      height: 100vh
+      height: 100%
       width: "calc(100vw - %s)" % $sidebar-width
       background-color: rgba($black, 0.7)
 

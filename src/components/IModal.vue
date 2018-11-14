@@ -171,7 +171,7 @@ $black = #000
 
 .modal-body {
   margin: 20px 0
-  max-height: calc(100vh - 140px)
+  max-height: calc(100% - 140px)
   overflow-y: scroll
 
   @media screen and (min-width: $mobile-break-point) {
