@@ -16,7 +16,7 @@ const setI18nLanguage = language => {
 const loadLanguageAsync = language => {
   if (i18n.locale !== language) {
     if (!alreadyLoadedLanguages.includes(language)) {
-      return import(`@/locales/${language}`).then(locales => {
+      return import(`@/locales/${language}/index.js`).then(locales => {
         i18n.setLocaleMessage(language, locales.default)
         alreadyLoadedLanguages.push(language)
         return setI18nLanguage(language)
@@ -32,7 +32,7 @@ const types = {
 }
 
 const state = {
-  language: 'en'
+  language: DEFAULT_LANGUAGE
 }
 
 const getters = {
@@ -40,7 +40,7 @@ const getters = {
 }
 
 const actions = {
-  async setLanguage ({ commit }, language = 'en') {
+  async setLanguage ({ commit }, language = DEFAULT_LANGUAGE) {
     await loadLanguageAsync(language)
     commit(types.SET_LANGUAGE, language)
     return language
@@ -48,7 +48,7 @@ const actions = {
 }
 
 const mutations = {
-  [types.SET_LANGUAGE] (state, language = 'en') {
+  [types.SET_LANGUAGE] (state, language = DEFAULT_LANGUAGE) {
     state.language = language
   }
 }
