@@ -65,7 +65,7 @@
             <div
               v-show="item.skills && item.skills.length"
               class="experience-skills-container">
-              skills: 
+              {{ $t('menus.skills') }}: 
               <span
                 v-for="skill in item.skills"
                 :key="skill">

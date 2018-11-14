@@ -22,12 +22,12 @@ export default {
     return {
       entryTitle: {
         text: this.$t('entryView.entryTitle'),
-        position: '-2.2 2 0',
+        position: '-2.2 0.6 0',
         width: 7
       },
       entryDesc: {
         text: this.$t('entryView.entryDesc'),
-        position: '-3.3 1.4 0',
+        position: '-3.3 0 0',
         width: 7
       }
     }
