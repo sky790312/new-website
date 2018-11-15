@@ -9,7 +9,7 @@
       :ref="`${skillCategory.name}`">
       <div
         class="title">
-        {{ skillCategory.title }}
+        {{ $t(`skills.${skillCategory.name}`) }}
       </div>
       <div
         class="item sub"

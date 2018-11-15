@@ -1,4 +1,6 @@
 export const SKILLS_TW = {
+  main: `主要技能`,
+  other: `其他技能`,
   vue: `熟悉vue生態系, 擅長打造pure vue元件並使用vuepress來產生文件. 在專案中分清楚project/common元件差異, 這個網站就是最好的範例.`,
   es2015: `使用async/await搭配promise已是基本配備, 其他特性也靈活運用中. 個人認為善用class constructor不依靠任何framework已能輕鬆地建立任何一個應用.`,
   test: `Unit test: 使用Karma/Jest測試vue相關生態系. E2e test: 使用cypress為主, 依據user flow撰寫test case. 結合CI, 現在已不太能接受沒有寫任何測試的專案, 但也不應該有覆蓋率的迷失.`,

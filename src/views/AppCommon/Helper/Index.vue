@@ -28,7 +28,7 @@
         class="contact-info-container">
         <div>
           <p>
-            online CV: 
+            Online CV: 
             <a
               class="link"
               target="_blank"

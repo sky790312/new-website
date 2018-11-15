@@ -1,7 +1,6 @@
 // x: 1~18, y: 1~10
 export const SKILLS = [{
   name: 'main',
-  title: 'Main skills',
   position: {
     pc: {
       x: 6,
@@ -155,7 +154,6 @@ export const SKILLS = [{
   }]
 }, {
   name: 'other',
-  title: 'Other skills',
   position: {
     pc: {
       x: 13,
