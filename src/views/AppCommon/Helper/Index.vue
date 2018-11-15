@@ -16,12 +16,38 @@
       :menus="helper.menus"
       @onIRotateInMenusClick="handleHelperMenusClick">
       <i-head-boy
-        class="helper-major"
+        :class="['helper-major', {'speeching': shouldShowSpeechBubble}]"
         :isActive="helper.isActive"
-        @onIHeadBoyClick="handleHelperMajorClick"
-        :class="{'speeching': shouldShowSpeechBubble}">
+        @onIHeadBoyClick="handleHelperMajorClick">
       </i-head-boy>
     </i-rotate-in-menus>
+    <transition
+      name="contact-info-slide">
+      <div
+        v-if="helper.isActive"
+        class="contact-info-container">
+        <div>
+          <p>
+            online CV: 
+            <a
+              class="link"
+              target="_blank"
+              href="mailto:sky790312yks@gmail.com">
+              Link
+            </a>
+          </p>
+          <p>
+            Email:
+            <a
+              class="link"
+              target="_blank"
+              href="https://sky790312.herokuapp.com/cv-english.pdf">
+              sky790312yks@gmail.com
+            </a>
+          </p>
+        </div>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -145,6 +171,27 @@ export default {
 
   .helper-menu {
     cursor: pointer
+  }
+
+  .contact-info-container {
+    position: absolute
+    bottom: 0
+    width: 100%
+    text-align: center
+    background-color: $black
+
+    .link {
+      color: $white
+    }
+  }
+
+  .contact-info-slide-enter-active {
+    transition: all 1s ease
+  }
+
+  .contact-info-slide-enter, .contact-info-slide-leave-to {
+    opacity: 0
+    transform: translateY(50px)
   }
 }
 
