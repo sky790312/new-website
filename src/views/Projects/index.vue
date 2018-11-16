@@ -74,9 +74,7 @@
       <div
         v-for="project in filteredProjects"
         :key="project.name"
-        :class="['project', {'no-link': !project.linkUrl}]"
-        @mouseenter="onProjectHover(project, true)"
-        @mouseleave="onProjectHover(project, false)">
+        :class="['project', {'no-link': !project.linkUrl}]">
         <div
           class="project-inner"
           @click="onProjectClick(project)">
@@ -111,6 +109,60 @@
         </div>
       </div>
     </transition-group>
+    <i-modal
+      v-if="shouldShowProjectModal"
+      @closeModal="shouldShowProjectModal = false">
+      <div
+        slot="header">
+        <h3>
+          {{ currentProject.company }} - {{ currentProject.title }} 
+        </h3>
+      </div>
+      <div
+        slot="body">
+        <p>
+          {{ $t(`helper.mermer.projects.${currentProject.name}`) }}
+        </p>
+        <div
+          class="current-project-container">
+          <div
+            class="current-project-left">
+            <img :src="currentProject.imageUrl">
+          </div>
+          <div
+            class="current-project-right">
+            <div>
+              <p
+                class="status">
+                {{ $t('projects.status') }}: 
+                <template v-if="!!currentProject.linkUrl">
+                  {{ $t('projects.active') }}
+                </template>
+                <template v-else>
+                  {{ $t('projects.nonActive') }}
+                </template>
+              </p>
+              <div
+                class="project-skills">
+                <span
+                  v-for="skill in currentProject.skills"
+                  :key="skill"
+                  class="menu">
+                  {{ skill }}
+                </span>
+              </div>
+            </div>
+            <a
+              v-if="!!currentProject.linkUrl"
+              class="link"
+              target="_blank"
+              :href="currentProject.linkUrl">
+              {{ $t('projects.goProject') }}
+            </a>
+          </div>
+        </div>
+      </div>
+    </i-modal>
   </div>
 </template>
 
@@ -122,17 +174,21 @@ import {
 import {
   throttle
 } from '@/utils'
+const IModal = () => import('@/components/IModal')
 
 export default {
   name: 'Projects',
 
   components: {
+    IModal
   },
 
   data () {
     return {
       projects: PROJECTS,
       companySkills: [],
+      shouldShowProjectModal: false,
+      currentProject: {},
       subMenuContainerStyle: {
         height: ''
       },
@@ -194,8 +250,6 @@ export default {
 
   methods: {
     ...mapActions([
-      'setSpeechBubble',
-      'setShouldShowSpeechBubble'
     ]),
 
     onMainMenuClick (currentMenu, currentMenuState) {
@@ -214,22 +268,9 @@ export default {
         : this.clearFilter(mainMenu, subMenu, this.filters[mainMenu][subMenu].isActive)
     },
 
-    onProjectHover (project, isHover) {
-      const speechBubbleText = isHover ? project.name : ''
-      const speechBubble = {
-        type: 'projects',
-        text: speechBubbleText
-      }
-      this.setSpeechBubble(speechBubble)
-      this.setShouldShowSpeechBubble(isHover)
-    },
-
     onProjectClick (project) {
-      if (!project.linkUrl) {
-        return
-      }
-
-      window.open(project.linkUrl)
+      this.currentProject = project
+      this.shouldShowProjectModal = true
     },
 
     clearFilter (mainMenu, subMenu, state) {
@@ -529,18 +570,18 @@ export default {
       }
     }
 
-    .project-skills {
-      display: flex
-      flex-wrap: wrap
-      margin-top: 10px
-      padding-top: 10px
-      text-align: left
-      border-top: 1px solid $white
-    }
-
     .menu {
       cursor: default
     }
+  }
+
+  .project-skills {
+    display: flex
+    flex-wrap: wrap
+    margin-top: 10px
+    padding-top: 10px
+    text-align: left
+    border-top: 1px solid $white
   }
 
   .sub-menu-enter,
@@ -562,6 +603,30 @@ export default {
 
   .sub-menu-enter-active {
     transition-delay: .1s
+  }
+
+  .current-project-container {
+    display: flex
+    margin-top: 40px
+  }
+
+  .current-project-left {
+    @extend .flex-center    
+  }
+
+  .current-project-right {
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    margin-left: 20px
+
+    .status {
+      margin: 0 0 0 5px
+    }
+
+    .link {
+      margin-left: auto
+    }
   }
 
   .project-enter {

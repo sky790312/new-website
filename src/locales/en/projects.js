@@ -1,5 +1,8 @@
 export const PROJECTS_EN = {
-  nonActive: `non-active`
+  status: `Status`,
+  active: `active`,
+  nonActive: `non-active`,
+  goProject: `Check this project`
 }
 
 export const MERMER_PROJECTS_EN = {

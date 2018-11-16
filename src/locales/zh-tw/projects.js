@@ -1,5 +1,8 @@
 export const PROJECTS_TW = {
-  nonActive: `已不存在`
+  status: `專案狀態`,
+  active: `在線運行`,
+  nonActive: `已不存在`,
+  goProject: `前往該專案`
 }
 
 export const MERMER_PROJECTS_TW = {
