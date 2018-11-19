@@ -5,7 +5,7 @@ import {
   MERMER_PROJECTS_TW
 } from '@/locales/zh-tw/projects'
 
-export const HELPER_EN = {
+export const HELPER_TW = {
   menu: {
     aboutWebsite: `關於新網站`,
     oldWebsite: `前往舊網站`,

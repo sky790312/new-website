@@ -246,8 +246,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~styl/variables'
-@import '~styl/extends'
 
 $mainItemWidth = 360px
 $mainItemHeight = 320px

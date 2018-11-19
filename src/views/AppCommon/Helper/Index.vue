@@ -124,8 +124,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~styl/variables'
-@import '~styl/extends'
 
 #helper {
   position: fixed

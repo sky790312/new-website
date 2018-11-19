@@ -92,6 +92,13 @@ module.exports = {
       minChunks: (module, count) => (
         count >= 2
       )
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        stylus: {
+          import: [path.resolve(__dirname, '../src/stylus/variables.styl'), path.resolve(__dirname, '../src/stylus/extends.styl')]
+        }
+      }
     })
   ]
 }

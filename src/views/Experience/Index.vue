@@ -112,8 +112,6 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~styl/variables'
-@import '~styl/extends'
 
 $experience-circle-width = 50px
 

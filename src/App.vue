@@ -109,8 +109,6 @@ export default {
 </style>
 
 <style lang="stylus" scoped>
-@import '~styl/variables'
-@import '~styl/extends'
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif
