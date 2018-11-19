@@ -42,7 +42,7 @@ export default {
   data () {
     return {
       myName: 'kevinhu',
-      welcomeText: this.$t('home.welcome'),
+      welcomeText: 'Welcome to my website, enjoy and have fun!',
       mainSkillTags: [{
         name: 'vue',
         text: 'Vue'

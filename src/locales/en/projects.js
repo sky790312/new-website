@@ -11,7 +11,7 @@ export const MERMER_PROJECTS_EN = {
   dollhouse: `Project 3d dollhouse is a prototype which combined with aframe and 3d.io.`,
   aiteOfficial: `Develop and maintain aite official website by wordpress`,
   oldFurnitureApp: `Maintain the old furniture istaging app by angularjs.`,
-  newFurnitureApp: `Develop and test the new furniture istaging app by react-native.`,
+  newFurnitureApp: `Develop and test the new furniture istaging app by react-native. Including Navigator, shoutem, native-base, code-push, grid-view..etc.`,
   vrportal: `User in portal can subscribe the service and check the data analytic which using vue, d3 and gapi.`,
   cpcOfficial: `Develop and maintain aite official website by wordpress`,
   vreditorCn: `User in vrmaker editor can login by taobao api and build their virtual tour by aframe which combined with vue.`,

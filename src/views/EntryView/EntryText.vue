@@ -21,12 +21,12 @@ export default {
   data () {
     return {
       entryTitle: {
-        text: this.$t('entryView.entryTitle'),
+        text: `Welcome to KevinHu's website`,
         position: '-2.2 0.6 0',
         width: 7
       },
       entryDesc: {
-        text: this.$t('entryView.entryDesc'),
+        text: `Please move to the following section and click!`,
         position: '-3.3 0 0',
         width: 7
       }

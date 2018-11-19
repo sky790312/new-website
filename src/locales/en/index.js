@@ -1,48 +1,29 @@
 import {
+  MENUS_EN
+} from '@/locales/en/menus'
+import {
   EXPERIENCE_EN
 } from '@/locales/en/experience'
 import {
   ABOUT_EN
 } from '@/locales/en/about'
 import {
-  SKILLS_EN,
-  MERMER_SKILLS_EN
+  SKILLS_EN
 } from '@/locales/en/skills'
 import {
-  PROJECTS_EN,
-  MERMER_PROJECTS_EN
+  PROJECTS_EN
 } from '@/locales/en/projects'
+import {
+  HELPER_EN
+} from '@/locales/en/helper'
 
 const en = {
-  entryView: {
-    entryTitle: `Welcome to KevinHu's website`,
-    entryDesc: `Please move to the following section and click!`
-  },
-  menus: {
-    about: `About`,
-    skills: `Skills`,
-    experience: `Experience`,
-    projects: `Projects`
-  },
-  home: {
-    welcome: `Welcome to my website, enjoy and have fun!`
-  },
+  menus: MENUS_EN,
   about: ABOUT_EN,
   skills: SKILLS_EN,
   experience: EXPERIENCE_EN,
   projects: PROJECTS_EN,
-  helper: {
-    menu: {
-      aboutWebsite: 'About new website',
-      oldWebsite: `To old website`,
-      messageBoard: `Message board`
-    },
-    mermer: {
-      skills: MERMER_SKILLS_EN,
-      projects: MERMER_PROJECTS_EN
-    }
-  }
-  // jobTitle: 'Frontend Developer'
+  helper: HELPER_EN
 }
 
 export default en

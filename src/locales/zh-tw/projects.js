@@ -11,7 +11,7 @@ export const MERMER_PROJECTS_TW = {
   dollhouse: `dollhouse是個結合3d.io與webVR aframe的prototype.`,
   aiteOfficial: `aite官網使用wordpress來開發與維護.`,
   oldFurnitureApp: `維護舊有的istaging web app, 使用angularjs.`,
-  newFurnitureApp: `開發並測試性新專案新的istaging web app, 使用react-native.`,
+  newFurnitureApp: `使用react-native開發並測試性新專案新的istaging web app, 包含Navigator, shoutem, native-base, code-push, grid-view等等..`,
   vrportal: `istaging用戶後台, 結合google analytic資料分析, 使用vue, d3, gapi.`,
   cpcOfficial: `cpc官網使用wordpress來開發與維護.`,
   vreditorCn: `Livetour cn版本編輯後台, 可以使用taobao登入. 使用vue結合aframe編輯virtual tour.`,

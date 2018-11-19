@@ -526,10 +526,6 @@ export default {
       @media screen and (min-width: $mobile-break-point) {
         opacity: 1
 
-        .project-inner {
-          cursor: default
-        }
-
         .project-title {
           text-decoration: line-through
         }
@@ -584,6 +580,40 @@ export default {
     border-top: 1px solid $white
   }
 
+  .current-project-container {
+    display: flex
+    flex-direction: column
+    margin-top: 40px
+
+    @media screen and (min-width: $mobile-break-point) {
+      flex-direction: row
+    }
+  }
+
+  .current-project-left {
+    @extend .flex-center    
+  }
+
+  .current-project-right {
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: 100%
+    margin: 20px 0 0 0
+
+    @media screen and (min-width: $mobile-break-point) {
+      margin: 0 0 0 20px
+    }
+
+    .status {
+      margin: 0 0 0 5px
+    }
+
+    .link {
+      margin: 20px 0 0 auto
+    }
+  }
+
   .sub-menu-enter,
   .sub-menu-leave-to {
     opacity: 0
@@ -603,30 +633,6 @@ export default {
 
   .sub-menu-enter-active {
     transition-delay: .1s
-  }
-
-  .current-project-container {
-    display: flex
-    margin-top: 40px
-  }
-
-  .current-project-left {
-    @extend .flex-center    
-  }
-
-  .current-project-right {
-    display: flex
-    flex-direction: column
-    justify-content: space-between
-    margin-left: 20px
-
-    .status {
-      margin: 0 0 0 5px
-    }
-
-    .link {
-      margin-left: auto
-    }
   }
 
   .project-enter {
