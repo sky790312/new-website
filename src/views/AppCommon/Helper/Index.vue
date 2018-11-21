@@ -250,7 +250,7 @@ $helper-footer-height = 85px
     top: 0
     left: 0
     width: 100%
-    height: "calc(100% - %s)" % $footer-height
+    height: "calc(100% - %s)" % $helper-footer-height
     overflow: auto
     padding: 20px
     background-color: #00C993
