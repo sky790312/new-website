@@ -10,7 +10,7 @@
       @onMouseLeave="handleSpeechBubbleLeave">
     </i-speech-bubble>
     <i-rotate-in-menus
-      class="helper-menu"
+      :class="['helper-menu', {'to-left': shouldShowAboutWebsite}]"
       :isActive="helper.isActive"
       :useI18n="true"
       :menus="helper.menus"
@@ -21,6 +21,35 @@
         @onIHeadBoyClick="handleHelperMajorClick">
       </i-head-boy>
     </i-rotate-in-menus>
+    <transition
+      name="about-website-slide">
+      <div
+        v-show="shouldShowAboutWebsite"
+        class="about-website-container">
+        <a
+          class="close"
+          @click="closeAboutWebsite">
+          x
+        </a>
+        <h1>
+          {{ $t('helper.menu.aboutWebsite') }}
+        </h1>
+        <p
+          class="about-website-desc">
+          {{ $t('helper.aboutWebsite.desc') }}          
+        </p>
+        <img
+          class="about-website-img"
+          loop="infinite"
+          :src="entryPageImageUrl">
+        <h3>
+          {{ $t('helper.aboutWebsite.conclusion') }}
+          <i
+            class="fa fa-3x fa-hand-peace-o">
+          </i>
+        </h3>
+      </div>
+    </transition>
     <transition
       name="contact-info-slide">
       <div
@@ -75,7 +104,9 @@ export default {
       helper: {
         isActive: false,
         menus: MENUS
-      }
+      },
+      shouldShowAboutWebsite: false,
+      entryPageImageUrl: require('~assets/helper/entry-page.gif')
     }
   },
 
@@ -96,12 +127,15 @@ export default {
     ]),
 
     handleHelperMajorClick () {
+      this.shouldShowAboutWebsite = false
       this.helper.isActive = !this.helper.isActive
     },
 
     handleHelperMenusClick (menu) {
+      const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === menu.name)
+      foundMenu.isActive = !foundMenu.isActive
       const menus = {
-        aboutWebsite: () => {},
+        aboutWebsite: () => { this.handleAboutWebsite() },
         oldWebsite: () => { this.handleOldwebsiteMenu() },
         messageBoard: () => {}
       }
@@ -116,14 +150,27 @@ export default {
       this.setShouldShowSpeechBubble(false)
     },
 
+    handleAboutWebsite () {
+      this.shouldShowAboutWebsite = !this.shouldShowAboutWebsite
+    },
+
     handleOldwebsiteMenu () {
+      const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'oldWebsite')
+      foundMenu.isActive = false
       window.open('https://sky790312.herokuapp.com')
+    },
+
+    closeAboutWebsite () {
+      const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'aboutWebsite')
+      foundMenu.isActive = false
+      this.shouldShowAboutWebsite = false
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
+$helper-footer-height = 85px
 
 #helper {
   position: fixed
@@ -150,6 +197,7 @@ export default {
   }
 
   .helper-major {
+    cursor: pointer
     transition: all .2s ease
 
     &::after {
@@ -168,18 +216,78 @@ export default {
   }
 
   .helper-menu {
-    cursor: pointer
+    position: relative
+    transition: all 1s
+
+    &.to-left {
+      right: 0
+      width: 50%
+      height: 100%
+      margin-left: 0
+      @extend .flex-center
+
+      @media screen and (min-width: $mobile-break-point) {
+        margin-left: 50%
+      }
+    }
   }
 
   .contact-info-container {
     position: absolute
     bottom: 0
     width: 100%
+    height: $helper-footer-height
     text-align: center
     background-color: $black
 
     .link {
       color: $white
+    }
+  }
+
+  .about-website-container {
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: "calc(100% - %s)" % $footer-height
+    overflow: auto
+    padding: 20px
+    background-color: #00C993
+
+    @media screen and (min-width: $mobile-break-point) {
+      width: 50%
+    }
+
+    .close {
+      position: absolute
+      top: 10px
+      right: 15px
+      cursor: pointer
+      font-size: 24px
+      font-weight: bold
+      line-height: 24px
+    }
+
+    .about-website-desc {
+      font-size: 18px
+    }
+
+    .about-website-img {
+      max-width: 100%
+    }
+  }
+
+  .about-website-slide-enter-active, .about-website-slide-leave-active  {
+    transition: all 1s ease
+  }
+
+  .about-website-slide-enter, .about-website-slide-leave-to {
+    opacity: 0
+    left: -100%
+
+    @media screen and (min-width: $mobile-break-point) {
+      left: -50%
     }
   }
 

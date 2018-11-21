@@ -1,21 +1,26 @@
 export const MENUS = [{
   name: 'aboutWebsite',
   text: 'helper.menu.aboutWebsite',
-  status: 'completed'
+  status: 'completed',
+  isActive: false
 }, {
   name: 'oldWebsite',
   text: 'helper.menu.oldWebsite',
-  status: 'completed'
+  status: 'completed',
+  isActive: false
 }, {
   name: 'messageBoard',
   text: 'helper.menu.messageBoard',
-  status: 'completed'
+  status: 'completed',
+  isActive: false
 }, {
-  name: 4,
-  text: '4',
-  status: 'completed'
+  name: 'moreme',
+  text: 'helper.menu.moreme',
+  status: 'completed',
+  isActive: false
 }, {
   name: 5,
   text: '5',
-  status: 'pending'
+  status: 'pending',
+  isActive: false
 }]
