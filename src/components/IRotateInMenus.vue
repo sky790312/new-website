@@ -4,12 +4,12 @@
     <ul
       :class="['menus', {'active': isActive}]">
       <li
-        v-for="menu in menus"
+        v-for="menu in iMenus"
         :key="menu.name"
         class="menu">
         <a
           @click="onIRotateInMenusClick(menu)"
-          :class="['menu-title', menu.status]">
+          :class="['menu-title', menu.status, {'acitve' : menu.isActive}]">
             {{ useI18n ? $t(menu.text) : menu.text }}
         </a>
       </li>
@@ -44,8 +44,23 @@ export default {
     }
   },
 
+  computed: {
+    iMenus () {
+      return this.menus.map(menu => ({
+        ...menu,
+        status: menu.status || 'completed',
+        isActive: menu.isActive || false
+      }))
+    }
+  },
+
   methods: {
     onIRotateInMenusClick (menu) {
+      if (menu.status !== 'completed') {
+        return
+      }
+
+      menu.isActive = !menu.isActive
       this.$emit('onIRotateInMenusClick', menu)
     }
   },
@@ -122,7 +137,7 @@ for $i in (1..$item-count) {
   transition: .2s
 
   &.completed {
-    &:hover {
+    &:hover, &.acitve {
       box-shadow: 0 0 0 ($item-size / 40) rgba($white, 0.3)
       background-color: rgba($item-background, 0.3)
     }
