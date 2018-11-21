@@ -129,6 +129,7 @@ export default {
     handleHelperMajorClick () {
       this.shouldShowAboutWebsite = false
       this.helper.isActive = !this.helper.isActive
+      this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
     },
 
     handleHelperMenusClick (menu) {
