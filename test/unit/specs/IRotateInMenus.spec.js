@@ -14,13 +14,15 @@ const generateIRotateInMenus = (menus = [], isActive = false) => {
 const completedObj = {
   name: 1,
   text: '1',
-  status: 'completed'
+  status: 'completed',
+  isActive: false
 }
 
 const pendingObj = {
   name: 2,
   text: '2',
-  status: 'pending'
+  status: 'pending',
+  isActive: false
 }
 
 const menus = [
@@ -46,7 +48,7 @@ describe('IRotateInMenus', () => {
     expect(pendingMenu.querySelector('.menu-title').classList.contains(pendingObj.status)).to.equal(true)
   })
 
-  it('should has active class when receive active props', () => {
+  it('should menus has active class when receive active props', () => {
     const isActive = true
     const vm = generateIRotateInMenus(menus, isActive)
     const menus = vm.$el.querySelector('.menus')

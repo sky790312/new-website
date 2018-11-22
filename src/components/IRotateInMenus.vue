@@ -60,7 +60,6 @@ export default {
         return
       }
 
-      menu.isActive = !menu.isActive
       this.$emit('onIRotateInMenusClick', menu)
     }
   },
