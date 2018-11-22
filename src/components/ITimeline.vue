@@ -6,7 +6,8 @@
       :key="item.key"
       @mouseenter="onItemHover(item, true)"
       @mouseleave="onItemHover(item, false)">
-      <slot :item="item">
+      <slot
+        :item="item">
       </slot>
     </div>
   </div>

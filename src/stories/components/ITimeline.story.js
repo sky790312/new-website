@@ -35,6 +35,9 @@ stories
           <p>
             It will divide the width equally with each item and it's RWD with 768px breakpoint.
           </p>
+          <p>
+            (Looks like storybook still have bug to render slot-scope component.)
+          </p>
           <i-timeline
             :items="items"
             @onItemHover="handleItemHover">
@@ -42,9 +45,6 @@ stories
               slot-scope="{ item }">
               <p>
                 {{item}}
-              </p>
-              <p>
-                {{ item.text }}
               </p>
             </template>
           </i-timeline>
