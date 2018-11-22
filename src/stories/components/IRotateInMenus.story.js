@@ -16,27 +16,32 @@ stories
     const menu1 = object('1', {
       name: 1,
       text: 'no status menu',
-      status: ''
+      status: '',
+      isActive: false
     }, 'menus-group')
     const menu2 = object('2', {
       name: 2,
       text: 'pending menu',
-      status: 'pending'
+      status: 'pending',
+      isActive: false
     }, 'menus-group')
     const menu3 = object('3', {
       name: 3,
       text: 'complete menu',
-      status: 'completed'
+      status: 'completed',
+      isActive: false
     }, 'menus-group')
     const menu4 = object('4', {
       name: 4,
       text: '4',
-      status: 'completed'
+      status: 'completed',
+      isActive: false
     }, 'menus-group')
     const menu5 = object('5', {
       name: 5,
       text: '5',
-      status: 'completed'
+      status: 'completed',
+      isActive: false
     }, 'menus-group')
     const menus = [menu1, menu2, menu3, menu4, menu5]
     const isActive = false
@@ -46,6 +51,7 @@ stories
       <div>
         <i-rotate-in-menus
           :isActive="isActive"
+          :useI18n="false"
           :menus="menus"
           @onIRotateInMenusClick="handleIRotateInMenusClick">
           <div>
@@ -53,6 +59,9 @@ stories
             active: <input v-model="isActive" type="checkbox">
           </div>
         </i-rotate-in-menus>
+        <p style="position: absolute;">
+          Can only use 5 menus now, use i18n or not.
+        </p>
       </div>
       `,
       data () {
@@ -62,7 +71,11 @@ stories
         }
       },
       methods: { 
-        handleIRotateInMenusClick: action('click menu: ')
+        handleIRotateInMenusClick (menu) {
+          const foundMenu = menus.find(rotateInMenu => rotateInMenu.name === menu.name)
+          foundMenu.isActive = !foundMenu.isActive
+          action('click menu: ')(menu)
+        }
       }
     }
   }
