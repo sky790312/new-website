@@ -6,11 +6,11 @@
       v-if="shouldShowSpeechBubble"
       :text="currentSpeechBubbleText"
       :disabledHover="true"
-      @onMouseEnter="handleSpeechBubbleEnter"
-      @onMouseLeave="handleSpeechBubbleLeave">
+      @onMouseEnter="handleSpeechBubbleHover(true)"
+      @onMouseLeave="handleSpeechBubbleHover(false)">
     </i-speech-bubble>
     <i-rotate-in-menus
-      :class="['helper-menu', {'to-left': shouldShowAboutWebsite}]"
+      :class="['helper-menu', {'to-left': shouldShowAboutWebsite}, {'to-right': shouldShowMoreme}]"
       :isActive="helper.isActive"
       :useI18n="true"
       :menus="helper.menus"
@@ -48,6 +48,14 @@
             class="fa fa-3x fa-hand-peace-o">
           </i>
         </h3>
+      </div>
+    </transition>
+    <transition
+      name="moreme-slide">
+      <div
+        v-show="shouldShowMoreme"
+        class="moreme-container">
+        moreme ..
       </div>
     </transition>
     <transition
@@ -105,7 +113,6 @@ export default {
         isActive: false,
         menus: MENUS
       },
-      shouldShowAboutWebsite: false,
       entryPageImageUrl: require('~assets/helper/entry-page.gif')
     }
   },
@@ -118,6 +125,16 @@ export default {
 
     currentSpeechBubbleText () {
       return this.$t(`helper.mermer.${this.speechBubble.type}.${this.speechBubble.text}`)
+    },
+
+    shouldShowAboutWebsite () {
+      const aboutWebsiteMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'aboutWebsite')
+      return aboutWebsiteMenu.isActive
+    },
+
+    shouldShowMoreme () {
+      const moremeMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'moreme')
+      return moremeMenu.isActive
     }
   },
 
@@ -127,44 +144,47 @@ export default {
     ]),
 
     handleHelperMajorClick () {
-      this.shouldShowAboutWebsite = false
       this.helper.isActive = !this.helper.isActive
       this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
     },
 
     handleHelperMenusClick (menu) {
-      const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === menu.name)
-      foundMenu.isActive = !foundMenu.isActive
+      // const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === menu.name)
+      // foundMenu.isActive = !foundMenu.isActive
       const menus = {
-        aboutWebsite: () => { this.handleAboutWebsite() },
+        aboutWebsite: () => { this.handleAboutWebsiteMenu() },
         oldWebsite: () => { this.handleOldwebsiteMenu() },
-        messageBoard: () => {}
+        messageBoard: () => {},
+        moreme: () => { this.handleMoremeMenu() }
       }
       return menus[menu.name]()
     },
 
-    handleSpeechBubbleEnter () {
-      this.setShouldShowSpeechBubble(true)
+    handleSpeechBubbleHover (shouldShowSpeechBubble) {
+      this.setShouldShowSpeechBubble(shouldShowSpeechBubble)
     },
 
-    handleSpeechBubbleLeave () {
-      this.setShouldShowSpeechBubble(false)
-    },
-
-    handleAboutWebsite () {
-      this.shouldShowAboutWebsite = !this.shouldShowAboutWebsite
+    handleAboutWebsiteMenu () {
+      const moremeMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'moreme')
+      moremeMenu.isActive = false
+      const aboutWebsiteMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'aboutWebsite')
+      aboutWebsiteMenu.isActive = !aboutWebsiteMenu.isActive
     },
 
     handleOldwebsiteMenu () {
-      const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'oldWebsite')
-      foundMenu.isActive = false
       window.open('https://sky790312.herokuapp.com')
     },
 
+    handleMoremeMenu () {
+      const aboutWebsiteMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'aboutWebsite')
+      aboutWebsiteMenu.isActive = false
+      const moremeMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'moreme')
+      moremeMenu.isActive = !moremeMenu.isActive
+    },
+
     closeAboutWebsite () {
-      const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'aboutWebsite')
-      foundMenu.isActive = false
-      this.shouldShowAboutWebsite = false
+      const aboutWebsiteMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'aboutWebsite')
+      aboutWebsiteMenu.isActive = false
     }
   }
 }
@@ -220,15 +240,27 @@ $helper-footer-height = 85px
     position: relative
     transition: all 1s
 
-    &.to-left {
-      right: 0
+    &.to-left, &.to-right {
       width: 50%
       height: 100%
-      margin-left: 0
       @extend .flex-center
+    }
+
+    &.to-left {
+      // right: 0
+      margin-left: 0
 
       @media screen and (min-width: $mobile-break-point) {
         margin-left: 50%
+      }
+    }
+
+    &.to-right {
+      // left: 0
+      margin-right: 0
+
+      @media screen and (min-width: $mobile-break-point) {
+        margin-right: 50%
       }
     }
   }
@@ -246,15 +278,13 @@ $helper-footer-height = 85px
     }
   }
 
-  .about-website-container {
+  .about-website-container, .moreme-container {
     position: absolute
     top: 0
-    left: 0
     width: 100%
     height: "calc(100% - %s)" % $helper-footer-height
     overflow: auto
     padding: 20px
-    background-color: #00C993
 
     @media screen and (min-width: $mobile-break-point) {
       width: 50%
@@ -269,6 +299,11 @@ $helper-footer-height = 85px
       font-weight: bold
       line-height: 24px
     }
+  }
+
+  .about-website-container {
+    left: 0
+    background-color: #00C993
 
     .about-website-desc {
       font-size: 18px
@@ -277,6 +312,11 @@ $helper-footer-height = 85px
     .about-website-img {
       max-width: 100%
     }
+  }
+
+  .moreme-container {
+    right: 0
+    background-color: #E67F86
   }
 
   .about-website-slide-enter-active, .about-website-slide-leave-active  {
@@ -289,6 +329,19 @@ $helper-footer-height = 85px
 
     @media screen and (min-width: $mobile-break-point) {
       left: -50%
+    }
+  }
+
+  .moreme-slide-enter-active, .moreme-slide-leave-active  {
+    transition: all 1s ease
+  }
+
+  .moreme-slide-enter, .moreme-slide-leave-to {
+    opacity: 0
+    right: -100%
+
+    @media screen and (min-width: $mobile-break-point) {
+      right: -50%
     }
   }
 
