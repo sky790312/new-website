@@ -55,7 +55,119 @@
       <div
         v-show="shouldShowMoreme"
         class="moreme-container">
-        moreme ..
+        <a
+          class="close"
+          @click="closeMoreme">
+          x
+        </a>
+        <h1>
+          {{ $t('helper.menu.moreme') }}
+        </h1>
+        <div
+          class="moreme-item">
+          <div
+            class="moreme-left">
+            working1ImageUrl: xxx
+            working1ImageUrl: xxx
+            working1ImageUrl: xxx
+            working1ImageUrl: xxx
+          </div>
+          <div
+            class="moreme-right">
+            <img
+              :src="working1ImageUrl">
+          </div>
+        </div>
+        <div
+          class="moreme-item">
+          <div
+            class="moreme-left">
+            <img
+              :src="working2ImageUrl">
+          </div>
+          <div
+            class="moreme-right">
+            working2ImageUrl: xxx
+            working2ImageUrl: xxx
+            working2ImageUrl: xxx
+            working2ImageUrl: xxx
+          </div>
+        </div>
+        <div
+          class="moreme-item">
+          <div
+            class="moreme-left">
+            introverted1ImageUrl: xxx
+            introverted1ImageUrl: xxx
+            introverted1ImageUrl: xxx
+            introverted1ImageUrl: xxx
+          </div>
+          <div
+            class="moreme-right">
+            <img
+              :src="introverted1ImageUrl">
+          </div>
+        </div>
+        <div
+          class="moreme-item">
+          <div
+            class="moreme-left">
+            <img
+              :src="introverted2ImageUrl">
+          </div>
+          <div
+            class="moreme-right">
+            introverted2ImageUrl: xxx
+            introverted2ImageUrl: xxx
+            introverted2ImageUrl: xxx
+            introverted2ImageUrl: xxx
+          </div>
+        </div>
+        <div
+          class="moreme-item">
+          <div
+            class="moreme-left">
+            extroverted1ImageUrl: xxx
+            extroverted1ImageUrl: xxx
+            extroverted1ImageUrl: xxx
+            extroverted1ImageUrl: xxx
+          </div>
+          <div
+            class="moreme-right">
+            <img
+              :src="extroverted1ImageUrl">
+          </div>
+        </div>
+        <div
+          class="moreme-item">
+          <div
+            class="moreme-left">
+            <img
+              :src="extroverted2ImageUrl">
+          </div>
+          <div
+            class="moreme-right">
+            extroverted2ImageUrl: xxx
+            extroverted2ImageUrl: xxx
+            extroverted2ImageUrl: xxx
+            extroverted2ImageUrl: xxx
+          </div>
+        </div>
+        <div
+          class="moreme-item">
+          <div
+            class="moreme-left">
+            family1ImageUrl: xxx
+            family1ImageUrl: xxx
+            family1ImageUrl: xxx
+            family1ImageUrl: xxx
+          </div>
+          <div
+            class="moreme-right">
+            <img
+              :src="family1ImageUrl">
+          </div>
+        </div>
       </div>
     </transition>
     <transition
@@ -113,7 +225,14 @@ export default {
         isActive: false,
         menus: MENUS
       },
-      entryPageImageUrl: require('~assets/helper/entry-page.gif')
+      entryPageImageUrl: require('~assets/helper/entry-page.gif'),
+      working1ImageUrl: require('~assets/helper/working-img1.jpg'),
+      working2ImageUrl: require('~assets/helper/working-img2.jpg'),
+      introverted1ImageUrl: require('~assets/helper/introverted-img1.jpg'),
+      introverted2ImageUrl: require('~assets/helper/introverted-img2.jpg'),
+      extroverted1ImageUrl: require('~assets/helper/extroverted-img1.jpg'),
+      extroverted2ImageUrl: require('~assets/helper/extroverted-img2.jpg'),
+      family1ImageUrl: require('~assets/helper/family-img1.jpg')
     }
   },
 
@@ -185,6 +304,11 @@ export default {
     closeAboutWebsite () {
       const aboutWebsiteMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'aboutWebsite')
       aboutWebsiteMenu.isActive = false
+    },
+
+    closeMoreme () {
+      const moremeMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'moreme')
+      moremeMenu.isActive = false
     }
   }
 }
@@ -283,7 +407,7 @@ $helper-footer-height = 85px
     top: 0
     width: 100%
     height: "calc(100% - %s)" % $helper-footer-height
-    overflow: auto
+    overflow-y: auto
     padding: 20px
 
     @media screen and (min-width: $mobile-break-point) {
@@ -317,6 +441,39 @@ $helper-footer-height = 85px
   .moreme-container {
     right: 0
     background-color: #E67F86
+
+    // .moreme-img {
+    //   max-width: 50%
+    // }
+  }
+
+  .moreme-item {
+    display: flex
+    flex-wrap: wrap
+    margin: 20px 0
+
+    &:nth-child(even) {
+      flex-direction: column-reverse
+
+      @media screen and (min-width: $mobile-break-point) {
+        flex-direction: row
+      }
+    }
+
+    .moreme-left, .moreme-right {
+      @extend .flex-center   
+      width: 100%   
+      padding: 20px
+      text-align: center
+
+      @media screen and (min-width: $mobile-break-point) {
+        width: 50%   
+      }
+    }
+
+    img {
+      max-width: 100%
+    }
   }
 
   .about-website-slide-enter-active, .about-website-slide-leave-active  {
