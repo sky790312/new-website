@@ -217,6 +217,13 @@ export default {
     }
   },
 
+  watch: {
+    '$route.name' (newVal, val) {
+      this.helper.isActive = false
+      this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
+    }
+  },
+
   computed: {
     ...mapGetters([
       'speechBubble',
