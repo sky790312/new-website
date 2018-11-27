@@ -67,10 +67,9 @@
           class="moreme-item">
           <div
             class="moreme-left">
-            working1ImageUrl: xxx
-            working1ImageUrl: xxx
-            working1ImageUrl: xxx
-            working1ImageUrl: xxx
+            <h3>            
+              {{ $t('helper.moreme.intro') }}
+            </h3>
           </div>
           <div
             class="moreme-right">
@@ -87,50 +86,14 @@
           </div>
           <div
             class="moreme-right">
-            working2ImageUrl: xxx
-            working2ImageUrl: xxx
-            working2ImageUrl: xxx
-            working2ImageUrl: xxx
+            {{ $t('helper.moreme.working') }}
           </div>
         </div>
         <div
           class="moreme-item">
           <div
             class="moreme-left">
-            introverted1ImageUrl: xxx
-            introverted1ImageUrl: xxx
-            introverted1ImageUrl: xxx
-            introverted1ImageUrl: xxx
-          </div>
-          <div
-            class="moreme-right">
-            <img
-              :src="introverted1ImageUrl">
-          </div>
-        </div>
-        <div
-          class="moreme-item">
-          <div
-            class="moreme-left">
-            <img
-              :src="introverted2ImageUrl">
-          </div>
-          <div
-            class="moreme-right">
-            introverted2ImageUrl: xxx
-            introverted2ImageUrl: xxx
-            introverted2ImageUrl: xxx
-            introverted2ImageUrl: xxx
-          </div>
-        </div>
-        <div
-          class="moreme-item">
-          <div
-            class="moreme-left">
-            extroverted1ImageUrl: xxx
-            extroverted1ImageUrl: xxx
-            extroverted1ImageUrl: xxx
-            extroverted1ImageUrl: xxx
+            {{ $t('helper.moreme.basketball') }}
           </div>
           <div
             class="moreme-right">
@@ -147,20 +110,38 @@
           </div>
           <div
             class="moreme-right">
-            extroverted2ImageUrl: xxx
-            extroverted2ImageUrl: xxx
-            extroverted2ImageUrl: xxx
-            extroverted2ImageUrl: xxx
+            {{ $t('helper.moreme.dance') }}
           </div>
         </div>
         <div
           class="moreme-item">
           <div
             class="moreme-left">
-            family1ImageUrl: xxx
-            family1ImageUrl: xxx
-            family1ImageUrl: xxx
-            family1ImageUrl: xxx
+            {{ $t('helper.moreme.photo') }}
+          </div>
+          <div
+            class="moreme-right">
+            <img
+              :src="introverted1ImageUrl">
+          </div>
+        </div>
+        <div
+          class="moreme-item">
+          <div
+            class="moreme-left">
+            <img
+              :src="introverted2ImageUrl">
+          </div>
+          <div
+            class="moreme-right">
+            {{ $t('helper.moreme.instrument') }}
+          </div>
+        </div>
+        <div
+          class="moreme-item">
+          <div
+            class="moreme-left">
+            {{ $t('helper.moreme.family') }}
           </div>
           <div
             class="moreme-right">
@@ -228,10 +209,10 @@ export default {
       entryPageImageUrl: require('~assets/helper/entry-page.gif'),
       working1ImageUrl: require('~assets/helper/working-img1.jpg'),
       working2ImageUrl: require('~assets/helper/working-img2.jpg'),
-      introverted1ImageUrl: require('~assets/helper/introverted-img1.jpg'),
-      introverted2ImageUrl: require('~assets/helper/introverted-img2.jpg'),
       extroverted1ImageUrl: require('~assets/helper/extroverted-img1.jpg'),
       extroverted2ImageUrl: require('~assets/helper/extroverted-img2.jpg'),
+      introverted1ImageUrl: require('~assets/helper/introverted-img1.jpg'),
+      introverted2ImageUrl: require('~assets/helper/introverted-img2.jpg'),
       family1ImageUrl: require('~assets/helper/family-img1.jpg')
     }
   },
@@ -464,7 +445,6 @@ $helper-footer-height = 85px
       @extend .flex-center   
       width: 100%   
       padding: 20px
-      text-align: center
 
       @media screen and (min-width: $mobile-break-point) {
         width: 50%   
