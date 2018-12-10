@@ -87,6 +87,7 @@ export default {
     '$route.hash' (newVal, val) {
       this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
       if (newVal) {
+        this.helper.isActive = true
         const currentRoute = newVal.slice(1)
         const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === currentRoute)
         foundMenu.isActive = true
@@ -121,8 +122,12 @@ export default {
     ]),
 
     handleHelperMajorClick () {
+      if (this.helper.isActive) {
+        this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
+        const page = { hash: '' }
+        this.$router.push(page)
+      }
       this.helper.isActive = !this.helper.isActive
-      this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
     },
 
     handleHelperMenusClick (menu) {
