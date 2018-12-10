@@ -23,160 +23,23 @@
     </i-rotate-in-menus>
     <transition
       name="about-website-slide">
-      <div
+      <about-website
         v-show="shouldShowAboutWebsite"
-        class="about-website-container">
-        <a
-          class="close"
-          @click="closeAboutWebsite">
-          x
-        </a>
-        <h1>
-          {{ $t('helper.menu.aboutWebsite') }}
-        </h1>
-        <p
-          class="about-website-desc">
-          {{ $t('helper.aboutWebsite.desc') }}          
-        </p>
-        <img
-          class="about-website-img"
-          loop="infinite"
-          :src="entryPageImageUrl">
-        <h3>
-          {{ $t('helper.aboutWebsite.conclusion') }}
-          <i
-            class="fa fa-3x fa-hand-peace-o">
-          </i>
-        </h3>
-      </div>
+        @closeMenuContainer="closeMenuContainer">
+      </about-website>
     </transition>
     <transition
       name="moreme-slide">
-      <div
+      <moreme
         v-show="shouldShowMoreme"
-        class="moreme-container">
-        <a
-          class="close"
-          @click="closeMoreme">
-          x
-        </a>
-        <h1>
-          {{ $t('helper.menu.moreme') }}
-        </h1>
-        <div
-          class="moreme-item">
-          <div
-            class="moreme-left">
-            <h3>            
-              {{ $t('helper.moreme.intro') }}
-            </h3>
-          </div>
-          <div
-            class="moreme-right">
-            <img
-              :src="working1ImageUrl">
-          </div>
-        </div>
-        <div
-          class="moreme-item">
-          <div
-            class="moreme-left">
-            <img
-              :src="working2ImageUrl">
-          </div>
-          <div
-            class="moreme-right">
-            {{ $t('helper.moreme.working') }}
-          </div>
-        </div>
-        <div
-          class="moreme-item">
-          <div
-            class="moreme-left">
-            {{ $t('helper.moreme.basketball') }}
-          </div>
-          <div
-            class="moreme-right">
-            <img
-              :src="extroverted1ImageUrl">
-          </div>
-        </div>
-        <div
-          class="moreme-item">
-          <div
-            class="moreme-left">
-            <img
-              :src="extroverted2ImageUrl">
-          </div>
-          <div
-            class="moreme-right">
-            {{ $t('helper.moreme.dance') }}
-          </div>
-        </div>
-        <div
-          class="moreme-item">
-          <div
-            class="moreme-left">
-            {{ $t('helper.moreme.photo') }}
-          </div>
-          <div
-            class="moreme-right">
-            <img
-              :src="introverted1ImageUrl">
-          </div>
-        </div>
-        <div
-          class="moreme-item">
-          <div
-            class="moreme-left">
-            <img
-              :src="introverted2ImageUrl">
-          </div>
-          <div
-            class="moreme-right">
-            {{ $t('helper.moreme.instrument') }}
-          </div>
-        </div>
-        <div
-          class="moreme-item">
-          <div
-            class="moreme-left">
-            {{ $t('helper.moreme.family') }}
-          </div>
-          <div
-            class="moreme-right">
-            <img
-              :src="family1ImageUrl">
-          </div>
-        </div>
-      </div>
+        @closeMenuContainer="closeMenuContainer">
+      </moreme>
     </transition>
     <transition
       name="contact-info-slide">
-      <div
-        v-if="helper.isActive"
-        class="contact-info-container">
-        <div>
-          <p>
-            Online CV: 
-            <a
-              class="link"
-              target="_blank"
-              href="mailto:sky790312yks@gmail.com">
-              Link
-            </a>
-          </p>
-          <p>
-            Email:
-            <a
-              class="link"
-              target="_blank"
-              href="https://sky790312.herokuapp.com/cv-english.pdf">
-              sky790312yks@gmail.com
-            </a>
-          </p>
-        </div>
-      </div>
+      <contact-info
+        v-show="helper.isActive">
+      </contact-info>
     </transition>
   </div>
 </template>
@@ -187,6 +50,9 @@ import { mapGetters, mapActions } from 'vuex'
 const ISpeechBubble = () => import('@/components/ISpeechBubble')
 const IHeadBoy = () => import('@/components/IHeadBoy')
 const IRotateInMenus = () => import('@/components/IRotateInMenus')
+const AboutWebsite = () => import('@/views/AppCommon/Helper/AboutWebsite')
+const Moreme = () => import('@/views/AppCommon/Helper/Moreme')
+const ContactInfo = () => import('@/views/AppCommon/Helper/ContactInfo')
 import {
   MENUS
 } from '@/views/AppCommon/Helper/data'
@@ -197,7 +63,10 @@ export default {
   components: {
     ISpeechBubble,
     IHeadBoy,
-    IRotateInMenus
+    IRotateInMenus,
+    AboutWebsite,
+    Moreme,
+    ContactInfo
   },
 
   data () {
@@ -205,15 +74,7 @@ export default {
       helper: {
         isActive: false,
         menus: MENUS
-      },
-      entryPageImageUrl: require('~assets/helper/entry-page.gif'),
-      working1ImageUrl: require('~assets/helper/working-img1.jpg'),
-      working2ImageUrl: require('~assets/helper/working-img2.jpg'),
-      extroverted1ImageUrl: require('~assets/helper/extroverted-img1.jpg'),
-      extroverted2ImageUrl: require('~assets/helper/extroverted-img2.jpg'),
-      introverted1ImageUrl: require('~assets/helper/introverted-img1.jpg'),
-      introverted2ImageUrl: require('~assets/helper/introverted-img2.jpg'),
-      family1ImageUrl: require('~assets/helper/family-img1.jpg')
+      }
     }
   },
 
@@ -221,6 +82,15 @@ export default {
     '$route.name' (newVal, val) {
       this.helper.isActive = false
       this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
+    },
+
+    '$route.hash' (newVal, val) {
+      this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
+      if (newVal) {
+        const currentRoute = newVal.slice(1)
+        const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === currentRoute)
+        foundMenu.isActive = true
+      }
     }
   },
 
@@ -256,13 +126,11 @@ export default {
     },
 
     handleHelperMenusClick (menu) {
-      // const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === menu.name)
-      // foundMenu.isActive = !foundMenu.isActive
       const menus = {
-        aboutWebsite: () => { this.handleAboutWebsiteMenu() },
+        aboutWebsite: () => { this.showMenuContainer('aboutWebsite') },
         oldWebsite: () => { this.handleOldwebsiteMenu() },
         messageBoard: () => {},
-        moreme: () => { this.handleMoremeMenu() }
+        moreme: () => { this.showMenuContainer('moreme') }
       }
       return menus[menu.name]()
     },
@@ -271,40 +139,31 @@ export default {
       this.setShouldShowSpeechBubble(shouldShowSpeechBubble)
     },
 
-    handleAboutWebsiteMenu () {
-      const moremeMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'moreme')
-      moremeMenu.isActive = false
-      const aboutWebsiteMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'aboutWebsite')
-      aboutWebsiteMenu.isActive = !aboutWebsiteMenu.isActive
-    },
-
     handleOldwebsiteMenu () {
       window.open('https://sky790312.herokuapp.com')
     },
 
-    handleMoremeMenu () {
-      const aboutWebsiteMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'aboutWebsite')
-      aboutWebsiteMenu.isActive = false
-      const moremeMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'moreme')
-      moremeMenu.isActive = !moremeMenu.isActive
+    showMenuContainer (menu) {
+      this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
+      const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === menu)
+      const currentRoute = this.$route.hash.slice(1)
+      const hash = currentRoute === foundMenu.name ? '' : foundMenu.name
+      const page = { hash }
+      this.$router.push(page)
+      foundMenu.isActive = !foundMenu.isActive
     },
 
-    closeAboutWebsite () {
-      const aboutWebsiteMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'aboutWebsite')
-      aboutWebsiteMenu.isActive = false
-    },
-
-    closeMoreme () {
-      const moremeMenu = this.helper.menus.find(helperMenu => helperMenu.name === 'moreme')
-      moremeMenu.isActive = false
+    closeMenuContainer (menu) {
+      const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === menu)
+      foundMenu.isActive = false
+      const page = { hash: '' }
+      this.$router.push(page)
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-$helper-footer-height = 85px
-
 #helper {
   position: fixed
   bottom: -30px
@@ -359,7 +218,6 @@ $helper-footer-height = 85px
     }
 
     &.to-left {
-      // right: 0
       margin-left: 0
 
       @media screen and (min-width: $mobile-break-point) {
@@ -368,7 +226,6 @@ $helper-footer-height = 85px
     }
 
     &.to-right {
-      // left: 0
       margin-right: 0
 
       @media screen and (min-width: $mobile-break-point) {
@@ -377,90 +234,13 @@ $helper-footer-height = 85px
     }
   }
 
-  .contact-info-container {
-    position: absolute
-    bottom: 0
-    width: 100%
-    height: $helper-footer-height
-    text-align: center
-    background-color: $black
-
-    .link {
-      color: $white
-    }
+  .contact-info-slide-enter-active {
+    transition: all 1s ease
   }
 
-  .about-website-container, .moreme-container {
-    position: absolute
-    top: 0
-    width: 100%
-    height: "calc(100% - %s)" % $helper-footer-height
-    overflow-y: auto
-    padding: 20px
-
-    @media screen and (min-width: $mobile-break-point) {
-      width: 50%
-    }
-
-    .close {
-      position: absolute
-      top: 10px
-      right: 15px
-      cursor: pointer
-      font-size: 24px
-      font-weight: bold
-      line-height: 24px
-    }
-  }
-
-  .about-website-container {
-    left: 0
-    background-color: #00C993
-
-    .about-website-desc {
-      font-size: 18px
-    }
-
-    .about-website-img {
-      max-width: 100%
-    }
-  }
-
-  .moreme-container {
-    right: 0
-    background-color: #E67F86
-
-    // .moreme-img {
-    //   max-width: 50%
-    // }
-  }
-
-  .moreme-item {
-    display: flex
-    flex-wrap: wrap
-    margin: 20px 0
-
-    &:nth-child(even) {
-      flex-direction: column-reverse
-
-      @media screen and (min-width: $mobile-break-point) {
-        flex-direction: row
-      }
-    }
-
-    .moreme-left, .moreme-right {
-      @extend .flex-center   
-      width: 100%   
-      padding: 20px
-
-      @media screen and (min-width: $mobile-break-point) {
-        width: 50%   
-      }
-    }
-
-    img {
-      max-width: 100%
-    }
+  .contact-info-slide-enter, .contact-info-slide-leave-to {
+    opacity: 0
+    transform: translateY(50px)
   }
 
   .about-website-slide-enter-active, .about-website-slide-leave-active  {
@@ -487,15 +267,6 @@ $helper-footer-height = 85px
     @media screen and (min-width: $mobile-break-point) {
       right: -50%
     }
-  }
-
-  .contact-info-slide-enter-active {
-    transition: all 1s ease
-  }
-
-  .contact-info-slide-enter, .contact-info-slide-leave-to {
-    opacity: 0
-    transform: translateY(50px)
   }
 }
 

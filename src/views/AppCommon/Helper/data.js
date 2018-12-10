@@ -11,16 +11,16 @@ export const MENUS = [{
 }, {
   name: 'messageBoard',
   text: 'helper.menu.messageBoard',
-  status: 'completed',
+  status: 'pending',
+  isActive: false
+}, {
+  name: 'backEntry',
+  text: 'helper.menu.backEntry',
+  status: 'pending',
   isActive: false
 }, {
   name: 'moreme',
   text: 'helper.menu.moreme',
   status: 'completed',
-  isActive: false
-}, {
-  name: 5,
-  text: '5',
-  status: 'pending',
   isActive: false
 }]
