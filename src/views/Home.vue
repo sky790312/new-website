@@ -7,7 +7,6 @@
     <h3
       class="job-title">
       Frontend Developer
-      <!-- {{ $t('jobTitle') }} -->
     </h3>
     <div class="main-skill-tags-container">
       <i-tag
@@ -119,10 +118,6 @@ export default {
     @extend .flex-center
     flex-wrap: wrap
     margin-bottom: 40px
-  }
-
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity 2s ease
   }
 }
 
