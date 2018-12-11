@@ -2,8 +2,8 @@
   "name": "new-website",
   "version": "1.0.0",
   "description": "Welcome to KevinHu's website !",
-  "author": "kevin.hu <>",
-  "private": true,
+  "author": "kevin.hu <sky790312yks@gmail.com>",
+  "private": false,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
