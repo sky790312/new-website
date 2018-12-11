@@ -141,7 +141,7 @@ export default {
   height: "calc(100% - %s)" % $helper-footer-height
   overflow-y: auto
   padding: 20px
-  background-color: #E67F86
+  background-color: $red
 
   @media screen and (min-width: $mobile-break-point) {
     width: 50%

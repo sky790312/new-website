@@ -74,7 +74,8 @@ export default {
       helper: {
         isActive: false,
         menus: MENUS
-      }
+      },
+      shouldAutoCloseHelper: false
     }
   },
 
@@ -85,12 +86,21 @@ export default {
     },
 
     '$route.hash' (newVal, val) {
+      if (!val && newVal && !this.helper.isActive) {
+        this.shouldAutoCloseHelper = true
+      }
+
       this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
       if (newVal) {
         this.helper.isActive = true
         const currentRoute = newVal.slice(1)
         const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === currentRoute)
         foundMenu.isActive = true
+      }
+
+      if (val && !newVal && this.shouldAutoCloseHelper) {
+        this.helper.isActive = false
+        this.shouldAutoCloseHelper = false
       }
     }
   },
@@ -151,11 +161,12 @@ export default {
     showMenuContainer (menu) {
       this.helper.menus.map(helperMenu => (helperMenu.isActive = false))
       const foundMenu = this.helper.menus.find(helperMenu => helperMenu.name === menu)
+      foundMenu.isActive = !foundMenu.isActive
+      this.shouldAutoCloseHelper = false
       const currentRoute = this.$route.hash.slice(1)
       const hash = currentRoute === foundMenu.name ? '' : foundMenu.name
       const page = { hash }
       this.$router.push(page)
-      foundMenu.isActive = !foundMenu.isActive
     },
 
     closeMenuContainer (menu) {

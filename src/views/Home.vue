@@ -68,13 +68,6 @@ export default {
     //   // 'exampleGetFirebaseData',
     //   // 'examplePostFirebaseData'
     // ])
-  },
-
-  beforeMount () {
-    // const language = 'zh-tw'
-    // setTimeout(() => {
-    //   this.setLanguage(language)
-    // }, 6000)
   }
 }
 </script>
@@ -82,9 +75,8 @@ export default {
 <style lang="stylus" scoped>
 
 #home {
-  // @extend .flex-center
   display: flex
-  justify-content: center
+  justify-content: flex-start
   align-items: center
   flex-direction: column
   position: relative
@@ -96,6 +88,10 @@ export default {
   // transform: translate3d(0, 0, 0);
   // transition: background-color 3s ease-in-out 2s;
   // perspective: 1000px;
+
+  @media screen and (min-width: $mobile-break-point) {
+    justify-content: center
+  }
 
   &::after {
     position: absolute
@@ -120,9 +116,8 @@ export default {
   }
 
   .main-skill-tags-container {
-    display: flex
+    @extend .flex-center
     flex-wrap: wrap
-    justify-content: center
     margin-bottom: 40px
   }
 
