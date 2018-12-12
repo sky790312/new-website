@@ -24,7 +24,7 @@ import { mapActions } from 'vuex'
 const EntryText = () => import('@/views/EntryView/EntryText')
 const EntryCamera = () => import('@/views/EntryView/EntryCamera')
 const EntryPlane = () => import('@/views/EntryView/EntryPlane')
-const CountdownTimer = () => import('@/views/EntryView/CountdownTimer')
+// const CountdownTimer = () => import('@/views/EntryView/CountdownTimer')
 
 export default {
   name: 'entryView',
@@ -32,8 +32,8 @@ export default {
   components: {
     EntryText,
     EntryCamera,
-    EntryPlane,
-    CountdownTimer
+    EntryPlane
+    // CountdownTimer
   },
 
   data () {

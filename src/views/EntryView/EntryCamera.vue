@@ -33,7 +33,7 @@ export default {
         geometry: 'primitive: ring; radiusOuter: 0.03; radiusInner: 0.02',
         animation: {
           attribute: 'scale',
-          begin: this.isMobileOrTablet() ? 6000 : 'click',
+          begin: 'click',
           from: '1 1 1',
           to: '1000 1000 1000',
           easing: 'ease-in',

@@ -26,7 +26,7 @@ export default {
         width: 7
       },
       entryDesc: {
-        text: `Please move to the following section and click!`,
+        text: `Please move the cursor to the plane then click!`,
         position: '-3.3 0 0',
         width: 7
       }
