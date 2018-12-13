@@ -7,7 +7,7 @@
         <a
           class="link"
           target="_blank"
-          href="mailto:sky790312yks@gmail.com">
+          href="https://sky790312-2018.herokuapp.com/cv-english.pdf">
           Link
         </a>
       </p>
@@ -16,7 +16,7 @@
         <a
           class="link"
           target="_blank"
-          href="https://sky790312.herokuapp.com/cv-english.pdf">
+          href="mailto:sky790312yks@gmail.com">
           sky790312yks@gmail.com
         </a>
       </p>
