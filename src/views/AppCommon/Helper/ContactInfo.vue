@@ -7,7 +7,7 @@
         <a
           class="link"
           target="_blank"
-          href="https://sky790312-2018.herokuapp.com/cv-english.pdf">
+          href="/cv-english.pdf">
           Link
         </a>
       </p>
