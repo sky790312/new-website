@@ -7,7 +7,7 @@ app.set(port)
 app.use(express.static('dist'))
 
 app.get('*', function (req, res) {
-  res.sendfile('dist/index.html')
+  res.sendFile('dist/index.html')
 })
 
 app.listen(port, function () {
