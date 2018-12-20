@@ -72,34 +72,6 @@ export default {
     handleEntryView ($event) {
       this.isEntryView = $event
     }
-
-    // handleAddUserButton () {
-    //   const user = {
-    //     name: this.newUserName
-    //   }
-    //   this.examplePostFirebaseData(user)
-    //     .then(resp => {
-    //       // console.log('resp: ', resp)
-    //     })
-    //     .catch(error => {
-    //       console.log('catch error: ', error)
-    //     })
-    // },
-    //
-    // handleError () {
-    //
-    // }
-  },
-
-  beforeMount () {
-    // this.exampleGetFirebaseData()
-    //   .then(resp => {
-    //     // console.log('resp: ', resp)
-    //   })
-    //   .catch(error => {
-    //     this.handleError(error)
-    //     // console.log('catch error: ', error)
-    //   })
   }
 }
 </script>
@@ -168,6 +140,7 @@ export default {
 
 .helper-slide-enter-active, .helper-slide-leave-active {
   transition: all 2s ease
+  transition-delay: 1s !important
 }
 
 .helper-slide-enter, .helper-slide-leave-to {
@@ -177,5 +150,6 @@ export default {
   transform: translateY(50px)
   // }
 }
+
 
 </style>

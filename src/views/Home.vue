@@ -23,8 +23,6 @@
 
 <script>
 
-// import { mapActions } from 'vuex'
-
 const IStrokeDashText = () => import('@/components/IStrokeDashText')
 const ITypingText = () => import('@/components/ITypingText')
 const ITag = () => import('@/components/ITag')
@@ -59,14 +57,6 @@ export default {
         text: 'Firebase'
       }]
     }
-  },
-
-  methods: {
-    // ...mapActions([
-    //   'setLanguage'
-    //   // 'exampleGetFirebaseData',
-    //   // 'examplePostFirebaseData'
-    // ])
   }
 }
 </script>

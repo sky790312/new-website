@@ -1,3 +1,7 @@
+const types = {
+  SET_IS_ENTRY_VIEW: 'SET_IS_ENTRY_VIEW'
+}
+
 const state = {
   isEntryView: true
 }
@@ -8,7 +12,7 @@ const getters = {
 
 const actions = {
   async setIsEntryView ({ commit }, isEntryView) {
-    commit('SET_IS_ENTRY_VIEW', isEntryView)
+    commit(types.SET_IS_ENTRY_VIEW, isEntryView)
   }
 }
 
