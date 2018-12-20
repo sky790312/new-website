@@ -7,7 +7,7 @@
         <a
           class="link"
           target="_blank"
-          href="/cv-english.pdf">
+          href="/static/cv-english.pdf">
           Link
         </a>
       </p>

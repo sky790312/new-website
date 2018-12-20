@@ -14,7 +14,7 @@
     </a-scene>
     <div 
       class="entry-button-container">
-      Or just click the entry button!
+      Or just click the button entry!
       <button
         class="entry-button"
         @click="entry">
@@ -152,7 +152,6 @@ export default {
       padding: 5px
       border-radius: 5px
       margin-left: 5px
-      border: 1px solid $black
       cursor: pointer
       opacity: .7
 
