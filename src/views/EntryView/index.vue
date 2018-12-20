@@ -2,6 +2,7 @@
   <div
     id="entry-view">
     <a-scene
+      class="entry-vr"
       embedded
       :fog="scene.fog">
       <entry-text></entry-text>
@@ -11,6 +12,15 @@
         matrix>
       </a-sky>
     </a-scene>
+    <div 
+      class="entry-button-container">
+      Or just click the entry button!
+      <button
+        class="entry-button"
+        @click="entry">
+        Entry
+      </button>
+    </div>
     <!-- <countdown-timer
       v-if="isMobileOrTablet()">
     </countdown-timer> -->
@@ -93,13 +103,17 @@ export default {
         AFRAME.registerComponent('cursor-listener', {
           init () {
             this.el.addEventListener('click', event =>
-              setTimeout(() => vm.$emit('shouldShowEntryView', false), 500)
+              setTimeout(() => vm.entry(), 500)
                 // const page = { name: 'home' }
                 // self.$router.push(page)
             )
           }
         })
       }
+    },
+
+    entry () {
+      this.$emit('shouldShowEntryView', false)
     }
   },
 
@@ -114,12 +128,38 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~styl/variables'
 
 #entry-view {
-  a-scene {
+  .entry-vr {
     height: 100vh
     width: 100vw
+  }
+
+  .entry-button-container {
+    position fixed
+    left: 50%
+    bottom: 40px
+    transform: translateX(-50%)
+    text-align: center
+    color: $white
+    border: 1px solid $white
+    border-radius: 10px
+    background: $black
+    padding: 8px 15px
+    line-height: 42px
+
+    .entry-button {
+      padding: 5px
+      border-radius: 5px
+      margin-left: 5px
+      border: 1px solid $black
+      cursor: pointer
+      opacity: .7
+
+      &:hover {
+        opacity: 1
+      }
+    }
   }
 }
 </style>
