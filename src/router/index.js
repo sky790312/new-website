@@ -14,32 +14,25 @@ const routes = [{
   path: '/',
   name: 'home',
   component: Home
-  // meta: { shouldShowMenu: false }
-  // }, {
-  //   path: '/home',
-  //   name: 'home',
-  //   component: Home
-  //   // meta: { shouldShowMenu: true }
 }, {
   path: '/about',
   name: 'about',
   component: About
-  // meta: { shouldShowMenu: true }
 }, {
   path: '/skills',
   name: 'skills',
   component: Skills
-  // meta: { shouldShowMenu: true }
 }, {
   path: '/experience',
   name: 'experience',
   component: Experience
-  // meta: { shouldShowMenu: true }
 }, {
   path: '/projects',
   name: 'projects',
   component: Projects
-  // meta: { shouldShowMenu: true }
+}, {
+  path: '*',
+  redirect: '/'
 }]
 
 const router = new VueRouter({
@@ -47,5 +40,8 @@ const router = new VueRouter({
   mode: 'history',
   linkActiveClass: 'active'
 })
+
+// router.replace({ name: 'home' })
+// router.replace('/')
 
 export default router
