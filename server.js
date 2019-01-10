@@ -1,4 +1,3 @@
-/* eslint-disable */
 var express = require('express')
 
 var app = express()
@@ -7,13 +6,8 @@ app.set(port)
 
 app.use(express.static('dist'))
 
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html')
-})
-
 app.get('*', function (req, res) {
-  // res.sendFile(__dirname + '/index.html')
-  res.redirect('/');
+  res.sendfile('dist/index.html')
 })
 
 app.listen(port, function () {
