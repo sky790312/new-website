@@ -1,6 +1,6 @@
 <template>
   <div class="i-timeline">
-    <div 
+    <div
       class="item"
       v-for="item in items"
       :key="item.key"
@@ -77,7 +77,7 @@ $mobile-break-point = 768px
       background-color: $white
       border-radius: 50%
     }
-    
+
     &:last-child {
       padding-bottom: 0
     }
