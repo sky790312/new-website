@@ -185,6 +185,6 @@ export const PROJECTS = [{
   title: 'TourRing',
   company: 'istaging',
   skills: ['vue', 'aframe', 'nodejs', 'webpack', 'es2015', 'jest', 'stylus', 'i18n'],
-  linkUrl: 'https://tourring.istaging.com',
+  linkUrl: 'https://tourring.istaging.com/29fb9e8f-b09a-4c42-b7cb-04f2e94240dd',
   imageUrl: require('~assets/projects/istaging/vrlive.jpg')
 }]
