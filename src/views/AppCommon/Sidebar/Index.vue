@@ -168,11 +168,11 @@ export default {
     top: 0
     bottom: 0
     left: -100vw
-    width: "calc(%s - 1px)" % $sidebar-width
+    width: 179px
     display: flex
     flex-direction: column
     z-index: 1
-    background: rgba(0, 0, 0, .8)
+    background: rgba($black, .8)
     padding: 20px
     transition: left .3s
 
