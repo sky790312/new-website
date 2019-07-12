@@ -168,7 +168,7 @@ export default {
     top: 0
     bottom: 0
     left: -100vw
-    width: 179px
+    width: "calc(%s - 1px)" % $sidebar-width
     display: flex
     flex-direction: column
     z-index: 1
