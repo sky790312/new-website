@@ -166,8 +166,9 @@ export default {
   .sidebar-content-container {
     position: fixed
     top: 0
+    bottom: 0
     left: -100vw
-    height: 100%
+    width: "calc(%s - 1px)" % $sidebar-width
     display: flex
     flex-direction: column
     z-index: 1
@@ -176,9 +177,9 @@ export default {
     transition: left .3s
 
     @media screen and (min-width: $mobile-break-point) {
-      position: relative
+      position: absolute
+      top: $mobile-header-height
       left: 0
-      height: "calc(100% - %s)" % $mobile-header-height
       padding: 0 20px
     }
 
